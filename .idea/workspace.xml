@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="311e0b03-4b2b-4263-bfce-7ffbd72a1175" name="Default Changelist" comment="" />
+    <list default="true" id="311e0b03-4b2b-4263-bfce-7ffbd72a1175" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/engine/preprocess/cleanser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/preprocess/bagOfWords.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/bagOfWords.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/preprocess/lda.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/lda.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/preprocess/loading.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/preprocess/loader.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,9 +22,10 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/DAlmaden" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1cWlDvz8lpB9SHhQXtooIxv93yU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -29,14 +37,15 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\AlmadenDA\Desktop\DAlmaden\engine\analysis" />
+      <recent name="C:\Users\AlmadenDA\Desktop\DA\etc\musicow" />
+      <recent name="C:\Users\AlmadenDA\Desktop\DA" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\AlmadenDA\Desktop\DA" />
       <recent name="C:\Users\AlmadenDA\Desktop\DA\legacy" />
       <recent name="C:\Users\AlmadenDA\Desktop\DA\webdrivers" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\AlmadenDA\Desktop\DA\etc\musicow" />
-      <recent name="C:\Users\AlmadenDA\Desktop\DA" />
     </key>
   </component>
   <component name="RunManager" selected="Python.run_musicow">
