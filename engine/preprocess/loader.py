@@ -7,7 +7,6 @@ class Data :
     def __init__(self, dbName='dalmaden'):
         self.db = Sql(dbName)
         self.df = pd.DataFrame()
-        self.dfs = None
 
     def _load_(self, channel, keyword, fromDate, toDate, tablename='cdata'):
         where_str = f"keyword='{keyword}' and channel='{channel}' and post_date between '{fromDate}' and '{toDate}'"
@@ -31,31 +30,6 @@ class Data :
             droppednRows = nrowsldf - addednRows
         print(f'addData : added {addednRows} rows (dropped {droppednRows} rows)')
 
-    def getSentences(self, textColName = 'text'):
-        df_sentences = pd.DataFrame()
-        nrows = self.df.shape[0]
-        for i in range(nrows) :
-            if i%100 == 0 :
-                print(f"loader : Getting Sentences {i}/{nrows}")
-            row = self.df[i:i+1]
-            row_text = row[textColName]
-            if len(row_text) > 0 :
-                text = row_text.to_string(index=False)
-                text = cleanse_text(text)
-                #print()
-                #print(text)
-                sentences = kss.split_sentences(text)
-                for s in sentences :
-                    s = cleanse_text_light(s)
-                    #print("\t",s)
-                    row_temp = row.copy()
-                    row_temp[textColName] = s
-                    df_sentences = df_sentences.append(row_temp)
-            else :
-                continue
-        print(f"loader : Getting Sentences Done {nrows} to {df_sentences.shape[0]}")
-        self.dfs = df_sentences
-
     def drop_duplicates(self,subset=None):
         self.df = self.df.drop_duplicates(subset=subset)
 
@@ -63,15 +37,37 @@ class Data :
         return self.df.shape
 
 
+    def getdfd(self, *colnames):
+        return self.df.loc[:,list(colnames)]
 
-
-
-df.shape
+    def getdfs(self, *colnames, textColName = 'text'):
+        dfd = self.getdfd(*colnames)
+        df_sentences = pd.DataFrame()
+        nrows = dfd.shape[0]
+        for i in range(nrows) :
+            if i%100 == 0 :
+                print(f"loader : Getting Sentences {i}/{nrows}")
+            row = dfd.iloc[i]
+            text = row[textColName]
+            if len(text) > 0 :
+                text = cleanse_text(text)
+                sentences = kss.split_sentences(text)
+                for s in sentences :
+                    s = cleanse_text_light(s)
+                    row_temp = row.copy()
+                    row_temp[textColName] = s
+                    df_sentences = df_sentences.append(row_temp)
+            else :
+                continue
+        print(f"loader : Getting Sentences Done {nrows} to {df_sentences.shape[0]}")
+        return df_sentences
 
 data = Data('dalmaden')
 data.addData('naverblog','복숭아','2020-03-20','2020-05-15',unique=True,drop_by=['keyword','url'])
+dfd = data.getdfd('text')
+dfs = data.getdfs('text')
 
-data.getSentences()
+
 
 
 data.dfs
