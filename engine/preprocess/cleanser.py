@@ -1,12 +1,7 @@
 import re
 
 def cleanse_text(text) :
-    text = re.sub(u"(http[^ ]*)", " ", text)
-    text = re.sub(u"@(.)*\s", " ", text)
-    text = re.sub(u"#", "", text)
-    text = re.sub(u"[^가-힣A-z0-9?!.,]", " ", text)
-    text = re.sub(u"\\s+", " ", text)
-
+    text = cleanse_text_legacy(text)
     text = text.replace(" .",".")
     text = text.replace(" ,",",")
     text = text.replace(" !","!")
@@ -15,19 +10,23 @@ def cleanse_text(text) :
     text = text.replace(",",", ")
     text = text.replace("!","! ")
     text = text.replace("?","? ")
-
     text = re.sub(u"\\s+", " ", text)
     text = re.sub(u" [^가-힣A-z0-9] ", "", text)
+    return text
 
+def cleanse_text_light(text) :
+    text = text.strip()
     return text
 
 def cleanse_text_legacy(text) :
+    text = re.sub(u"<.+?>"," ",text)
     text = re.sub(u"(http[^ ]*)", " ", text)
     text = re.sub(u"@(.)*\s", " ", text)
     text = re.sub(u"#", "", text)
     text = re.sub(u"[^가-힣A-z0-9?!.,]", " ", text)
     text = re.sub(u"\\s+", " ", text)
-    return text.strip()
+    text = text.strip()
+    return text
 
 def isBugo(text, min_ratio = 0.1) :
     keywords = ['발인','장례','별세','병원',
