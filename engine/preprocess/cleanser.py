@@ -2,6 +2,7 @@ import re
 
 def cleanse_text(text) :
     text = cleanse_text_legacy(text)
+    text = re.sub(u"[가-힣A-z0-9]{20,}","",text)
     text = text.replace(" .",".")
     text = text.replace(" ,",",")
     text = text.replace(" !","!")
@@ -14,8 +15,12 @@ def cleanse_text(text) :
     text = re.sub(u" [^가-힣A-z0-9] ", "", text)
     return text
 
-def cleanse_text_light(text) :
+def cleanse_text_sentence(text) :
     text = text.strip()
+    if len(text)>300 :
+        print('텍스트 길이가 300을 넘습니다.')
+        print(text)
+        text=text[:300]
     return text
 
 def cleanse_text_legacy(text) :
@@ -23,7 +28,7 @@ def cleanse_text_legacy(text) :
     text = re.sub(u"(http[^ ]*)", " ", text)
     text = re.sub(u"@(.)*\s", " ", text)
     text = re.sub(u"#", "", text)
-    text = re.sub(u"[^가-힣A-z0-9?!.,]", " ", text)
+    text = re.sub(u"[^가-힣A-z?!.,]", " ", text) #숫자 넣을거면 [^가-힣A-z0-9?!.,]
     text = re.sub(u"\\s+", " ", text)
     text = text.strip()
     return text
