@@ -1,63 +1,57 @@
-from almaden import Sql
+import re
 
-class Data :
-    def __init__(self, dbName='dalmaden'):
-        self.db = Sql(dbName)
-        self.df = None
+def cleanse_text(text) :
+    text = re.sub(u"(http[^ ]*)", " ", text)
+    text = re.sub(u"@(.)*\s", " ", text)
+    text = re.sub(u"#", "", text)
+    text = re.sub(u"[^가-힣A-z0-9?!.,]", " ", text)
+    text = re.sub(u"\\s+", " ", text)
 
-    def _load_(self, channel, keyword, fromDate, toDate, tablename='cdata'):
-        where_str = f"keyword='{keyword}' and channel='{channel}' and post_date between '{fromDate}' and '{toDate}'"
-        ldf = self.db.select(tablename,  "*", where_str, asDataFrame=True)
-        return ldf
+    text = text.replace(" .",".")
+    text = text.replace(" ,",",")
+    text = text.replace(" !","!")
+    text = text.replace(" ?","?")
+    text = text.replace(".",". ")
+    text = text.replace(",",", ")
+    text = text.replace("!","! ")
+    text = text.replace("?","? ")
 
-    def addData(self, channel, keyword, fromDate, toDate,
-                tablename='cdata', unique = True, drop_by=['keyword','url']):
-        ldf = self._load_(channel, keyword, fromDate, toDate, tablename)
-        print(ldf)
-        if self.df is None :
-            self.df = ldf
-            nrow1 = self.df.shape[0]
-            nrow2 = nrow1
-            if unique:
-                self.drop_duplicates(subset=drop_by)
-                nrow2 = self.df.shape[0]
-            print(f'addData : added {nrow2} rows (dropped {nrow1 - nrow2} rows)')
+    text = re.sub(u"\\s+", " ", text)
+    text = re.sub(u" [^가-힣A-z0-9] ", "", text)
+
+    return text
+
+def cleanse_text_legacy(text) :
+    text = re.sub(u"(http[^ ]*)", " ", text)
+    text = re.sub(u"@(.)*\s", " ", text)
+    text = re.sub(u"#", "", text)
+    text = re.sub(u"[^가-힣A-z0-9?!.,]", " ", text)
+    text = re.sub(u"\\s+", " ", text)
+    return text.strip()
+
+
+def isNewsPeoples(text, min_ratio = 0.1) :
+    try :
+        word_list = text.split(" ")
+        list_people = ['부장', '과장','원장', '국장', '청장', '관장', '이사', '대표', '단장', '실장', '상무','전무','소장']
+        count_t=len(word_list)
+        count_p = 0
+        for word in word_list :
+            for p in list_people :
+                if p in word :
+                    count_p+=1
+                    break
+        ratio = count_p/count_t
+        print(ratio)
+        if  ratio >= min_ratio :
+            return True
         else :
-            nrow0 = self.df.shape[0]
-            self.df = self.df.append(ldf)
-            nrow1 = self.df.shape[0]
-            nrow2 = nrow1
-            if unique:
-                self.drop_duplicates(subset=drop_by)
-                nrow2 = self.df.shape[0]
-            print(f'addData : added {nrow2-nrow0} rows (dropped {nrow1-nrow2} rows)')
+            return False
+    except Exception as ex :
+        print(ex)
+        return False
 
-    def drop_duplicates(self,subset=None):
-        self.df = self.df.drop_duplicates(subset=subset)
-
-    def shape(self):
-        return self.df.shape
-
-
-
-data = Data('dalmaden')
-data.addData('naverblog','복숭아','2020-03-20','2020-05-15',unique=True,drop_by=['keyword','url'])
-data.df.text
-
-
-
-import pandas as pd
-df = pd.DataFrame([[1, 2], [3, 4]], columns=list('AB'))
-
-df2 = pd.DataFrame([[3, 4], [3, 4]], columns=list('AB'))
-a = df.append(df2)
-a.drop_duplicates()
-
-db = Sql('dalmaden')
-def _load_(channel, keyword, fromDate, toDate, tablename='cdata'):
-    where_str = f"keyword='{keyword}' and channel='{channel}' and post_date between '{fromDate}' and '{toDate}'"
-    ldf = db.select(tablename, "*", where_str, asDataFrame=True)
-    return ldf
-
-df1 = _load_('naverblog','복숭아','2020-03-20','2020-05-15')
-df2 = _load_('naverblog','복숭아','2020-03-20','2020-05-15')
+text = '''양승태 전 대법원장 시절 핵심 고위 법관은 대법원에서 헌법재판소의 내부 정보를 파악하도록 한 것은 헌재를 견제하려던 것이 아니라 국민들의 혼란을 방지하기 위해서라며 사법행정권 남용이 아니라고 부인했다. 대법원과 헌재의 판단이 서로 엇갈릴 경우 국민들이 혼선을 겪기 위해 조율을 위해 내부 정보를 확인할 필요가 있었다는 취지다.
+3일 서울중앙지법 형사합의3..'''
+text = cleanse_text(text)
+isNewsPeoples(text)

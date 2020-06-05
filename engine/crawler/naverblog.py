@@ -7,6 +7,8 @@ from datetime import datetime
 from time import sleep
 import openpyxl
 from almaden import Sql
+from text_cleanser import cleanse
+
 # custom_header을 통해 아닌 것 처럼 위장하기
 
 CUSTOM_HEADER = {
@@ -150,11 +152,3 @@ def get_text(soup):
         text += bs.getText()
     text = cleanse(text)
     return text
-
-def cleanse(text) :
-    text = re.sub("\\n"," ",text)
-    text = re.sub("[^가-힣A-z0-9 \$\%\&\!\?\.\,\=\+]","",text)
-    text = re.sub("[ ]+"," ",text)
-    text = re.sub("\n"," ",text)
-
-    return text.strip()

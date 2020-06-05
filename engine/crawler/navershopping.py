@@ -1,6 +1,7 @@
 from almaden import SeleniumDriver
 from almaden import Sql
-
+import re
+from text_cleanser import cleanse
 def crawl(keyword, productURL, productName, comment="navershopping") :
     #db명
     db = Sql('dalmaden')
@@ -39,6 +40,7 @@ def crawl(keyword, productURL, productName, comment="navershopping") :
                 except :
                     pass
                 text = e.find_element_by_css_selector('span.text').text
+                text = cleanse(text)
                 rating = e.find_element_by_css_selector('span.number_grade').text
                 db.insert('crawled_data',
                           task_id = task_id,
@@ -71,3 +73,8 @@ def crawl(keyword, productURL, productName, comment="navershopping") :
             driver.driver.find_element_by_xpath(
                 "//*[contains(@class,'module_pagination')]//*[text()=%d]"%(nextPage)).click()
 
+def cleanse(text) :
+    #DB 저장을 위한 최소한의 클린징
+    text = re.sub(u"[^\x20-\x7E가-힣]"," ",text)
+    text = re.sub(u"\\s+", " ", text)
+    return text.strip()

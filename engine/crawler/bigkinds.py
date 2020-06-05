@@ -1,10 +1,8 @@
 import requests
 import json
 import math
-from datetime import datetime
-import re
-import time
 from almaden import Sql
+from text_cleanser import cleanse
 
 URL = 'https://www.bigkinds.or.kr/api/news/search.do'
 CONTENT_URL_BASE='https://www.bigkinds.or.kr/news/detailView.do?docId='
@@ -41,12 +39,6 @@ CUSTOM_HEADER = {
     'referer': '',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36'}
 
-def cleanse(text) :
-    text = re.sub("\\n"," ",text)
-    text = re.sub("[^가-힣A-z0-9 \$\%\&\!\?\.\,\=\+]","",text)
-    text = re.sub("[ ]+"," ",text)
-    text = re.sub("\n"," ",text)
-    return text
 
 def crawl(keyword, startDate, endDate, nCrawl=1, comment = 'bigkinds'):
     channel = "bigkinds"
