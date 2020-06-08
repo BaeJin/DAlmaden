@@ -9,20 +9,19 @@ from MeCab import Tagger as Mecab
 
 def df_mutate_tokens_morphs(df, textColumnName="text") :
     morph = Morph('Okt')
-    return _df_mutate_tokens_by_(df, morph.get_morphs, textColumnName)
+    df = _df_mutate_tokens_by_(df, morph.get_morphs, textColumnName)
+    return df
 
 def df_mutate_tokens_nouns(df, textColumnName="text") :
     morph = Morph('Okt')
-    return _df_mutate_tokens_by_(df, morph.get_nouns, textColumnName)
-
+    df = _df_mutate_tokens_by_(df, morph.get_nouns, textColumnName)
+    return df
 
 
 def _df_mutate_tokens_by_(df, f, textColumnName="text") :
     rdf = df.copy()
-    rdf = rdf.assign(tokens_nouns = lambda dataframe : dataframe[textColumnName].map(f))
+    rdf = rdf.assign(tokens = lambda dataframe : dataframe[textColumnName].map(f))
     return rdf
-
-
 
 
 
