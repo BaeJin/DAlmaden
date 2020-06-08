@@ -53,7 +53,7 @@ class Data :
                 text = cleanse_text(text)
                 sentences = kss.split_sentences(text)    #텍스트 길이 300 넘는게 허다하게 나옴... 체크 필요함
                 for s in sentences :
-                    s = cleanse_text_sentence(s)
+                    s = cleanse_sentence(s)
                     if len(s) > 0 :
                         row_temp = row.copy()
                         row_temp[textColName] = s

@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="311e0b03-4b2b-4263-bfce-7ffbd72a1175" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almaden.py" beforeDir="false" afterPath="$PROJECT_DIR$/almaden.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/crawler/bigkinds.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/bigkinds.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/crawler/naverblog.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/naverblog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/crawler/navershopping.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/navershopping.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/crawler/text_cleanser.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/crawler_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/bagOfWords.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/bagOfWords.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/tokenizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/tokenizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/preprocess/cleanser.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/preprocess/cleanser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/preprocess/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/preprocess/loader.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,16 +223,5 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591091361453" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/engine/preprocess/cleanser.py</url>
-          <line>9</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -19,11 +19,13 @@ def cleanse_sentence(sentence) :
     sentence = sentence.strip()
     count_char = len(sentence)
     if count_char>300 :
-        print('텍스트 길이가 300을 넘습니다.')
-        print(sentence)
+        #print('텍스트 길이가 300을 넘습니다.')
+        #print(sentence)
         sentence=sentence[:300]
-    if detect_sentence_commerce(sentence) :
-        sentence = ""
+    #if detect_sentence_commerce(sentence) :
+    #    print('광고 문장으로 분류되었습니다.')
+    #    print(sentence)
+    #    sentence = ""
     return sentence
 
 def detect_sentence_commerce(sentence, ratio=0.2) :
@@ -69,6 +71,6 @@ def _getKewordsRatio_(text,keywords) :
     return ratio
 
 def _getCharacterRatio_(text,character) :
-    count_all = len(text.replace(" ",""))
+    count_all = len(text.replace(" ",""))+1
     count_char = text.count(character)
     return count_char/count_all
