@@ -15,13 +15,22 @@ def cleanse_text(text) :
     text = re.sub(u" [^가-힣A-z0-9] ", "", text)
     return text
 
-def cleanse_text_sentence(text) :
-    text = text.strip()
-    if len(text)>300 :
+def cleanse_sentence(sentence) :
+    sentence = sentence.strip()
+    count_char = len(sentence)
+    if count_char>300 :
         print('텍스트 길이가 300을 넘습니다.')
-        print(text)
-        text=text[:300]
-    return text
+        print(sentence)
+        sentence=sentence[:300]
+    if detect_sentence_commerce(sentence) :
+        sentence = ""
+    return sentence
+
+def detect_sentence_commerce(sentence, ratio=0.2) :
+    if _getCharacterRatio_(sentence,"원") > ratio :
+        return True
+    else :
+        return False
 
 def cleanse_text_legacy(text) :
     text = re.sub(u"<.+?>"," ",text)
@@ -58,3 +67,8 @@ def _getKewordsRatio_(text,keywords) :
                 break
     ratio = count_p/(count_t+1)
     return ratio
+
+def _getCharacterRatio_(text,character) :
+    count_all = len(text.replace(" ",""))
+    count_char = text.count(character)
+    return count_char/count_all
