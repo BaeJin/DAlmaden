@@ -1,7 +1,7 @@
 from almaden import SeleniumDriver
 from almaden import Sql
 import re
-from text_cleanser import cleanse
+from crawler_utils import cleanse
 def crawl(keyword, productURL, productName, comment="navershopping") :
     #db명
     db = Sql('dalmaden')

@@ -7,7 +7,7 @@ from datetime import datetime
 from time import sleep
 import openpyxl
 from almaden import Sql
-from text_cleanser import cleanse
+from crawler_utils import cleanse
 
 # custom_header을 통해 아닌 것 처럼 위장하기
 

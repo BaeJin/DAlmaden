@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="311e0b03-4b2b-4263-bfce-7ffbd72a1175" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/engine/analysis/sentimentAnalysis.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/analysis/tokenizer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/almaden.py" beforeDir="false" afterPath="$PROJECT_DIR$/almaden.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/bagOfWords.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/bagOfWords.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/preprocess/cleanser.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/preprocess/cleanser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/preprocess/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/preprocess/loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/crawler/bigkinds.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/bigkinds.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/crawler/naverblog.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/naverblog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/crawler/navershopping.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/navershopping.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/crawler/text_cleanser.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/crawler_utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,6 +191,9 @@
       <updated>1590652115125</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1515" height="317" key="GridCell.Tab.0.bottom" timestamp="1591256502973">

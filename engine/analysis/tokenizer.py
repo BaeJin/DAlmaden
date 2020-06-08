@@ -64,22 +64,6 @@ class Morph :
         else :
             return self.nlp.nouns(text)
 
-
-
-    def get_nounLists(self, phrase_list) :
-        '''
-        문장 리스트로부터 명사 리스트의 리스트 추출
-        len(phrase_list) == len(nounLists)
-        :param phrase_list: 문장 리스트 list of str
-        :return: 명사 리스트의 리스트 list of list of str
-        '''
-        nounLists = []
-        for i, phrase in enumerate(phrase_list) :
-            if i % 100 == 0:
-                print(i)
-            nounLists.append(self.get_nounList(phrase))
-        return nounLists
-
     def get_nounCount(self, phrase):
         '''
         문장으로부터 명사 빈도 추출

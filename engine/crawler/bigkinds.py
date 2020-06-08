@@ -2,7 +2,7 @@ import requests
 import json
 import math
 from almaden import Sql
-from text_cleanser import cleanse
+from crawler_utils import cleanse
 
 URL = 'https://www.bigkinds.or.kr/api/news/search.do'
 CONTENT_URL_BASE='https://www.bigkinds.or.kr/news/detailView.do?docId='

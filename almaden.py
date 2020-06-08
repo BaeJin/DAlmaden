@@ -115,6 +115,7 @@ class Sql :
 
     def select(self, tablename, what="", where="", asDataFrame=False, count=False):
         '''
+        e.g. select('tablename', 'id, keyword, title', 'date like "2019%"', True)
         :param tablename: table name
         :param params: field = value or // field like %value%
         :param count:
@@ -147,6 +148,13 @@ class Sql :
         else : return False
 
     def insert_withoutDuplication(self, tablename, check_list, **params):
+        '''
+        e.g. insert_withoutDuplication('datatable', ['keyword','url'], keyword = 'abc', url = 'http://', date = '20150305', title = '테스트')
+        :param tablename: str
+        :param check_list: list
+        :param params: dict
+        :return: None or id(int)
+        '''
         new_params = {}
         for k,v in params.items() :
             if k in check_list :
@@ -157,6 +165,12 @@ class Sql :
             return self.insert(tablename, **params)
 
     def insert(self, tablename, **params):
+        '''
+        e.g. insert('datatable', date = '20150305', title = '테스트')
+        :param tablename: str
+        :param params: dict
+        :return: id(int)
+        '''
         len_params = len(params)
         sql = "insert into %s("%(tablename)
         for k in params.keys() :
