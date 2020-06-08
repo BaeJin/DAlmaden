@@ -1,11 +1,6 @@
 import re
 from collections import Counter
 
-def df_mutate_token_counter(df, tokenColumnName, duplicate_count=False) :
-    rdf = df.copy()
-    rdf = rdf.assign(tokens_counter=lambda dataframe: dataframe[tokenColumnName].map(Counter))
-    return rdf
-
 def get_token_counter(seqOfTokensSeq, duplicate_count=False) :
     '''
     :param seqOfTokensSeq: e.g. [['a','b','b'],['a','b','b,'c']]

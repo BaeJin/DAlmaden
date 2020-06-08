@@ -6,6 +6,10 @@ from konlpy.tag import Hannanum
 from konlpy.tag import Twitter
 from MeCab import Tagger as Mecab
 
+def get_nouns_list(text_seq) :
+    morph = Morph('Okt')
+    tokens_seq = text_seq.map(morph.get_nouns)
+    return tokens_seq
 
 def df_mutate_tokens_morphs(df, textColumnName="text") :
     morph = Morph('Okt')

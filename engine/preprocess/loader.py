@@ -68,9 +68,3 @@ class Data :
         else :
             return df_documents
 
-
-
-data = Data('dalmaden')
-data.addData('naverblog','복숭아','2020-03-20','2020-05-15',unique=True,drop_by=['keyword','url'])
-df = data.get_df('post_date','text',by_sentence='text')
-

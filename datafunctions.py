@@ -1,6 +1,7 @@
 from engine.preprocess.loader import Data
-from engine.analysis.bagOfWords import df_mutate_token_counter
-from engine.analysis.tokenizer import df_mutate_tokens_nouns
+from engine.analysis.bagOfWords import get_token_counter
+from engine.analysis.tokenizer import get_nouns_list
+import pandas as pd
 
 def load_df(channel, keyword, fromDate, toDate,
             colNames = ["channel","keyword","post_date","text","url"], by_sentence = "text",
@@ -11,15 +12,14 @@ def load_df(channel, keyword, fromDate, toDate,
     df = data.get_df(*colNames,by_sentence=by_sentence)
     return df
 
-def get_bow(df, textColumn = 'text', type = 'noun', duplicate_count = False) :
+def get_df_bow(text_seq, type = 'noun', duplicate_count = False) :
     if type == 'noun' :
-        df = df_mutate_tokens_nouns(df, textColumn)
+        df = get_nouns_list(text_seq)
     else :
         pass #TBD
 
-    if duplicate_count :
-        bow = df_mutate_token_counter(df, 'tokens')
+    bow = get_token_counter(df, duplicate_count)
+    df_bow = pd.DataFrame(bow)
+    return df_bow
 
-
-def df_mutate_tokens(df, textColumn = 'text'):
-    return
+df = load_df('naverblog','은평구','2019-01-01','2020-06-30')

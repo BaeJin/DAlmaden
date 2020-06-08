@@ -23,7 +23,7 @@ CUSTOM_HEADER = {
 def crawl(keyword, startDate, endDate, nCrawl, comment="navernews_test") :
     #init task
     db = Sql('dalmaden')
-    channel = 'naverblog'
+    channel = 'navernews'
     keyhex = get_keyhex(keyword)
     custom_header = CUSTOM_HEADER
 
