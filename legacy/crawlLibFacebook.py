@@ -84,7 +84,7 @@ class FacebookLister:
         findsearchbox=driver.find_element_by_xpath("//input[@class='_1frb']")
         findsearchbox.send_keys(self.keyword)
         time.sleep(1)
-        searchbutton=driver.find_element_by_xpath("//button[@data-testid='facebar_search_button']")
+        searchbutton=driver.find_element_by_xpath("//button[@files-testid='facebar_search_button']")
         searchbutton.click()
         postsbutton=driver.find_element_by_xpath("//li[@class=' _5vwz _45hc']/a[@class='_3m1v _468f']")
         hrefelem=postsbutton.get_attribute('href')
@@ -313,10 +313,10 @@ class FacebookCrawler:
             #get article text and publishtime#
             try:
                 wantedarticle = driver.find_element_by_xpath("//div[@class='_1dwg _1w_m _q7o']")
-                arp1 = wantedarticle.find_element_by_xpath(".//abbr[@data-utime]")
-                arp2 = arp1.get_attribute('data-utime')
+                arp1 = wantedarticle.find_element_by_xpath(".//abbr[@files-utime]")
+                arp2 = arp1.get_attribute('files-utime')
                 articlepubtime = datetime.fromtimestamp(int(arp2))
-                articlet = wantedarticle.find_element_by_xpath(".//div[@data-testid='post_message']/div/p")
+                articlet = wantedarticle.find_element_by_xpath(".//div[@files-testid='post_message']/div/p")
                 articletext = self.cleanse(articlet.text)
                 print(articlepubtime)
                 print(articletext)
@@ -326,9 +326,9 @@ class FacebookCrawler:
             comment = []
             pubtime = []
             try:
-                optionbutton=driver.find_element_by_xpath("//a[@data-testid='UFI2ViewOptionsSelector/link']")
+                optionbutton=driver.find_element_by_xpath("//a[@files-testid='UFI2ViewOptionsSelector/link']")
                 optionbutton.click()
-                selectables=driver.find_elements_by_xpath("//div[@data-testid='UFI2ViewOptionsSelector/menuOption']")
+                selectables=driver.find_elements_by_xpath("//div[@files-testid='UFI2ViewOptionsSelector/menuOption']")
                 for selectable in selectables:
                     if '최신순' or '오름차순' in selectable.text:
                         print(selectable.text)
@@ -337,12 +337,12 @@ class FacebookCrawler:
                         break
 
                 #select article#
-                want_article = driver.find_element_by_xpath("//div[@data-testid='UFI2CommentsList/root_depth_0']")
+                want_article = driver.find_element_by_xpath("//div[@files-testid='UFI2CommentsList/root_depth_0']")
 
             #click more comments#
                 while True:
                     try:
-                        morecommentsbt = want_article.find_element_by_xpath(".//a[@data-testid='UFI2CommentsPagerRenderer/pager_depth_0']")
+                        morecommentsbt = want_article.find_element_by_xpath(".//a[@files-testid='UFI2CommentsPagerRenderer/pager_depth_0']")
                         morecommentsbt.click()
                         driver.implicitly_wait(0.1)
                         time.sleep(0.1)
@@ -354,7 +354,7 @@ class FacebookCrawler:
             #show reply-comments#
                 while True:
                     try:
-                        repcomments = want_article.find_elements_by_xpath(".//a[@data-testid='UFI2CommentsPagerRenderer/pager_depth_1']")
+                        repcomments = want_article.find_elements_by_xpath(".//a[@files-testid='UFI2CommentsPagerRenderer/pager_depth_1']")
                         print("repcomments found")
                         time.sleep(0.1)
                         for repcomment in repcomments:
@@ -370,18 +370,18 @@ class FacebookCrawler:
 
             #read comments and publishtime#
                
-                wantedarticle=driver.find_element_by_xpath("//div[@data-testid='UFI2CommentsList/root_depth_0']")
+                wantedarticle=driver.find_element_by_xpath("//div[@files-testid='UFI2CommentsList/root_depth_0']")
                 try:
                     commentbox=wantedarticle.find_elements_by_xpath(".//ul[@class='_7791']/li/div")
                     for cbox in commentbox:
                         try:
-                            ctexts=cbox.find_elements_by_xpath(".//div[@data-testid='UFI2Comment/body']/div/span/span[@class='_3l3x']/span")
+                            ctexts=cbox.find_elements_by_xpath(".//div[@files-testid='UFI2Comment/body']/div/span/span[@class='_3l3x']/span")
                             for ctext in ctexts:
                                 comment.append(ctext.text)
                                 print(ctext.text)
                                 if ctext.text is not None:
-                                    ptime=cbox.find_element_by_xpath(".//ul[@data-testid='UFI2CommentActionLinks/root']/li/a/abbr")
-                                    dtime=ptime.get_attribute('data-utime')
+                                    ptime=cbox.find_element_by_xpath(".//ul[@files-testid='UFI2CommentActionLinks/root']/li/a/abbr")
+                                    dtime=ptime.get_attribute('files-utime')
                                     a = datetime.fromtimestamp(int(dtime))
                                     pubtime.append(a)
                                     print(a)

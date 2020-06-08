@@ -96,7 +96,7 @@ kano <- kano_raw %>% group_by(group) %>%
          loc_y = sin(radian)*radius
   )
 
-#dummy circle data
+#dummy circle files
 n=100
 lines = data.frame(d=rep(seq(0,n)/n,5),
                    r=sort(rep(1:5,n+1)))%>%
@@ -127,8 +127,8 @@ vis_base = ggplot()+
   xlim(-0.1,5.5)+ylim(-0.1,5.5)
 
 vis_base +
-  #geom_point(data=kano%>%filter(group%in%c(2018)), aes(x=loc_x, y=loc_y, col=label)) +
-  #geom_path(data=kano%>%filter(group%in%c(2018)), aes(x=loc_x, y=loc_y, group=label, col=label),
+  #geom_point(files=kano%>%filter(group%in%c(2018)), aes(x=loc_x, y=loc_y, col=label)) +
+  #geom_path(files=kano%>%filter(group%in%c(2018)), aes(x=loc_x, y=loc_y, group=label, col=label),
   #          alpha=0.5,arrow=arrow(angle=15, type="closed"))+
   geom_text(data=kano%>%filter(group==2015),aes(x=loc_x, y=loc_y,label=label, col=label)
             #position=position_jitter(height=0.2)

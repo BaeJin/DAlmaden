@@ -65,7 +65,7 @@ def crawl(keyword, startDate, endDate, nCrawl, comment="navernews_test") :
             urls = [url["href"] for url in bs_list.select("._sp_each_url")]
 
             if len(urls) < 10:
-                print("N of data : %d")%len(data_list)
+                print("N of files : %d")%len(data_list)
                 print("Process will be ended")
                 end=True
 
@@ -116,7 +116,7 @@ def crawl(keyword, startDate, endDate, nCrawl, comment="navernews_test") :
                         ban_counter = 0
 
                     if num >= nCrawl:
-                        print(f"Process complete. crawled data : {num}")
+                        print(f"Process complete. crawled files : {num}")
                         end = True
                         break
 

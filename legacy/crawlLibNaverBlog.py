@@ -72,7 +72,7 @@ class NaverBlogLister:
                 print(len(data['result']['searchList']), 'items found for '+ self.keyword)
 ####검색결과 없을 때 추가####
                 if len(data['result']['searchList'])==0:
-                    print("!!!!!!!no data to crawl,,ending process!!!!!!!")
+                    print("!!!!!!!no files to crawl,,ending process!!!!!!!")
                     self.nUrl = nArticle
                     exK='검색결과 존재하지 않음'
                     exG=''

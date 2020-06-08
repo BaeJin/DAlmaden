@@ -41,7 +41,7 @@ class InputExample(object):
 
 
 class InputFeatures(object):
-    """A single set of features of data."""
+    """A single set of features of files."""
 
     def __init__(self, input_ids, attention_mask, token_type_ids, label_id):
         self.input_ids = input_ids
@@ -63,7 +63,7 @@ class InputFeatures(object):
 
 
 class NsmcProcessor(object):
-    """Processor for the NSMC data set """
+    """Processor for the NSMC files set """
 
     def __init__(self, args):
         self.args = args
@@ -182,7 +182,7 @@ def convert_examples_to_features(examples, max_seq_len, tokenizer,
 def load_and_cache_examples(args, tokenizer, mode):
     processor = processors[args.task](args)
 
-    # Load data features from cache or dataset file
+    # Load files features from cache or dataset file
     cached_file_name = 'cached_{}_{}_{}_{}'.format(
         args.task, list(filter(None, args.model_name_or_path.split("/"))).pop(), args.max_seq_len, mode)
 

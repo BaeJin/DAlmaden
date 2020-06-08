@@ -58,7 +58,7 @@ def crawl(keyword, startDate, endDate, nCrawl, comment="naverblog") :
             data_list = data_all['result']['searchList']
 
             if len(data_list) < 7:
-                print("N of data : %d")%len(data_list)
+                print("N of files : %d")%len(data_list)
                 print("Process will be ended")
                 end=True
 
@@ -91,7 +91,7 @@ def crawl(keyword, startDate, endDate, nCrawl, comment="naverblog") :
                     sleep(120)
                     ban_counter = 0
                 if num >= nCrawl:
-                    print(f"Process complete. crawled data : {num}")
+                    print(f"Process complete. crawled files : {num}")
                     end = True
                     break
             pageNo += 1
