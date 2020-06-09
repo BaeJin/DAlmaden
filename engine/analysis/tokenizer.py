@@ -11,20 +11,21 @@ def get_nouns_list(text_seq) :
     tokens_seq = text_seq.map(morph.get_nouns)
     return tokens_seq
 
-def df_mutate_tokens_morphs(df, textColumnName="text") :
+def df_mutate_tokens_morph(df, textColumnName="text") :
     morph = Morph('Okt')
-    df = _df_mutate_tokens_by_(df, morph.get_morphs, textColumnName)
+    df = _df_mutate_tokens_by_(df, morph.get_morphs, textColumnName, "tokens_morph")
     return df
 
-def df_mutate_tokens_nouns(df, textColumnName="text") :
+def df_mutate_tokens_noun(df, textColumnName="text") :
     morph = Morph('Okt')
-    df = _df_mutate_tokens_by_(df, morph.get_nouns, textColumnName)
+    df = _df_mutate_tokens_by_(df, morph.get_nouns, textColumnName, "tokens_noun")
     return df
 
 
-def _df_mutate_tokens_by_(df, f, textColumnName="text") :
+def _df_mutate_tokens_by_(df, tokenizefunction, textColumnName="text", tokensColumnName="tokens") :
     rdf = df.copy()
-    rdf = rdf.assign(tokens = lambda dataframe : dataframe[textColumnName].map(f))
+    kwargs = {tokensColumnName : lambda dataframe : dataframe[textColumnName].map(tokenizefunction)}
+    rdf = rdf.assign(**kwargs)
     return rdf
 
 

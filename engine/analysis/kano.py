@@ -5,18 +5,22 @@ import matplotlib.pyplot as plt
 '''
 input field : group, label, nPos, nNeg
 '''
-df = pd.read_csv("test_kano.csv", encoding='cp949')
-df = df[df.group==2015]
 
+def merge_df_kano(df_kano1, df_kano2) :
+    pass
 
-def get_kanoXY(df) :
-    df['log_nPos']=np.log(df.nPos)
-    df['log_nNeg']=np.log(df.nNeg)
+def visualize_df_kano(df_kano, x_colname='x', y_colname='y', label_colname='label') :
+    visualize_kano(df_kano[x_colname],df_kano[y_colname],df_kano[label_colname])
 
-    df['rPos'] = df.nPos/sum(df.nPos)
-    df['rNeg'] = df.nNeg/sum(df.nNeg)
+def get_kanoXY(df_bowpn, nPosColumnName = 'nPos', nNegColumnName = 'nNeg') :
+    df = df_bowpn.copy()
+    df['log_nPos']=np.log(df[nPosColumnName])
+    df['log_nNeg']=np.log(df[nNegColumnName])
+
+    df['rPos'] = df[nPosColumnName]/sum(df[nPosColumnName])
+    df['rNeg'] = df[nNegColumnName]/sum(df[nNegColumnName])
     #df['rTot'] = (df.rPos+df.rNeg)/sum((df.rPos+df.rNeg))
-    df['rTot'] = (df.nPos+df.nNeg)/sum((df.nPos+df.nNeg))
+    df['rTot'] = (df[nPosColumnName]+df[nNegColumnName])/sum((df[nPosColumnName]+df[nNegColumnName]))
     df['rCount'] = (df.rTot-min(df.rTot))/(max(df.rTot)-min(df.rTot))
     df['adj_rCount'] = get_position(df.rCount, lower=2)
     df['radious'] = df.adj_rCount
@@ -30,7 +34,7 @@ def get_kanoXY(df) :
 
     df['xp'], df['yp'] = get_XY_POLAR(df.radious, df.theta)
     df['x'], df['y'] = trans_kano(df.radious, df.theta)
-    visualize_kano(df.x,df.y,df.label)
+    return df
 
 def get_XY_POLAR(Radious, Theta) :
     return np.cos(Theta)*Radious, np.sin(Theta)*Radious
