@@ -3,29 +3,27 @@ import os
 
 import engine.crawler as crawler
 from engine.preprocess.loader import Data
-from engine.analysis.bagOfWords import get_token_counter
+from engine.analysis.bagOfWords import get_bow_df
 from engine.analysis.tokenizer import get_nouns_list
 
 def load_df(channel, keyword, fromDate, toDate,
-            colNames = ["channel","keyword","post_date","text","url"], by_sentence = "text",
+            colNames = ["id","channel","keyword","post_date","text","url"], by_sentence_textColname = None,
             dbName='dalmaden', tablename='cdata') :
     data = Data(dbName)
     data.addData(channel, keyword, fromDate, toDate,
-                tablename=tablename, unique = True, drop_by=['keyword','url'])
-    df = data.get_df(*colNames,by_sentence=by_sentence)
+                tablename=tablename, drop_duplicate_by=['keyword','url'])
+    df = data.get_df(*colNames,by_sentence_textColname=by_sentence_textColname)
     return df
 
 def mutate_df_sentiment(df, textColname = 'text') :
     pass
-
 
 def get_df_bow(text_seq, type = 'noun', duplicate_count = False) :
     if type == 'noun' :
         df = get_nouns_list(text_seq)
     else :
         pass #TBD
-    bow = get_token_counter(df, duplicate_count)
-    df_bow = pd.DataFrame(bow)
+    df_bow = get_bow_df(df, duplicate_count)
     return df_bow
 
 def write_csv(df, filename) :
