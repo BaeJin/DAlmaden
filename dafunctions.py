@@ -5,7 +5,6 @@ from engine.preprocess.loader import Data
 from engine.analysis.bagOfWords import get_token_counter
 from engine.analysis.tokenizer import get_nouns_list
 
-
 def load_df(channel, keyword, fromDate, toDate,
             colNames = ["channel","keyword","post_date","text","url"], by_sentence = "text",
             dbName='dalmaden', tablename='cdata') :
