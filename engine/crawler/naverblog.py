@@ -23,6 +23,7 @@ CUSTOM_HEADER = {
 def crawl(keyword, startDate, endDate, nCrawl, comment="naverblog") :
     #init task
     db = Sql('dalmaden')
+    channel = 'naverblog'
 
     keyhex = get_keyhex(keyword)
     custom_header = CUSTOM_HEADER
@@ -37,6 +38,7 @@ def crawl(keyword, startDate, endDate, nCrawl, comment="naverblog") :
     while num < nCrawl:
         list_url = "https://section.blog.naver.com/ajax/SearchList.nhn?countPerPage=7&currentPage=%d&endDate=%s" % (
             pageNo, endDate)+ "&keyword=%s&orderBy=sim&startDate=%s&type=post" % (keyhex, startDate)
+        print('crawling - get list',list_url)
         req = requests.get(list_url, headers=custom_header)  # custom_header를 사용하지 않으면 접근 불가
         if req.status_code == requests.codes.ok:
             r = req.text[6:]
@@ -55,20 +57,22 @@ def crawl(keyword, startDate, endDate, nCrawl, comment="naverblog") :
                           nCrawl = nCrawl,
                           comment=comment)
 
-            data_list = data_all['result']['searchList']
+            data_list = []
+            try :
+                data_list = data_all['result']['searchList']
+            except Exception as ex :
+                print(ex)
 
             if len(data_list) < 7:
-                print("N of files : %d")%len(data_list)
+                print(f"N of files : {len(data_list)}")
                 print("Process will be ended")
                 end=True
 
             for data in data_list:
                 num += 1
-                if num % 100 == 0:
-                    print('post Num :', num)
                 try :
-                    channel = 'naverblog'
                     url = get_realUrl(data['blogId'], data['logNo'])
+                    print('crawling',num, url)
                     post_date = datetime.fromtimestamp(data['addDate'] / 1e3).strftime("%Y-%m-%d")
                     title = data['noTagTitle']
                     author = f"{data['nickName']}({data['blogName']})"
@@ -122,7 +126,6 @@ def get_realUrl(idStr, noStr):
     return urlStr
 
 def get_html(url):
-    print('crawling ', url)
     #####엑셀관련코드추가#####
     err = 0
     while err < 5 :

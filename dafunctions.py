@@ -15,14 +15,15 @@ def load_df(channel, keyword, fromDate, toDate,
     df = data.get_df(*colNames,by_sentence=by_sentence)
     return df
 
-def mutate_df_sentiment(df)
+def mutate_df_sentiment(df, textColname = 'text') :
+    pass
+
 
 def get_df_bow(text_seq, type = 'noun', duplicate_count = False) :
     if type == 'noun' :
         df = get_nouns_list(text_seq)
     else :
         pass #TBD
-
     bow = get_token_counter(df, duplicate_count)
     df_bow = pd.DataFrame(bow)
     return df_bow

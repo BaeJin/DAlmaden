@@ -4,9 +4,14 @@
     <list default="true" id="311e0b03-4b2b-4263-bfce-7ffbd72a1175" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dafunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/dafunctions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/kano.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/kano.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/tokenizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/tokenizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/crawler/naverNewsTemp.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/data/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/files/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/data/ratings_test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/files/ratings_test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/data/ratings_train.txt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/files/ratings_train.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/bagOfWords.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/bagOfWords.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/crawler/crawler_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/crawler_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/crawler/naverblog.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/naverblog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/crawler/navernews.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/navernews.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +78,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="crawler_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DA" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -81,11 +86,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/engine/crawler" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\AlmadenDA\Desktop\DA\engine\crawler\crawler_test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -115,7 +120,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="naverblog" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="predict" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DA" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -123,11 +128,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/engine/crawler" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/engine/crawler/naverblog.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/predict.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -160,10 +165,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.crawler_test (1)" />
+        <item itemvalue="Python.predict" />
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.run_musicow" />
         <item itemvalue="Python.musicow" />
-        <item itemvalue="Python.naverblog" />
-        <item itemvalue="Python.crawler_test" />
       </list>
     </recent_temporary>
   </component>
@@ -196,29 +201,33 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="468" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591674081239">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="468" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591674081239" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591668385830">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591668385830" />
-    <state width="1579" height="122" key="GridCell.Tab.0.bottom" timestamp="1591668590158">
+    <state width="1159" height="154" key="GridCell.Tab.0.bottom" timestamp="1591689534031">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1579" height="122" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591668590158" />
+    <state width="1159" height="154" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591689534031" />
     <state width="1579" height="122" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1600.860@1920.0.1600.860" timestamp="1591614803943" />
-    <state width="1579" height="122" key="GridCell.Tab.0.center" timestamp="1591668590158">
+    <state width="1159" height="154" key="GridCell.Tab.0.center" timestamp="1591689534031">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1579" height="122" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591668590158" />
+    <state width="1159" height="154" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591689534031" />
     <state width="1579" height="122" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1600.860@1920.0.1600.860" timestamp="1591614803943" />
-    <state width="1579" height="122" key="GridCell.Tab.0.left" timestamp="1591668590157">
+    <state width="1159" height="154" key="GridCell.Tab.0.left" timestamp="1591689534031">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1579" height="122" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591668590157" />
+    <state width="1159" height="154" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591689534031" />
     <state width="1579" height="122" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1600.860@1920.0.1600.860" timestamp="1591614803942" />
-    <state width="1579" height="122" key="GridCell.Tab.0.right" timestamp="1591668590158">
+    <state width="1159" height="154" key="GridCell.Tab.0.right" timestamp="1591689534031">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1579" height="122" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591668590158" />
+    <state width="1159" height="154" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591689534031" />
     <state width="1579" height="122" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1600.860@1920.0.1600.860" timestamp="1591614803943" />
     <state x="2404" y="117" key="SettingsEditor" timestamp="1591669776542">
       <screen x="1920" y="0" width="1600" height="860" />

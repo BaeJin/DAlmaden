@@ -42,7 +42,7 @@ def crawl(keyword, startDate, endDate, nCrawl, comment="navernews_test") :
         url_startNum = (pageNo - 1) * 10 + 1
         list_url = f"https://search.naver.com/search.naver?where=news&query={url_keyword}&sort=0&ds={url_startDate}&de={url_endDate}&nso=so%3Ar%2Cp%3Afrom{url_from}to{url_to}%2Ca%3A&start={url_startNum}"
         custom_header['referer'] = list_url
-
+        print('crawling - get list', list_url)
         req = requests.get(list_url, headers=custom_header)  # custom_header를 사용하지 않으면 접근 불가
 
         if req.status_code == requests.codes.ok:
@@ -61,8 +61,11 @@ def crawl(keyword, startDate, endDate, nCrawl, comment="navernews_test") :
                           nTotal = nTotal,
                           nCrawl = nCrawl,
                           comment=comment)
-
-            urls = [url["href"] for url in bs_list.select("._sp_each_url")]
+            urls = []
+            try :
+                urls = [url["href"] for url in bs_list.select("._sp_each_url")]
+            except Exception as ex :
+                print(ex)
 
             if len(urls) < 10:
                 print("N of files : %d")%len(data_list)
@@ -72,9 +75,9 @@ def crawl(keyword, startDate, endDate, nCrawl, comment="navernews_test") :
             for url in urls:
 
                 if url.startswith("https://news.naver.com"):  # naver news 홈 에 존재하는 뉴스
+                    num += 1
                     try :
-                        num += 1
-                        print(num,url)
+                        print('crawling',num,url)
                         custom_header['referer'] = url
                         req = requests.get(url, headers=custom_header)  # custom_header를 사용하지 않으면 접근 불가
                         ban_counter+=1
