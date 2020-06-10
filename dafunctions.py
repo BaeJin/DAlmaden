@@ -5,6 +5,7 @@ import engine.crawler as crawler
 from engine.preprocess.loader import Data
 from engine.analysis.bagOfWords import get_bow_df, filter_words_bow
 from engine.analysis.tokenizer import get_nouns_list
+from engine.analysis.kano import visualize_df_kano, get_df_kano
 
 def load_df(channel, keyword, fromDate, toDate,
             colNames = ["id","channel","keyword","post_date","text","url"], by_sentence_textColname = None,
@@ -26,6 +27,13 @@ def get_df_bow(text_seq, channel, type = 'noun', duplicate_count = False) :
     df_bow = get_bow_df(df, duplicate_count)
     df_bow = filter_words_bow(df_bow, channel=channel)
     return df_bow
+
+
+def get_kano(df_bowpn, filename) :
+    path = os.getcwd() + "\\files\\" + filename
+    df_kano = get_df_kano(df_bowpn) # label, nPos, nNeg 컬럼 있어야 함
+    visualize_df_kano(df_kano, path)
+
 
 def write_csv(df, filename) :
     path = os.getcwd()+"\\files\\"+filename

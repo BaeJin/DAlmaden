@@ -4,10 +4,7 @@
     <list default="true" id="311e0b03-4b2b-4263-bfce-7ffbd72a1175" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dafunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/dafunctions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/predict.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/bagOfWords.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/bagOfWords.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/engine/analysis/kano.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/kano.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/crawler/crawler_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/crawler_test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
