@@ -1,19 +1,40 @@
+import pandas as pd
 import numpy as np
 import math
 from adjustText import adjust_text
 import matplotlib.pyplot as plt
+from tqdm import tqdm, trange
 '''
 input field : group, label, nPos, nNeg
 '''
 
-def merge_df_kano(df_kano1, df_kano2) :
+def visualize_df_kano_dual(df_kano1, df_kano2, savepath) :
     pass
 
 def visualize_df_kano(df_kano, savepath, x_colname='x', y_colname='y', label_colname='label') :
     visualize_kano(df_kano[x_colname],df_kano[y_colname],df_kano[label_colname],savepath)
 
-def get_df_kano(df_bowpn, nPosColumnName = 'nPos', nNegColumnName = 'nNeg') :
-    df = df_bowpn.copy()
+def get_df_kanobow(df_textSent, df_labelKwd,
+                   textColname = 'text', sentimentColname = 'sentiment', labelColname = 'label',keywordColname='keyword') :
+    labels = set(df_labelKwd[labelColname])
+    nPos = []
+    nNeg = []
+    for label in labels :
+        keywords = df_labelKwd[keywordColname][df_labelKwd[labelColname]==label]
+        sentiments = df_textSent[sentimentColname][map(_keywords_in_str_, df_textSent[textColname], keywords)]
+        nPos.append(sum([s >= 0.5 for s in sentiments]))
+        nNeg.append(sum([s < 0.5 for s in sentiments]))
+    df_kanobow = pd.DataFrame(label = labels, nPos = nPos, nNeg=nNeg)
+    return df_kanobow
+
+def _keywords_in_str_(string, kwd_list) :
+    for kwd in kwd_list :
+        if kwd in string :
+            return True
+    return False
+
+def get_df_kano(df_kanobow, nPosColumnName ='nPos', nNegColumnName ='nNeg') :
+    df = df_kanobow.copy()
     df['log_nPos']=np.log(df[nPosColumnName])
     df['log_nNeg']=np.log(df[nNegColumnName])
 
@@ -64,8 +85,8 @@ def get_position(X,lower=1.5,medmin=25,med=50,medmax=75,upper=1.5) :
     Xmed = np.percentile(X, med)
     Xmedmax = np.percentile(X, medmax)
 
-    Xlower = np.percentile(X, lower) if lower > 2 else X25 - lower * (X75 - X25)
-    Xupper = np.percentile(X, upper) if upper > 2 else X75 + upper * (X75 - X25)
+    Xlower = np.percentile(X, lower) if lower >= 2 else X25 - lower * (X75 - X25)
+    Xupper = np.percentile(X, upper) if upper >= 2 else X75 + upper * (X75 - X25)
 
 
     BASE = np.array([Xmin, Xlower, Xmedmin, Xmed, Xmedmax, Xupper])

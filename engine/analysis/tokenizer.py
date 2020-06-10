@@ -1,4 +1,4 @@
-
+from tqdm import tqdm, trange
 from konlpy.tag import Okt
 from konlpy.tag import Kkma
 from konlpy.tag import Komoran
@@ -8,7 +8,7 @@ from MeCab import Tagger as Mecab
 
 def get_nouns_list(text_seq) :
     morph = Morph('Okt')
-    tokens_seq = text_seq.map(morph.get_nouns)
+    tokens_seq = map(morph.get_nouns, tqdm(text_seq), "tokenizer : Getting Tokens ")
     return tokens_seq
 
 def df_mutate_tokens_morph(df, textColumnName="text") :
@@ -24,7 +24,7 @@ def df_mutate_tokens_noun(df, textColumnName="text") :
 
 def _df_mutate_tokens_by_(df, tokenizefunction, textColumnName="text", tokensColumnName="tokens") :
     rdf = df.copy()
-    kwargs = {tokensColumnName : lambda dataframe : dataframe[textColumnName].map(tokenizefunction)}
+    kwargs = {tokensColumnName : lambda dataframe : map(tokenizefunction, tqdm(dataframe[textColumnName], "tokenizer : Getting Tokens "))}
     rdf = rdf.assign(**kwargs)
     return rdf
 

@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="311e0b03-4b2b-4263-bfce-7ffbd72a1175" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/setting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dafunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/dafunctions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/engine/analysis/kano.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/kano.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/tokenizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/tokenizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/preprocess/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/preprocess/loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
