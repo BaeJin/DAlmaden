@@ -9,7 +9,10 @@ class Data :
         self.df = pd.DataFrame()
 
     def _load_(self, channel, keyword, fromDate, toDate, tablename):
-        where_str = f"keyword='{keyword}' and channel='{channel}' and post_date between '{fromDate}' and '{toDate}'"
+
+        # where_str = f"keyword='{keyword}' and channel='{channel}' and post_date between '{fromDate}' and '{toDate}'"
+        where_str = f"keyword='{keyword}' and channel='{channel}' and startdate='{fromDate}' and enddate='{toDate}'"
+
         ldf = self.db.select(tablename,  "*", where_str, asDataFrame=True)
         return ldf
 

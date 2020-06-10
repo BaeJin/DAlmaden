@@ -10,8 +10,8 @@ def merge_df_kano(df_kano1, df_kano2) :
     pass
 
 def visualize_df_kano(df_kano, x_colname='x', y_colname='y', label_colname='label') :
-    visualize_kano(df_kano[x_colname],df_kano[y_colname],df_kano[label_colname])
-
+    plt = visualize_kano(df_kano[x_colname],df_kano[y_colname],df_kano[label_colname])
+    return plt
 def get_kanoXY(df_bowpn, nPosColumnName = 'nPos', nNegColumnName = 'nNeg') :
     df = df_bowpn.copy()
     df['log_nPos']=np.log(df[nPosColumnName])
@@ -140,4 +140,4 @@ def visualize_kano(X,Y,label,min_distX=0.05,min_distY=0.05) :
     for lx, ly, label in zip(X, label_position_y, label):
         ax.annotate(label, (lx, ly))
 
-
+    return plt
