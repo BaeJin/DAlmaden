@@ -150,4 +150,5 @@ if __name__ == "__main__":
     parser.add_argument("--no_cuda", action="store_true", help="Avoid using CUDA when available")
 
     pred_config = parser.parse_args()
+    print(pred_config)
     predict(pred_config)
