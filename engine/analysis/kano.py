@@ -1,6 +1,6 @@
-import pandas as pd
 import numpy as np
 import math
+from adjustText import adjust_text
 import matplotlib.pyplot as plt
 '''
 input field : group, label, nPos, nNeg
@@ -9,10 +9,10 @@ input field : group, label, nPos, nNeg
 def merge_df_kano(df_kano1, df_kano2) :
     pass
 
-def visualize_df_kano(df_kano, x_colname='x', y_colname='y', label_colname='label') :
-    plt = visualize_kano(df_kano[x_colname],df_kano[y_colname],df_kano[label_colname])
-    return plt
-def get_kanoXY(df_bowpn, nPosColumnName = 'nPos', nNegColumnName = 'nNeg') :
+def visualize_df_kano(df_kano, savepath, x_colname='x', y_colname='y', label_colname='label') :
+    visualize_kano(df_kano[x_colname],df_kano[y_colname],df_kano[label_colname],savepath)
+
+def get_df_kano(df_bowpn, nPosColumnName = 'nPos', nNegColumnName = 'nNeg') :
     df = df_bowpn.copy()
     df['log_nPos']=np.log(df[nPosColumnName])
     df['log_nNeg']=np.log(df[nNegColumnName])
@@ -40,6 +40,16 @@ def get_XY_POLAR(Radious, Theta) :
     return np.cos(Theta)*Radious, np.sin(Theta)*Radious
 
 def get_position(X,lower=1.5,medmin=25,med=50,medmax=75,upper=1.5) :
+    '''
+    get relative position
+    :param X:
+    :param lower:
+    :param medmin:
+    :param med:
+    :param medmax:
+    :param upper:
+    :return:
+    '''
     GRID_BASE = np.array([0, 0.05, 0.25, 0.5, 0.75, 0.95])
     GRID_GAP = np.append(GRID_BASE[1:], 1) - GRID_BASE
     nGRID = 6
@@ -81,6 +91,12 @@ def get_position(X,lower=1.5,medmin=25,med=50,medmax=75,upper=1.5) :
 
 
 def trans_kano(arr_radious, arr_theta) :
+    '''
+    round shape to square shape
+    :param arr_radious: r
+    :param arr_theta: t
+    :return: X,Y position
+    '''
     INNER_R = 0.25
 
     X = []
@@ -104,9 +120,7 @@ def trans_kano(arr_radious, arr_theta) :
         Y.append(y)
     return X, Y
 
-
-
-def visualize_kano(X,Y,label,min_distX=0.05,min_distY=0.05) :
+def visualize_kano(X,Y,label,savepath,min_distX=0.05,min_distY=0.05) :
     fig, ax = plt.subplots(figsize=(10,7))
     ax.set(xlim=(-0.1,1.1), ylim=(-0.1,1.1))
     ax.scatter(X, Y)
@@ -126,18 +140,6 @@ def visualize_kano(X,Y,label,min_distX=0.05,min_distY=0.05) :
     X = list(X)
     Y = list(Y)
 
-    label_position_y = []
-    for x,y in zip(X,Y) :
-        for x0,y0 in zip(X,Y) :
-            gapx, gapy = abs(x-x0), abs(y-y0)
-            if gapx < min_distX and gapy < min_distY :
-                if y<y0 :
-                    label_position_y.append(y-gapy)
-                else :
-                    label_position_y.append(y+gapy)
-                break
-
-    for lx, ly, label in zip(X, label_position_y, label):
-        ax.annotate(label, (lx, ly))
-
-    return plt
+    texts = [plt.text(x, y, s) for x,y,s in zip(X,Y,label)]
+    adjust_text(texts)
+    plt.savefig(savepath)
