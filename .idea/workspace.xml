@@ -11,11 +11,16 @@
       <change afterPath="$PROJECT_DIR$/position/kano/마스크_Naver Blog_2019-01-01_2019-12-31.csv" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/position/kano/마스크_Naver Blog_2020-01-01_2020-05-31.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/engine/analysis/kano.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/kano.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/engine/analysis/run_kano.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/run_kano.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/img/kano/마스크_Naver Blog_2015-01-01_2018-12-31.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/kano/마스크_Naver Blog_2015-01-01_2018-12-31.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/img/kano/마스크_Naver Blog_2019-01-01_2019-12-31.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/kano/마스크_Naver Blog_2019-01-01_2019-12-31.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/position/kano/마스크_Naver Blog_2015-01-01_2018-12-31.csv" beforeDir="false" afterPath="$PROJECT_DIR$/position/kano/마스크_Naver Blog_2015-01-01_2018-12-31.csv" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/dafunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/dafunctions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/kano.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/kano.py" afterDir="false" />
+>>>>>>> cc3a30b16a3b26b05d015e63d4278981b3557aa6
     </list>
 >>>>>>> parent of 3379a6b... 'img
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -254,25 +259,25 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591668385830" />
-    <state width="1515" height="254" key="GridCell.Tab.0.bottom" timestamp="1591754554235">
+    <state width="1515" height="254" key="GridCell.Tab.0.bottom" timestamp="1591767760753">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="254" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591754554235" />
+    <state width="1515" height="254" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591767760753" />
     <state width="1579" height="122" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1600.860@1920.0.1600.860" timestamp="1591614803943" />
-    <state width="1515" height="254" key="GridCell.Tab.0.center" timestamp="1591754554234">
+    <state width="1515" height="254" key="GridCell.Tab.0.center" timestamp="1591767760752">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="254" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591754554234" />
+    <state width="1515" height="254" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591767760752" />
     <state width="1579" height="122" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1600.860@1920.0.1600.860" timestamp="1591614803943" />
-    <state width="1515" height="254" key="GridCell.Tab.0.left" timestamp="1591754554234">
+    <state width="1515" height="254" key="GridCell.Tab.0.left" timestamp="1591767760752">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="254" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591754554234" />
+    <state width="1515" height="254" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591767760752" />
     <state width="1579" height="122" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1600.860@1920.0.1600.860" timestamp="1591614803942" />
-    <state width="1515" height="254" key="GridCell.Tab.0.right" timestamp="1591754554235">
+    <state width="1515" height="254" key="GridCell.Tab.0.right" timestamp="1591767760752">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="254" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591754554235" />
+    <state width="1515" height="254" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591767760752" />
     <state width="1579" height="122" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1600.860@1920.0.1600.860" timestamp="1591614803943" />
     <state x="2404" y="117" key="SettingsEditor" timestamp="1591669776542">
       <screen x="1920" y="0" width="1600" height="860" />

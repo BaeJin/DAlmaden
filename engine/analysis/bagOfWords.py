@@ -49,5 +49,7 @@ def filter_words_bow(bow_df, channel = "") :
 
     return bow_df
 
-
+def filter_words_bow_manual(bow_df, words=[]) :
+    bow_df = bow_df[~bow_df['word'].isin(words)]
+    return bow_df
 
