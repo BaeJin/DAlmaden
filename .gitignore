@@ -1,2 +1,3 @@
-img/kano
-position/kano
+./img
+./position
+test.py
