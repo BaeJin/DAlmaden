@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="311e0b03-4b2b-4263-bfce-7ffbd72a1175" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/analysis/run_kano_basic.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/kano/마스크_Naver Blog_2020-01-01_2020-05-31.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/position/kano/마스크_Naver Blog_2019-01-01_2019-12-31.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/position/kano/마스크_Naver Blog_2020-01-01_2020-05-31.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/kano.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/kano.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/run_kano.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/run_kano.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/kano/마스크_Naver Blog_2015-01-01_2018-12-31.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/kano/마스크_Naver Blog_2015-01-01_2018-12-31.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/kano/마스크_Naver Blog_2019-01-01_2019-12-31.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/kano/마스크_Naver Blog_2019-01-01_2019-12-31.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/position/kano/마스크_Naver Blog_2015-01-01_2018-12-31.csv" beforeDir="false" afterPath="$PROJECT_DIR$/position/kano/마스크_Naver Blog_2015-01-01_2018-12-31.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -206,7 +198,7 @@
       <option name="presentableId" value="Default" />
       <updated>1590652115125</updated>
       <workItem from="1591760239774" duration="15243000" />
-      <workItem from="1591834560376" duration="253000" />
+      <workItem from="1591834560376" duration="816000" />
     </task>
     <servers />
   </component>
