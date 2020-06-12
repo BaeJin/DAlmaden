@@ -85,8 +85,8 @@ def get_position(X,medmin=25,med=50,medmax=75) :
     Xmed = np.percentile(X, med)
     Xmedmax = np.percentile(X, medmax)
 
-    Xlower = max(np.percentile(X, 0), Xmin)
-    Xupper = min(np.percentile(X, 100), Xmax)
+    Xlower = max(np.percentile(X, 0), X25 - 1.5 * (X75 - X25))
+    Xupper = min(np.percentile(X, 100), X75 + 1.5 * (X75 - X25))
 
 
     BASE = np.array([Xmin, Xlower, Xmedmin, Xmed, Xmedmax, Xupper])
