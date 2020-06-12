@@ -141,7 +141,7 @@ def trans_kano(arr_radious, arr_theta) :
         Y.append(y)
     return X, Y
 
-def visualize_kano(X,Y,label,savepath,min_distX=0.05,min_distY=0.05) :
+def visualize_kano(X,Y,label,savepath) :
     fig, ax = plt.subplots(figsize=(10,7))
     ax.set(xlim=(-0.1,1.1), ylim=(-0.1,1.1))
     ax.scatter(X, Y)
