@@ -2,13 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="311e0b03-4b2b-4263-bfce-7ffbd72a1175" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/setting.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/engine/crawler/crawler_setting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dafunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/dafunctions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/kano.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/kano.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/tokenizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/tokenizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/preprocess/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/preprocess/loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/data_loader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/files/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/files/ratings_test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/files/ratings_train.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/predict.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/sample_pred_in.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/tokenization_kobert.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/trainer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/sentimentAnalysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/sentimentAnalysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/crawler/bigkinds.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/bigkinds.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/crawler/crawler_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/crawler_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/crawler/crawler_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/crawler_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/crawler/naverblog.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/naverblog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/crawler/navernews.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/navernews.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webdrivers/chromedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/webdrivers/chromedriver.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,19 +57,20 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\AlmadenDA\Desktop\DAlmaden" />
-      <recent name="C:\Users\AlmadenDA\Desktop\DAlmaden\engine\analysis" />
-      <recent name="C:\Users\AlmadenDA\Desktop\DA\etc\musicow" />
-      <recent name="C:\Users\AlmadenDA\Desktop\DA" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\AlmadenDA\Desktop\DA" />
       <recent name="C:\Users\AlmadenDA\Desktop\DA\legacy" />
       <recent name="C:\Users\AlmadenDA\Desktop\DA\webdrivers" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\AlmadenDA\Desktop\DAlmaden\engine\crawler" />
+      <recent name="C:\Users\AlmadenDA\Desktop\DAlmaden" />
+      <recent name="C:\Users\AlmadenDA\Desktop\DAlmaden\engine\analysis" />
+      <recent name="C:\Users\AlmadenDA\Desktop\DA\etc\musicow" />
+      <recent name="C:\Users\AlmadenDA\Desktop\DA" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.predict">
+  <component name="RunManager" selected="Python.sentimentAnalysis">
     <configuration name="crawler_test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DA" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -88,27 +105,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="musicow" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="DA" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/engine/crawler" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\AlmadenDA\Desktop\DA\etc\musicow\musicow.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -159,13 +155,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="sentimentAnalysis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DA" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/engine/analysis" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/engine/analysis/sentimentAnalysis.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.predict" />
+        <item itemvalue="Python.sentimentAnalysis" />
         <item itemvalue="Python.crawler_test (1)" />
+        <item itemvalue="Python.predict" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.run_musicow" />
-        <item itemvalue="Python.musicow" />
       </list>
     </recent_temporary>
   </component>
@@ -198,43 +215,43 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="468" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591674081239">
+    <state x="468" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591788486983">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="468" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591674081239" />
+    <state x="468" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591788486983" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591668385830">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591668385830" />
-    <state width="1515" height="254" key="GridCell.Tab.0.bottom" timestamp="1591767760753">
+    <state width="1515" height="256" key="GridCell.Tab.0.bottom" timestamp="1591789158490">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="254" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591767760753" />
+    <state width="1515" height="256" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591789158490" />
     <state width="1579" height="122" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1600.860@1920.0.1600.860" timestamp="1591614803943" />
-    <state width="1515" height="254" key="GridCell.Tab.0.center" timestamp="1591767760752">
+    <state width="1515" height="256" key="GridCell.Tab.0.center" timestamp="1591789158490">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="254" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591767760752" />
+    <state width="1515" height="256" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591789158490" />
     <state width="1579" height="122" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1600.860@1920.0.1600.860" timestamp="1591614803943" />
-    <state width="1515" height="254" key="GridCell.Tab.0.left" timestamp="1591767760752">
+    <state width="1515" height="256" key="GridCell.Tab.0.left" timestamp="1591789158489">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="254" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591767760752" />
+    <state width="1515" height="256" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591789158489" />
     <state width="1579" height="122" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1600.860@1920.0.1600.860" timestamp="1591614803942" />
-    <state width="1515" height="254" key="GridCell.Tab.0.right" timestamp="1591767760752">
+    <state width="1515" height="256" key="GridCell.Tab.0.right" timestamp="1591789158490">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="254" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591767760752" />
+    <state width="1515" height="256" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591789158490" />
     <state width="1579" height="122" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1600.860@1920.0.1600.860" timestamp="1591614803943" />
-    <state x="2404" y="117" key="SettingsEditor" timestamp="1591669776542">
+    <state x="2404" y="117" key="SettingsEditor" timestamp="1591926775948">
       <screen x="1920" y="0" width="1600" height="860" />
     </state>
-    <state x="2404" y="117" key="SettingsEditor/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591669776542" />
+    <state x="2404" y="117" key="SettingsEditor/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591926775948" />
     <state x="2221" y="72" key="SettingsEditor/0.0.1536.824/1920.0.1600.860@1920.0.1600.860" timestamp="1590652138781" />
-    <state x="459" y="237" key="com.intellij.ide.util.TipDialog" timestamp="1591669613994">
+    <state x="459" y="237" key="com.intellij.ide.util.TipDialog" timestamp="1591855766506">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="459" y="237" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591669613994" />
+    <state x="459" y="237" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1591855766506" />
     <state x="2369" y="151" width="700" height="708" key="search.everywhere.popup" timestamp="1591620625720">
       <screen x="1920" y="0" width="1600" height="860" />
     </state>

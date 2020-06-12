@@ -3,8 +3,8 @@ import naverblog
 import navernews
 
 
-naverblog.crawl(keyword='ICL 렌즈삽입술',
-                startDate='2017-01-01',
+naverblog.crawl(keyword='닭가슴살',
+                startDate='2020-06-01',
                 endDate='2020-06-09',
                 nCrawl = 5000)
 
