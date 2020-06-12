@@ -2,29 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="311e0b03-4b2b-4263-bfce-7ffbd72a1175" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/engine/crawler/crawler_setting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/data_loader.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/files/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/files/ratings_test.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/files/ratings_train.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/predict.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/sample_pred_in.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/tokenization_kobert.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/trainer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/KoBERTSentimentEngine/utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/analysis/sentimentAnalysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/sentimentAnalysis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/crawler/bigkinds.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/bigkinds.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/crawler/crawler_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/crawler_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/crawler/crawler_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/crawler_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/crawler/naverblog.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/naverblog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/crawler/navernews.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/navernews.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webdrivers/chromedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/webdrivers/chromedriver.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/analysis/kano.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/analysis/kano.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

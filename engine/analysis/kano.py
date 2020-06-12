@@ -43,7 +43,7 @@ def get_df_kano(df_kanobow, nPosColumnName ='nPos', nNegColumnName ='nNeg') :
     #df['rTot'] = (df.rPos+df.rNeg)/sum((df.rPos+df.rNeg))
     df['rTot'] = (df[nPosColumnName]+df[nNegColumnName])/sum((df[nPosColumnName]+df[nNegColumnName]))
     df['rCount'] = (df.rTot-min(df.rTot))/(max(df.rTot)-min(df.rTot))
-    df['adj_rCount'] = get_position(df.rCount, lower=2)
+    df['adj_rCount'] = get_position(df.rCount)
     df['radious'] = df.adj_rCount
 
 
@@ -60,7 +60,7 @@ def get_df_kano(df_kanobow, nPosColumnName ='nPos', nNegColumnName ='nNeg') :
 def get_XY_POLAR(Radious, Theta) :
     return np.cos(Theta)*Radious, np.sin(Theta)*Radious
 
-def get_position(X,lower=1.5,medmin=25,med=50,medmax=75,upper=1.5) :
+def get_position(X,medmin=25,med=50,medmax=75) :
     '''
     get relative position
     :param X:
@@ -75,18 +75,18 @@ def get_position(X,lower=1.5,medmin=25,med=50,medmax=75,upper=1.5) :
     GRID_GAP = np.append(GRID_BASE[1:], 1) - GRID_BASE
     nGRID = 6
 
-    Xmin = np.percentile(X,0)
     X25 = np.percentile(X, 25)
     X75 = np.percentile(X, 75)
-    Xmax = np.percentile(X, 100)
+    Xmin = min(np.percentile(X, 0), X25 - 1.5 * (X75 - X25))
+    Xmax = max(np.percentile(X, 100), X75 + 1.5 * (X75 - X25))
 
 
     Xmedmin = np.percentile(X, medmin)
     Xmed = np.percentile(X, med)
     Xmedmax = np.percentile(X, medmax)
 
-    Xlower = np.percentile(X, lower) if lower >= 2 else X25 - lower * (X75 - X25)
-    Xupper = np.percentile(X, upper) if upper >= 2 else X75 + upper * (X75 - X25)
+    Xlower = max(np.percentile(X, 0), Xmin)
+    Xupper = min(np.percentile(X, 100), Xmax)
 
 
     BASE = np.array([Xmin, Xlower, Xmedmin, Xmed, Xmedmax, Xupper])
