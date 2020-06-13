@@ -4,10 +4,10 @@ from konlpy.tag import Kkma
 from konlpy.tag import Komoran
 from konlpy.tag import Hannanum
 from konlpy.tag import Twitter
-from MeCab import Tagger as Mecab
+from eunjeon import Mecab
 
 def get_nouns_list(text_seq) :
-    morph = Morph('Okt')
+    morph = Morph(nlpEngine='Mecab')
     tokens_seq = text_seq.map(morph.get_nouns)
     return tokens_seq
 

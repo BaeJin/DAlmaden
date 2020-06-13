@@ -1,19 +1,40 @@
+import pandas as pd
 import numpy as np
 import math
 from adjustText import adjust_text
 import matplotlib.pyplot as plt
+from tqdm import tqdm, trange
 '''
 input field : group, label, nPos, nNeg
 '''
 
-def merge_df_kano(df_kano1, df_kano2) :
+def visualize_df_kano_dual(df_kano1, df_kano2, savepath) :
     pass
 
 def visualize_df_kano(df_kano, savepath, x_colname='x', y_colname='y', label_colname='label') :
     visualize_kano(df_kano[x_colname],df_kano[y_colname],df_kano[label_colname],savepath)
 
-def get_df_kano(df_bowpn, nPosColumnName = 'nPos', nNegColumnName = 'nNeg') :
-    df = df_bowpn.copy()
+def get_df_kanobow(df_textSent, df_labelKwd,
+                   textColname = 'text', sentimentColname = 'sentiment', labelColname = 'label',keywordColname='keyword') :
+    labels = set(df_labelKwd[labelColname])
+    nPos = []
+    nNeg = []
+    for label in labels :
+        keywords = df_labelKwd[keywordColname][df_labelKwd[labelColname]==label]
+        sentiments = df_textSent[sentimentColname][map(_keywords_in_str_, df_textSent[textColname], keywords)]
+        nPos.append(sum([s >= 0.5 for s in sentiments]))
+        nNeg.append(sum([s < 0.5 for s in sentiments]))
+    df_kanobow = pd.DataFrame(label = labels, nPos = nPos, nNeg=nNeg)
+    return df_kanobow
+
+def _keywords_in_str_(string, kwd_list) :
+    for kwd in kwd_list :
+        if kwd in string :
+            return True
+    return False
+
+def get_df_kano(df_kanobow, nPosColumnName ='nPos', nNegColumnName ='nNeg') :
+    df = df_kanobow.copy()
     df['log_nPos']=np.log(df[nPosColumnName])
     df['log_nNeg']=np.log(df[nNegColumnName])
 
@@ -22,7 +43,7 @@ def get_df_kano(df_bowpn, nPosColumnName = 'nPos', nNegColumnName = 'nNeg') :
     #df['rTot'] = (df.rPos+df.rNeg)/sum((df.rPos+df.rNeg))
     df['rTot'] = (df[nPosColumnName]+df[nNegColumnName])/sum((df[nPosColumnName]+df[nNegColumnName]))
     df['rCount'] = (df.rTot-min(df.rTot))/(max(df.rTot)-min(df.rTot))
-    df['adj_rCount'] = get_position(df.rCount, lower=2)
+    df['adj_rCount'] = get_position(df.rCount)
     df['radious'] = df.adj_rCount
 
 
@@ -39,7 +60,7 @@ def get_df_kano(df_bowpn, nPosColumnName = 'nPos', nNegColumnName = 'nNeg') :
 def get_XY_POLAR(Radious, Theta) :
     return np.cos(Theta)*Radious, np.sin(Theta)*Radious
 
-def get_position(X,lower=1.5,medmin=25,med=50,medmax=75,upper=1.5) :
+def get_position(X,medmin=25,med=50,medmax=75) :
     '''
     get relative position
     :param X:
@@ -54,18 +75,18 @@ def get_position(X,lower=1.5,medmin=25,med=50,medmax=75,upper=1.5) :
     GRID_GAP = np.append(GRID_BASE[1:], 1) - GRID_BASE
     nGRID = 6
 
-    Xmin = np.percentile(X,0)
     X25 = np.percentile(X, 25)
     X75 = np.percentile(X, 75)
-    Xmax = np.percentile(X, 100)
+    Xmin = min(np.percentile(X, 0), X25 - 1.5 * (X75 - X25))
+    Xmax = max(np.percentile(X, 100), X75 + 1.5 * (X75 - X25))
 
 
     Xmedmin = np.percentile(X, medmin)
     Xmed = np.percentile(X, med)
     Xmedmax = np.percentile(X, medmax)
 
-    Xlower = np.percentile(X, lower) if lower > 2 else X25 - lower * (X75 - X25)
-    Xupper = np.percentile(X, upper) if upper > 2 else X75 + upper * (X75 - X25)
+    Xlower = max(np.percentile(X, 0), X25 - 1.5 * (X75 - X25))
+    Xupper = min(np.percentile(X, 100), X75 + 1.5 * (X75 - X25))
 
 
     BASE = np.array([Xmin, Xlower, Xmedmin, Xmed, Xmedmax, Xupper])

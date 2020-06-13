@@ -4,10 +4,10 @@ import pandas as pd
 
 loader=loader.Data('sociallistening')
 
-keyword = '마스크'
+keyword = '라식'
 channel = 'Naver Blog'
-fromdate = '2015-01-01'
-todate = '2018-12-31'
+fromdate = '2017-01-01'
+todate = '2020-15-31'
 xy_path = 'C:/Users/kjy/Program/DAlmaden/position/kano'
 img_path = 'C:/Users/kjy/Program/DAlmaden/img/kano'
 df_2015 = loader._load_(channel, keyword, '2015-01-01', '2015-12-31', 'tasksent')
