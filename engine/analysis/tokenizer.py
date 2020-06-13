@@ -1,4 +1,4 @@
-
+from tqdm import tqdm, trange
 from konlpy.tag import Okt
 from konlpy.tag import Kkma
 from konlpy.tag import Komoran
@@ -7,8 +7,13 @@ from konlpy.tag import Twitter
 from eunjeon import Mecab
 
 def get_nouns_list(text_seq) :
-    morph = Morph(nlpEngine='Mecab')
-    tokens_seq = text_seq.map(morph.get_nouns)
+# <<<<<<< HEAD
+#     morph = Morph(nlpEngine='Mecab')
+#     tokens_seq = text_seq.map(morph.get_nouns)
+# =======
+    morph = Morph('Okt')
+    tokens_seq = map(morph.get_nouns, tqdm(text_seq), "tokenizer : Getting Tokens ")
+# >>>>>>> 10d8da611b14066d083338ae2f3019981b10ea41
     return tokens_seq
 
 def df_mutate_tokens_morph(df, textColumnName="text") :
@@ -24,7 +29,7 @@ def df_mutate_tokens_noun(df, textColumnName="text") :
 
 def _df_mutate_tokens_by_(df, tokenizefunction, textColumnName="text", tokensColumnName="tokens") :
     rdf = df.copy()
-    kwargs = {tokensColumnName : lambda dataframe : dataframe[textColumnName].map(tokenizefunction)}
+    kwargs = {tokensColumnName : lambda dataframe : map(tokenizefunction, tqdm(dataframe[textColumnName], "tokenizer : Getting Tokens "))}
     rdf = rdf.assign(**kwargs)
     return rdf
 

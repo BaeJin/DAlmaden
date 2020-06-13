@@ -3,8 +3,14 @@ import naverblog
 import navernews
 from engine.crawler import bigkinds
 
+<<<<<<< HEAD
 bigkinds.crawl(keyword='은평 구청 홈페이지',
                 startDate='2017-01-01',
+=======
+
+naverblog.crawl(keyword='닭가슴살',
+                startDate='2020-06-01',
+>>>>>>> 10d8da611b14066d083338ae2f3019981b10ea41
                 endDate='2020-06-09',
                 nCrawl = 5000)
 

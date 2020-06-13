@@ -2,12 +2,16 @@ from almaden import Sql
 import kss
 import pandas as pd
 from .cleanser import cleanse_text, cleanse_sentence
+from tqdm import tqdm, trange
+
+from setting import DBSetting
 
 class Data :
     def __init__(self, dbName):
         self.db = Sql(dbName)
         self.df = pd.DataFrame()
 
+<<<<<<< HEAD
     def _load_(self, channel, keyword, fromDate, toDate, tablename):
 
         # where_str = f"keyword='{keyword}' and channel='{channel}' and postDate between '{fromDate}' and '{toDate}'"
@@ -54,6 +58,8 @@ class Data :
     def shape(self):
         return self.df.shape
 
+=======
+>>>>>>> 10d8da611b14066d083338ae2f3019981b10ea41
     def get_df(self, *colnames, by_sentence_textColname = None):
         '''
 
@@ -65,9 +71,7 @@ class Data :
         if by_sentence_textColname :
             df_sentences = pd.DataFrame()
             nrows = df_documents.shape[0]
-            for i in range(nrows) :
-                if i%100 == 0 :
-                    print(f"loader : Getting Sentences {i}/{nrows}")
+            for i in tqdm(range(nrows),"loader : Getting Sentences ") :
                 row = df_documents.iloc[i]
                 text = row[by_sentence_textColname]
                 if len(text) > 0 :
@@ -85,4 +89,38 @@ class Data :
             return df_sentences
         else :
             return df_documents
+
+    def addData(self, channel, keyword, fromDate, toDate,
+                tablename, dbfnameChannel, dbfnameKeyword, dbfnamePostDate, drop_duplicate_by=None):
+        '''
+
+        :param channel: str
+        :param keyword: str
+        :param fromDate: 'yyyy-mm-dd'
+        :param toDate: 'yyyy-mm-dd'
+        :param tablename: str
+        :param drop_duplicate_by: 중복 제거 행이름 list. e.g.['keyword', 'url']
+        :return:
+        '''
+        nrows0 = self.df.shape[0]
+        ldf = self._load_(channel, keyword, fromDate, toDate, tablename,
+                          dbfnameChannel, dbfnameKeyword, dbfnamePostDate)
+        print(ldf)
+        nrowsldf = ldf.shape[0]
+
+        self.df = self.df.append(ldf)
+        addednRows = nrowsldf
+        droppednRows = 0
+
+        if drop_duplicate_by:
+            self.df.drop_duplicates(subset=drop_duplicate_by)
+            addednRows = self.df.shape[0]-nrows0
+            droppednRows = nrowsldf - addednRows
+        print(f'addData : added {addednRows} rows (dropped {droppednRows} rows)')
+
+    def _load_(self, channel, keyword, fromDate, toDate, tablename,
+               dbfnameChannel, dbfnameKeyword, dbfnamePostDate):
+        where_str = f"{dbfnameKeyword}='{keyword}' and {dbfnameChannel}='{channel}' and {dbfnamePostDate} between '{fromDate}' and '{toDate}'"
+        df = self.db.select(tablename,  "*", where_str, asDataFrame=True)
+        return df
 

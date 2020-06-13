@@ -1,7 +1,7 @@
 import requests
 import json
 import math
-from almaden import Sql
+from crawler_utils import Sql
 from crawler_utils import cleanse
 
 URL = 'https://www.bigkinds.or.kr/api/news/search.do'
