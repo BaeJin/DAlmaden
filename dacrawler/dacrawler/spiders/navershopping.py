@@ -3,11 +3,14 @@ import scrapy
 from selenium import webdriver
 from scrapy import Selector
 from scrapy.http import FormRequest
-
+import json
 import time
-
+import random
+from bs4 import BeautifulSoup
+import requests
 from ..almaden import Sql
 from ..items import NavershoppingListItem
+from ..items import NavershoppingReviewItem
 
 class NavershoppingListSpider(scrapy.Spider):
     name = 'navershoppinglist'
@@ -15,7 +18,6 @@ class NavershoppingListSpider(scrapy.Spider):
     #allowed_domains = ['https://search.shopping.naver.com/']
     #start_urls = ['https://search.shopping.naver.com//']
 
-    browser = webdriver.Chrome('c:/chromewebdriver/chromedriver.exe')
     custom_settings = {
         'ITEM_PIPELINES' : {"dacrawler.pipelines.NavershoppingListPipeline": 1},
         'FEED_FORMAT' : "csv",
@@ -24,8 +26,8 @@ class NavershoppingListSpider(scrapy.Spider):
     page = 1
     MAX_PAGE = 10
 
-
     def start_requests(self):
+        self.browser = webdriver.Chrome('c:/chromewebdriver/chromedriver.exe')
         yield scrapy.Request(f"https://search.shopping.naver.com/search/all?baseQuery={self.category}&frm=NVSHATC&pagingIndex={self.page}&pagingSize=40&productSet=total&query={self.category}&sort=rel&timestamp=&viewType=list", self.parse)
 
     def parse(self, response):
@@ -84,4 +86,49 @@ class NavershoppingListSpider(scrapy.Spider):
         else :
             self.browser.close()
 
+
+class NavershoppingReviewSpider(scrapy.Spider):
+    name = 'navershoppingreview'
+    custom_settings = {
+        'ITEM_PIPELINES' : {"dacrawler.pipelines.NavershoppingReviewPipeline": 2},
+    }
+    url = 'https://search.shopping.naver.com/detail/review_list.nhn'
+    formdata = {'nvMid':None, 'page':1, 'reviewSort':'accuracy', 'reviewType':'all','ligh':'true'}
+    nvMid_dict = {}
+    db = Sql('salmaden')
+
+    def start_requests(self):
+        ids = self.db.select('product','id, site_productID')
+        for id in ids :
+            if id['site_productID'] :
+                self.nvMid_dict[id['id']] = id['site_productID']
+        self.nvMid_dict = dict(sorted(self.nvMid_dict.items()))
+        print(self.nvMid_dict)
+        yield scrapy.Request('https://search.shopping.naver.com', self.parse)
+
+    def parse(self, response):
+        for product_id, nvMid in self.nvMid_dict.items() :
+            print(product_id, nvMid)
+            self.formdata['nvMid']= nvMid
+            page = 0
+            while True :
+                page+=1
+                print(page)
+                self.formdata['page'] = page
+                time.sleep(random.random() * 5)
+                res = requests.post(self.url, data=self.formdata)
+                if res.status_code == requests.codes.ok:
+                    soup = BeautifulSoup(res.text,'html.parser')
+                    reviews = soup.select(".atc_area")
+                    if len(reviews) < 0 : break
+                    for review in reviews :
+                        selector = Selector(text=str(review.contents))
+                        item = NavershoppingReviewItem()
+                        item["product_id"] = product_id
+                        item["site_productId"] = nvMid
+                        item["text"] = selector.css('div.atc::text').extract()
+                        item["postInfo"] = selector.css('.info_cell::text').extract()
+                        item["rating"] = selector.css('.curr_avg strong::text').extract()
+                        #item["selectedOption"]
+                        yield item
 

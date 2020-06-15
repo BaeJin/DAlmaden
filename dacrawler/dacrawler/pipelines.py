@@ -44,3 +44,27 @@ class NavershoppingListPipeline :
             self.db.insert('product',**item)
         except Exception as ex :
             print(ex)
+
+class NavershoppingReviewPipeline :
+    def __init__(self):
+        self.url_seen = set()
+        self.db = Sql('salmaden')
+
+    def process_item(self, item, spider):
+        item['text'] = self.cleanse(' '.join([t.strip() for t in item['text']]))
+        item["postInfo"] = str(item["postInfo"])
+        self.save_item(item)
+        return item
+
+    def save_item(self, item):
+        try :
+            self.db.insert('review',**item)
+        except Exception as ex :
+            print(ex)
+
+    def cleanse(self, text):
+        # DB 저장을 위한 최소한의 클린징
+        text = re.sub(u"[^\x20-\x7E가-힣]", " ", text)
+        text = re.sub(u"\\s+", " ", text)
+        return text.strip()
+
