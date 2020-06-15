@@ -44,7 +44,6 @@ class Data :
     def addData(self, channel, keyword, fromDate, toDate,
                 tablename, dbfnameChannel, dbfnameKeyword, dbfnamePostDate, drop_duplicate_by=None):
         '''
-
         :param channel: str
         :param keyword: str
         :param fromDate: 'yyyy-mm-dd'

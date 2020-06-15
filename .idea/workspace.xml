@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="311e0b03-4b2b-4263-bfce-7ffbd72a1175" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dacrawler/(referer" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dacrawler/navershoppinglist.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dacrawler/dacrawler/almaden.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dacrawler/dacrawler/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/dacrawler/dacrawler/items.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dacrawler/dacrawler/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/dacrawler/dacrawler/pipelines.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dacrawler/dacrawler/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/dacrawler/dacrawler/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dacrawler/dacrawler/spiders/navershopping.py" beforeDir="false" afterPath="$PROJECT_DIR$/dacrawler/dacrawler/spiders/navershoppinglist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dacrawler/dacrawler/spiders/navershoppinglist.py" beforeDir="false" afterPath="$PROJECT_DIR$/dacrawler/dacrawler/spiders/navershoppinglist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dacrawler/navershoppinglist.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dacrawler/navershoppinglist.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/preprocess/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/preprocess/loader.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,21 +38,22 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/dacrawler/dacrawler" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\AlmadenDA\Desktop\DA" />
-      <recent name="C:\Users\AlmadenDA\Desktop\DA\legacy" />
-      <recent name="C:\Users\AlmadenDA\Desktop\DA\webdrivers" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\AlmadenDA\Desktop\DAlmaden\engine\crawler" />
       <recent name="C:\Users\AlmadenDA\Desktop\DAlmaden" />
       <recent name="C:\Users\AlmadenDA\Desktop\DAlmaden\engine\analysis" />
       <recent name="C:\Users\AlmadenDA\Desktop\DA\etc\musicow" />
       <recent name="C:\Users\AlmadenDA\Desktop\DA" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\AlmadenDA\Desktop\DAlmaden\dacrawler\dacrawler" />
+      <recent name="C:\Users\AlmadenDA\Desktop\DA" />
+      <recent name="C:\Users\AlmadenDA\Desktop\DA\legacy" />
+      <recent name="C:\Users\AlmadenDA\Desktop\DA\webdrivers" />
     </key>
   </component>
   <component name="RunManager" selected="Python.sentimentAnalysis">

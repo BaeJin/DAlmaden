@@ -2,16 +2,25 @@
 import scrapy
 from selenium import webdriver
 from scrapy import Selector
+from scrapy.http import FormRequest
+
 import time
 
+from ..almaden import Sql
 from ..items import NavershoppingListItem
 
 class NavershoppingListSpider(scrapy.Spider):
     name = 'navershoppinglist'
     category = '헤어드라이어'
-    allowed_domains = ['https://search.shopping.naver.com/']
-    start_urls = ['https://search.shopping.naver.com//']
+    #allowed_domains = ['https://search.shopping.naver.com/']
+    #start_urls = ['https://search.shopping.naver.com//']
+
     browser = webdriver.Chrome('c:/chromewebdriver/chromedriver.exe')
+    custom_settings = {
+        'ITEM_PIPELINES' : {"dacrawler.pipelines.NavershoppingListPipeline": 1},
+        'FEED_FORMAT' : "csv",
+        'FEED_URI' : "navershoppinglist.csv"
+    }
     page = 1
     MAX_PAGE = 10
 
@@ -50,7 +59,6 @@ class NavershoppingListSpider(scrapy.Spider):
                 item['url'] = selector.css('.basicList_etc_box__1Jzg6 > a::attr(href)').extract()
                 #item['options'] = selector.css('.basicList_detail_box__3ta3h::text').extract()
                 item['etc'] = selector.css('.basicList_etc__2uAYO::text').extract()
-
                 yield item
 
             #scroll down
@@ -70,9 +78,10 @@ class NavershoppingListSpider(scrapy.Spider):
             else :
                  nScroll = 0
         self.page+=1
-        if self.page < self.MAX_PAGE :
-            self.start_requests()
+        if self.page <= self.MAX_PAGE :
+            print(self.page,"!!!!!"*100)
+            yield scrapy.Request(f"https://search.shopping.naver.com/search/all?baseQuery={self.category}&frm=NVSHATC&pagingIndex={self.page}&pagingSize=40&productSet=total&query={self.category}&sort=rel&timestamp=&viewType=list", self.parse, dont_filter=True)
+        else :
+            self.browser.close()
 
-        # for row in response.css('//*[@id="__next"]/div/div[2]/div[2]/div[3]/div[1]/ul/div/div/div/div') :
-        #     item = NavershoppingItem()
-        #     item.productName = row.
+

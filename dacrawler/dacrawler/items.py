@@ -26,3 +26,12 @@ class NavershoppingListItem(scrapy.Item) :
     nReview = scrapy.Field()
     options = scrapy.Field()
     etc = scrapy.Field()
+    site_productID = scrapy.Field()
+
+class NavershoppingRevieItem(scrapy.Item) :
+    product_id = scrapy.Field()
+    rating = scrapy.Field()
+    text = scrapy.Field()
+    selectedOption = scrapy.Field()
+    postDate = scrapy.Field()
+

@@ -6,6 +6,7 @@
 # See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 import re
 from scrapy.exceptions import DropItem
+from .almaden import Sql
 
 
 class DacrawlerPipeline:
@@ -15,6 +16,8 @@ class DacrawlerPipeline:
 class NavershoppingListPipeline :
     def __init__(self):
         self.url_seen = set()
+        self.db = Sql('salmaden')
+
     def process_item(self, item, spider):
         url = ''.join(item['url'])
         if url in self.url_seen :
@@ -24,4 +27,20 @@ class NavershoppingListPipeline :
             etcInfo = ' '.join(item['etc'])
             item['nReview'] = 1 if '리뷰' in etcInfo else 0
             item['updateDate'] = re.sub("[^0-9]","",etcInfo)
+            try :
+                item['price'] = int(re.sub('\D','',''.join(item['price'])))
+            except :
+                item['price'] = 0
+            try :
+                item['site_productID'] = re.sub(r"\D","",re.search(r'nvMid=\d+', ''.join(item['url'])).group())
+            except :
+                pass
+            self.save_item(item)
             return item
+
+    def save_item(self, item):
+        try :
+            item['etc'] = str(item['etc'])
+            self.db.insert('product',**item)
+        except Exception as ex :
+            print(ex)
