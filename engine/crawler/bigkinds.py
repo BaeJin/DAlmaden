@@ -42,7 +42,7 @@ CUSTOM_HEADER = {
 
 def crawl(keyword, startDate, endDate, nCrawl=1, comment = 'bigkinds'):
     channel = "bigkinds"
-    db = Sql('dalmaden', comment)
+    db = Sql('cdata', comment)
     n = 0
     i = 1 #페이지 index
     retry = 0
@@ -115,7 +115,7 @@ def crawl(keyword, startDate, endDate, nCrawl=1, comment = 'bigkinds'):
 
                         text = cleanse(content)
 
-                        db.insert('crawled_data',
+                        db.insert('cdata',
                                   task_id = task_id,
                                   keyword=keyword,
                                   channel=channel,

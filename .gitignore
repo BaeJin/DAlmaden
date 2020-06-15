@@ -1,2 +1,7 @@
 position/
 img/
+engine/analysis
+engine/crawler/db_to_ep.py
+etc/
+files/
+legacy/

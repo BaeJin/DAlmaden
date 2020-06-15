@@ -3,21 +3,17 @@ import naverblog
 import navernews
 from engine.crawler import bigkinds
 
-<<<<<<< HEAD
+
 bigkinds.crawl(keyword='은평 구청 홈페이지',
                 startDate='2017-01-01',
-=======
+               endDate='2020-12-31',
+               nCrawl = 1000)
 
-naverblog.crawl(keyword='닭가슴살',
-                startDate='2020-06-01',
->>>>>>> 10d8da611b14066d083338ae2f3019981b10ea41
-                endDate='2020-06-09',
-                nCrawl = 5000)
-
-# naverblog.crawl(keyword='바나나',
-#                 startDate='2020-01-01',
-#                 endDate='2020-05-31',
+# naverblog.crawl(keyword='닭가슴살',
+#                 startDate='2020-06-01',
+#                 endDate='2020-06-09',
 #                 nCrawl = 5000)
+
 
 # navershopping.crawl("전자담배",
 #                     'https://smartstore.naver.com/ibholdings/products/4050389904?NaPm=ct%3Dkapcytsw%7Cci%3Ded4ec39f12b11008b2b8b38d4aa9754a14ad5590%7Ctr%3Dslsl%7Csn%3D791544%7Cic%3D%7Chk%3D11dd8f4f22874fda5fb99f3758fdc13f60935474',
