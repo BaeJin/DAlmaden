@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="311e0b03-4b2b-4263-bfce-7ffbd72a1175" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dacrawler/dacrawler/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dacrawler/dacrawler/items.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dacrawler/dacrawler/middlewares.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dacrawler/dacrawler/pipelines.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dacrawler/dacrawler/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dacrawler/dacrawler/spiders/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dacrawler/dacrawler/spiders/navershopping.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dacrawler/scrapy.cfg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dacrawler/dacrawler/spiders/navershopping.py" beforeDir="false" afterPath="$PROJECT_DIR$/dacrawler/dacrawler/spiders/navershopping.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
