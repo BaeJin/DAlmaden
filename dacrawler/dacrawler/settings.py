@@ -15,6 +15,14 @@ SPIDER_MODULES = ['dacrawler.spiders']
 NEWSPIDER_MODULE = 'dacrawler.spiders'
 
 WEBDRIVER_PATH = 'c:/chromewebdriver/chromedriver.exe'
+
+FEED_FORMAT = "csv"
+FEED_URI = "navershoppinglist.csv"
+
+ITEM_PIPELINES = {
+    "dacrawler.pipelines.NavershoppingListPipeline" : 1
+}
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'dacrawler (+http://www.yourdomain.com)'
 
