@@ -12,6 +12,17 @@ from ..almaden import Sql
 from ..items import NavershoppingListItem
 from ..items import NavershoppingReviewItem
 
+
+CUSTOM_HEADER = {
+    'accept': 'application/json, text/plain, */*',
+    'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
+    'cookie': 'NNB=26JKENAB5VNFY; npic=LW1n/Y7lr1485twRJiDAu7IQNma7Byg1+eD1dujBnEarfw1Jj92XPcGCQrmTmIkDCA==; _ga=GA1.2.785938604.1550973896; nx_ssl=2; BMR=; _naver_usersession_=ldZTind9DyvToDWTHUQkNw==; page_uid=UfWJIwprvOsssOBmEzdssssstul-404192; JSESSIONID=FE270C9B4B35C84D83479B52E6020831.jvm1',
+    'referer': 'https://cr.shopping.naver.com/adcr.nhn?x=UqdHTJoNTCLmDRJmeUnHlf%2F%2F%2Fw%3D%3Dso9VDpccOJEJRAIk8kuUlxMWrABtahSEWMaqJo3m9UbdvL12W5aYi%2FTl6p%2B3d7gt2UDGZeWTm1v%2BM3dgb6pD%2BDcA8tPryz%2FlDyJRIn%2F3GbdYxTbKPi8joU3Nl4X0DXHSo3Y9fIdJ5zZ5Cp5gsTRBKAtyGaSr%2B0dRu37W7MMIB4NGtrk2YZNI7XPUxwzPc48d9mgXdPaip9zehn8GnNDvG2V9H67KEMncnWpoX4ZNWSLk4bc4NKsfCCJHgd8ZAW%2BSc%2FLKc3OGGtGoebD6lZ4I44ISv2w0Yv0stZD6LKftbf55bUf73NilrRL4RDYk4DmFeq3btKVxhUpidTfV6BgzPrJl5ZvLlNP%2B%2FvAE%2FR15kJfy9835OhANBmT1EtNrHhr2FCt5YK%2FmGsUxO25%2F2s6FZQcOmY27ZGze0Q%2BtXRlM4OxtarJoVrbEtunAYIkKGowOqukzgPDVXo6AvL8aV8tkrWSEhb%2B5%2BbgCLWD5ufmjwVaC0c1bmOP2u2YumOF3Sc7ORjT3CA11g7crAXPKtuqjMF6AhfbmRc6T9Q91MqoVII6q9tyiYebOu2HANWNhP0a1Sk4qXti8zVzVPIzmwp4FnMxjpTF8mUvzAqbc%2BYg0Db%2FqzD%2B13y5qA3088r1MNA5Dgw2popvk5HxytjbrmvguYxNgCgu8TH6IETI9IR%2BJIKXeXzoAYWtugk3VcH2L2xPlsYFx8Zt3N1gkRM4V7K6KABgau4fTwOUqyF63FjwpQRls%3D&nvMid={}&catId=50001986',
+    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36'}
+
+
+
 class NavershoppingListSpider(scrapy.Spider):
     name = 'navershoppinglist'
     category = '헤어드라이어'
@@ -96,7 +107,7 @@ class NavershoppingReviewSpider(scrapy.Spider):
     formdata = {'nvMid':None, 'page':1, 'reviewSort':'accuracy', 'reviewType':'all','ligh':'true'}
     nvMid_dict = {}
     db = Sql('salmaden')
-
+    temp = True
     def start_requests(self):
         ids = self.db.select('product','id, site_productID')
         for id in ids :
@@ -104,19 +115,21 @@ class NavershoppingReviewSpider(scrapy.Spider):
                 self.nvMid_dict[id['id']] = id['site_productID']
         self.nvMid_dict = dict(sorted(self.nvMid_dict.items()))
         print(self.nvMid_dict)
-        yield scrapy.Request('https://search.shopping.naver.com', self.parse)
+        yield scrapy.Request('http://daum.net', self.parse)
 
     def parse(self, response):
         for product_id, nvMid in self.nvMid_dict.items() :
             print(product_id, nvMid)
             self.formdata['nvMid']= nvMid
-            page = 0
+            CUSTOM_HEADER['referer'] = CUSTOM_HEADER['referer'].format(nvMid)
+            if self.temp : page = 350
+            else : page, self.temp = 0, False
             while True :
                 page+=1
                 print(page)
                 self.formdata['page'] = page
                 time.sleep(random.random() * 5)
-                res = requests.post(self.url, data=self.formdata)
+                res = requests.post(self.url, data=self.formdata, headers = CUSTOM_HEADER)
                 if res.status_code == requests.codes.ok:
                     soup = BeautifulSoup(res.text,'html.parser')
                     reviews = soup.select(".atc_area")
