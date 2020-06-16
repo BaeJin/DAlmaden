@@ -43,7 +43,7 @@ class Data :
             return df_documents
 
     def _getSentence_(self, text_seq):
-        if replace :
+        pass
 
     def addData(self, channel, keyword, fromDate, toDate,
                 tablename, dbfnameChannel, dbfnameKeyword, dbfnamePostDate, drop_duplicate_by=None):
