@@ -113,8 +113,8 @@ class NavershoppingReviewSpider(scrapy.Spider):
         for id in ids :
             if id['site_productID'] :
                 self.nvMid_dict[id['id']] = id['site_productID']
-        startIndex = 1                                                                    #setting startindex
-        self.nvMid_dict = dict(sorted(self.nvMid_dict.items())[1:])
+        startIndex = 2                                                                    #setting startindex
+        self.nvMid_dict = dict(sorted(self.nvMid_dict.items())[startIndex:])
         print(self.nvMid_dict)
         yield scrapy.Request('http://daum.net', self.parse)
 
@@ -136,7 +136,7 @@ class NavershoppingReviewSpider(scrapy.Spider):
                     retry = 0
                     soup = BeautifulSoup(res.text,'html.parser')
                     reviews = soup.select(".atc_area")
-                    if len(reviews) < 0 : break
+                    if len(reviews) < 1 : break
                     for review in reviews :
                         selector = Selector(text=str(review.contents))
                         item = ShoppingReviewItem()
