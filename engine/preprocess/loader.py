@@ -11,6 +11,7 @@ class Data :
         self.db = Sql(dbName)
         self.df = pd.DataFrame()
     def setDB(self, dbName, ):
+        pass
     def get_df(self, *colnames, by_sentence_textColname = None):
         '''
 
