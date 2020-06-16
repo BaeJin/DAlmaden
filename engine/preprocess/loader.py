@@ -11,55 +11,12 @@ class Data :
         self.db = Sql(dbName)
         self.df = pd.DataFrame()
 
-<<<<<<< HEAD
-    def _load_(self, channel, keyword, fromDate, toDate, tablename):
-
-        # where_str = f"keyword='{keyword}' and channel='{channel}' and postDate between '{fromDate}' and '{toDate}'"
-
-        #sociallisteing bigkinds
-        #where_str = f"keyword='{keyword}' and channelName='{channel}' and postDate between '{fromDate}' and '{toDate}'"
-
-        print('startdate')
-        where_str = f"keyword='{keyword}' and channel='{channel}' and startdate='{fromDate}' and enddate='{toDate}'"
-
-        ldf = self.db.select(tablename,  "*", where_str, asDataFrame=True)
-        return ldf
-
-    def addData(self, channel, keyword, fromDate, toDate,
-                tablename, drop_duplicate_by=None):
-        '''
-
-        :param channel: str
-        :param keyword: str
-        :param fromDate: 'yyyy-mm-dd'
-        :param toDate: 'yyyy-mm-dd'
-        :param tablename: str
-        :param drop_duplicate_by: 중복 제거 행이름 list. e.g.['keyword', 'url']
-        :return:
-        '''
-        nrows0 = self.df.shape[0]
-        ldf = self._load_(channel, keyword, fromDate, toDate, tablename)
-        print(ldf)
-        nrowsldf = ldf.shape[0]
-
-        self.df = self.df.append(ldf)
-        addednRows = nrowsldf
-        droppednRows = 0
-
-        if drop_duplicate_by:
-            self.drop_duplicates(subset=drop_duplicate_by)
-            addednRows = self.df.shape[0]-nrows0
-            droppednRows = nrowsldf - addednRows
-        print(f'addData : added {addednRows} rows (dropped {droppednRows} rows)')
-
     def drop_duplicates(self,subset):
         self.df = self.df.drop_duplicates(subset=subset)
 
     def shape(self):
         return self.df.shape
 
-=======
->>>>>>> 10d8da611b14066d083338ae2f3019981b10ea41
     def get_df(self, *colnames, by_sentence_textColname = None):
         '''
 
