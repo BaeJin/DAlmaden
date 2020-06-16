@@ -10,6 +10,13 @@ class Data :
     def __init__(self, dbName):
         self.db = Sql(dbName)
         self.df = pd.DataFrame()
+
+    def drop_duplicates(self,subset):
+        self.df = self.df.drop_duplicates(subset=subset)
+
+    def shape(self):
+        return self.df.shape
+
     def setDB(self, dbName, ):
         pass
     def get_df(self, *colnames, by_sentence_textColname = None):

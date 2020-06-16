@@ -4,11 +4,16 @@ from konlpy.tag import Kkma
 from konlpy.tag import Komoran
 from konlpy.tag import Hannanum
 from konlpy.tag import Twitter
-from MeCab import Tagger as Mecab
+from eunjeon import Mecab
 
 def get_nouns_list(text_seq) :
+# <<<<<<< HEAD
+#     morph = Morph(nlpEngine='Mecab')
+#     tokens_seq = text_seq.map(morph.get_nouns)
+# =======
     morph = Morph('Okt')
     tokens_seq = map(morph.get_nouns, tqdm(text_seq), "tokenizer : Getting Tokens ")
+# >>>>>>> 10d8da611b14066d083338ae2f3019981b10ea41
     return tokens_seq
 
 def df_mutate_tokens_morph(df, textColumnName="text") :

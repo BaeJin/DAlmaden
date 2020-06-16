@@ -82,8 +82,9 @@ class SeleniumDriver :
 
 class Sql :
     def __init__(self, dbName, comment = "",
-                 hostIP='106.246.169.202', userID='root', password='robot369', charset='utf8mb4'):
+                 hostIP='106.246.169.202', port=3306 ,userID='root', password='robot369', charset='utf8mb4'):
         self.dbName = dbName
+        self.port= port
         self.hostIP = hostIP
         self.userID = userID
         self.password = password
@@ -93,7 +94,7 @@ class Sql :
         self.connect()
 
     def connect(self):
-        self.conn = pymysql.connect(host=self.hostIP, user=self.userID, password=self.password,
+        self.conn = pymysql.connect(host=self.hostIP, port= self.port, user=self.userID, password=self.password,
                                db=self.dbName, charset=self.charset)
         self.curs = self.conn.cursor(pymysql.cursors.DictCursor)
 
