@@ -113,7 +113,7 @@ class NavershoppingReviewSpider(scrapy.Spider):
         for id in ids :
             if id['site_productID'] :
                 self.nvMid_dict[id['id']] = id['site_productID']
-        startIndex = 2                                                                    #setting startindex
+        startIndex = 3                                                                    #setting startindex
         self.nvMid_dict = dict(sorted(self.nvMid_dict.items())[startIndex:])
         print(self.nvMid_dict)
         yield scrapy.Request('http://daum.net', self.parse)

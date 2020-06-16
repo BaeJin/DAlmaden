@@ -4,11 +4,11 @@ import pandas as pd
 from .cleanser import cleanse_text, cleanse_sentence
 from tqdm import tqdm, trange
 
-from setting import DBSetting
 
 class Data :
-    def __init__(self, dbName):
-        self.db = Sql(dbName)
+    def __init__(self, item):
+        self.db = item.db
+        self.tableName = item.tableName
         self.df = pd.DataFrame()
 
     def setDB(self, dbName, tableName):
@@ -59,11 +59,6 @@ class Data :
     def addData(self, channel, keyword, fromDate, toDate,
                 tablename, dbfnameChannel, dbfnameKeyword, dbfnamePostDate, drop_duplicate_by=None):
         '''
-        :param channel: str
-        :param keyword: str
-        :param fromDate: 'yyyy-mm-dd'
-        :param toDate: 'yyyy-mm-dd'
-        :param tablename: str
         :param drop_duplicate_by: 중복 제거 행이름 list. e.g.['keyword', 'url']
         :return:
         '''
