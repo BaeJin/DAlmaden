@@ -10,7 +10,7 @@ class Data :
     def __init__(self, dbName):
         self.db = Sql(dbName)
         self.df = pd.DataFrame()
-
+    def setDB(self, dbName, ):
     def get_df(self, *colnames, by_sentence_textColname = None):
         '''
 
