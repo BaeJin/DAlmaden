@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="311e0b03-4b2b-4263-bfce-7ffbd72a1175" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dacrawler/dacrawler/spiders/navershopping.py" beforeDir="false" afterPath="$PROJECT_DIR$/dacrawler/dacrawler/spiders/navershopping.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,18 +35,18 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\AlmadenDA\Desktop\DAlmaden\dacrawler\dacrawler" />
+      <recent name="C:\Users\AlmadenDA\Desktop\DA" />
+      <recent name="C:\Users\AlmadenDA\Desktop\DA\legacy" />
+      <recent name="C:\Users\AlmadenDA\Desktop\DA\webdrivers" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\AlmadenDA\Desktop\DAlmaden\engine\crawler" />
       <recent name="C:\Users\AlmadenDA\Desktop\DAlmaden" />
       <recent name="C:\Users\AlmadenDA\Desktop\DAlmaden\engine\analysis" />
       <recent name="C:\Users\AlmadenDA\Desktop\DA\etc\musicow" />
       <recent name="C:\Users\AlmadenDA\Desktop\DA" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\AlmadenDA\Desktop\DAlmaden\dacrawler\dacrawler" />
-      <recent name="C:\Users\AlmadenDA\Desktop\DA" />
-      <recent name="C:\Users\AlmadenDA\Desktop\DA\legacy" />
-      <recent name="C:\Users\AlmadenDA\Desktop\DA\webdrivers" />
     </key>
   </component>
   <component name="RunManager" selected="Python.navershopping">
