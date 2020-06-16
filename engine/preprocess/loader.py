@@ -17,6 +17,8 @@ class Data :
     def shape(self):
         return self.df.shape
 
+    def setDB(self, dbName, ):
+        pass
     def get_df(self, *colnames, by_sentence_textColname = None):
         '''
 
@@ -47,10 +49,12 @@ class Data :
         else :
             return df_documents
 
+    def _getSentence_(self, text_seq):
+        pass
+
     def addData(self, channel, keyword, fromDate, toDate,
                 tablename, dbfnameChannel, dbfnameKeyword, dbfnamePostDate, drop_duplicate_by=None):
         '''
-
         :param channel: str
         :param keyword: str
         :param fromDate: 'yyyy-mm-dd'
