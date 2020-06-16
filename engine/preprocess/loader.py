@@ -41,6 +41,9 @@ class Data :
         else :
             return df_documents
 
+    def _getSentence_(self, text_seq):
+        if replace :
+
     def addData(self, channel, keyword, fromDate, toDate,
                 tablename, dbfnameChannel, dbfnameKeyword, dbfnamePostDate, drop_duplicate_by=None):
         '''

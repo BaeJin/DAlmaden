@@ -13,7 +13,7 @@ class DacrawlerItem(scrapy.Item):
     # name = scrapy.Field()
     pass
 
-class NavershoppingListItem(scrapy.Item) :
+class ShoppingListItem(scrapy.Item) :
     channel = scrapy.Field()
     url = scrapy.Field()
     category = scrapy.Field()
@@ -28,7 +28,7 @@ class NavershoppingListItem(scrapy.Item) :
     etc = scrapy.Field()
     site_productID = scrapy.Field()
 
-class NavershoppingReviewItem(scrapy.Item) :
+class ShoppingReviewItem(scrapy.Item) :
     product_id = scrapy.Field()
     rating = scrapy.Field()
     text = scrapy.Field()

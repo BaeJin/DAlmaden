@@ -9,8 +9,8 @@ import random
 from bs4 import BeautifulSoup
 import requests
 from ..almaden import Sql
-from ..items import NavershoppingListItem
-from ..items import NavershoppingReviewItem
+from ..items import ShoppingListItem
+from ..items import ShoppingReviewItem
 
 
 CUSTOM_HEADER = {
@@ -53,7 +53,7 @@ class NavershoppingListSpider(scrapy.Spider):
             print("length", len(eles))
 
             for i, ele in enumerate(eles) :
-                item = NavershoppingListItem()
+                item = ShoppingListItem()
                 try :
                     print('getting html')
                     html = ele.get_attribute('outerHTML')
@@ -122,7 +122,7 @@ class NavershoppingReviewSpider(scrapy.Spider):
             print(product_id, nvMid)
             self.formdata['nvMid']= nvMid
             CUSTOM_HEADER['referer'] = CUSTOM_HEADER['referer'].format(nvMid)
-            if self.temp : page = 350
+            if self.temp : page = 0                                                     #setting start page
             else : page, self.temp = 0, False
             while True :
                 page+=1
@@ -136,7 +136,7 @@ class NavershoppingReviewSpider(scrapy.Spider):
                     if len(reviews) < 0 : break
                     for review in reviews :
                         selector = Selector(text=str(review.contents))
-                        item = NavershoppingReviewItem()
+                        item = ShoppingReviewItem()
                         item["product_id"] = product_id
                         item["site_productId"] = nvMid
                         item["text"] = selector.css('div.atc::text').extract()
