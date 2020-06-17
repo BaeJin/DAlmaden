@@ -5,66 +5,54 @@ from .cleanser import cleanse_text, cleanse_sentence
 from tqdm import tqdm, trange
 
 
-class Data :
-    def __init__(self, item):
-        self.db = item.db
-        self.tableName = item.tableName
-        self.df = pd.DataFrame()
+class Loader :
+    def __init__(self, table):
+        self.db = table.db
+        self.tableName = table.tableName
 
-    def setDB(self, dbName, tableName):
-        self.db = Sql(dbName)
-        self.df = pd.DataFrame()
-
-    def drop_duplicates(self,subset):
-        self.df = self.df.drop_duplicates(subset=subset)
-
-    def shape(self):
-        return self.df.shape
+        self.fieldNames = table.fieldNames
 
 
+        self.channel_fieldName = table.channel_fieldName
+        self.keyword_fieldName = table.keyword_fieldName
+        self.date_fieldName = table.date_fieldName
+        self.text_fieldName = table.text_fieldName
+        self.duplicateChecker_fieldNames = table.duplicateChecker_fieldNames
 
-    def get_df(self, *colnames, by_sentence_textColname = None):
+        self.df = pd.DataFrame(columns=table.fieldNames)
+
+    def mutate_sentence(self):
         '''
 
         :param colnames: 행이름 str
         :param by_sentence_textColname: 문장 분해 대상 text 행이름
         :return: DataFrame
         '''
-        df_documents = self.df.loc[:,list(colnames)]
-        if by_sentence_textColname :
-            df_sentences = pd.DataFrame()
-            nrows = df_documents.shape[0]
-            for i in tqdm(range(nrows),"loader : Getting Sentences ") :
-                row = df_documents.iloc[i]
-                text = row[by_sentence_textColname]
-                if len(text) > 0 :
-                    text = cleanse_text(text)
-                    sentences = kss.split_sentences(text)    #텍스트 길이 300 넘는게 허다하게 나옴... 체크 필요함
-                    for s in sentences :
-                        s = cleanse_sentence(s)
-                        if len(s) > 0 :
-                            row_temp = row.copy()
-                            row_temp[by_sentence_textColname] = s
-                            df_sentences = df_sentences.append(row_temp)
-                else :
-                    continue
-            print(f"loader : Getting DataFrame Done {nrows} Documents to {df_sentences.shape[0]} Sentences")
-            return df_sentences
-        else :
-            return df_documents
 
-    def _getSentence_(self, text_seq):
-        pass
+        df_new = pd.DataFrame()
+        nrows = self.df.shape[0]
+        for i in tqdm(range(nrows),"loader : Getting Sentences ") :
+            row = self.df.iloc[i]
+            text = row[self.text_fieldName]
+            if len(text) > 0 :
+                text = cleanse_text(text)
+                sentences = kss.split_sentences(text)    #텍스트 길이 300 넘는게 허다하게 나옴... 체크 필요함
+                for s in sentences :
+                    s = cleanse_sentence(s)
+                    if len(s) > 0 :
+                        row_temp = row.copy()
+                        row_temp['text_sentence'] = s
+                        df_new = df_new.append(row_temp)
+            else :
+                continue
+        print(f"loader : Getting DataFrame Done {nrows} Documents to {df_new.shape[0]} Sentences")
+        self.df = df_new
 
-    def addData(self, channel, keyword, fromDate, toDate,
-                tablename, dbfnameChannel, dbfnameKeyword, dbfnamePostDate, drop_duplicate_by=None):
-        '''
-        :param drop_duplicate_by: 중복 제거 행이름 list. e.g.['keyword', 'url']
-        :return:
-        '''
+    def addData_where(self, where_str, drop_duplicate):
+
         nrows0 = self.df.shape[0]
-        ldf = self._load_(channel, keyword, fromDate, toDate, tablename,
-                          dbfnameChannel, dbfnameKeyword, dbfnamePostDate)
+
+        ldf = self.db.select(self.tableName, ", ".join(self.fieldNames), where_str, asDataFrame=True)
         print(ldf)
         nrowsldf = ldf.shape[0]
 
@@ -72,15 +60,14 @@ class Data :
         addednRows = nrowsldf
         droppednRows = 0
 
-        if drop_duplicate_by:
-            self.df.drop_duplicates(subset=drop_duplicate_by)
-            addednRows = self.df.shape[0]-nrows0
+        if drop_duplicate:
+            self.df.drop_duplicates(subset=self.duplicateChecker_fieldNames)
+            addednRows = self.df.shape[0] - nrows0
             droppednRows = nrowsldf - addednRows
         print(f'addData : added {addednRows} rows (dropped {droppednRows} rows)')
 
-    def _load_(self, channel, keyword, fromDate, toDate, tablename,
-               dbfnameChannel, dbfnameKeyword, dbfnamePostDate):
-        where_str = f"{dbfnameKeyword}='{keyword}' and {dbfnameChannel}='{channel}' and {dbfnamePostDate} between '{fromDate}' and '{toDate}'"
-        df = self.db.select(tablename,  "*", where_str, asDataFrame=True)
-        return df
+    def addData(self, channel, keyword, fromDate, toDate, drop_duplicate):
+        where_str = f"{self.keyword_fieldName}='{keyword}' and {self.channel_fieldName}='{channel}' and {self.date_fieldName} between '{fromDate}' and '{toDate}'"
+        self.addData_where(where_str, drop_duplicate)
+
 

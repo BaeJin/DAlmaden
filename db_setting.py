@@ -1,3 +1,4 @@
+
 DB_NAME = 'dalmaden'
 HOST_IP = '106.246.169.202'
 PORT = 3306

@@ -23,7 +23,6 @@ class ShoppingListItem(scrapy.Item) :
     updateDate = scrapy.Field()
     nReview = scrapy.Field()
     nSold = scrapy.Field()
-    nReview = scrapy.Field()
     options = scrapy.Field()
     etc = scrapy.Field()
     site_productID = scrapy.Field()

@@ -1,24 +1,19 @@
-import pandas as pd
 import os
 
 import engine.crawler as crawler
-from engine.preprocess.loader import Data
+from engine.preprocess.loader import Loader
 from engine.analysis.bagOfWords import get_bow_df, filter_words_bow
 from engine.analysis.tokenizer import get_nouns_list
 from engine.analysis.kano import visualize_df_kano, get_df_kano
+import tables as tables
 
-def load_df(channel, keyword, fromDate, toDate, by_sentence_textColname = None, tablename='cdata',
-            colNames = DBSetting.LOADING_COLUMNS, dbName=DBSetting.DBNAME) :
-    # data = Data(dbName)
-    # data.addData(channel, keyword, fromDate, toDate,
-    #             tablename=tablename, dbfnameChannel=DBSetting.COLNAME_CHANNEL, dbfnameKeyword=DBSetting.COLNAME_KEYWORD,
-    #              dbfnamePostDate=DBSetting.COLNAME_POST_DATE, drop_duplicate_by=['keyword','url'])
-    # df = data.get_df(*colNames,by_sentence_textColname=by_sentence_textColname)
-    # return df
-    pass
-
-def mutate_df_sentiment(df, textColname = 'text') :
-    pass
+def get_df(channel, keyword, fromDate, toDate, with_text_sentence = False) :
+    table = tables.Table_htdocsRegular()
+    loader = Loader(table)
+    loader.addData(channel, keyword, fromDate, toDate, drop_duplicate=True)
+    if with_text_sentence :
+        loader.mutate_sentence()
+    return loader.df
 
 def get_df_bow(text_seq, channel, type = 'noun', duplicate_count = False) :
     if type == 'noun' :

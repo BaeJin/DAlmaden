@@ -3,6 +3,7 @@ import datetime
 import pandas as pd
 import db_setting
 
+
 class Sql :
     def __init__(self, dbName, hostIP, port ,userID, password, charset='utf8mb4'):
         self.dbName = dbName
@@ -114,14 +115,31 @@ class Sql :
 
 
 class Table_sql :
+    tableName = 'tablename'
+
+    fieldNames = [
+        'id',
+        'channel',
+        'keyword',
+        'date'
+    ]
+
+    channel_fieldName = 'channel'
+    keyword_fieldName = 'keyword'
+    date_fieldName = 'date'
+    text_fieldName = 'text'
+    duplicateChecker_fieldNames = ['id'] # 중복 체크 기준(and), 없으면 []
+
     def __init__(self):
         #from db_setting
         self.db = Sql(dbName=db_setting.DB_NAME,
-                 hostIP=db_setting.HOST_IP,
-                 port=db_setting.PORT,
-                 userID=db_setting.USER_ID,
-                 password=db_setting.PASSWORD,
-                 charset=db_setting.CHARSET)
+                      hostIP=db_setting.HOST_IP,
+                      port=db_setting.PORT,
+                      userID=db_setting.USER_ID,
+                      password=db_setting.PASSWORD,
+                      charset=db_setting.CHARSET)
+
+
 
 
 

@@ -4,7 +4,7 @@ from konlpy.tag import Kkma
 from konlpy.tag import Komoran
 from konlpy.tag import Hannanum
 from konlpy.tag import Twitter
-from eunjeon import Mecab
+#from eunjeon import Mecab
 
 def get_nouns_list(text_seq) :
 # <<<<<<< HEAD
@@ -51,8 +51,8 @@ class Morph :
             self.nlp = Kkma()
         elif nlpEngine == "Hannanum":
             self.nlp = Hannanum()
-        elif nlpEngine == "Mecab":
-            self.nlp = Mecab()
+        # elif nlpEngine == "Mecab":
+        #     self.nlp = Mecab()
         elif nlpEngine == "Twitter":
             self.nlp = Twitter()
         else:

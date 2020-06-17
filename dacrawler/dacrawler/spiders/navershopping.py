@@ -107,14 +107,16 @@ class NavershoppingReviewSpider(scrapy.Spider):
     formdata = {'nvMid':None, 'page':1, 'reviewSort':'accuracy', 'reviewType':'all','ligh':'true'}
     nvMid_dict = {}
     db = Sql('salmaden')
-    temp = True
+    start_productID = 115
+    start_page = 32
+
     def start_requests(self):
-        ids = self.db.select('product','id, site_productID')
+        ids = self.db.select('product','id, site_productID', "channel = 'navershoppinglist'")
         for id in ids :
-            if id['site_productID'] :
+            if id['site_productID'] and int(id['id']) >= self.start_productID :
                 self.nvMid_dict[id['id']] = id['site_productID']
-        startIndex = 3                                                                    #setting startindex
-        self.nvMid_dict = dict(sorted(self.nvMid_dict.items())[startIndex:])
+
+        self.nvMid_dict = dict(sorted(self.nvMid_dict.items()))
         print(self.nvMid_dict)
         yield scrapy.Request('http://daum.net', self.parse)
 
@@ -123,11 +125,13 @@ class NavershoppingReviewSpider(scrapy.Spider):
             print(product_id, nvMid)
             self.formdata['nvMid']= nvMid
             CUSTOM_HEADER['referer'] = CUSTOM_HEADER['referer'].format(nvMid)
-            if self.temp : page = 0                                                     #setting start page
-            else : page, self.temp = 0, False
+            if self.start_page > 1 :
+                page = self.start_page
+                self.start_page = 1
+            else :
+                page = 1
             retry = 0
             while retry<3 :
-                page+=1
                 print(page)
                 self.formdata['page'] = page
                 time.sleep(random.random() * 5)
@@ -147,5 +151,6 @@ class NavershoppingReviewSpider(scrapy.Spider):
                         item["rating"] = selector.css('.curr_avg strong::text').extract()
                         #item["selectedOption"]
                         yield item
+                    page+=1
                 else :
                     retry += 1
