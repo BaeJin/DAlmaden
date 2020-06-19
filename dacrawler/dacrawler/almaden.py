@@ -82,8 +82,9 @@ class SeleniumDriver :
 
 class Sql :
     def __init__(self, dbName, comment = "",
-                 hostIP='106.246.169.202', userID='root', password='robot369', charset='utf8mb4'):
+                 hostIP='106.246.169.202', port=3306 ,userID='root', password='robot369', charset='utf8mb4'):
         self.dbName = dbName
+        self.port= port
         self.hostIP = hostIP
         self.userID = userID
         self.password = password
@@ -93,7 +94,7 @@ class Sql :
         self.connect()
 
     def connect(self):
-        self.conn = pymysql.connect(host=self.hostIP, user=self.userID, password=self.password,
+        self.conn = pymysql.connect(host=self.hostIP, port= self.port, user=self.userID, password=self.password,
                                db=self.dbName, charset=self.charset)
         self.curs = self.conn.cursor(pymysql.cursors.DictCursor)
 
@@ -166,21 +167,27 @@ class Sql :
 
     def insert(self, tablename, **params):
         '''
-        e.g. insert('datatable', date = '20150305', title = '테스트')
         :param tablename: str
         :param params: dict
         :return: id(int)
         '''
-        len_params = len(params)
+
         sql = "insert into %s("%(tablename)
-        for k in params.keys() :
-            sql += str(k)+","
-        sql = sql[:-1]+") values("
-        for i in range(len_params) :
-            sql += "%s"+","
-        sql = sql[:-1]+")"
-        v = tuple(params.values())
-        self.curs.execute(sql, v)
+        sql += ",".join([str(k) for k in params.keys()])
+        sql += ") values("
+        sql += ",".join(["%s"]*len(params))
+        sql += ")"
+        vs = []
+        for v in params.values() :
+            if v :
+                if type(v) is int or type(v) is float :
+                    vs.append(v)
+                else :
+                    vs.append(str(v))
+            else :
+                vs.append(None)
+        vs = tuple(vs)
+        self.curs.execute(sql, vs)
         row_id = self.curs.lastrowid
         self.conn.commit()
         return row_id
@@ -188,10 +195,3 @@ class Sql :
 
     def get_now_datetime(self):
         return datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-
-
-
-
-
-
-

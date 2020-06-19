@@ -21,19 +21,30 @@ CUSTOM_HEADER = {
     'referer': 'https://www.amazon.com/',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36'}
 
+CHANNEL = 'amazon'
+CATEGORY = 'air conditioner'
+#product
+PRODUCT_MAX_PAGE = 10
+#review
+REVIEW_START_PRODUCT_ID = 0
+REVIEW_START_PAGE = 1
+
+cate_url = CATEGORY.replace(" ","+")
 
 
 class AmazonListSpider(scrapy.Spider):
-    name = 'amazonlist'
-    category = 'hair dryer'
+    name = 'amazon_product'
+    channel = CHANNEL
+    category = CATEGORY
     custom_settings = {
         'ITEM_PIPELINES' : {"dacrawler.pipelines.AmazonListPipeline": 1},
         'FEED_FORMAT' : "csv",
         'FEED_URI' : "amazonlist.csv",
         'USER_AGENT' : "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36"
     }
-    MAX_PAGE = 7
-    start_urls = ["https://www.amazon.com/s?k=hair+dryer&page={}&qid=1592307818&ref=sr_pg_{}".format(i,i) for i in range(1,MAX_PAGE+1)]
+    MAX_PAGE = PRODUCT_MAX_PAGE
+
+    start_urls = [f"https://www.amazon.com/s?k={cate_url}&page={i}&qid=1592307818&ref=sr_pg_{i}" for i in range(1,MAX_PAGE+1)]
 
     def parse(self, response):
         time.sleep(3)
@@ -41,17 +52,18 @@ class AmazonListSpider(scrapy.Spider):
         for container in containers :
             item = ShoppingListItem()
             item['category'] = self.category
-            item['channel'] = self.name
+            item['channel'] = self.channel
             item['etc'] = container.css('div.a-section.aok-relative.s-image-square-aspect img::attr(src)').extract()  # 이미지 링크
-            item['productName'] = container.css('span.a-size-base-plus.a-color-base.a-text-normal::text').extract()
+            item['productName'] = container.css('div.sg-col-inner .a-link-normal.a-text-normal .a-color-base.a-text-normal::text').extract()
             item['price'] = container.css('a.a-size-base.a-link-normal.a-text-normal>span.a-price>.a-offscreen::text').extract()
             item['nReview'] = container.css('div.a-row.a-size-small a.a-link-normal .a-size-base::text').extract()
             item['url'] = container.css('div.a-row.a-size-small a.a-link-normal::attr(href)').extract()
             yield item
 
 class AmazonReviewSpider(scrapy.Spider):
-    name = 'amazonreview'
-    category = 'hair dryer'
+    name = 'amazon_review'
+    channel = CHANNEL
+    category = CATEGORY
 
     custom_settings = {
         'ITEM_PIPELINES' : {"dacrawler.pipelines.AmazonReviewPipeline": 1},
@@ -59,12 +71,13 @@ class AmazonReviewSpider(scrapy.Spider):
     }
     db = Sql('salmaden')
     products = {}
-    crawling_index = 0
-    start_productID = 0
-    start_page = 1
+    start_productID = REVIEW_START_PRODUCT_ID
+    start_page = REVIEW_START_PAGE
 
     def start_requests(self):
-        for product in self.db.select('product', 'id, url', "channel = 'amazonlist'"):
+        products = self.db.select('product','id, url', f"channel = 'amazon' and category= '{CATEGORY}'")
+        for product in products:
+            if not product['url'] : continue
             purl = product['url'].split("/")[1:-1]
             if not 'gp' in purl and product['id'] >= self.start_productID:
                 purl[1] = 'product-reviews'

@@ -21,11 +21,18 @@ CUSTOM_HEADER = {
     'referer': 'https://cr.shopping.naver.com/adcr.nhn?x=UqdHTJoNTCLmDRJmeUnHlf%2F%2F%2Fw%3D%3Dso9VDpccOJEJRAIk8kuUlxMWrABtahSEWMaqJo3m9UbdvL12W5aYi%2FTl6p%2B3d7gt2UDGZeWTm1v%2BM3dgb6pD%2BDcA8tPryz%2FlDyJRIn%2F3GbdYxTbKPi8joU3Nl4X0DXHSo3Y9fIdJ5zZ5Cp5gsTRBKAtyGaSr%2B0dRu37W7MMIB4NGtrk2YZNI7XPUxwzPc48d9mgXdPaip9zehn8GnNDvG2V9H67KEMncnWpoX4ZNWSLk4bc4NKsfCCJHgd8ZAW%2BSc%2FLKc3OGGtGoebD6lZ4I44ISv2w0Yv0stZD6LKftbf55bUf73NilrRL4RDYk4DmFeq3btKVxhUpidTfV6BgzPrJl5ZvLlNP%2B%2FvAE%2FR15kJfy9835OhANBmT1EtNrHhr2FCt5YK%2FmGsUxO25%2F2s6FZQcOmY27ZGze0Q%2BtXRlM4OxtarJoVrbEtunAYIkKGowOqukzgPDVXo6AvL8aV8tkrWSEhb%2B5%2BbgCLWD5ufmjwVaC0c1bmOP2u2YumOF3Sc7ORjT3CA11g7crAXPKtuqjMF6AhfbmRc6T9Q91MqoVII6q9tyiYebOu2HANWNhP0a1Sk4qXti8zVzVPIzmwp4FnMxjpTF8mUvzAqbc%2BYg0Db%2FqzD%2B13y5qA3088r1MNA5Dgw2popvk5HxytjbrmvguYxNgCgu8TH6IETI9IR%2BJIKXeXzoAYWtugk3VcH2L2xPlsYFx8Zt3N1gkRM4V7K6KABgau4fTwOUqyF63FjwpQRls%3D&nvMid={}&catId=50001986',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36'}
 
-
+CHANNEL = 'navershopping'
+CATEGORY = '에어컨'
+#product
+PRODUCT_MAX_PAGE = 10
+#review
+REVIEW_START_PRODUCT_ID = 0
+REVIEW_START_PAGE = 1
 
 class NavershoppingListSpider(scrapy.Spider):
-    name = 'navershoppinglist'
-    category = '헤어드라이어'
+    name = 'navershopping_product'
+    channel = CHANNEL
+    category = CATEGORY
     #allowed_domains = ['https://search.shopping.naver.com/']
     #start_urls = ['https://search.shopping.naver.com//']
 
@@ -35,7 +42,7 @@ class NavershoppingListSpider(scrapy.Spider):
         'FEED_URI' : "navershoppinglist.csv"
     }
     page = 1
-    MAX_PAGE = 10
+    MAX_PAGE = PRODUCT_MAX_PAGE
 
     def start_requests(self):
         self.browser = webdriver.Chrome('c:/chromewebdriver/chromedriver.exe')
@@ -64,7 +71,7 @@ class NavershoppingListSpider(scrapy.Spider):
                 selector = Selector(text=html)
                 #scrapping
                 item['category'] = self.category
-                item['channel'] = self.name
+                item['channel'] = self.channel
                 item['etc'] = selector.css('.basicList_img_area__a3NRA a img::attr(src)').extract()  #이미지 링크
                 item['productName'] = selector.css('.basicList_title__3P9Q7 a::text').extract()
                 item['price'] = selector.css('.price_num__2WUXn::text').extract()
@@ -82,7 +89,7 @@ class NavershoppingListSpider(scrapy.Spider):
             if scrollPostion1 == scrollPostion2 :
                 print("SCROLLLLLLLLLLLLLLLLLLLLL")
                 self.browser.execute_script("window.scrollBy(0, +200);")
-                print(self.browser.execute_script('return window.pageYOffset;'))
+                #print(self.browser.execute_script('return window.pageYOffset;'))
             # time.sleep(1)
             last_scrollHeight = scrollHeight
             scrollHeight = self.browser.execute_script('return document.body.scrollHeight')
@@ -99,7 +106,7 @@ class NavershoppingListSpider(scrapy.Spider):
 
 
 class NavershoppingReviewSpider(scrapy.Spider):
-    name = 'navershoppingreview'
+    name = 'navershopping_review'
     custom_settings = {
         'ITEM_PIPELINES' : {"dacrawler.pipelines.NavershoppingReviewPipeline": 2},
     }
@@ -107,11 +114,11 @@ class NavershoppingReviewSpider(scrapy.Spider):
     formdata = {'nvMid':None, 'page':1, 'reviewSort':'accuracy', 'reviewType':'all','ligh':'true'}
     nvMid_dict = {}
     db = Sql('salmaden')
-    start_productID = 115
-    start_page = 32
+    start_productID = REVIEW_START_PRODUCT_ID
+    start_page = REVIEW_START_PAGE
 
     def start_requests(self):
-        ids = self.db.select('product','id, site_productID', "channel = 'navershoppinglist'")
+        ids = self.db.select('product','id, site_productID', f"channel = 'navershoppinglist' and category= '{CATEGORY}'")
         for id in ids :
             if id['site_productID'] and int(id['id']) >= self.start_productID :
                 self.nvMid_dict[id['id']] = id['site_productID']

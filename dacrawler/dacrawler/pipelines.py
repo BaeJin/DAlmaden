@@ -41,7 +41,7 @@ class NavershoppingListPipeline :
     def save_item(self, item):
         try :
             item['etc'] = str(item['etc'])
-            self.db.insert('product',**item)
+            self.db.insert_withoutDuplication('product',['category','url'],**item)
         except Exception as ex :
             print(ex)
 
@@ -78,7 +78,7 @@ class AmazonListPipeline :
         item['options'] = str(productInfo[1:]) if len(productInfo) > 1 else 'none'
         item['productName'] = productInfo[0] if len(item['productName']) > 0 else 'none'
         item['price'] = re.sub("\D","",item['price'][0])
-        item['url'] = item['url'][0] if type(item['url']) is list and len(item['url'])>1 else item['url']
+        item['url'] = item['url'][0] if type(item['url']) is list and len(item['url'])>0 else item['url']
         self.save_item(item)
         return item
 
@@ -89,7 +89,7 @@ class AmazonListPipeline :
                     item[k] = str(v)
                 else :
                     print(k, v)
-            self.db.insert('product',**item)
+            self.db.insert_withoutDuplication('product',['category','url'],**item)
         except Exception as ex :
             print(ex)
 

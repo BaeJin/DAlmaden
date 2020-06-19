@@ -95,16 +95,27 @@ class Sql :
         :param params: dict
         :return: id(int)
         '''
-        len_params = len(params)
+        '''
+        :param tablename: str
+        :param params: dict
+        :return: id(int)
+        '''
         sql = "insert into %s("%(tablename)
-        for k in params.keys() :
-            sql += str(k)+","
-        sql = sql[:-1]+") values("
-        for i in range(len_params) :
-            sql += "%s"+","
-        sql = sql[:-1]+")"
-        v = tuple(params.values())
-        self.curs.execute(sql, v)
+        sql += ",".join([str(k) for k in params.keys()])
+        sql += ") values("
+        sql += ",".join(["%s"]*len(params))
+        sql += ")"
+        vs = []
+        for v in params.values() :
+            if v :
+                if type(v) is int or type(v) is float :
+                    vs.append(v)
+                else :
+                    vs.append(str(v))
+            else :
+                vs.append(None)
+        vs = tuple(vs)
+        self.curs.execute(sql, vs)
         row_id = self.curs.lastrowid
         self.conn.commit()
         return row_id
