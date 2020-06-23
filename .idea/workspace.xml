@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="311e0b03-4b2b-4263-bfce-7ffbd72a1175" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/amazon_dryer_bow.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/engine/analysis/radar.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/engine/preprocess/sentence_spliter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almaden.py" beforeDir="false" afterPath="$PROJECT_DIR$/almaden.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dacrawler/amazonlist.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dacrawler/amazonlist.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dacrawler/amazonreview.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dacrawler/dacrawler/almaden.py" beforeDir="false" afterPath="$PROJECT_DIR$/dacrawler/dacrawler/almaden.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dacrawler/dacrawler/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/dacrawler/dacrawler/pipelines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dacrawler/dacrawler/spiders/amazon.py" beforeDir="false" afterPath="$PROJECT_DIR$/dacrawler/dacrawler/spiders/amazon.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dacrawler/dacrawler/spiders/navershopping.py" beforeDir="false" afterPath="$PROJECT_DIR$/dacrawler/dacrawler/spiders/navershopping.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dacrawler/navershoppinglist.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/dataEngine.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/dataEngine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/preprocess/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/preprocess/loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

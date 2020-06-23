@@ -21,6 +21,9 @@ class Loader :
 
         self.df = pd.DataFrame(columns=table.fieldNames)
 
+    def get_df(self):
+        return self.df
+
     def mutate_sentence(self):
         '''
 
