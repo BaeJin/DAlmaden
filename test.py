@@ -86,3 +86,7 @@ bow_df = pd.DataFrame({'keyword' : list(bow_dict.keys()), 'count' : list(bow_dic
 bow_df
 
 bow_df.to_csv("amazon_dryer_bow.csv")
+
+import os
+
+os.listdir()

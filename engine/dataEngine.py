@@ -2,7 +2,8 @@ import pymysql
 import datetime
 import pandas as pd
 import db_setting
-
+from almadenkorea.db import Sql
+s = Sql()
 
 class Sql :
     def __init__(self, dbName, hostIP, port ,userID, password, charset='utf8mb4'):
@@ -84,6 +85,7 @@ class Sql :
             if k in check_list :
                new_params[k] = v
         if self.check_duplication(tablename, **new_params) :
+            print('duplicated')
             return None
         else :
             return self.insert(tablename, **params)
@@ -120,21 +122,18 @@ class Sql :
         self.conn.commit()
         return row_id
 
-
     def get_now_datetime(self):
         return datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 
 class Table_sql :
     tableName = 'tablename'
-
     fieldNames = [
         'id',
         'channel',
         'keyword',
         'date'
     ]
-
     channel_fieldName = 'channel'
     keyword_fieldName = 'keyword'
     date_fieldName = 'date'

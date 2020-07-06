@@ -22,7 +22,7 @@ CUSTOM_HEADER = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36'}
 
 CHANNEL = 'navershopping'
-CATEGORY = '에어컨'
+CATEGORY = '얇은피교자'
 #product
 PRODUCT_MAX_PAGE = 10
 #review
