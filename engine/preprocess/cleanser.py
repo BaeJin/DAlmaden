@@ -1,8 +1,19 @@
 import re
 
-def cleanse_text(text) :
-    text = cleanse_text_legacy(text)
+def clean_text(text) :
+    #영문한글
+    text = re.sub(u"<.+?>", " ", text) #태그제거
+    text = re.sub(u"(http[^ ]*)", " ", text) #링크제거
+    text = re.sub(u"@(.)*\s", " ", text) #메일주소제거
+    text = re.sub(u"#", "", text) #태그제거
+    text = re.sub(u"[^가-힣A-z?!.,]", " ", text)  # 숫자 넣을거면 [^가-힣A-z0-9?!.,]
+    text = re.sub(u"\\s+", " ", text) #공백1개
+    text = text.strip()
+
+    # 띄어쓰기 안된 문장 제거
     text = re.sub(u"[가-힣A-z0-9]{20,}","",text)
+
+    # 구두점 단독/중복사용 제거
     text = text.replace(" .",".")
     text = text.replace(" ,",",")
     text = text.replace(" !","!")
@@ -15,62 +26,53 @@ def cleanse_text(text) :
     text = re.sub(u" [^가-힣A-z0-9] ", "", text)
     return text
 
-def cleanse_sentence(sentence) :
-    sentence = sentence.strip()
-    count_char = len(sentence)
-    if count_char>300 :
-        #print('텍스트 길이가 300을 넘습니다.')
-        #print(sentence)
-        sentence=sentence[:300]
-    #if detect_sentence_commerce(sentence) :
-    #    print('광고 문장으로 분류되었습니다.')
-    #    print(sentence)
-    #    sentence = ""
-    return sentence
+def cut_sentence(sentence, cut=300) :
+    #cut : 최대 문장길이
+    sentence = sentence.lstrip()
+    return sentence[:cut].rstrip() if len(sentence)>cut else sentence.rstrip()
 
-def detect_sentence_commerce(sentence, ratio=0.2) :
-    if _getCharacterRatio_(sentence,"원") > ratio :
-        return True
-    else :
-        return False
+def filter_by_wordsFreq(text, target_words=[], min_ratio=0.1, preset="") :
+    if preset == "부고" :
+        target_words = ['발인', '장례', '별세', '병원',
+                    '장인상', '장모상', '모친상', '부친상', '조모상', '조부상']
+        min_ratio = 0.07
+    elif preset == "인사" :
+        target_words = ['부장', '과장', '원장', '국장', '청장', '관장', '이사',
+                        '대표', '단장', '실장', '상무', '전무', '소장']
+        min_ratio = 0.1
 
-def cleanse_text_legacy(text) :
-    text = re.sub(u"<.+?>"," ",text)
-    text = re.sub(u"(http[^ ]*)", " ", text)
-    text = re.sub(u"@(.)*\s", " ", text)
-    text = re.sub(u"#", "", text)
-    text = re.sub(u"[^가-힣A-z?!.,]", " ", text) #숫자 넣을거면 [^가-힣A-z0-9?!.,]
-    text = re.sub(u"\\s+", " ", text)
-    text = text.strip()
-    return text
+    elif preset == "판매":
+        target_words = ['원']
+        min_ratio = 0.1
 
-def isBugo(text, min_ratio = 0.1) :
-    keywords = ['발인','장례','별세','병원',
-                '장인상','장모상','모친상','부친상','조모상','조부상']
-    ratio = _getKewordsRatio_(text,keywords)
-    judge = True if ratio >= min_ratio else False
-    print(ratio)
-    return judge
-
-def isNewsPeoples(text, min_ratio = 0.1) :
-    keywords = ['부장', '과장','원장', '국장', '청장', '관장', '이사', '대표', '단장', '실장', '상무','전무','소장']
-    ratio = _getKewordsRatio_(text,keywords)
+    ratio = _getKewordsRatio_(text, target_words)
     judge = True if ratio >= min_ratio else False
     return judge
+
 
 def _getKewordsRatio_(text,keywords) :
+    #키워드가 포함된 단어의 비율
     word_list = text.split(" ")
     count_t=len(word_list)
-    count_p = 0
-    for word in word_list :
-        for p in keywords :
-            if p in word :
-                count_p+=1
-                break
-    ratio = count_p/(count_t+1)
+    if count_t > 0 :
+        count_p = 0
+        for word in word_list :
+            for p in keywords :
+                if p in word :
+                    count_p+=1
+                    break
+        ratio = count_p/count_t
+    else :
+        ratio = 0
     return ratio
 
+def filter_by_charFreq(text, target_character, min_ratio, preset="") :
+    #특정 문자의 등장 빈도
+    ratio = _getCharacterRatio_(text, target_character)
+    judge = True if ratio >= min_ratio else False
+    return judge
+
 def _getCharacterRatio_(text,character) :
-    count_all = len(text.replace(" ",""))+1
-    count_char = text.count(character)
-    return count_char/count_all
+    count_all = len(text.replace(" ",""))
+    ratio = text.count(character)/count_all if count_all>0 else 0
+    return ratio
