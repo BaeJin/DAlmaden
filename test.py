@@ -1,5 +1,5 @@
 from almaden import Sql
-from engine.preprocess.sentence_spliter import get_sentence_df
+from engine.preprocess.dataPreprocessor import get_sentence_df
 import nltk
 import tqdm
 import pandas as pd

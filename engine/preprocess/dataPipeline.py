@@ -1,7 +1,7 @@
 import pymysql
 import pandas as pd
 
-class Sql_loader:
+class Sql_dataLoader:
     def __init__(self,sql, tablename, fieldnames):
         self.__fieldnames = fieldnames
         self.__tablename = tablename
