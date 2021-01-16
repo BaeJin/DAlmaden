@@ -1,0 +1,914 @@
+ISO INTERNATIONAL STANDARD
+9241-210
+First edition 2010-03-15
+Ergonomics of human–system interaction — Part 210: Human-centred design for interactive systems
+Ergonomie de l'interaction homme–système —
+Partie 210: Conception centrée sur l'opérateur humain pour les systèmes interactifs
+Reference number ISO 9241-210:2010(E)
+--`,,```,,,,````-`-`,,`,,`,`,,`---
+Copyright International Organization for Standardization
+© ISO 2010 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+COPYRIGHT PROTECTED DOCUMENT
+© ISO 2010 All rights reserved. Unless otherwise specified, no part of this publication may be reproduced or utilized in any form or by any means, electronic or mechanical, including photocopying and microfilm, without permission in writing from either ISO at the address below or ISO's member body in the country of the requester.
+ISO copyright office Case postale 56 • CH-1211 Geneva 20 Tel. + 41 22 749 01 11 Fax + 41 22 749 09 47 E-mail copyright@iso.org Web www.iso.org Published in Switzerland
+Copyright International ii Organization for Standardization © ISO 2010 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale --`,,```,,,,````-`-`,,`,,`,`,,`---
+ISO 9241-210:2010(E)
+PDF disclaimer
+This PDF file may contain embedded typefaces. In accordance with Adobe's licensing policy, this file may be printed or viewed but shall not be edited unless the typefaces which are embedded are licensed to and installed on the computer performing the editing. In downloading this file, parties accept therein the responsibility of not infringing Adobe's licensing policy. The ISO Central Secretariat accepts no liability in this area.
+Adobe is a trademark of Adobe Systems Incorporated.
+Details of the software products used to create this PDF file can be found in the General Info relative to the file; the PDF-creation parameters were optimized for printing. Every care has been taken to ensure that the file is suitable for use by ISO member bodies. In the unlikely event that a problem relating to it is found, please inform the Central Secretariat at the address given below.
+ISO 9241-210:2010(E)
+Contents Page
+Foreword ............................................................................................................................................................iv
+Introduction........................................................................................................................................................vi
+1 Scope......................................................................................................................................................1
+2 Terms and definitions ...........................................................................................................................1
+3 Rationale for adopting human-centred design...................................................................................4
+4 Principles of human-centred design ...................................................................................................5 4.1 General ...................................................................................................................................................5 4.2 The design is based upon an explicit understanding of users, tasks and environments.............5 4.3 Users are involved throughout design and development.................................................................6 4.4 The design is driven and refined by user-centred evaluation ..........................................................6 4.5 The process is iterative.........................................................................................................................6 4.6 The design addresses the whole user experience ............................................................................7 4.7 The design team includes multidisciplinary skills and perspectives ..............................................8
+5 Planning human-centred design..........................................................................................................8 5.1 General ...................................................................................................................................................8 5.2 Responsibility........................................................................................................................................8 5.3 Content of plan ......................................................................................................................................9 5.4 Integration with project plan ................................................................................................................9 5.5 Timing and resources ...........................................................................................................................9
+6 Human-centred design activities .......................................................................................................10 6.1 General .................................................................................................................................................10 6.2 Understanding and specifying the context of use...........................................................................11 6.3 Specifying the user requirements .....................................................................................................12 6.4 Producing design solutions ...............................................................................................................14 6.5 Evaluating the design .........................................................................................................................16
+7 Sustainability and human-centred design........................................................................................19
+8 Conformance .......................................................................................................................................19
+Annex A (informative) Overview of the ISO 9241 series ...............................................................................21
+Annex B (informative) Sample procedure for assessing applicability and conformance.........................22
+Bibliography......................................................................................................................................................32
+Copyright International Organization © ISO for 2010 Standardization
+– All rights reserved iii Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+Foreword
+ISO (the International Organization for Standardization) is a worldwide federation of national standards bodies (ISO member bodies). The work of preparing International Standards is normally carried out through ISO technical committees. Each member body interested in a subject for which a technical committee has been established has the right to be represented on that committee. International organizations, governmental and non-governmental, in liaison with ISO, also take part in the work. ISO collaborates closely with the International Electrotechnical Commission (IEC) on all matters of electrotechnical standardization.
+International Standards are drafted in accordance with the rules given in the ISO/IEC Directives, Part 2.
+The main task of technical committees is to prepare International Standards. Draft International Standards adopted by the technical committees are circulated to the member bodies for voting. Publication as an International Standard requires approval by at least 75 % of the member bodies casting a vote.
+Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. ISO shall not be held responsible for identifying any or all such patent rights.
+ISO 9241-210 was prepared by Technical Committee ISO/TC 159, Ergonomics, Subcommittee SC 4, Ergonomics of human-system interaction.
+This first edition of ISO 9241-210 cancels and replaces ISO 13407:1999, of which it constitutes a technical revision. The changes include the following:
+— clarifying the role of iteration in the whole design process (not just evaluation);
+— emphasizing that human-centred methods can be used throughout the system life cycle;
+— explaining design activities;
+— clarifying the principles of human-centred design.
+ISO 9241 consists of the following parts, under the general title Ergonomic requirements for office work with visual display terminals (VDTs):
+— Part 1: General introduction
+— Part 2: Guidance on task requirements
+— Part 3: Visual display requirements
+— Part 4: Keyboard requirements
+— Part 5: Workstation layout and postural requirements
+— Part 6: Guidance on the work environment
+— Part 9: Requirements for non-keyboard input devices
+— Part 11: Guidance on usability
+— Part 12: Presentation of information
+— Part 13: User guidance
+Copyright International iv Organization for Standardization
+© ISO 2010 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+— Part 14: Menu dialogues
+— Part 15: Command dialogues
+— Part 16: Direct manipulation dialogues
+— Part 17: Form filling dialogues
+ISO 9241 also consists of the following parts, under the general title Ergonomics of human–system interaction:
+— Part 20: Accessibility guidelines for information/communication technology (ICT) equipment and services
+— Part 100: Introduction to standards related to software ergonomics [Technical Report]
+— Part 110: Dialogue principles
+— Part 151: Guidance on World Wide Web user interfaces
+— Part 171: Guidance on software accessibility
+— Part 210: Human-centred design for interactive systems
+— Part 300: Introduction to electronic visual display requirements
+— Part 302: Terminology for electronic visual displays
+— Part 303: Requirements for electronic visual displays
+— Part 304: User performance test methods for electronic visual displays
+— Part 305: Optical laboratory test methods for electronic visual displays
+— Part 306: Field assessment methods for electronic visual displays
+— Part 307: Analysis and compliance test methods for electronic visual displays
+— Part 308: Surface-conduction electron-emitter displays (SED) [Technical Report]
+— Part 309: Organic light-emitting diode (OLED) displays [Technical Report]
+— Part 400: Principles and requirements for physical input devices
+— Part 410: Design criteria for physical input devices
+— Part 420: Selection procedures for physical input devices
+— Part 910: Framework for tactile and haptic interaction
+— Part 920: Guidance on tactile and haptic interactions
+The following parts are under preparation:
+— Part 129: Guidance on software individualization
+— Part 143: Forms-based dialogues
+— Part 310: Visibility, aesthetics and ergonomics of pixel defects [Technical Report]
+Design guidance for interactive voice response (IVR) applications and evaluation methods for the design of physical input devices are to form the subjects of future parts 154 and 411.
+Copyright International Organization © ISO for 2010 Standardization
+– All rights reserved v Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+Introduction
+Human-centred design is an approach to interactive systems development that aims to make systems usable and useful by focusing on the users, their needs and requirements, and by applying human factors/ergonomics, and usability knowledge and techniques. This approach enhances effectiveness and efficiency, improves human well-being, user satisfaction, accessibility and sustainability; and counteracts possible adverse effects of use on human health, safety and performance.
+There is a substantial body of human factors/ergonomics and usability knowledge about how human-centred design can be organized and used effectively. This part of ISO 9241 aims to make this information available to help those responsible for managing hardware and software design and re-design processes to identify and plan effective and timely human-centred design activities.
+The human-centred approach to design described in this part of ISO 9241 complements existing systems design approaches. It can be incorporated in approaches as diverse as object-oriented, waterfall and rapid application development.
+The principles of human-centred design and the related activities have not changed substantially since ISO 13407 was produced and have been validated by ten years of application. This part of ISO 9241 reflects this by making requirements as well as recommendations.
+--`,,```,,,,````-`-`,,`,,`,`,,`---
+Copyright International vi Organization for Standardization
+© ISO 2010 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+INTERNATIONAL STANDARD ISO 9241-210:2010(E)
+Ergonomics of human–system interaction —
+Part 210: Human-centred design for interactive systems
+1 Scope
+This part of ISO 9241 provides requirements and recommendations for human-centred design principles and activities throughout the life cycle of computer-based interactive systems. It is intended to be used by those managing design processes, and is concerned with ways in which both hardware and software components of interactive systems can enhance human–system interaction.
+NOTE 1 Computer-based interactive systems vary in scale and complexity. Examples include off-the-shelf (shrink-wrap) software products, custom office systems, process control systems, automated banking systems, Web sites and applications, and consumer products such as vending machines, mobile phones and digital television. Throughout this part of ISO 9241, such systems are generally referred to as products, systems or services although, for simplicity, sometimes only one term is used.
+This part of ISO 9241 provides an overview of human-centred design activities. It does not provide detailed coverage of the methods and techniques required for human-centred design, nor does it address health or safety aspects in detail. Although it addresses the planning and management of human-centred design, it does not address all aspects of project management.
+The information in this part of ISO 9241 is intended for use by those responsible for planning and managing projects that design and develop interactive systems. It therefore addresses technical human factors and ergonomics issues only to the extent necessary to allow such individuals to understand their relevance and importance in the design process as a whole. It also provides a framework for human factors and usability professionals involved in human-centred design. Detailed human factors/ergonomics, usability and accessibility issues are dealt with more fully in a number of standards including other parts of ISO 9241 (see Annex A) and ISO 6385, which sets out the broad principles of ergonomics.
+The requirements and recommendations in this part of ISO 9241 can benefit all parties involved in human- centred design and development. Annex B provides a checklist that can be used to support claims of conformance with this part of ISO 9241.
+NOTE 2 Annex A and the Bibliography contain information about relevant related standards.
+2 Terms and definitions
+For this document, the following terms and definitions apply.
+2.1 accessibility 〈interactive systems〉 usability of a product, service, environment or facility by people with the widest range of capabilities
+[ISO 9241-171]
+Copyright International Organization © ISO for 2010 Standardization
+– All rights reserved 1 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+2.2 context of use users, tasks, equipment (hardware, software and materials), and the physical and social environments in which a product is used
+[ISO 9241-11:1998]
+2.3 effectiveness accuracy and completeness with which users achieve specified goals
+[ISO 9241-11:1998]
+2.4 efficiency resources expended in relation to the accuracy and completeness with which users achieve goals
+[ISO 9241-11:1998]
+2.5 ergonomics study of human factors scientific discipline concerned with the understanding of interactions among human and other elements of a system, and the profession that applies theory, principles, data and methods to design in order to optimize human well-being and overall system performance
+[ISO 6385:2004]
+2.6 goal intended outcome
+[ISO 9241-11:1998]
+2.7 human-centred design approach to systems design and development that aims to make interactive systems more usable by focusing on the use of the system and applying human factors/ergonomics and usability knowledge and techniques
+NOTE 1 The term “human-centred design” is used rather than “user-centred design” in order to emphasize that this part of ISO 9241 also addresses impacts on a number of stakeholders, not just those typically considered as users. However, in practice, these terms are often used synonymously.
+NOTE 2 Usable systems can provide a number of benefits, including improved productivity, enhanced user well-being, avoidance of stress, increased accessibility and reduced risk of harm.
+2.8 interactive system combination of hardware, software and/or services that receives input from, and communicates output to, users
+NOTE This includes, where appropriate, packaging, branding, user documentation, on-line help, support and training.
+2.9 prototype 〈interactive system〉 representation of all or part of an interactive system, that, although limited in some way, can be used for analysis, design and evaluation
+NOTE A prototype may be as simple as a sketch or static mock-up or as complicated as a fully functioning interactive system with more or less complete functionality.
+Copyright International 2 Organization for Standardization
+© ISO 2010 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+2.10 satisfaction freedom from discomfort and positive attitudes towards the use of the product
+[ISO 9241-11:1998]
+2.11 stakeholder individual or organization having a right, share, claim or interest in a system or in its possession of characteristics that meet their needs and expectations
+[ISO/IEC 15288:2008]
+2.12 task activities required to achieve a goal
+[ISO 9241-11:1998]
+2.13 usability extent to which a system, product or service can be used by specified users to achieve specified goals with effectiveness, efficiency and satisfaction in a specified context of use
+NOTE Adapted from ISO 9241-11:1998.
+2.14 user person who interacts with the product
+[ISO 9241-11:1998]
+2.15 user experience person's perceptions and responses resulting from the use and/or anticipated use of a product, system or service
+NOTE 1 User experience includes all the users' emotions, beliefs, preferences, perceptions, physical and psychological responses, behaviours and accomplishments that occur before, during and after use.
+NOTE 2 User experience is a consequence of brand image, presentation, functionality, system performance, interactive behaviour and assistive capabilities of the interactive system, the user's internal and physical state resulting from prior experiences, attitudes, skills and personality, and the context of use.
+NOTE 3 Usability, when interpreted from the perspective of the users' personal goals, can include the kind of perceptual and emotional aspects typically associated with user experience. Usability criteria can be used to assess aspects of user experience.
+2.16 user interface all components of an interactive system (software or hardware) that provide information and controls for the user to accomplish specific tasks with the interactive system
+[ISO 9241-110:2006]
+Copyright International Organization © ISO for 2010 Standardization
+– All rights reserved 3 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+2.17 validation confirmation, through the provision of objective evidence, that the requirements for a specific intended use or application have been fulfilled
+[ISO 9000:2005]
+NOTE Validation is the set of activities ensuring and gaining confidence that a system is able to accomplish its intended use, goals and objectives (i.e. meet stakeholder requirements) in the intended operational environment.
+2.18 verification confirmation, through the provision of objective evidence, that specified requirements have been fulfilled
+[ISO 9000:2005]
+NOTE Verification is a set of activities that compares a system or system element against the required characteristics. This can include, but is not limited to, specified requirements, design description and the system itself.
+3 Rationale for adopting human-centred design
+Using a human-centred approach to design and development has substantial economic and social benefits for users, employers and suppliers. Highly usable systems and products tend to be more successful both technically and commercially. In some areas, such as consumer products, purchasers will pay a premium for well-designed products and systems. Support and help-desk costs are reduced when users can understand and use products without additional assistance. In most countries, employers and suppliers have legal obligations to protect users from risks to their health, and safety and human-centred methods can reduce these risks (e.g. musculoskeletal risks). Systems designed using human-centred methods improve quality, for example, by:
+a) increasing the productivity of users and the operational efficiency of organizations;
+b) being easier to understand and use, thus reducing training and support costs;
+c) increasing usability for people with a wider range of capabilities and thus increasing accessibility;
+d) improving user experience;
+e) reducing discomfort and stress;
+f) providing a competitive advantage, for example by improving brand image;
+g) contributing towards sustainability objectives.
+The complete benefits of human-centred design can be determined by taking into account the total life cycle costs of the product, system or service, including conception, design, implementation, support, use, maintenance and, finally, disposal. Taking a human-centred design approach contributes to other aspects of system design, for example, by improving the identification and definition of functional requirements. Taking a human-centred design approach also increases the likelihood of completing the project successfully, on time, and within budget. Using appropriate human-centred methods can reduce the risk of the product failing to meet stakeholder requirements or being rejected by its users.
+Examples of outputs from human-centred design activities are illustrated in Table 1.
+Copyright International 4 Organization for Standardization
+© ISO 2010 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+Table 1 — Examples of outputs from human-centred design activities
+Activities Outputs from human-centred design
+Understand and specify the context of use Context of use description
+Specify the user requirements Context of use specification
+User needs description
+User requirements specification
+Produce design solutions to meet these requirements User interaction specification
+User interface specification
+Implemented user interface
+Evaluate the designs against requirements Evaluation results
+Conformance test results
+Long-term monitoring results
+NOTE More detailed information on each output is to be found in ISO/IEC/TR 25060.
+4 Principles of human-centred design
+4.1 General
+This part of ISO 9241 provides a framework for human-centred design. It does not assume any particular design process, nor does it describe all the different activities necessary to ensure effective systems design. It is complementary to existing design methodologies and provides a human-centred perspective that can be integrated into different design and development processes in a way that is appropriate to the particular context. All the human-centred design activities identified in Clause 6 are applicable (to a greater or lesser extent) at any stage in the development of a system.
+Whatever the design process and allocation of responsibilities and roles adopted, a human-centred approach should follow the principles listed below (and described in 4.2 to 4.7):
+a) the design is based upon an explicit understanding of users, tasks and environments (see 4.2);
+b) users are involved throughout design and development (see 4.3);
+c) the design is driven and refined by user-centred evaluation (see 4.4);
+d) the process is iterative (see 4.5);
+e) the design addresses the whole user experience (see 4.6);
+f) the design team includes multidisciplinary skills and perspectives (see 4.7).
+4.2 The design is based upon an explicit understanding of users, tasks and environments
+Products, systems and services should be designed to take account of the people who will use them as well as other stakeholder groups, including those who might be affected (directly or indirectly) by their use. Therefore, all relevant user and stakeholder groups should be identified. Constructing systems based on an inappropriate or incomplete understanding of user needs is one of the major sources of systems failure.
+Copyright International Organization © ISO for 2010 Standardization
+– All rights reserved 5 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+The extent to which products are usable and accessible depends on the context, i.e. the specified users, having specified goals, performing specified tasks in a specified environment (see ISO 9241-11). For example, the kind of interface that provides good user experience for a young person downloading music on a phone may be completely inappropriate for accessing corporate data on a PDA (personal digital assistant). The characteristics of the users, tasks and environment are called the context of use. Guidance on how to gather relevant information is provided in 6.2. The context of use is a major source of information for establishing requirements (see 6.3) and an essential input to the design process.
+4.3 Users are involved throughout design and development
+Involving users in design and development provides a valuable source of knowledge about the context of use, the tasks, and how users are likely to work with the future product, system or service. User involvement should be active, whether by participating in design, acting as a source of relevant data or evaluating solutions. The people who are involved should have capabilities, characteristics and experience that reflect the range of users for whom the system is being designed. The nature and frequency of this involvement can vary throughout design and development, depending on the type of project. The effectiveness of user involvement increases as the interaction between the developers and the users increases.
+When custom-made systems are being developed, the intended users and the tasks performed can be directly linked to the development process. The organization procuring the system has the opportunity to have a direct influence on the design as it emerges, and those who are actually going to be working with the future system can take part in evaluating proposed solutions. Such involvement and participation can also increase user acceptance and commitment.
+When generic or consumer products are being developed, the user population is dispersed and products can be targeted at groups of users with particular characteristics. It is still important that users or appropriate representatives be involved in development so that the user and task requirements relevant to the intended user group(s) can be identified for inclusion in the system specification to provide feedback through testing of the proposed design solutions.
+4.4 The design is driven and refined by user-centred evaluation
+Feedback from users is a critical source of information in human-centred design. Evaluating designs with users and improving them based on their feedback provides an effective means of minimizing the risk of a system not meeting user or organizational needs (including those requirements that are hidden or difficult to specify explicitly). Such evaluation allows preliminary design solutions to be tested against “real world” scenarios, with the results being fed back into progressively refined solutions. User-centred evaluation should also take place as part of the final acceptance of the product to confirm that requirements have been met. Feedback from users during operational use identifies long-term issues and provides input to future design.
+NOTE The term “user-centred” is used here to emphasize that this evaluation is made from the user's perspective.
+4.5 The process is iterative
+The most appropriate design for an interactive system cannot typically be achieved without iteration.
+NOTE 1 In this context, iteration means repeating a sequence of steps until a desired outcome is achieved.
+NOTE 2 In development methods that consist of mini-development cycles, human-centred activities can be iterated for individual parts of the system and again at a macro level across the whole product, system or service.
+Iteration should be used to progressively eliminate uncertainty during the development of interactive systems. Iteration implies that descriptions, specifications and prototypes are revised and refined when new information is obtained in order to minimize the risk of the system under development failing to meet user requirements.
+The complexity of human–computer interaction means that it is impossible to specify completely and accurately every detail of every aspect of the interaction at the beginning of development. Many of the needs and expectations of users and other stakeholders that will impact on the design of the interaction only emerge in the course of development, as the designers refine their understanding of the users and their tasks, and as users are better able to express their needs in response to potential solutions.
+Copyright International 6 Organization for Standardization
+© ISO 2010 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+Iteration of proposed solutions incorporating feedback from a user perspective provides a means of mitigating risk.
+EXAMPLE 1 Feedback from a user perspective is used to update the intended context of use, to revise the requirements and to refine proposed design solutions.
+EXAMPLE 2 The requirements specification is refined iteratively by using scenarios, early mock-ups, and prototypes, to obtain feedback from users on whether these incorporate the user requirements correctly and completely.
+The interaction between human-centred and other aspects of the design can also result in the need for iteration — for example to take account of the manufacturability of a product, the impact on the production environment or changes in the market-place.
+4.6 The design addresses the whole user experience
+User experience is a consequence of the presentation, functionality, system performance, interactive behaviour, and assistive capabilities of an interactive system, both hardware and software. It is also a consequence of the user's prior experiences, attitudes, skills, habits and personality. There is a common misconception that usability refers solely to making products easy to use. However, the concept of usability used in ISO 9241 is broader and, when interpreted from the perspective of the users' personal goals, can include the kind of perceptual and emotional aspects typically associated with user experience, as well as issues such as job satisfaction and the elimination of monotony.
+Designing for the user's experience involves considering, where appropriate, organizational impacts, user documentation, on-line help, support and maintenance (including help desks and customer contact points), training, long-term use, and product packaging (including the “out-of-box experience”). The user's experience of previous or other systems and issues such as branding and advertising should also be considered. The need to consider these different factors and their interdependencies has implications for the project plan (see Clause 5).
+Users' strengths, limitations, preferences and expectations should be taken into account when specifying which activities are carried out by the users and which functions are carried out by the technology.
+NOTE 1 In safety-critical and mission-critical systems, it might be more important to ensure the effectiveness or efficiency of the system than to satisfy user preferences.
+Design decisions related to this allocation of function determine the extent to which a given job, task, function or responsibility is to be automated or assigned to human performance. The decisions are based on many factors. These include the relative capabilities and limitations of humans versus technology in terms of reliability, speed, accuracy, strength, flexibility of response, financial cost, the importance of successful or timely accomplishment of tasks, safety, and user satisfaction (both short-term, e.g. as comfort and pleasure, and long-term, e.g. as health, well-being and job satisfaction). Basing such decisions solely on those functions the technology is capable of performing and then simply allocating the remaining system functions to users is likely to result in an ineffective design. Allocation of function is further described in 6.4.2.2.
+Representative users should generally be involved in these decisions.
+NOTE 2 “Representative” in this context means corresponding appropriately to the target end-user population.
+The resulting human activities should form a set of tasks that is meaningful as a whole to the users. This is particularly important for custom-made organizational systems where system use supports major elements of the users' jobs. For further guidance, see ISO 9241-2 and ISO 10075.
+Copyright International Organization © ISO for 2010 Standardization
+– All rights reserved 7 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+4.7 The design team includes multidisciplinary skills and perspectives
+Human-centred design teams do not have to be large, but the team should be sufficiently diverse to collaborate over design and implementation trade-off decisions at appropriate times. The following skill areas and viewpoints could be needed in the design and development team:
+a) human factors and ergonomics, usability, accessibility, human-computer interaction, user research;
+b) users and other stakeholder groups (or those that can represent their perspectives);
+c) application domain expertise, subject matter expertise;
+d) marketing, branding, sales, technical support and maintenance, health and safety;
+e) user interface, visual and product design;
+f) technical writing, training, user support;
+g) user management, service management and corporate governance;
+h) business analysis, systems analysis;
+i) systems engineering, hardware and software engineering, programming, production/manufacturing and
+maintenance;
+j) human resources, sustainability and other stakeholders.
+Projects benefit from additional creativity and ideas from the interaction and collaboration of team members who, collectively, have an extensive skill base. An additional benefit of a multidisciplinary and multi-perspective approach is that team members become more aware of the constraints and realities of the other disciplines; for example, technical experts can become more sensitized to user issues and users can become more aware of technical constraints.
+5 Planning human-centred design
+5.1 General
+Human-centred design shall be planned and integrated into all phases of the product life cycle, i.e. conception, analysis, design, implementation, testing and maintenance.
+5.2 Responsibility
+Those responsible for planning the project shall consider the relative importance of human factors/ergonomics in the project by evaluating:
+a) how usability relates to the purpose and use of the product, system or service (e.g. size, number of users, relationship with other systems, safety or health issues, accessibility, specialist application, extreme environments);
+b) the levels of the various types of risk that might result from poor usability (e.g. financial, poor product
+differentiation, safety, required level of usability, acceptance);
+c) the nature of the development environment (e.g. size of project, time to market, range of technologies,
+internal or external project, type of contract).
+NOTE 1 Underestimating the extent of user interaction is a common feature of projects that do not plan human-centred design appropriately, such as a system initially intended to be fully automated but that ends up requiring significant user interaction.
+Copyright International 8 Organization for Standardization
+© ISO 2010 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+In general, the aim is to select the most appropriate techniques and procedures in order to identify and mitigate human–system risks.
+NOTE 2 Descriptions of methods for implementing human-centred design activities can be found in ISO/TR 16982. Details of human-centred design processes that can be used to implement the guidance in this part of ISO 9241 can be found in ISO/TR 18529. ISO/TR 18529 uses the ISO standard format for process models and which also contains processes for ensuring human-centred design content in systems strategy and the introduction and operation of interactive systems. Details of the processes used by an enterprise in order to define and address the wider range of product and process issues raised by the human-centred approach can be found in ISO/PAS 18152. Further guidance on a human- centred approach to systems where dependability is critical is given in IEC 62508.
+5.3 Content of plan
+The planning of human-centred design shall include:
+a) identifying appropriate methods and resources for the activities described in Clause 6;
+b) defining procedures for integrating these activities and their outputs with other system development
+activities;
+c) identifying the individuals and the organization(s) responsible for the human-centred design activities and
+the range of skills and viewpoints they provide;
+d) developing effective procedures for establishing feedback and communication on human-centred design activities as they affect other design activities and “trade-offs”, and methods for documenting outputs from these activities;
+e) agreeing on appropriate milestones for human-centred activities that are integrated into the overall design
+and development process;
+f) agreeing on suitable timescales to allow iteration, use of feedback and possible design changes to be
+incorporated into the project schedule.
+5.4 Integration with project plan
+The plan for human-centred design shall form part of the overall project plan. To ensure that it is followed through on and implemented effectively, the plan for human-centred design should be subject to the same project disciplines (e.g. responsibilities, change control) as other key activities. The human-centred design aspects of the project plan should be reviewed and revised appropriately as requirements change throughout the life of the project.
+5.5 Timing and resources
+Project planning shall allocate time and resources to human-centred activities. This shall include time for iteration and the incorporation of user feedback, and for evaluating whether the design solution satisfies the user requirements.
+Additional time should also be allocated to communication among design team participants and to reconciling potential conflicts and trade-offs that involve human–system issues. Extra communication and discussion to identify and resolve usability issues early in the project will afford significant savings at later stages when changes are, inevitably, more costly.
+Human-centred design activities should start at the earliest stage of the project (e.g. as part of the process for formulating the initial concept of the product or system). Human-centred design continues throughout the life of the project.
+Copyright International Organization © ISO for 2010 Standardization
+– All rights reserved 9 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+6 Human-centred design activities
+6.1 General
+Once the need for developing a system, product or service has been identified, and the decision has been made to use human-centred development, four linked human-centred design activities shall take place during the design of any interactive system:
+a) understanding and specifying the context of use (see 6.2);
+b) specifying the user requirements (see 6.3);
+c) producing design solutions (see 6.4);
+d) evaluating the design (see 6.5).
+These activities take account of the challenges listed below.
+— There are often a number of different user groups and other stakeholders, whose needs have to be taken
+into account.
+— The context of use can be highly diverse and can vary from user group to user group and between
+different tasks.
+— At the beginning of a project, the requirements that can be captured are unlikely to be exhaustive.
+— Some requirements only emerge once a proposed solution is available.
+— User requirements can be diverse and potentially contradictory to each other and to those of other
+stakeholders.
+— Initial design solutions rarely satisfy all the user needs.
+— It is difficult to ensure that all parts of the system are considered in an integrated manner.
+At a high level, project human-centred design activities correspond to the overall stages of design and development, from requirements through design to verification and validation. But on a more detailed level, these activities can be applied to obtain feedback on initial design concepts before requirements are finalized. Evaluating rough prototypes and mock-ups of potential designs will help obtain a deeper understanding of user needs, as well as providing initial feedback on the design concepts. These activities can also be applied during revisions to an interactive system and can be useful in evaluating systems in routine operation.
+NOTE Human-centred design activities can be incorporated in design approaches as diverse as object-oriented, waterfall, HFI (human factors integration), agile and rapid development.
+Figure 1 illustrates the interdependence of human-centred design activities. It does not imply a strict linear process, rather it illustrates that each human-centred design activity uses outputs from other activities.
+Copyright International 10 Organization for Standardization
+© ISO 2010 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+Figure 1 — Interdependence of human-centred design activities
+6.2 Understanding and specifying the context of use
+6.2.1 General
+The characteristics of the users, tasks and organizational, technical and physical environment define the context in which the system is used. It is useful to gather and analyse information on the current context in order to understand, and then specify, the context that will apply to the future system. Analysis of existing or similar systems (including manual systems if appropriate) can, if still valid, provide information on a whole range of context issues, including deficiencies and baseline levels of performance and satisfaction. It can reveal needs, problems and constraints that might otherwise be overlooked but which need to be met by the future system. Also, some aspects of the current context will persist, even if the system is highly novel. If an existing system is to be upgraded or enhanced, some of this information will already be available. If there are extensive results from user feedback, help-desk reports and other data, these can provide a basis for prioritizing system modifications and changes.
+NOTE 1 A context-of-use description can be a description of the current context of use or a description of the context intended for design.
+NOTE 2 ISO/TR 16982 provides information on a variety of methods that can be used for collecting and communicating this information.
+6.2.2 Context-of-use description
+The context-of-use description shall include the following:
+a) The users and other stakeholder groups: there can be a range of different user groups as well as other stakeholder groups whose needs are important. Relevant groups shall be identified and their relationship with the proposed development described in terms of key goals and constraints.
+--`,,```,,,,````-`-`,,`,,`,`,,`---
+Copyright International Organization © ISO for 2010 Standardization
+– All rights reserved 11 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+b) The characteristics of the users or groups of users: relevant characteristics of the users shall be identified. These can include knowledge, skill, experience, education, training, physical attributes, habits, preferences and capabilities. If necessary, the characteristics of different types of users should be defined, e.g. with different levels of experience or physical capability. In order to achieve accessibility, products, systems and services should be designed to be used by people with the widest range of capabilities in intended user populations. This is a legal requirement in many countries.
+NOTE ISO/IEC/TR 29138-1 identifies a range of user needs to be considered in order to provide accessibility for people with disabilities.
+c) The goals and tasks of the users: the goals of the users and the overall goals of the system shall be identified. The characteristics of tasks that can influence usability and accessibility shall be described, e.g. the way in which users typically carry out tasks, the frequency and duration of performance, interdependencies and activities to be carried out in parallel. If there are any potential adverse consequences for health and safety (e.g. excessive workload caused by inappropriate pacing in a call centre) or if there is a risk that the task might be completed incorrectly (e.g. making an incorrect purchase), these should also be identified. Tasks should not be described solely in terms of the functions or features provided by a product or system.
+d) The environment(s) of the system: the technical environment, including the hardware, software and materials, shall be identified. In addition, the relevant characteristics of the physical, social and cultural environments shall be described. The physical attributes include issues such as thermal conditions, lighting, spatial layout and furniture. The social and cultural aspects of the environment include factors such as work practices, organizational structure and attitudes.
+6.2.3 Sufficient detail to support design
+The context of use of the system should be described in sufficient detail to support the requirements, design and evaluation activities.
+NOTE The context-of-use description is a working document that is first produced in outline terms and then reviewed, maintained, extended and updated during the design and development process. For example, at an early stage of development, it might only be possible to identify task goals rather than detailed task activities. It can also identify important design implications that emerge during the analysis.
+6.2.4 Context of use specified for design
+The context of use specified for design (i.e. the context in which the system will be used) should be stated in the user requirements specification to clearly identify the conditions under which the requirements apply. See ISO 9241-11 for more information about the context of use and a sample report, and ISO 20282-1 for more information about context of use for everyday products.
+6.3 Specifying the user requirements
+6.3.1 General
+In most design projects, identifying user needs and specifying the functional and other requirements for the product or system is a major activity. For human-centred design, this activity shall be extended to create an explicit statement of user requirements in relation to the intended context of use and the business objectives of the system.
+Depending on the scope of the system, the user requirements can include requirements for organizational changes and revised work styles and could suggest opportunities to combine products and services. If it is known that the proposed interactive system will affect organizational practice, the development process should involve organizational stakeholders, with the aim of optimizing both the organizational and technical systems.
+Copyright International 12 Organization for Standardization
+© ISO 2010 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+6.3.2 Identifying user and other stakeholder needs
+User and other stakeholder needs should be identified, taking account of the context of use. These should include that which users need to achieve (rather than how to achieve it) and any constraints imposed by the context of use.
+6.3.3 Deriving user requirements
+The specification of user requirements shall include:
+a) the intended context of use;
+b) requirements derived from user needs and the context of use — for example, there might be a
+requirement for a product to be used outdoors;
+c) requirements arising from relevant ergonomics and user interface knowledge, standards and guidelines
+(e.g. accessibility requirements are found in ISO 9241-20 and ISO 9241-171);
+d) usability requirements and objectives, including measurable usability performance and satisfaction criteria in specific contexts of use — for example, an objective might be that 90 % of the intended users can successfully divert an incoming call to voice mail, or for the aesthetic design of a Web page to achieve a given user satisfaction score;
+e) requirements derived from organizational requirements that directly affect the user — for example, a call
+centre system might require that customer calls be answered within a specific time frame.
+User requirements provide the basis for the design and evaluation of interactive systems to meet the user needs.
+User requirements are developed in conjunction with, and form part of, the overall requirements specification of an interactive system.
+6.3.4 Resolving trade-offs between user requirements
+Potential conflicts between user requirements, e.g. between accuracy and speed, should be resolved.
+The rationales, factors and weighting of human system issues for use in trade-offs should be documented so that they can be understood in the future.
+NOTE Making such trade-offs can require revisiting initial assumptions and the involvement of relevant stakeholders.
+6.3.5 Ensuring the quality of user requirements specifications
+The user requirements specification should be
+a) stated in terms that permit subsequent testing,
+b) verified by the relevant stakeholders,
+c) internally consistent, and
+d) updated as necessary during the life of the project.
+Copyright International Organization © ISO for 2010 Standardization
+– All rights reserved 13 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+6.4 Producing design solutions
+6.4.1 General
+Design decisions have a major impact on the user experience. Human-centred design aims to achieve a good user experience by considering it throughout the design process (see 4.6).
+Potential design solutions are produced by drawing on the description of the context of use, the results of any baseline evaluations, the established state of the art in the application domain, design and usability guidelines and standards, and the experience and knowledge of the multidisciplinary design team. Further user requirements can emerge as potential design solutions are detailed and evaluated.
+Producing design solutions should include the following sub-activities:
+a) designing user tasks, user-system interaction and user interface to meet user requirements, taking into
+consideration the whole user experience;
+b) making the design solutions more concrete (for example making use of scenarios, simulations, prototypes
+or mock-ups);
+c) altering the design solutions in response to user-centred evaluation and feedback (see 6.5 for details on
+user evaluation);
+d) communicating the design solutions to those responsible for their implementation.
+6.4.2 Designing user tasks, user–system interaction and user interface to meet user requirements, taking into consideration the whole user experience
+6.4.2.1 Principles for design
+Designing for the user experience is a process of innovation that takes account of user satisfaction (including emotional and aesthetic aspects), as well as effectiveness and efficiency. Design involves a variety of creative approaches to achieve a good user experience.
+The following principles (taken from ISO 9241-110) should be taken into account when designing interactive systems:
+a) suitability for the task;
+b) self-descriptiveness;
+c) conformity with user expectations;
+d) suitability for learning;
+e) controllability;
+f) error tolerance;
+g) suitability for individualization.
+NOTE 1 “Self-descriptiveness” [b)] means it is obvious to the users which dialogue they are in, where they are within the dialogue, which actions can be taken and how they can be performed.
+NOTE 2 There are a number of further design principles given in other human–system interaction standards, which provide guidance to support this design activity. These are listed in the Bibliography.
+Copyright International 14 Organization for Standardization
+© ISO 2010 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+6.4.2.2 Designing the tasks and interaction between user and system
+Appropriate design of the user–system interaction relies on a clear understanding of the intended context of use, including the users' roles and tasks and their outputs. This understanding enables an appropriate allocation of functions to be achieved, i.e. the division of system tasks into those performed by humans and those performed by technology.
+When the system is being developed for use within a specific organization, e.g. a new branch banking system, this activity can also involve job and organizational design (ISO 9241-2 provides guidance on job and task design).
+Designing the interaction involves deciding how users will accomplish tasks with the system rather than describing what the system looks like. For example, decisions at this point can include issues such as the choice of modality (e.g. auditory, visual and tactile) and the choice of media (e.g. text versus graphics, dialogue boxes versus wizards, mechanical versus electronic controls).
+Designing the interaction should include:
+— making high-level decisions (e.g. initial design concept, essential outcomes);
+— identifying tasks and sub-tasks;
+— allocating tasks and sub-tasks to the user and to other parts of the system;
+— identifying the interaction objects required for the completion of the tasks;
+— identifying and selecting appropriate dialogue techniques (see ISO 9241-12, ISO 9241-13, ISO 9241-14,
+ISO 9241-15, ISO 9241-16 and ISO 9241-17);
+— designing the sequence and timing (dynamics) of the interaction;
+— designing the information architecture of the user interface of an interactive system to allow efficient
+access to interaction objects.
+NOTE The order in which these activities are undertaken depends on the type of interaction being designed and is itself an iterative activity.
+6.4.2.3 Designing the user interface
+For the detailed design of the user interface, there is a substantial body of ergonomics and user interface knowledge, standards and guidelines which should be used to inform the design of both hardware and software. These include standards within the ISO 9241 series on displays, input devices, dialogue principles, menus, presentation of information, user guidance, and other user interface and accessibility guidelines. Many organizations also have internal user interface style guides, product knowledge and knowledge on users and other aspects of the context of use, such as user expectations (see ISO 1503) and stereotypes. See Annex A for relevant standards in the ISO 9241 series.
+6.4.3 Making design solutions more concrete
+Using scenarios, simulations, models and mock-ups or other forms of prototype enables designers to communicate the proposed design to users and other stakeholders to obtain feedback.
+The benefits include:
+a) making design proposals more explicit (this enables members of the design team to communicate with
+each other and with users early in the development process);
+b) allowing designers to explore several design concepts before they settle on one;
+c) making it possible to incorporate user feedback into the design early in the development process;
+Copyright International Organization © ISO for 2010 Standardization
+– All rights reserved 15 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+d) making it possible to evaluate several iterations of a design and alternative designs;
+e) improving the quality and completeness of the functional design specification.
+Simple prototypes are valuable at an early stage to explore alternative design solutions. While there can be substantial benefit in making the design solutions as realistic as possible, the level of detail and realism should be appropriate to the issues that need to be investigated. Investing too much time or money in producing a detailed working prototype can lead to a reluctance to change the design.
+6.4.4 Altering the design solutions based on user-centred evaluation and feedback
+Feedback from evaluation should be used to improve and refine the system (see 6.5 for details on user- centred evaluation).
+NOTE 1 Feedback reveals strengths and weaknesses in the design solution and can provide new information about user needs and suggest areas where the design can be improved.
+The costs and benefits of proposed changes should be evaluated and used to inform decisions about what will be modified.
+NOTE 2 The effort of redesign depends on the nature of the issue; it can be small or could require substantial resources, and the decision to redesign is assessed against the criticality of the issue.
+Changes proposed on the basis of early evaluation are likely to be the most cost-effective.
+Project plans should allow sufficient time for making the changes as a result of such feedback.
+6.4.5 Communicating the design solution to those responsible for implementation
+There are a variety of ways of communicating the design solution to those teams and individuals responsible for implementation or manufacture. Effective means of communication can vary from providing appropriate documentation, to producing revised prototypes, to embedding experts in human-centred design in the design and development team.
+Whatever the nature of the overall project, there should be some sustained channel of communication between those responsible for human-centred design and other members of the project team. When design solutions are communicated, they should be accompanied by an explanation and justification of the design decisions, especially where trade-offs are necessary.
+The communication should take account of the constraints imposed by the project and the project team's knowledge and understanding about ergonomics and user interface design.
+6.5 Evaluating the design
+6.5.1 General
+User-centred evaluation (evaluation based on users' perspective) is a required activity in human-centred design.
+Even at the earliest stages in the project, design concepts should be evaluated to obtain a better understanding of user needs. Real-life use of a product, system or service is complex and, even though ergonomic design guidance can provide useful support to designers, user-centred evaluation is an essential element of human-centred design. However, evaluation by users (user-based testing, see 6.5.4) is not always practical or cost-effective at every stage of the project. In such circumstances, design solutions should also be evaluated in other ways — for example, using task modelling and simulations. These methods are still centred on how users will experience the system, even though the users themselves might not participate directly. User-centred evaluation can be used to
+Copyright International 16 Organization for Standardization
+--`,,```,,,,````-`-`,,`,,`,`,,`---
+© ISO 2010 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+a) collect new information about user needs,
+b) provide feedback on strengths and weaknesses of the design solution from the user's perspective (in
+order to improve the design),
+c) assess whether user requirements have been achieved (which can include assessing conformity to
+international, national, local, corporate or statutory standards), and
+d) establish baselines or make comparisons between designs.
+6.5.2 Conducting user-centred evaluation
+User-centred evaluation should involve:
+a) allocating resources both to obtain early feedback in order to improve the product and, at a later stage, to
+determine whether the requirements have been satisfied;
+b) planning the user-centred evaluation so that it fits the project schedule;
+c) carrying out sufficiently comprehensive testing to provide meaningful results for the system as a whole;
+d) analysing the results, prioritizing issues and proposing solutions;
+e) communicating the solutions appropriately so that they can be used effectively by the design team.
+6.5.3 User-centred evaluation methods
+There is a variety of user-centred evaluation methods that can be used to evaluate designs. Guidance on these and other usability methods, and on selecting the most appropriate method or set of methods, is provided in ISO/TR 16982.
+NOTE Further information, recommendations and tests, checklists and other means of conformance to ergonomic criteria can be found in the standards listed in Annex A and the Bibliography.
+To obtain valid results, the evaluation should be carried out by experienced evaluators, and should use appropriate methods.
+User-centred evaluation is useful at all stages in the project from the early concept of the design to its long- term use, which can then provide input for future versions of the product, system or service (see 6.5.6). In the early stages of development and design, changes are relatively inexpensive. The longer the process is allowed to progress, and the more fully the system is defined, the greater the cost of changes.
+Resources for evaluation should be allocated both to obtain early feedback with which to improve the product and, at a later stage, to validate that the user requirements have been satisfied. The scope of the latter (summative) evaluation should depend on the risks associated with not meeting requirements.
+Two widely used approaches to user-centred evaluation are
+— user-based testing, and
+— inspection-based evaluation using usability and accessibility guidelines or requirements.
+NOTE Compliance with some guidelines and standards for software can be tested automatically, which can be useful to identify basic problems. For example, some aspects of the accessibility of software can be evaluated using automated testing tools.
+Copyright International Organization © ISO for 2010 Standardization
+– All rights reserved 17 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+6.5.4 User-based testing
+User-based testing can be undertaken at any stage in the design.
+At a very early stage, users can be presented with models, scenarios or sketches of the design concepts and asked to evaluate them in relation to a real context. For example, a new check-out concept can be evaluated using a three-dimensional model, or simple drawings of screens can be used to evaluate a new mobile phone navigation design. Such early testing can provide valuable feedback on the acceptability of the proposed design. Detailed aspects of the design can often be quickly and inexpensively assessed — for example, using paper versions of proposed dialogues. A mock-up of the interaction through simulated or actual tasks and in a suitable context is always necessary.
+When prototypes are being tested, the users should carry out tasks using the prototype rather than just be shown demonstrations or a preview of the design. The information gathered is used to drive the design.
+At a later stage in the development, user-based testing can be carried out to assess whether usability objectives, including measurable usability performance and satisfaction criteria, have been met in the intended context or contexts of use.
+One form of user-based testing involves field validation, i.e. testing the designs or design concepts in real environments. For software products, such testing is often referred to as “beta” testing, where an early version of the software is made available for use, and users are made aware that the product is not final and is still being refined. Hardware products can be produced in small quantities for similar real-world testing. Fully developed products can also be evaluated in field settings to provide input for future developments.
+Techniques that can be used to gather data from field validation include help-desk data, field reports, incident analysis, near-miss reports, log files, defect reports, real user feedback, performance data, satisfaction surveys, reports of health impacts, design improvements, user observation and requests for changes.
+6.5.5 Inspection-based evaluation
+Inspection-based evaluation can be valuable and cost-effective and can also complement user testing. It can be used to eliminate major issues before user testing and hence make user testing more cost-effective.
+Inspection-based evaluation is ideally performed by usability experts who base their judgement on prior experience of problems encountered by users and their own knowledge of ergonomic guidelines and standards. The assessment of several experts can be combined to reduce individual bias. Inspection can involve the evaluator putting himself or herself into the role of the user working with the system, product or service. Inspection-based evaluation can be supported by checklists, lists of user requirements, general usability guidance, industry best practices, usability heuristics, guidelines or standards. However, the effectiveness of the inspection always depends on the skills, experience and knowledge of the evaluators.
+Inspection-based evaluation is simpler and quicker to carry out than user testing and can, in principle, take account of a wider range of users and tasks than user-based evaluation (e.g. to assess if a product satisfies user requirements in contexts of use not selected for user testing). Inspection does not always find the same problems that would be found in user-based testing. Inspection tends to emphasize obvious problems and might not scale well for complex or novel interfaces. The greater the difference between the knowledge and experience of the inspectors and the real users, the less reliable are the results. When appropriate, inspection-based evaluation can be carried out in conjunction with application domain experts.
+Relevant guidelines and standards are an important input for design (see 6.4.2), and compliance can be assessed by inspection. Although it can be time-consuming and resource-intensive, it might be necessary to check compliance, for example, with Web accessibility guidelines.
+6.5.6 Long-term monitoring
+A human-centred design process should also include long-term monitoring of the use of the product, system or service. This involves collecting user input in different ways over a period of time.
+Copyright International 18 Organization for Standardization
+© ISO 2010 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+Follow-up evaluation is often a formal part of system evaluation and is carried out within a specific time frame, e.g. six months to a year after the system is installed. Follow-up evaluation often tests performance of the system and also collects data to determine whether user needs and requirements have been met and are correctly stated.
+There is an important difference between short-term evaluation and long-term monitoring. Some effects of working with an interactive product, system or service are not recognizable until it has been used for a period of time. Similarly, there could be effects that result from external factors such as unforeseen changes in legislation. Such issues do not need to be addressed immediately, though the information obtained can still be used for the future modification or development of the product, system or service.
+Long-term performance data and reports about any health effects can provide valuable information. Criteria and measurements should be sensitive enough to identify system failure, or system problems, as early as possible.
+NOTE Identifying unsafe behaviour is clearly preferable to registering accidents, and identifying mental or physiological overload is preferable to registering medical disorders.
+7 Sustainability and human-centred design
+In modern society, a key issue is to encourage socially responsible designs that take into consideration sustainability. In terms of standardization, this involves integrating and balancing out the economic, social and environmental considerations.
+NOTE ISO has made a commitment to develop “standards for a sustainable world”. The 1987 United Nations' Brundtland Commission report, Our Common Future, defined sustainable development as “meeting the needs of the present without compromising the ability of future generations to meet their own needs”.
+Human-centred design directly supports the first two pillars of sustainability:
+a) economic — matching a design to users' needs and abilities enhances its utilization, quality and efficiency,
+thus providing cost-effective solutions and reducing the likelihood that systems products and services will be wasteful or rejected by their users;
+b) social — taking a human-centred approach results in systems, products and services that are better for
+the health, well-being and engagement of their users, including users with disabilities.
+Human-centred design also supports the environmental component through promoting a whole-life-cycle approach to design. It explicitly encourages all those involved in design to consider the longer-term implications of their system for their users and therefore for the environment. An approach that leads to usable products is more likely to be maintained and continually applied.
+8 Conformance
+Conformance with this part of ISO 9241 is achieved by:
+a) satisfying all the requirements;
+b) identifying applicable recommendations;
+c) explaining why particular recommendations are not applicable;
+d) stating whether or not the applicable recommendations have been followed.
+--`,,```,,,,````-`-`,,`,,`,`,,`---
+Copyright International Organization © ISO for 2010 Standardization
+– All rights reserved 19 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+If a product or system is claimed to have met the requirements and if the applicable recommendations are considered to have been followed, the procedure used to determine how they have been met/followed should be specified. The detail to which the procedure is specified is a matter of negotiation between the involved parties.
+Annex B provides a means both for recording the applicability of the recommendations and reporting that the requirements and applicable recommendations have been met and/or followed.
+Users of this part of ISO 9241 may either utilize the procedure and forms provided in Annex B or develop another procedure tailored to their particular needs.
+NOTE ISO/TR 18529 provides an assessment model for demonstrating capability in human-centred design within a project or an organization.
+Copyright International 20 Organization for Standardization
+© ISO 2010 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+Annex A (informative)
+Overview of the ISO 9241 series
+The annex presents an overview of the structure of ISO 9241. For an up-to-date overview of its structure, subject areas and the current status of both published and projected parts, please refer to:
+ISO 9241 series
+The structure reflects the numbering of the original ISO 9241 standard; for example, displays were originally Part 3 and are now the 300 series. In each section, the “hundred” is an introduction to the section; for example, Part 100 gives an introduction to the software-ergonomics parts.
+Table A.1 — Structure of ISO 9241 — Ergonomics of human–system interaction
+Part Title
+1 Introduction
+2 Job design
+11 Hardware and software usability
+20 Accessibility and human–system interaction
+21-99 Reserved numbers
+100 Software ergonomics
+200 Human–system interaction processes
+300 Displays and display-related hardware
+400 Physical input devices — Ergonomics principles
+500 Workplace ergonomics
+600 Environment ergonomics
+700 Control rooms
+900 Tactile and haptic interactions
+Copyright International Organization © ISO for 2010 Standardization
+– All rights reserved 21 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+Annex B (informative)
+Sample procedure for assessing applicability and conformance
+B.1 General
+This annex provides an example of a checklist (see Table B.1) that can be used to determine whether the requirements in this part of ISO 9241 have been met and the applicable recommendations followed.
+This checklist contains all requirements and recommendations from this part of ISO 9241, presented in sequence, but cannot be used in isolation from the full content of this part of this part of ISO 9241.
+It should be noted that the procedure described is itself provided as guidance and is not an exhaustive process to be used as a substitute for the standard itself.
+Use of the checklist provides a basis for
+— determining which of the recommendations are applicable,
+— determining whether requirements have been met and whether applicable recommendations have been
+followed, and
+— providing a list in support of a claim of conformance showing that all requirements have been met, and a
+systematic listing of all the applicable recommendations that have been followed.
+Several of the requirements and recommendations in this part of ISO 9241 have more than one component. These are presented in lists. Satisfaction of the requirement or recommendation depends on consideration of each component rather than the requirement or recommendation itself. Each item of these lists is therefore presented in a separate row in the checklist and the row containing the requirement is marked with a grey fill. The completed checklist can be used in support of statements relating to conformance of a project with this part of ISO 9241. It provides a list of all of the requirements and recommendations for which conformance has been achieved.
+B.2 How to use the checklist
+Clause and subclause numbers are presented in the first column of the table, with the corresponding title or requirements/recommendations in the second column. The third column is used to indicate whether the requirement or recommendation in each clause or subclause is applicable or not applicable. All requirements already have Y (for “yes”) inserted in column 3. All the other clauses or subclauses need to be checked in relation to the project context and Y or N (for “no”) entered in column 3 as appropriate.
+For each recommendation, information on applicable circumstances is given in the relevant clause or subclause of this part of ISO 9241. If the recommendation is not applicable, this should be indicated in column 3 in the “Applicability” section of the table, and a brief explanation should be provided in column 4 “Reason not applicable”.
+Checking whether a requirement or recommendation has been satisfied involves reviewing all those items which are shown to be applicable in column 3 and determining whether the project being evaluated conforms to these requirements and recommendations (where applicable). The exact method for making this determination could vary.
+Copyright International 22 Organization for Standardization
+© ISO 2010 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+The “Conformance” section of the checklist provides space in columns 5 and 6 to indicate the decision as to whether each applicable requirement or recommendation has been satisfied (Y) or not satisfied (N). Any clause or subclause that is not satisfied should be accompanied by a brief note in column 7 explaining the reasons why this is the case. Column 7 can also be used to record information about the method used.
+B.3 Copying the checklist
+Users of this part of ISO 9241 may freely reproduce the table contained in this annex for use in demonstrating conformance with this part of ISO 9241.
+Editable versions of the checklist are provided in a sub-folder to the public information folder called “ISO-9241-210-tables” at:
+Table B.1
+Copyright International Organization © ISO for 2010 Standardization
+– All rights reserved 23 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 9241-210:2010(E)
+s
+tnemmoCo Ns eYe lbacilppat onn osaeRoN/seYs
+.
+s f
+to
+ed ld
+aoses
+ley e oeig tt trs ah r
+mbbnad
+nisiccllit im rd le uen m td ueus
+uleunoerhsea. sts oitpoudsacreyese[s huts olcy eybd gy s s. notl
+htepabsoee ir.
+edocilsae uinin rd
+) crhitge ee voasintrsioeys linnraikir fliihfasntt iatstintcaraatrebhhccutcui. oe ephnedd icn nbslests dcm hce o ee rntetge untorieati, onfe dhatnf .
+n hiohdatssihtugf d mcee odipenrs eee is oteo iwehd t eske tatdw mtbrtrelnr impr eiealn e oer ittaaetxrgoee ly voirid e ollltifelsbipndaef vbsitiiy bsooiovuualr rfott s setas yvd horqopmepco ucincsdantnn d leewhailhaooe oeortr aorseltsce re iue lcia e t toeh pud acbvs oy as e dr. bahcalpef e s ais (eathipvlsocd hee arobaly chsathn
+ouaplrbod vlhl t luiml nt gr twollhe o aah eiauae sloreeotm o.
+sflagrecctr]
+rlsksg d hcgins l)m egonesafws eaeaend se er fvcniubtyonarnofrino uidnrfrrs etyesd os ogefaliofdorno 2 d aaciipadlteh.ogd le csue apg ivcs ras pucss 2ee ohivoee , .cend netpio am rsoli.
+vtbhe tmrhssd t6tepot reehmrluinceo st bt ad pnestdnctcehsueo ookachf eetvs oicf eersd lg itiosvrstln hfauld igotn lrtnfctient oe ceseoudi-d etn daaoprnusev-siae tnfshrmoosintngns einiy eciurhus e n trd iluht aatwacfh rstl f do nmpeeg-enlsiauiit cf ile eens le os ahesitsmnat rhiis[e rnov, kdett abrwhtuawiuvnmr ae. husdisvnetn ctewd heee d do din oe hmaae elteo pff octtscef hecvifosusmud xihrie toad gf und tmcttnuoohyweonehanwnot eepaasnatge shn vihairtcts tlea at s e nrtcoer , 'as lsrslo noe neo, rrs etaelcnntsle] g pg leere-bevtmssdv)en e.
+peanvnpovna]diesctnn' issiuxieeaocid melia tees1elu-spatdtduuhee c.g n rer rrepp2 du.
+uldeauanr.h4nenlpmeeee e e m od irtiecopohl ae 2e ke rcssseurrlhhhds.necern hihthaho onmPWa[PtiuA6UTabUaItTbUttRtTfHsi1 2 2 3 3 4 5 6 6 6 6 7 ............4 444444444444Copyright International 24 Organization for Standardization
+© ISO 2010 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+Requirement or recommendation
+Table B.1 — Checklist for assessing applicability and conformity with this part of ISO 9241
+Applicability Conformance
+Clause/
+subclause
+ISO 9241-210:2010(E)
+Y
+. st ee
+icthitejvi, otyrlcpeave iy tecmkeafr sfeee hthd toeto s tnat ec) lmeojerlbtpunsomice d be ngd alnuah ohghcus, orsn hegtiitisld ieebidwsod nlleorotpfnss ieerct i-. t ng.aaeh(tmus e rheur nislofnpien caso liTpd4 .5Copyright International Organization © ISO for 2010 Standardization
+– All rights reserved 25 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+Requirement or recommendation
+Table B.1 (continued) Applicability Conformance
+Clause/
+subclause
+Yes/NoReason not applicable Yes No Comments
+5 Planning human-centred design
+5.1 Human-centred design shall be planned and integrated into all phases
+of the product life cycle.
+Y
+5.2 Those responsible for planning the project shall consider the relative importance of human factors/ergonomics in the project by evaluating:
+5.2 a) how usability relates to the purpose and use of the product, system or
+service
+Y
+5.2 b) the levels of the various types of risk that might result from poor
+usability
+Y
+5.2 c) the nature of the development environment Y
+5.3 The planning of human-centred design shall include:
+5.3 a) identifying appropriate methods and resources for the activities
+described in Clause 6
+Y
+5.3 b) defining procedures for integrating these activities and their outputs
+with other system development activities
+Y
+5.3 c) identifying the individuals and the organization(s) responsible for the
+human-centred design activities and the range of skills and viewpoints
+they provide
+Y
+5.3 d) developing effective procedures for establishing feedback and
+communication on human-centred design activities as they affect other
+design activities and “trade-offs”, and methods for documenting outputs
+from these activities
+Y
+5.3 e) agreeing on appropriate milestones for human-centred activities that
+are integrated into the overall design and development process
+Y
+5.3 f) agreeing on suitable timescales to allow iteration, use of feedback and
+possible design changes to be incorporated into the project schedule
+Y
+5.4 The plan for human-centred design shall form part of the overall system
+development project plan.
+ISO 9241-210:2010(E)
+Y
+Y
+d
+ls ueoie
+tihblisbd ls auepociahvcsrf es osr. ee d sdgnueniaff airts ot ns mseeeedtipdsiyye twsbt , l ne lsehtatrcheh fustfiids dorwrf epe osl, ups ytocie ilet.
+ihtspsbiif rny soeosbitts ced acclaierctusasapiuhroe cepe tvbe r ceiheao thrts, cauyd ahred cao nett s.
+dgnr sidnaeseeevdectrneeidnlfoineee f n n RIdIbi) ) ) bbb2 2 2 ...222...666Copyright International 26 Organization for Standardization
+© ISO 2010 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+Requirement or recommendation
+Table B.1 (continued) Applicability Conformance
+Clause/
+subclause
+Yes/NoReason not applicable Yes No Comments
+5.4 The human-centred design aspects of the project plan should be
+reviewed and revised appropriately as requirements change throughout
+the life of the project.
+5.5 Project planning shall allocate time and resources to the human-
+centred activities.
+Y
+5.5 [The plan] shall include time for iteration and the incorporation of user
+feedback, and for evaluating whether the design solution satisfies the
+user requirements.
+Y
+5.5 Additional time should be allocated to communication among design
+team participants and to reconciling potential conflicts and trade-offs
+that involve human–system issues.
+5.5 Human-centred design activities should start at the earliest stage of the
+project.
+5.5 The human-centred design aspects of the project plan should be
+reviewed throughout the life of the project.
+6 Human-centred design activities
+6.1 There are four linked human-centred design activities that shall take place during the design of any interactive system:
+6.1 a) Understanding and specifying the context of use Y
+6.1 b) Specifying the user requirements Y
+6.1 c) Producing design solutions Y
+6.1 d) Evaluating the design Y
+6.2.2 The context of use description shall include the following: Y
+6.2.2 a) Relevant groups shall be identified and their relationship with the
+proposed development described in terms of key goals and constraints.
+ISO 9241-210:2010(E)
+Y
+d h
+t
+ed cn ineeahunsr
+owe os tecrf pr sd
+acee oeueemasvidrldr
+ue cm ng os inethunvt h taeo ihntttcncif ks iie n.
+.
+oeaioand hfrhstd ftt tloemd e , wirastmudenihh dt atl ntetonladisiteapoihel no ysfhtwcwits staystoxas y sncns n e ee m sl noseod die heiee taatttedeuihclicbccstaf fid licl onyoe lonrncy ernsuifbarhpfiaes pthce d ) ped t n e n nllstievisvntihigeuutitts eoe dtoe m csd civg hbnheamenetrjy ssenelpdaiid sberll toys s hymlfoe auaincsddeieheocs nrtaleer vihescd oeeoeiun o setpeitnnt qdo snsate cr r ies zoe w rrsusieed n phoeur dunddntolloihdf e.
+obaa, ltroorysogleon ape hhs pr. ut .
+ccphahieeidoexe f tftee pehikkestehocse hkatctaaed utr t atutahnt ennrf s ttr nssef topaapsor oehr or nh csfhtl l t ettet ee eamaaxss s od xrshhtten nntteu(mbeetutnntooooewdiianf g e eeg rtttniond d voonnsoaaiimumnecnnet tzzct yizkeqeiiifxiaanrirhe cieinnite eis r r rctimhluuaanihteee ttant pqqgge eisshxrrpf y oeehdf o TrtIrecIoooUoUtb4 1 1 2 2 .....23333.....66666Copyright International Organization © ISO for 2010 Standardization
+– All rights reserved 27 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+Requirement or recommendation
+Table B.1 (continued) Applicability Conformance
+Clause/
+subclause
+Yes/NoReason not applicable Yes No Comments
+6.2.2.c) The goals of the users and the overall goals of the system shall be
+identified.
+Y
+6.2.2 c) The characteristics of tasks that can influence usability and accessibility
+shall be described.
+Y
+6.2.2 c) Any potential adverse consequences for health and safety should be
+identified.
+6.2.2 c) If there is a risk that the task might be completed incorrectly, this should
+be identified.
+6.2.2 c) Tasks should not be described solely in terms of the functions or
+features provided by a product or system.
+6.2.2 d) The technical environment, including the hardware, software and
+materials, shall be identified.
+Y
+6.2.2 d) The relevant characteristics of the physical, social , organizational and
+cultural environment shall be described.
+Y
+6.2.3 The context of use of the system should be described in sufficient detail
+to support the requirements, design and evaluation activities.
+ISO 9241-210:2010(E)
+Y
+t
+d en: es
+saemeuin e t.
+so itobr isdviitir
+ete n eaevccahlm ustlaaceof-utar rsy bl svoelefetuyerahssnre tid le –et g r ebbnviraneitaosd hslntnwume ueot oo ulhocd lctps-hhonrsejff n :
+sd aeeooroeese ig
+rs tn ttbuhg npe nitoanitsnrd e
+eto ie eltsttoe ecuhemehdhtdmatre tioruguf ecsit slhrceo oinncentnstounooenos
+e widis n fqrcpcuilnoee esd e iqlre m o tohdebitree lutr ertastnohooied cutd lislbn hhfismyinug oug seucss saosns nk-iis enht rnn raks in nptsoreoeuai.
+igssottimstoeids etrtt sf, uruus lfwlcety unest, ulrtoooatpnadsef-t
+osansut evkbesfnsee e aesn n dlesmhs he n htagtmgttateeietighsrrcreii, tcsitsin
+r g rs lisssfeeee uoeny n iineueindnmdthqstlnrtodqoaueaad s ae ee
+e tcrecty cng arochihng l r n tk
+by toniolr nnn eiinateld ciiiteg ued cg tsse aeianmartsd nreunnsrunibiimgeeauefrireldeukditte e ddsreemppor e aeattorhhnpexlteoohenmPTfuTsviuPdtemafci) ) ) ) ) ) ) ) abcdabcd4 4 5 5 5 5 5 1 1 1 1 1 ............333333344444............666666666666Copyright International 28 Organization for Standardization
+© ISO 2010 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+Requirement or recommendation
+Table B.1 (continued) Applicability Conformance
+Clause/
+subclause
+Yes/NoReason not applicable Yes No Comments
+6.3.3 The specification of user requirements shall include:
+6.3.3 a) the intended context of use Y
+6.3.3 b) requirements derived from user needs and the context of use Y
+6.3.3 c) requirements arising from relevant ergonomics and user interface
+knowledge, standards and guidelines
+Y
+6.3.3 d) usability requirements and objectives including measurable usability
+performance and satisfaction criteria in specific contexts of use
+Y
+6.3.3 e) requirements derived from organizational requirements that directly
+affect the user
+--`,,```,,,,````-`-`,,`,,`,`,,`---
+ISO 9241-210:2010(E)
+s
+tnemmoCo N:
+ss emeYtsyse le bvitaccialrpetpnait g oninnn giosseaden Rehwot Nn/usoecYcao tf
+no
+d itos
+nn e e eae te
+ehrntiahd kliatrean
+n
+s e ef tttwm
+poatndoicaifieote f ftreuuocjln bsoepsgrabayopird e vstold d d aecef eutnnnln aoe onfaaape ioribhs tbs e .
+ee tmse trcrd ddvold h) nraalatieocuri0arupf wfr oei1dpe otodr ehd1rnhhne) s-tismoaaisshu1t] r tho cmss 4o sitooe tf, h e2es e hts md teg9pd ed bso:
+anf gyneul eebtlen.
+rO aodsaiqicf oiydduethr Sucwle ondIuecorle(qatt e hrwscn uet ad acbtpm g ornugngehiiecf onnis
+td itrs esslo ekowifntd tts[loeiue mct cos iie ein udps houtfutekvfcjm en
+okcohgoase rrand esbktsohss
+iiofbiahllapnocrastattnatt-w an ae f aeea-i(on n tn iboeobos zplidbm orie olnots suilrxiiniiuts co ttasaee tad toecor lsitacnficg k
+ufuner o elpd asaend isas
+ntd ieimidaidrsearnriurecas.
+cnnl l tsneuvevaipo nqoeetritm eeaeitefueaorene nnd cads edntbvrinis tsid pt heknah enee epfttliksm ld evse aie arm cdi-e e g spyy
+or r r rsntahhtherwnf hhhsnitatas ttootfoaouttipltfffiiaofgcy niirre s g g g g ik wtl s be ng g g y iy y tichveennnctttnoir ealmbiiinn. iiiinlssltiilliullamlveo ioig yyyoitncoerttfffnnd smoboseiiilbbnnbafglcartttdoiss
+ggr ieduiftiirud -aacoatknnknftttsoe e ee ssilninieoeogsrase e eleeterhhehrleesueououhyahhdddnTsscscesDmiaitiddiEstTtFsTu) ) ) ) ) ) ) ) ) ) ) ) ) ) abcdefgabcdefg1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 3 .................222222222222222223 4 4 ....................44444444444444444444....................66666666666666666666--`,,```,,,,````-`-`,,`,,`,`,,`---
+Copyright International Organization © ISO for 2010 Standardization
+– All rights reserved 29 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+Requirement or recommendation
+Table B.1 (continued) Applicability Conformance
+Clause/
+subclause
+ISO 9241-210:2010(E)
+Y
+. .
+se sldd ye ue
+oed ahidbr
+tfhel
+teawsld sie uelhr tfus
+uvcueacgmniosy
+ose htrnott irbe ihbpttn consat auen eaipmlujn s i.
+rieateooosa pcbrpo sd dtmt d opey ree eg aetck e ievpee nrcanvie harpihntuasotvhlaagir t bcotcas es ae dtpco vtin tshe sfeeotengfurbuit feg ieff pse o ent d d i-osllebmy ttd lauudesrsg ny hd rlloo, tieaonatteiuhhu:
+cetco ds ssoqee r aesg inejhvveorln in nruaosn il tpsooorf siionisas vnottipisrtricnneaaiag ieae
+pe ttohluug nilldcuphbitd leotnlaaniaraonuahirluvvuzpm
+n r ivs ipooweetar moienmt srhfrs eea e e ototosed oietn th ihhtcns .
+tttergen gn eurisaol, , y patbs godrltisiisstbo, nttotr ssela lm stnsg eas ott eduuelafecnun teie sidi, l-ssuutr tccsrlheaaieesirtscee tfylerravtferueeshbsvrg tjeatud d aolouieinose llsiee d y rd td t haao e d ehebpettae rtvvnurhesttr chy aa oicd ltag g n n noii, f nneg fet bnntg teiiaa-ouenvtacttircins iasittr-aubblyee nmurn ylclecdoosrugneeaearmpoosufalasvo o vlrlnfxtaoef EeIsUappcraceTeT) ) ) ) ) abcde1 1 2 2 2 2 2 2 3 3 ..........5555555555..........6666666666Copyright International 30 Organization for Standardization
+© ISO 2010 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+Requirement or recommendation
+Table B.1 (continued) Applicability Conformance
+Clause/
+subclause
+Yes/NoReason not applicable Yes No Comments
+6.4.4 Project plans should allow sufficient time for making the changes as a
+result of such feedback.
+6.4.5 There should be some sustained channel of communication between
+those responsible for human-centred design and other members of the
+project team.
+6.4.5 When design solutions are communicated, they should be accompanied
+by an explanation and justification of the design decisions, especially
+where trade-offs are necessary
+6.4.5 The communication [of details of the design] should take account of the
+constraints imposed by the project and the project team's knowledge
+and understanding about ergonomics and user interface design.
+6.5.1 User-centred evaluation (evaluation based on the user's perspective) is
+a required activity in human-centred design.
+ISO 9241-210:2010(E)
+s
+tnemmoCo Ns eYe lbacilppat onn osaeRoN/seYf
+y lof rog ag e nenw io hittrs esi, oaun ty
+vile, oree s ngsrakboad pte. smn.
+d smsalea etn ltdir ur pnt bem aeiootertefuohrbadesos limtspto-nd ey ] a largroo igim rsut tntuneaoaioatn h qlrcrh, tsteeosdoe rtyd seilnbdsnn bng uaur oold onoie , iotctethmvtm, acneseia.
+aeuuelrdhcs em d drlaruocmls n iloveiuetlrt tvsewaon-arpofuo) hegene e , hsesnm mbhdsvh or is tetleteitd rsote lir e aswsebuuovycfem t moqd [sotoserheertmy s trg upsftjspuianr tyinismn n in e(csneeoasgir o, ebio ttmhutsedstacitee sterr h e ruulao adcuhaetldiatss hod hvs tr e h rkaeeeawehgspertirptr hurf h te ymnoe ottfio. ee hepnto.
+d t ehhwtcs yletf nn-tnoewbk f ogarnioe eictctosrpae vse a tixoat isutresrian mebnoopdusedeudpesite linthhee e e erhxs aeehhhRfvTeWttA tCsa3 3 4 6 6 .....55555.....66666Copyright International Organization © ISO for 2010 Standardization
+– All rights reserved 31 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+Requirement or recommendation
+Table B.1 (continued) Applicability Conformance
+Clause/
+subclause
+ISO 9241-210:2010(E)
+Bibliography
+[1] ISO 1503:2008, Spatial orientation and direction of movement — Ergonomic requirements
+[2] ISO 6385:2004, Ergonomic principles in the design of work systems
+[3] ISO 9000:2005, Quality management systems — Fundamentals and vocabulary
+[4] ISO 10075 (all parts), Ergonomic principles related to mental workload
+[5] ISO 11064-1:2000, Ergonomic design of control centres — Part 1: Principles for the design of control
+centres
+[6] ISO 11064-2:2000, Ergonomic design of control centres — Part 1: Principles for the arrangement of
+control suites
+[7] ISO 14915-1:2002, Software ergonomics for multimedia user interfaces — Part 1: Design principles
+and framework
+[8] ISO 14915-2:2003, Software ergonomics for multimedia user interfaces — Part 2: Multimedia
+navigation and control
+[9] ISO 14915-3:2002, Software ergonomics for multimedia user interfaces — Part 3: Media selection and
+combination
+[10] ISO/IEC 15288:2008, Systems and software engineering — System life cycle processes
+[11] ISO/TR 16982:2002, Ergonomics of human-system interaction — Usability methods supporting
+human-centred design1)
+[12] ISO/PAS 18152:2003, Ergonomics of human-system interaction — Specification for the process
+assessment of human-system issues2)
+[13] ISO/TR 18529:2000, Ergonomics — Ergonomics of human-system interaction — Human-centred
+lifecycle process descriptions
+[14] ISO 20282-1:2006, Ease of operation of everyday products — Part 1: Design requirements for context
+of use and user characteristics
+[15] ISO/TS 20282-2:2006, Ease of operation of everyday products — Part 2: Test methods for walk-up
+and use products
+[16] ISO/IEC/TR 25060, Software product Quality Requirements and Evaluation (SQuaRE) — Common
+industry format (CIF) for usability — General Framework for Usability-related Information3)
+[17] ISO/IEC/TR 29138-1:2009, Information technology — Accessibility considerations for people with
+disabilities — Part 1: User needs summary
+[18] IEC/CDV 62508, Guidance on human aspects of dependability
+1) Planned to be replaced by ISO 9241-230.
+2) Planned to be replaced by ISO 9241-220.
+3) To be published.
+Copyright International 32 Organization for Standardization
+© ISO 2010 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+Copyright International Organization for Standardization Provided by IHS under license with ISO Not for Resale No reproduction or networking permitted without license from IHS
+ISO 9241-210:2010(E)
+ICS 13.180; 35.180
+Price based on 32 pages
+Copyright International --`,,```,,,,````-`-`,,`,,`,`,,`---
+© ISO 2010 Organization – All for rights Standardization reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale

@@ -1,0 +1,510 @@
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+INTERNATIONAL
+ISO STANDARD
+13407
+First edition 1999-06-01
+KATS Human-centred interactive systems Processus de conception interactifs Internal Ucentrée design ssur el'opérateur r processes Onhumain ly pour for
+les systèmes
+A Reference number ISO 13407:1999(E)
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION ISO 13407:1999(E)
+Contents Page
+1 Scope ........................................................................................................................................................................ 1
+2 Terms and definitions .............................................................................................................................................1
+3 Structure of this International Standard................................................................................................................2
+4 5 5.1 5.2 5.3 5.4 5.5 6 7 7.1 7.2 7.3 7.4 7.5 8 Annex Annex Annex Rationale Principles Planning Human-centred Conformance..........................................................................................................................................................12 General...................................................................................................................................................................3
+The An Iteration Multi-disciplinary General...................................................................................................................................................................5 Understand Specify Produce Evaluate appropriate A B C active (informative) (informative) (informative) the the for of of design designs involvement design human-centred human-centred adopting user and design Kallocation solutions....................................................................................................................................8 specify and against design......................................................................................................................................4 Guidance Example Sample solutions................................................................................................................................3 Aa organizational activities human-centred of the Trequirements of users procedure design......................................................................................................................3 design of context function on S a ...........................................................................................................................5 other structure and process.......................................................................................................4 Irequirements of a between for nrelevant clear design use .............................................................................................................9 demonstrating tof .......................................................................................................6 eunderstanding a process usability standards users r...........................................................................................7 nand ...................................................................................2 aevaluation conformance .............................................................................13 technology...........................................................3 l of user Ureport and sto etask this ..................................................17 r requirements.......................3 International OnlStandard....20 y
+Bibliography..............................................................................................................................................................25
+© ISO 1999 All rights reserved. Unless otherwise specified, no part of this publication may be reproduced or utilized in any form or by any means, electronic or mechanical, including photocopying and microfilm, without permission in writing from the publisher.
+International Organization for Standardization Case postale 56 • CH-1211 Genève 20 • Switzerland Internet iso@iso.ch Printed in Switzerland
+iiCOPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+© ISO ISO 13407:1999(E)Foreword
+ISO (the International Organization for Standardization) is a worldwide federation of national standards bodies (ISO member bodies). The work of preparing International Standards is normally carried out through ISO technical committees. Each member body interested in a subject for which a technical committee has been established has the right to be represented on that committee. International organizations, governmental and non-governmental, in liaison with ISO, also take part in the work. ISO collaborates closely with the International Electrotechnical Commission (IEC) on all matters of electrotechnical standardization.
+International Draft Publication International SC Annexes 4, International Ergonomics A, as B Standards Standard and an KInternational C of Standards of human-system AISO this are TInternational 13407 drafted adopted Standard S was in interaction.
+accordance Iby prepared requires Standard nthe ttechnical eby approval with are rTechnical nfor the committees information arules by l at Committee given least Uare only.
+75 in scirculated the % eISO/TC of ISO/IEC the r member to 159, ODirectives, the Ergonomics, nmember bodies ly Part casting bodies 3.
+Subcommittee a for vote.
+voting.
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+iii
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+ISO 13407:1999(E) © ISO
+Introduction
+Human-centred design is an approach to interactive system development that focuses specifically on making systems usable. It is a multi-disciplinary activity which incorporates human factors and ergonomics knowledge and techniques. The application of human factors and ergonomics to interactive systems design enhances effectiveness and efficiency, improves human working conditions, and counteracts possible adverse effects of use on human health, safety and performance. Applying ergonomics to the design of systems involves taking account of human capabilities, skills, limitations and needs.
+Human-centred enhanced a organized International identify and . substantial methods. and quality and plan Standard body used systems effective of Kwork, of effectively, aims human Asupport reductions and to Ttimely help factors users much S those in human-centred support and of and Ithis nresponsible motivate ergonomics tinformation and etraining them rdesign for nknowledge to managing is acosts, activities. learn. only l and well-known UThe about hardware improved It benefits scomplements ehow by and r can user such specialists include software Osatisfaction. existing design nincreased design in ly
+design processes these Although processes productivity, approaches fields. there can This be
+to is
+ivCOPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+INTERNATIONAL STANDARD © ISO ISO 13407:1999(E)Human-centred design processes for interactive systems
+1 Scope
+This International Standard provides guidance on human-centred design activities throughout the life cycle of computer-based sources This NOTE software This all This coverage aspects The addresses understand in developers, development, 2 For 2.1 interactive combination user NOTE ISO aspects Terms the International International in main International 9241 order purposes products, in of of Computer-based The detail. information users of technical system their and the specifiers of to (see project including term hardware support methods relevance interactive Kcustom definitions of of Standard Standard Standard bibliography) “system” this this management. human Aand and the his International office International and and interactive Tstandards end-users is or and is addresses systems. provides purchasers factors often concerned systems, her techniques software S importance which performance used systems and Standard, relevant an of It Iplant the Standard rather components is is systems, nof with overview required ergonomics complementary planning aimed monitoring systems. in tvary than both the to eof the the will a at in should “interactive design hardware for rof following task and scale human-centred those that nhuman-centred be systems, Nonetheless, human-centred issues management find aproject process receive and to managing system”. and terms l the this only automated complexity. software Umanagers. guidance input as International and to all approach. a design of design, design sthe whole. from, definitions parties human-centred banking Examples ecomponents extent in This activities. and this processes nor r Such involved Standard systems International does communicate necessary apply. International Oinclude issues of It it design. nand and in address does interactive and are off-the-shelf human-centred ly consumer to provides Standard is not dealt output It Standard allow does aimed health provide systems. with products. managers guidance to, (shrink not relevant. and at more therefore a address detailed
+system system
+human safety wrap) fully on
+to
+2.2 prototype representation of all or part of a product or system that, although limited in some way, can be used for evaluation
+2.3 usability extent to which a product can be used by specified users to achieve specified goals with effectiveness, efficiency and satisfaction in a specified context of use
+[ISO 9241-11:1998, definition 3.1]
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+1
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+ISO 13407:1999(E) © ISO
+2.4 effectiveness accuracy and completeness with which users achieve specified goals
+[ISO 9241-11:1998, definition 3.2]
+2.5 efficiency resources expended in relation to the accuracy and completeness with which users achieve goals
+[ISO 9241-11:1998, definition 3.3]
+2.6 satisfaction freedom [ISO 2.7 context users, product [ISO 2.8 user individual [ISO 3 Clause rationale Clause when Clause which activities. 4 All Structure Rationale work 9241-11:1998, 9241-11:1998, 9241-10:1996, planning should tasks, 7 5 4 is of from systems for is interacting gives outlines used use the the equipment discomfort, take human-centred of core for use guidance should the place this Kdefinition definition definition of adopting with of human-centred reasons this AInternational (hardware, during the follow and on International system T3.4] 3.5]
+2.2] the positive design the for the a principles S human-centred adopting ergonomic software design activities attitudes methods, IStandard. Standard nprocess. of a and thuman-centred to and principles human-centred or ethe materials), to discusses It rClause use determine describes design nof described athe 8 and how design. gives l design product each priorities process the these Uin further of physical ISO Clause process. the sshould for 6385:1981. four eresource guidance and 6 relate r essential These lists social Oallocation the to on Making can system reporting environments issues human-centred nbe ly interactive during used design to human-centred be to a goals.
+considered in project. provide activities
+systems which a
+a
+more human-centred has substantial economic and social benefits. In most countries, employers and system providers have legal obligations to protect users from risks to their health and safety. Making systems more usable means systems can contribute to these aims, meeting user and organizational needs better. They
+a) are easier to understand and use, thus reducing training and support costs,
+b) improve user satisfaction and reduce discomfort and stress,
+c) improve the productivity of users and the operational efficiency of organizations, and
+d) improve product quality, appeal to the users and can provide a competitive advantage.
+The complete benefits of human-centred design can be determined by taking into account the total life-cycle costs of the system including conception, design, implementation, support, use and maintenance.
+2COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION © ISO ISO 13407:1999(E)5 Principles of human-centred design
+5.1 General
+There are many industry and proprietary standard methods for the design of computer-based interactive systems. This International Standard does not assume any one standard design process, nor does it cover all the different activities necessary to ensure effective system design. It is complementary to existing design methods and provides a human-centred perspective that can be integrated into different forms of design process in a way that is appropriate to the particular context. All the human-centred design activities identified in clause 7 are applicable, to a greater or lesser extent, at any stage in the development of a system.
+Whatever the design process and allocation of responsibilities and roles adopted, the incorporation of a human- centred approach is characterized by the following:
+a) b) c) d) 5.2 The use, involvement involvement When linked influence working When easily that to 5.3 One specification decisions to The provide human the the the involvement an multi-disciplinary decisions The An of the accessible. custom-made to generic appropriate the active iteration relevant with appropriate tasks, the performance. on determine active feedback most varies them. increases of the development involvement or should which and of user of Kimportant design involvement consumer It depending Such design allocation users through is the how products design. and Astill be functions allocation as extent involvement as in based users task solutions; essential Tthe of process. human-centred the testing it products of users on are emerges, requirements interaction S to development function should are of on the which being of of and that users many The design likely and the Iare function a nbe between users a developed, and organization participation proposed clear given between being factors, to and design carried activities tcan process solutions work eor understanding a job, developed, between be appropriate users rclear principles such out design with the identified ntask, the which provides also procuring by and can developers the aunderstanding proposed as function solutions. the increase are users technology; relative be future l the representatives concerns for of a users being evaluated Uuser valuable user the inclusion or and users product user and capabilities system and undertaken. and responsibility spopulation the technology the acceptance eand source task which by in of appropriate or users the has are r user those the requirements; system. and by system of involved is the Otasks is knowledge increases. and the dispersed who and limitations to opportunity allocation nThe technology. be performed specification, task commitment. are in automated ly development, effectiveness actually requirements about The and of of to humans can is nature function These have the perhaps and going or be context assigned a in in of of directly
+versus design direct to order order – user user
+not
+the be of
+technology in terms of reliability, speed, accuracy, strength, flexibility of response, financial cost, the importance of successful or timely accomplishment of tasks and user well-being. They should not simply be based on determining which functions the technology is capable of performing and then simply allocating the remaining functions to users, relying on their flexibility to make the system work. The resulting human functions should form a meaningful set of tasks. Representative users should generally be involved in these decisions. For further guidance, see ISO 9241-2 and ISO 10075.
+5.4 Iteration of design solutions
+In iterative design approaches, feedback from users becomes a critical source of information. Iteration, when combined with active user involvement, provides an effective means of minimizing the risk that a system does not meet user and organizational requirements (including those requirements that are hidden or difficult to specify
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+3
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+ISO 13407:1999(E) © ISO
+explicitly). Iteration allows preliminary design solutions to be tested against “real world” scenarios, with the results being fed back into progressively refined solutions.
+Iteration can be incorporated in other design approaches. Even in the “waterfall” model, where there is a systematic top-down hierarchy of design decisions and the relationship between the stages generally precludes iteration between them, there can be extensive iteration within a stage.
+5.5 Multi-disciplinary design
+Human-centred design needs a variety of skills. A range of personnel is necessary to address the human aspects of the design. This means that multi-disciplinary teams should be involved in a user-centred design process. These can be small, dynamic and need only last the life of the project. The composition of the teams should reflect the relationship between the organization responsible for technical development and the customer. The roles can include a) b) c) d) e) f) g) h) Individual have 6 A process. The a) b) plan Planning plan end-user; purchaser, application systems marketer, user human technical the use, to procedures to user should the be human-centred should interface specifying team large following factors criteria; analyst, author, salesperson; be the manager members domain identify: but for developed designer, and Khuman-centred user the integrating trainer systems ergonomics specialist, design team Aof and can user; and visual Tshould to organizational cover engineer, process these specify support S business designer; expert, a be number activities activities sufficiently design how programmer; Ipersonnel. nhuman-computer analyst; requirements, the of twith different described ehuman-centred process diverse rother nskill to producing in asystem interaction make clause areas l activities Uappropriate and development 7, prototypes i.e. specialist;
+sviewpoints. understanding fit einto design r and the activities, Multi-disciplinary Oevaluating overall trade-off and ne.g. system identifying ly decisions. designs analysis, teams development context according
+design, do not
+of
+testing;
+c) the individuals and the organization(s) responsible for the human-centred design activities and the range of
+skills and viewpoints they provide;
+d) effective procedures for establishing feedback and communication on human-centred design activities as they
+affect other design activities, and methods for documenting these activities;
+e) appropriate milestones for human-centred activities integrated into the overall design and development
+process;
+f) suitable timescales to allow feedback, and possible design changes, to be incorporated into the project
+schedule.
+4COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+© ISO ISO 13407:1999(E)This human-centred design process plan should form part of the overall system development project plan and should also be subject to the same project disciplines (e.g. responsibilities, change control) as other key activities to ensure that it is followed through and implemented effectively. The plan should be revised as requirements change and updated to reflect the status of activities.
+Project planning should allow for iteration and for incorporating user feedback. Some time is also required for effective communication among design team participants and for reconciling potential conflicts and trade-offs. Projects benefit from additional creativity and ideas from the interaction of team members who, collectively have an extensive skill base. Extra communication and discussion to identify and resolve problems early on in the project can result in significant savings at later stages when changes are generally more costly.
+Design organizations should incorporate human-centred design into their existing internal procedures and development standards. This can include organization procedures for prototyping, for testing, for establishing appropriate user involvement, for ensuring the right mix of skills and competence in the development team.
+If specific process 7 7.1 There These a) b) c) d) The the requirements, The example, When and the the Human-centred activity used product to to to to human-centred need General developing are planning activities specify evaluate understand produce adopted plan to as for four and satisfy guidance or a should as the human-centred human-centred design reporting a are designs system Kand illustrated organization system user and customer design be the Ain solutions, specify and design against included is designing quality progress development Tin process organizational being requirements Figure design the has S design requirements. control activities for context formulated), and a or should 1. quality activities the selecting Iapproach findings. project, measures. nhuman-centred requirements, of for start tsystem use, usability. ethat the the and Whereas at will rthe should description human-centred be and nshould earliest identified aassociated all design take of l be stage of place the Urepeated from each process design human quality of during sthe activity the emethods operational design covering iteratively project a plans r system and activities Ofor (e.g. its and both development until system objectives sub-tasks nwhen techniques the described the ly type development, the system should of initial of project. for the in development carrying concept system, this meets be studied then clause the
+out for for a
+are generally relevant, the relative focus and overall investment in them will depend on the size and type of the product; for example, a large project, new product or new system could have a full multi-disciplinary team with a member for each relevant role and implement all the human-centred design activities recommended in this clause. In contrast, small projects, existing legacy products or systems or products targeted at niche or small markets could have a smaller design team with individual members representing multiple roles and use a more limited range of methods and techniques to support the activities.
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+5
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+ISO 13407:1999(E) © ISO
+KATS Internal User Only
+6
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION Figure 1 — The interdependence of human-centred design activities
+7.2 Understand and specify the context of use
+7.2.1 The characteristics of the users, tasks and the organizational and physical environment define the context in which the system is used. It is important to understand and identify the details of this context in order to guide early design decisions, and to provide a basis for evaluation.
+Information should be gathered about the context of use of new products and systems. If an existing system is to be upgraded or enhanced, this information may already be available but should be checked. If there are extensive results from user feedback, help desk reports and other data, these provide a basis for prioritizing user requirements for system modifications and changes.
+The context in which the system is to be used should be identified in terms of the following.
+a) The characteristics of the intended users: relevant characteristics of the users can include knowledge, skill, experience, education, training, physical attributes, habits, preferences and capabilities. If necessary, define the characteristics of different types of users, for example, with different levels of experience or performing different roles (maintainers, installers, etc.).
+b) The tasks the users are to perform: the description should include the overall goals of use of the system. The characteristics of tasks that can influence usability should be described, e.g. the frequency and the duration of performance. If there are implications for health and safety, e.g. controlling the behaviour of a computer- controlled production machine, these should also be described. The description should include the allocation of activities and operational steps between the human and technological resources. Tasks should not be described solely in terms of the functions or features provided by a product or system.
+c) The environment in which the users are to use the system: the environment includes the hardware, software and materials to be used. Their description can be in terms of a set of products, one or more of which can be the focus of human-centred specification or evaluation, or it can be in terms of a set of attributes or performance characteristics of the hardware, software and other materials.
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+© ISO ISO 13407:1999(E)Relevant characteristics of the physical and social environment should also be described. These can include relevant standards, attributes of the wider technical environment (e.g., a local area network), the physical environment (e.g., workplace, furniture), the ambient environment (e.g., temperature, humidity), the legislative environment (e.g., laws, ordinances and directives) and the social and cultural environment (e.g., work practices, organizational structure and attitudes).
+7.2.2 The output from this activity should be a description of the relevant characteristics of the users, tasks and environment which identifies what aspects have an important impact on the system design. (See ISO 9241-11 for more information about the context of use and a sample report.)
+NOTE This description is unlikely to be a single output that is issued once. It is more often a “working document” that is first produced in outline terms and is then reviewed, maintained, extended and updated during the design and development process.
+The a) b) c) d) e) 7.3 7.3.1 product user considered a) b) c) d) e) f) g) h) context required relevant cooperation the task work management feasibility specify be be be be Specify and In derived confirmed adequately made users’ or performance; most organizational design system. in the of statutory performance available order of the use jobs design from range operation and and Kby of user description documented; (including to For change, suitable the communication organization; Aof identify or processes, to human-centred requirements intended users legislative and the of and Tthe sources; including design the relevant organizational should or maintenance; S new allocation if users, there they requirements, team between system in Irequirements: training design, are is ntasks relation at a of not tmajor appropriate against users tasks, eand and requirements available, this to including renvironments personnel activity the and users’ activity noperational context other times aby specifying safety well-being, should those l to relevant and of be and Uin use and representing involved; in sufficient be financial appropriate the shealth; description. and parties; extended functional emotivation); detail r objectives; their to forms OThe to and create interests support following to nother support an ly
+design in requirements explicit the aspects design process; activity;
+statement should activities. for the
+be of
+i) the human-computer interface and workstation design.
+7.3.2 User and organizational requirements should be derived and objectives set with appropriate trade-offs identified between the different requirements. This specification should define the “allocation of function” — the division of system tasks into those performed by humans and those performed by technology. These requirements should be stated in terms that permit subsequent testing and should be confirmed or updated during the life of the project.
+NOTE Specific guidance on specifying software in a form that can be tested is contained in ISO/IEC 14598-1.
+The specification of user and organizational requirements should
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+7
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+ISO 13407:1999(E) © ISO
+a) identify the range of relevant users and other personnel in the design,
+b) provide a clear statement of the human-centred design goals,
+c) set appropriate priorities for the different requirements,
+d) provide measurable criteria against which the emerging design can be tested,
+e) be confirmed by the users or those representing their interests in the process,
+f) include any statutory or legislative requirements, and
+g) be adequately documented.
+7.4 7.4.1 Potential knowledge following a) b) c) d) e) 7.4.2 There product internal the guidance relevant 7.4.3 Using effectively later initial use make present alter are manage in Produce General Use Make is simulations, the user design met; standards existing activities: a the design and design, the with life existing of substantial the the interface the design design the cycle standards users and design design design knowledge iteration solutions participants particularly and Kmodels other — knowledge in and solutions style response in body bibliography solutions solutions Asolution of some relevant reduces are guides, are design and to of Talso when and develop more cases scientific produced to to to mock-ups S more the disciplines solutions. the product the develop users available for concrete designing after need user design further results concrete Iknowledge and by ninitial knowledge and or feedback design from that using allow proposals sources drawing tof other similar cost release ethe can using national them simulations, proposals rof and forms context and indicate and of products. non reworking simulations, with to to information. theory iterate marketing real the aperform and of multi-disciplinary of potential prototype l with customers. established models, international use this from Generic that Utasks a process analysis. information models, can multi-disciplinary ergonomics, design smock-ups, allows (or occur human estate simulated until standards input; The solutions. mock-ups, r when designers which of the factors etc.; process psychology, Othe human-centred products tasks); can bodies. Many input art, nand etc. be to therefore the ly communicate useful ergonomics organizations need cognitive See experience to in design annex involves supporting be science, revised design goals
+A more have and the
+for
+The benefits are the following:
+a) to make design decisions more explicit (this enables members of the design team to communicate with each
+other early in the process);
+b) to allow designers to explore several design concepts before they settle on one;
+c) to make it possible to incorporate user feedback into the design early in the development process;
+d) to make it possible to evaluate several iterations of a design and alternative designs;
+e) to improve the quality and completeness of the functional design specification.
+8COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+© ISO ISO 13407:1999(E)Prototyping can be carried out at most stages of design, from earliest design ideas based on the context of use information (for example, using scenarios) to pre-production prototypes that are virtually complete in all details. A prototype can be as simple as a pencil and paper sketch or as complex as a computer-based simulation, barely distinguishable from the real thing.
+7.4.4 Present the design solution to users and allow them to perform tasks (or simulated tasks)
+Users can be involved very early in the design through the use of static, paper-based mock-ups. This could involve presenting users with sketches of screen images of what a product/system is to look like and asking them to try them out in a realistic context. Some aspects of the design (e.g., how easy it is to work with the menu hierarchies) can then be quickly and inexpensively assessed. For hardware products, three-dimensional models constructed of simple materials can yield similar benefits.
+Simple prototypes are valuable at an early stage to explore alternative design solutions. Although there is benefit in making commitment In are If confidentiality), can take See 7.4.5 met The attached screen to the objectives help User can interactive 7.4.6 In records or order a support software. it maximum used complement improve human-centred 7.5 place level or is comments, Alter Manage designs interruptions can impractical for to the to to of a have with system manage details collect the They be subset optimizing on design system prototype benefits, real the wholly evaluation and realistic design been and user Kinclude (see of user iteration the of users. progress approach, to from solutions design usability. difficulties Atesting. met, user documentary it progress 7.5.1) show feedback the and prototypes, in is the can response Tmore tasks. best design. evaluation. the of evaluator. through However, prototypes In as prototypes be S design observed to degree of formal some that Later conducted realistic carry iterative that In or to several is Ican software in cases solutions then for the there evaluation nout of when design, are to include a as iteration design, user tseveral used design by stages users is not such epossible, using reluctance experts. developments, feedback prototypes simply rto the should the feedback process iterations early vary of ndrive a design iteration results prototype, demonstrations ait Expert depending be the in to is and can to l change conducted can artefact the design with of important be to prototyping iterate evaluation Uactivities be also interactive offer design human-centred, users. evaluated on process. the sitself, help guidance this in to several design. not eIn 7.4.2 process a show can for to process can order software realistic to r in refine example, to be invest a start factors, on users Oto 7.4.5 more the valuable (for functional determine the until context, with with final a nso should realistic example, some scope preview including just design testing paper much ly and for design enough be prototype whether and context. cost-effective example, of recorded. visualizations time, (at objectives for the the purpose changes least) functionality reasons importance design the money To hardware without should
+overall
+These obtain of are and
+that but
+an or
+of
+of
+a) the sources of existing knowledge and standards used, with an indication of how they have been incorporated
+(or why they have not been followed, if appropriate),
+b) the steps taken to ensure that the prototype covered key requirements and followed good practice, and
+c) the nature of the problems identified and the subsequent changes to the design.
+7.5 Evaluate designs against requirements
+7.5.1 General
+Evaluation is an essential step in human-centred design and should take place at all stages in the system life cycle. Evaluation can be used:
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+9
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+ISO 13407:1999(E) © ISO
+a) to provide feedback which can be used to improve design,
+b) to assess whether user and organizational objectives have been achieved, and
+c) to monitor long-term use of the product or system.
+Early in design the emphasis is on obtaining feedback that can be used to guide design, while later when a more complete prototype is available it is possible to measure whether user and organizational objectives (see 7.3) have been achieved.
+In the early stages of the development and design process, changes are relatively inexpensive. The longer the process has progressed and the more fully the system is defined, the more expensive the introduction of changes is. It is therefore important to start evaluation as early as possible.
+7.5.2 An a) b) c) d) e) f) g) Evaluation in development 7.5.3 Evaluations Particular a) b) c) which evaluation the who what scenarios, how resources scheduling feedback to to the to Evaluation Provide assess select diagnose human-centred workstation the evaluation is parts evaluation techniques responsible should evaluation life the plan and how required mock-ups design of of cycle potential design evaluation the plan use should well take Kis environment goals to system vary and of feedback for the for design is option place Abe results or be problems conducted. the should the evaluation system in performed prototypes; activities developed Ttheir are evaluation; at nature goals; that in all or S reflect to other degree meets best the stages and be of and The and and training the which fits evaluated design one Iidentify its analysis their of choice nthe in the system organizational or formality, the identifies procedures tproposals; functional relation more activities. needs esystem is and of under determined rof results rigour how to nthe for the life and development. the for goals; improvements aobjectives relevant they and cycle and project carrying user l by access are user in requirements; Ufinancial aspects timetable; order to below: out involvement, be sto the in users to evaluated, eof and the influence tests; the r interface, (as time following; depending Onecessary); constraints, for the example, nthe system ly supporting on the the to the be environment stage use delivered.
+material, of in test the
+d) to elicit feedback and further requirements from the users.
+Expert evaluation can be fast and economical and is good for identifying major problems but is not sufficient to guarantee a successful interactive system. The standards and guidelines referenced in annex A and the bibliography provide processes and criteria which can be used as a basis for this type of evaluation.
+User-based evaluation can be used to provide feedback at any stage of design. In the early stages, users can be involved in the evaluation of scenarios, simple paper mock-ups or partial prototypes (see 7.4.5 for details of prototyping and iteration).
+As design solutions become more developed, evaluations involving users are based on progressively more complete and concrete versions of the system. When trying to improve a prototype to meet human-centred design
+10COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+© ISO ISO 13407:1999(E)
+objectives, cooperative evaluation can be valuable, where the evaluator discusses problems with the user as they occur. See the bibliography for sources of further information.
+7.5.4 Assess whether objectives have been achieved
+Evaluation can be used
+a) to demonstrate that a particular design meets the human-centred requirements and
+b) to assess conformity to international, national, local, corporate or statutory standards.
+Further information on evaluation criteria can be found in the standards listed in annex A. To obtain valid results, the evaluation should use appropriate methods, with a representative sample of users performing realistic tasks.
+The needs goal the Setting necessary further 7.5.5 The users, real 7.5.6 There collection Long-term difference system from Performance process. important goals? modification Criteria stage. NOTE overload most user aim choice (e.g. external Field Long-term of the should information, are Information and objectives is of the Attention feedback, successfully important of Identifying to preferable tasks between to monitoring field not of validation user measurements requests organization assess. criteria factors, specify be evaluation recognizable validation and Kinput a monitoring to for see performance plan can to short-term unsafe user the and human-centred criteria for Performance and Ameans registering search is specific ISO environment. be and example, needed company setting goals is other criteria Tbehaviour 9241-11. should to gained until both a and collecting test S evaluation sub-goals process data. can medical data, the the as for for replace unforeseen the health criteria be from part criteria. mean system is design human-centred the The Ireports functioning sensitive clearly disorders. user nfor of minimum standard reports an can main and can ignoring the long-term tprinciples Objectives has item) input of preferable echanges design permit long-term be techniques enough health been can of ror quite in acceptable economic other the ngoals secondary different provide monitoring and used during evaluation impacts, in can to final to astraightforward: working evaluation. functions, registering evaluation identify which depends for relate system l the assessment and ways, levels a design goals Uperiod design of can earlier practices.
+to system marketing the to a but accidents, on over activities Some and sbe (e.g. primary ensure improvements, of use phase the is used does in efor time a parameters failure, maintainability). normally the effects requirements of period r the studies, that include goal in and the or can the development a target there Oor it human-centred identifying system (e.g. product identify of of meets the system help and time. for working analyses may nlevels produce most the for requests desk achieve the those Focusing ly or be There problems, mental long-term the process. to system. practical requirements effects with data, of a be parameters product design letter) is its support for or achieved. an objectives an field which physiological productivity changes.
+Systematic at It interactive evaluation approach.
+important or process. an may and reports, a costs, of result
+most
+early sub-
+For
+the the
+on
+be
+7.5.7 Reporting the results
+7.5.7.1 In order to manage the progress of iterative design, the results of the evaluations should be recorded in a systematic way. Annex B provides an example of the structure of a report used to provide feedback to design based on user testing. If claims are to be made about a design process meeting the recommendations in this International Standard, then those assessing the claims, whether customers, third-party assessors or the suppliers themselves will require suitable evidence of adequate evaluation. See annex A and the bibliography for examples of standards giving information on suitable evidence of adequate evaluation. In particular, there should be suitable evidence that
+a) an adequate number of users took part in the testing and these users were representative of those identified in
+the context of use,
+b) there was testing of the major human-centred objectives,
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+11
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+ISO 13407:1999(E) © ISO
+c) there were valid testing and data collection methods,
+d) there was an appropriate treatment of test results, and
+e) the conditions of testing were appropriate.
+There are three types of evaluation reporting that can be useful during the design process, depending on whether the purpose of the evaluation is to feedback to design, to test against specific standards or to provide evidence of achieving human-centred goals, for example, in terms of usability or user health and safety.
+7.5.7.2 Reporting of feedback to design should
+ take place at an appropriate time in the development process,
+   7.5.7.3      7.5.7.4       8 Conformance be provide result identify provide provide whole, report justify define provide describe describe contain indicate based Reporting Reporting in any how the relevant results design evidence information evidence a demonstrable the the on context deviations pass/fail non-conformities product measurements appropriate on on with Kfeedback standards tests that user that of on relevant decision Ause tested from the sufficient testing changes the of in sources Twhich the assessment applicable user and a and statistical undertaken, were in form design S should relation provide was and in parts its of dealt the which status, organizational evaluation used Iagainst standards. of system, analysis, was nto a with the supports users rationale the for e.g. tconducted in system specific eevaluation, requirements. where the production e.g. and and rdesign design, for requirements, nusers, methods were standards applicable. their by aa decisions, tested prototype, design and use, competent l used, should Uto reviews, give and sperson emeaningful r using Oappropriate results nly
+for the procedures,
+system as a
+If a development process is claimed to have met the recommendations in this International Standard, the procedures used, the information collected and the use made of the results shall be specified. The level of specification of the procedure and the level of detail for reporting the information collected are a matter of negotiation between the involved parties.
+Users of this International Standard can either utilize the procedure and forms provided in annex C or develop another procedure tailored to their particular development and/or environment.
+12COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+© ISO ISO 13407:1999(E)
+Annex A (informative)
+Guidance on other relevant standards
+A.1 General
+Standards related to human-centred design fall into two categories:
+  Some attributes. user A.2 ISO ISO International which ISO introduction. ISO terminals ISO ISO on ISO on can ISO how task be 6385:1981, 6385 9241-1:1997, 9241-1 9241 9241-2:1992, 9241-2 9241-11:1998, process-oriented: product-oriented: performance are Process-oriented product-oriented incorporated requirements. task for and contained These sets deals introduces requirements Standard office describes out Ergonomic Kstandards with and Ergonomic Ergonomic tasks, Ergonomic into therein. the Athese these satisfaction is the the standards how the based ergonomic and may design Tmulti-part principles specify system describe specify conformance requirements requirements explains be S on requirements of identified to these specify required tasks design procedures be principles in standard the Isome achieved.
+the nprinciples, users, and to the and for and design for tattributes of parts jobs efor office ISO requirements office implementation which the and specified tasks, roffice of of involving and basic 9241 processes work nwork ISO work of should and on the awork within for underlying 9241 with systems. the with context work user l ergonomic in description be visual to process. should with visual individual terms Uinterface. be with applied of principles. followed; visual display svisual display use be of requirements eorganizations reported. performance of and to display the display terminals r terminals the It assess aims provides Odesign terminals. terminals and for (VDTs) usability rather and n(VDTs) the objectives guidance of ly how use work than It (VDTs) — — in provides task Part of terms Part product systems. on of visual requirements 2: ergonomics — how 1: Guidance of
+guidance General
+Part display to This use
+11: Guidance on usability.
+ISO 9241-11 provides the definition of usability which is used in this International Standard (see 3.3).
+ISO 9241-11 explains how to identify the information which is necessary to take into account when specifying or evaluating usability in terms of measures of user performance and satisfaction. Guidance is given on how to describe the context of use of the product (hardware, software or service) and the required measures of usability in an explicit way. It includes an explanation of how the usability of a product can be specified and evaluated as part of a quality system, for example, one which conforms to ISO 9001.
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+13
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+ISO 13407:1999(E) © ISO
+It also explains how measures of user performance and satisfaction can be used to measure how any component of a work system affects the whole work system in use.
+ISO 10075:1991, Ergonomic principles related to mental work-load — General terms and definitions.
+ISO 10075 explains the terminology and provides definitions in the area of mental workload.
+ISO/IEC 14598-1:—1), Information technology — Software product evaluation — Part 1: General overview.
+The concept of quality in use has been used in ISO/IEC 14598-1: to distinguish between quality as an inherent characteristic of a software product, and the quality which is achieved when a software product is used under stated conditions, that is, in a specified context of use. This definition of quality in use is very similar to the definition of usability in ISO 9241-11:1998. The use of the term “quality in use” therefore implies that it is necessary to take account of human-centred issues in evaluating software products.
+NOTE achieve Process   A.3 In defined characteristics and Usable particular hardware, Parts software. ISO display ISO comfortably, it environment. ISO is the appropriate on 9241-3:1992, 9241-3 9241-4:1998, specification (ISO incorporation 3 Product-oriented product-oriented the specified requirements. products to in standards Parts 9241-11 contexts Quality software individual 9 this specifies safely of and 10 to goals way ISO in can of Ergonomic of specify and to Ergonomic can of and use guidelines Kand usability 9241 assessment 17 in with overall use. be ISO/IEC the be is view, efficiently of ISO/IEC Aenvironment defined effectiveness, it designed used ISO contain ISO ergonomic for standards into usability Trequirements quality requirements for most 9241 9241 14598-1:—to as 9126:1991, a of their to S support hardware quality “The such perform applications by and provides which is and use: task requirements incorporating seen extent Iother use system the 1)nefficiency for usability “a for ); contribute office design by Information as following set requirements office standards tto office a ewhich one which (ISO of stated tasks. and work attributes rrequirements, requirements for relatively work product to 9241-11). a require nactivities: satisfaction product or deal Although display usability, technology with aimplied with and specifically of features general visual independent l can visual recommendations software screens it in Uand set and and deals be a display — specified purpose of display used guidance and the swith users”. evaluation Software specifically which which eergonomic contribution by attributes terminals attributes context terminals specified displays r bear which ensure relating product Oagainst with on of (VDTs) known principles of users to to can use”. the (VDTs) nthe that displays be software to evaluation have effort software. used to ly these the — to they meet — Part underlying benefit attributes implications needed used in quality, Part can requirements their an 4: — Keyboard in office-like 3: users be needs offices, for Quality and Visual of them.
+read use
+the
+for in to
+is
+requirements.
+ISO 9241-4 specifies the ergonomic design characteristics of an alphanumeric keyboard which may be used comfortably, safely and efficiently to perform office tasks. Keyboard layouts are dealt with separately in various parts of ISO/IEC 9995:1994, Information technology — Keyboard layouts for text and office systems.
+ISO 9241-5:1998, Ergonomic requirements for office work with visual display terminals (VDTs) — Part 5: Workstation layout and postural requirements.
+1) To be published.
+14 COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+© ISO ISO 13407:1999(E)
+ISO 9241-5 specifies the ergonomic requirements for a visual display terminal workplace which will allow the user to adopt a comfortable and efficient posture.
+ISO 9241-6:—1), Ergonomic requirements for office work with visual display terminals (VDTs) — Part 6: Guidance on the work environment.
+ISO 9241-6 specifies the ergonomic requirements for the visual display terminal working environment which will provide the user with comfortable, safe and productive working conditions.
+ISO 9241-7:1998, Ergonomic requirements for office work with visual display terminals (VDTs) — Part 7: Requirements for display with reflections.
+ISO 9241-7 specifies methods of measurement of glare and reflections from the surface of display screens, including those with surface treatments. It is aimed at display manufacturers who wish to ensure that anti-reflection treatments ISO Requirements ISO requirements ISO Requirements ISO with includes ISO Dialogue ISO information user ISO Presentation ISO includes screen ISO guidance. ISO interfaces 9241-8:1997, 9241-8 9241-9:—9241-9 9241-10:1996, 9241-10 9241-12:1998, 9241-12 9241-13:1998, 9241-13 a expectations, visual layout, a guidance principles. including performance do systems: specifies specifies of display deals provides contains in not 1)for for and information. part , Kdisplayed non-keyboard detract Ergonomic on self design Ergonomic with prompts, Ergonomic Ergonomic Ergonomic 3. terminal. the suitability ways the Arecommendations specific descriptiveness, test. general ergonomic from requirements as Tof colours. It well feedback, representing It image does requirements recommendations S requirements requirements for input requirements requirements ergonomic covers as the not requirements the quality. devices Istatus, task, controllability, address for such nuse for multi-colour complex principles tthe of suitability for for devices . for eon-line for for windows. design voice office office for for office roffice office information npresenting non-keyboard and which help as input. work for and displays work awork the work work error and learning, evaluation apply with mouse, l with error tolerance. with with with and using Uwhich visual to input suitability management. visual visual visual representing the visual trackerball salphanumeric of are display design devices user elargely display display display display r for guidance terminals of and which individualization, Oinformation dialogues in terminals terminals and terminals other terminals addition may nattributes graphical/symbolic (VDTs) pointing ly be between on (VDTs) (VDTs) to (VDTs) used (VDTs) visual the — of devices. conformity in software Part monochrome humans — — conjunction displays. — — 13: Part Part Part codes, Part It User
+user also
+with and 10:
+12: 9: 8:
+It
+ISO 9241-14:1997, Ergonomic requirements for office work with visual display terminals (VDTs) — Part 14: Menu dialogues.
+ISO 9241-14 provides recommendations for the ergonomic design of menus used in user-computer dialogues. The recommendations cover menu structure, navigation, option selection and execution, and menu presentation (by various techniques including windowing, panels, buttons, fields, etc.). ISO 9241-14 is intended to be used by both designers and evaluators of menus, although its focus is primarily towards the designer.
+ISO 9241-15:1997, Ergonomic requirements for office work with visual display terminals (VDTs) — Part 15: Command dialogues.
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+15
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+ISO 13407:1999(E) © ISO
+ISO 9241-15 provides recommendations for the ergonomic design of command languages used in user-computer dialogues. The recommendations cover command language structure and syntax, command representations, input and output considerations, feedback and help. ISO 9241-15 is intended to be used by both designers and evaluators of command dialogues, but the focus is primarily towards the designer.
+ISO 9241-16:—1), Ergonomic requirements for office work with visual display terminals (VDTs) — Part 16: Direct- manipulation dialogues.
+ISO 9241-16 provides recommendations for the ergonomic design of direct-manipulation dialogues, and includes the manipulation of objects, and the design of metaphors, objects and attributes. It covers those aspects of “graphical user interfaces” which are directly manipulated, and not covered by other parts of ISO 9241. ISO 9241-16 is intended to be used by both designers and evaluators of command dialogues, but the focus is primarily towards the designer.
+ISO filling ISO cover to ISO/IEC control ISO other ISO/IEC Icons: ISO recommendations ISO/IEC Object ISO object, 20 ISO/IEC Pointers. ISO pointers Product be icons. 9241-17:1998, 9241-17 10471-1 11581-1 11581-2 11581-3 used dialogues. input form General.
+icons. for and standards on 10741-1:1995, 11581-1:—11581-2:—11581-3:—text by devices. structure a that contains provides specifies contains screen describes both editing. can applicable can designers KErgonomic 1)1)1)and change , , , be requirements recommendations a Information Information Information how be Information Auser framework output moved used the appearance to and Tinteraction requirements all in cursor considerations, and evaluators S the icons. technology technology technology technology and for following opened. could the recommendations Ito for with ndevelopment give of the move for — — — and tways: It — command input users office ergonomic eUser User also User User on appearance rconsiderations, contains System feedback. the System work System System nand dialogues, screen for adesign with design icons Interfaces Interfaces Interfaces Interfaces l specifications of visual in Uof pointers that but response and of form display the icons, srepresent form — — — — filling focus eon Dialogue Icon Icon Icon for to navigation. including terminals r the dialogues. the is symbols symbols symbols the functions primarily screen. Ouse interaction function general (VDTs) of ISO nand and and The cursor by It towards ly 9241-17 and functions functions functions also association recommendations requirements — — control appearance Part specifies Part the is — — — designer. 1: 17: intended keys with Cursor Part Part Part Form
+how and
+an or
+1:
+2:
+of
+3:
+ to specify details of the appearance and behaviour of the user interface;
+ to provide detailed guidance on the design of user interfaces;
+ to provide criteria for the evaluation of user interfaces.
+However, the attributes which a product requires for usability depend on the nature of the user, task and environment. A product has no intrinsic usability, only a capability to be used in a particular context. ISO 9241-11 can be used to help understand the context in which particular attributes can be required.
+16 COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+© ISO ISO 13407:1999(E)
+Annex B (informative)
+Example of a structure of a usability evaluation report
+B.1 General
+This is an example of the structure of a usability evaluation report used in a large international banking organization. The project involved B.2 This objectives B.3 This the B.4 This a) b) functional to to through     report section section section Executive Product Objectives evaluate evaluate concerned. parties. user different structured user and itself describes provides describes observing, areas efficiency perception provides the the Kwas evaluated levels debriefing, subjective In summary covered ability of an Adetailed such the the recording a for of evaluation overview questionnaires. summary objectives scope user Tof a reports, by clearly designated reactions, and and S experience, the of and of evaluation. of the provided defined the of the measuring, the Iphysical the nattitudes evaluation structure users recommendations. evaluation set tsufficient eof to product/system and tasks, ruse and of nthe and satisfaction data effectively the and adesign any level to l areas enable under Uat of ratings the a detail of particular sapplication evaluation decisions specific by
+eis a r project interest, matter and to software Obe also stage, of made nfor negotiation includes at example: ly details an for appropriate the a the breakdown future between evaluation of level, the the
+of
+B.5 Context of use
+This section describes
+ the context analysis which was carried out to ensure that the evaluation carried out matched the intended use
+of the system;
+ the scenarios developed to incorporate the tasks identified in the context analysis, and
+ the differences between the working and evaluation environments.
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+17
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+ISO 13407:1999(E) © ISO
+B.6 Measurement plan
+B.6.1 Users
+This section compares the participants selected to the intended users identified in the context of use description.
+B.6.2 Methods
+This section outlines the methods of measurement used during the evaluation, for example:
+ usability analyst observation and videotape analysis;
+ business area observation;
+  B.6.3 This introduction, B.7 B.7.1 This number B.7.2 Analysis participant preferred.
+B.7.3 Usability with situation. B.7.4 Issues participants. user user consistency, is section Results the relating Sequence Video User Workflow General of concerns of and and Also people are major each on-site provides customer customer interface included provided analysis to session section taken lack the relating Kand training, a number of are debrief questionnaire from for Aprocess breakdown design of fit in to general searches, the with pre-task detail the Tthe by of evaluation intended screen the S usability steps to design and briefing, task analysis. record snags, design Iwithin schedule user and issues analysts; nreport. the help tasks, tpopulation. the processes for elength such within It each need of questionnaire includes ras various nof application each for use are time aerror a of task activities reported l warning spent colour completion, messages Uundertaken. area doing and sthat from performed are crowding erecorded. each the which observation verbal Graphical r experiences task during tell Odebrief, of Examples information is the presentation ngiven. and the user goodbye. are ly day: from Timings how include those on welcome comments screens. to of of problems correct results for a small each and
+of is
+a
+B.7.5 Training
+The section identifies user requirements for future training, based on observation of user performance.
+B.7.6 User debriefing
+Results from any project specific questionnaires completed by each participant are detailed and can include example quotes.
+B.7.7 User perception questionnaires
+Usability checklist scores and interpretation of responses are included.
+18COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+© ISO ISO 13407:1999(E)
+B.8 Recommendations
+The concluding section lists all recommendations made from analysis of the results as described earlier. Recommendations are listed in order of importance and ease of implementation (quick wins), together with the likely impact on user and business if not acted upon. Examples of design solutions can be suggested for consideration where evidence exists to support them.
+B.9 Appendices
+Task breakdowns.
+Analysis of video recording of user performance.
+Analysis of user responses to questions in user perception questionnaires. Analysis of customer responses to questions in customer perception KATS Internal Uquestionnaire.
+ser Only
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+19
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+ISO 13407:1999(E) © ISO
+KATS Internal User Only
+20
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION Annex C (informative)
+Sample procedure for demonstrating conformance to this International Standard
+C.1 Introduction
+This annex provides an example of a procedure for determining whether a human-centred process, as described in this International Standard, has been applied in the development of an interactive system. It should be noted that the procedure described in C.2 is provided as guidance only, and parties may choose to use alternative procedures. The checklist is not intended to be used in isolation. It should only be used in conjunction with the full text of this International Standard. This annex provides a checklist-based procedure to do the following:
+a) identify the information to be produced by each human-centred activity in the development of an interactive
+system;
+b) describe how the production of such information should be assured;
+c) record the results of the assessment process.
+NOTE This procedure can be followed in any human-centred design project. In small projects some of the information may not be required or may be easily obtained and require little formal documentation.
+C.2 Documentation
+The checklists are completed as follows:
+a) the relevance of the information to the project should be assessed;
+b) the location of information and means of assessment columns are completed before an activity has been
+carried out;
+c) during the check that the human-centred process has adhered to its procedures, an assessor makes the check
+for adherence using the defined means of assessment for each information item;
+d) the adherence and comments columns are completed by the assessor.
+Users of this International Standard can demonstrate how they complied with this standard by using the lists given in Tables C.1 to C.5 as evidence that they had correctly produced, managed and applied the information relating to human-centred activities in a project or design life cycle. Although ISO standards are copyright, the checklists may be freely reproduced.
+The checklists headings are as follows.
+ Information item. This column contains a list of the information which this International Standard suggests should be produced during a human-centred design process. Each item is labelled with the clause that describes the activity which generates or uses that information.
+ Location of information. Although the documents described in this International Standard will be suitable for many projects, the items of information generated or used by the human-centred activities can be recorded in many different documents, files, databases, etc., depending on the nature of the project and development life cycle.This column in the checklist can be used to record the location of the information and the required format and level of detail of that information for the particular project or life cycle.
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+© ISO ISO 13407:1999(E)
+ Relevance. This column indicates whether the information is relevant to this project.
+ Means of assessment. The procedure by which each information item is collected, produced, recorded, and its quality is assured should be checked. For custom-designed products, the means of assessment can be agreed between purchaser and supplier. For generic products, the means of assessment can be agreed between the project and the quality assurance function in the organization or the project manager and the provider of human factors services. Examples of means of assessment include evidence from document control systems, reviews, repetition of tests, interviews and audits.
+ Adherence. This column can be used by the designated assessor to record the results of the assessment. Depending on the degree of assurance specified in the means of assessment, the assessor can be a member of the project staff, an internal auditor or purchaser, or an auditor from an independent assessment organization. After assessment, this column will provide evidence of the examination of the human-centred activities against the recommendations of this International Standard.  Information Comments. item (related KSpace Aclause) for Tthe Table assessor S C.1 Into — record Planning teobservations rinformation Location nthe ahuman-centred of l or URelevance summaries (Y/N) seprocess
+r of non-adherence. Only
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+21 Means of assessment
+Adherence (Y/N)
+Comments
+List of human-centred activities to be carried out (clause 6)
+Procedure for integrating human-centred activities with other development activities (clause 6)
+The individuals and organization(s) responsible for the human-centred design activities and the range of skills and viewpoints they provide (clause 6)
+Procedures for establishing feedback and communication on human-centred design activities as they affect other design activities and methods for recording these activities ( clause 6)
+Milestones during the design and development process (clause 6) (should allow for iteration)
+Suitable timescales to allow feedback to be incorporated into the design schedule (including early stages) (clause 6)
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+ISO 13407:1999(E) © ISO
+KATS Internal User Only
+22
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION Table C.2 — Specification of the context of use
+Information item (related clause) Location of information
+Relevance (Y/N)
+Means of assessment
+Adherence (Y/N)
+Comments
+Specification of the range of intended users, tasks and environments (7.2)
+The sources from which the context of use information was derived (7.2)
+Evidence of confirmation of context of use information (7.2)
+Evidence of the provision of context of use information to the design team (7.2)
+Evidence that the context of use has been used in the design process (7.4.1).Table C.3 — Specification of the user and organizational requirements
+Information item (related clause) Location of information
+Relevance (Y/N)
+Means of assessment
+Adherence (Y/N)
+Comments
+The range and relevance of users and other personnel in the design (7.3)
+Statement of the human-centred design goals (7.3)
+Priorities for the different requirements (7.3)
+Criteria against which the design can be tested (7.3)
+Evidence of confirmation of the above by users or their representatives (7.3)
+List of statutory or legislative requirements (7.3)
+Evidence that the requirements have been used in the design process (7.4.1)
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+© ISO ISO 13407:1999(E)
+Table C.4 — Production and testing of design solutions
+Information item (related clause) Location of
+Relevance information
+(Y/N)
+KATS Internal User Only
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+23 Means of assessment
+Adherence (Y/N)
+Comments
+Standards and other sources used, with an indication of how they have been incorporated (or why they have not been followed, if appropriate) (7.4.2)
+Evidence that steps have been taken to ensure that the prototype covered key requirements and followed good practice (7.4.3 to 7.4.5)
+Which features of which version of the product or system were subject to evaluation (7.4.6)
+The timing of the evaluations (7.5.7.2)
+Source of evaluation feedback (7.5.7.2)
+Feedback to the designers including recommendations of “where next”, ranked findings and a list of actions agreed/taken (7.5.7.2)
+Evidence that prototyping and evaluation results have been used to improve and refine the system (7.5.7.2)
+Table C.5 — Evaluation of designs against user requirements
+Information item (related clause) Location of information
+Relevance (Y/N)
+Means of assessment
+Adherence (Y/N)
+Comments
+Human-centred design goals to be evaluated (7.5.2)
+Evidence that an appropriate evaluation plan has been produced and followed (7.5.2)
+Who is responsible for the evaluation (7.5.2)
+Evidence of the appropriateness of the test procedures (7.5.7.1)
+For tests against specific design standards:
+List of standards used and a rationale for their use (7.5.7.3)
+Evidence of the competence of the assessor(s) and the selection and use of relevant procedures (7.5.7.3)
+Evidence that sufficient parts of the system were tested to give meaningful results for the system as a whole (7.5.7.3)
+A report of all major and minor non-compliances and observations and an overall assessment (7.5.7.3)
+Report on how non-conformities were dealt with in the design (7.5.7.3)
+Comments COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+ISO 13407:1999(E) © ISO
+Justification of deviations from standards to meet particular user requirements (7.5.7.3)
+For user testing:
+Definition of the context of use which was used as a basis for evaluation (7.5.7.4)
+Description of the user and organizational require- ments (7.5.7.4)
+Description of the product tested and its status (7.5.7.4)
+Description of the measurements undertaken, the users and the methods used (7.5.7.4)
+The methods and measures used and rationale for their use (7.5.7.1)
+The results and relevant statistical analysis (7.5.7.4)
+Pass/fail decision in relation to the requirements (7.5.7.4)KATS Internal User Only
+24
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION Table C.5 — Evaluation of designs against user requirements (concluded)
+Information item (related clause) Location of information
+Relevance (Y/N)
+Means of assessment
+Adherence (Y/N)
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+© ISO ISO 13407:1999(E)
+Bibliography
+[1] ISO 6385:1981, Ergonomic principles in the design of work systems.
+[2] ISO 9001:1994, Quality systems — Model for quality assurance in design, development, production, installation
+and servicing.
+[3] ISO IEC 9126:1991, Information technology — Software product evaluation — Quality characteristics and
+guidelines for their use.
+[4] ISO 9241-1:1997, Ergonomic requirements for office work with visual display terminals (VDTs) — Part 1: [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] ISO ISO ISO ISO ISO ISO ISO ISO ISO ISO ISO General Guidance display Keyboard Workstation Guidance Requirements Requirements Requirements Dialogue Guidance Presentation 9241-2:1992, 9241-3:1992, 9241-4:1998, 9241-5:1998, 9241-6:—9241-7:1998, 9241-8:1997, 9241-9:—9241-10:1996, 9241-11:1998, 9241-12:1998, requirements. introduction.
+principles. on on on requirements. layout Kof task the usability. 2)2)for for for information. , , work AErgonomic display displayed Ergonomic non-keyboard requirements. Ergonomic Ergonomic Ergonomic Ergonomic Ergonomic Ergonomic and Ergonomic Ergonomic Ergonomic environment. Tpostural with S colours. requirements requirements requirements reflections. requirements requirements requirements requirements requirements requirements requirements requirements requirements. input Indevices. tefor for for for for for for for for for for roffice office office noffice office office office office office office office awork work work work work work work work work work work l with Uwith with with with with with with with with with visual svisual visual visual visual visual visual visual visual visual visual display edisplay display display display display r display display display display display terminals Oterminals terminals terminals terminals terminals terminals terminals terminals terminals terminals n(VDTs) ly
+(VDTs) (VDTs) (VDTs) (VDTs) (VDTs) (VDTs) (VDTs) (VDTs) (VDTs) (VDTs) — Part — — — — — — — — — — 3: Part Part Part Part Part Part Part Part Part Part Visual 10:
+11:
+12: 6:
+9: 2:
+4:
+5:
+7:
+8:
+[16] ISO 9241-13:1998, Ergonomic requirements for office work with visual display terminals (VDTs) — Part 13:
+User guidance.
+[17] ISO 9241-14:1997, Ergonomic requirements for office work with visual display terminals (VDTs) — Part 14:
+Menu dialogues.
+[18] ISO 9241-15:1997, Ergonomic requirements for office work with visual display terminals (VDTs) — Part 15;
+Command dialogues.
+2) To be published.
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+25
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+ISO 13407:1999(E) © ISO
+[19] ISO 9241-16:—2), Ergonomic requirements for office work with visual display terminals (VDTs) — Part 16:
+Direct-manipulation dialogues.
+[20] ISO 9241-17:1998, Ergonomic requirements for office work with visual display terminals (VDTs) — Part 17:
+Form filling dialogues.
+[21] ISO 9995:1994, Information technology — Keyboard Layouts for text and office systems.
+[22] ISO 10075:1991, Ergonomic principles related to mental work-load — General terms and definitions.
+[23] ISO/IEC 10741-1:1995, Information technology — User System Interfaces — Dialogue interaction — Part 1:
+Cursor control for text editing. [24] ISO/IEC 11581-1:—2), Information technology — User System Interfaces — Icon symbols and functions — [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] Part ISO/IEC Part ISO/IEC Part ISO/IEC BAILEY, BIAS, EASON, HELANDER, JORDAN NIELSEN, NIELSEN, and NIELSEN, NORMAN, Interaction, PREECE, SHNEIDERMAN, WIKLUND, 2, 3: 1: 2: R.G. January Icons: Object Pointers. K.D., R.W., et 11581-2:—11581-3:—14598-1:—J., J., J., J. D.A. M.E., al. and M. and LAWRENCE A Usability Usability Information Editors, General. Human Guide icons. (ed.), B., KMAYHEW, and to Usability MACK, April, Designing 2)2)2)DRAPER, AHandbook to Engineering, Laboratories, , , , Performance Usability Information ERLBAUM R.L. Information Information Usability, Taylor in TD.J. Technology Practice, Editors the S S.W., Cost and Evaluation of & User Addison Human technology Academic Associates, — Francis Special Usability technology technology Engineering, User IAP and Justifying Interface: nProfessional, Computer Wesley, Centered Organizational in t(1994). Issue Inspection Industry, ePress, — Hillsdale, — — Usability, Strategies Prentice rSoftware of Wokingham, User User nBehaviour System Interaction, San Taylor Cambridge, aMethods, System System N.J. Diego Change, Hall, Academic product for l Design: and (1986). Effective and New U(1993). England 2nd Interfaces Interfaces Francis John MA Taylor evaluation Information Jersey Press ed, sA (1994). Wiley Human-Computer new (1997). e(1993). & (1995). Ltd. (1989). Francis, — — r & perspective — Technology, (1994). Sons, Icon Icon Part OLondon symbols symbols 1: Inc., nGeneral on Interaction New ly Vol. (1988).
+Human-Computer and and York 13, overview. functions functions Numbers (1994).
+(1987).
+—
+—
+1
+26
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION
+ISO 13407:1999(E) © ISO
+KATS Internal User Only
+ICS 13.180
+Price based on 26 pages
+COPYRIGHT ISO. NOT FOR COMMERCIAL USE OR REPRODUCTION

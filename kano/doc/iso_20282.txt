@@ -1,0 +1,696 @@
+ISO INTERNATIONAL STANDARD
+20282-1
+First edition 2006-10-15
+Ease of operation of everyday products — Part 1: Design requirements for context of use and user characteristics
+Facilité d'emploi des produits quotidiens —
+Partie 1: Exigences de conception pour le contexte d'utilisation et pour les caractéristiques de l'utilisateur
+Reference number ISO 20282-1:2006(E)
+--`,,```,,,,````-`-`,,`,,`,`,,`---
+Copyright International Organization for Standardization
+© ISO 2006 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+PDF disclaimer
+This PDF file may contain embedded typefaces. In accordance with Adobe's licensing policy, this file may be printed or viewed but shall not be edited unless the typefaces which are embedded are licensed to and installed on the computer performing the editing. In downloading this file, parties accept therein the responsibility of not infringing Adobe's licensing policy. The ISO Central Secretariat accepts no liability in this area.
+Adobe is a trademark of Adobe Systems Incorporated.
+Details of the software products used to create this PDF file can be found in the General Info relative to the file; the PDF-creation parameters were optimized for printing. Every care has been taken to ensure that the file is suitable for use by ISO member bodies. In the unlikely event that a problem relating to it is found, please inform the Central Secretariat at the address given below.
+© ISO 2006 All rights reserved. Unless otherwise specified, no part of this publication may be reproduced or utilized in any form or by any means, electronic or mechanical, including photocopying and microfilm, without permission in writing from either ISO at the address below or ISO's member body in the country of the requester.
+ISO copyright office Case postale 56 • CH-1211 Geneva 20 Tel. + 41 22 749 01 11 Fax + 41 22 749 09 47 E-mail copyright@iso.org Web www.iso.org Published in Switzerland
+Copyright International ii Organization for Standardization © ISO 2006 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale --`,,```,,,,````-`-`,,`,,`,`,,`---
+ISO 20282-1:2006(E)
+Contents Page
+Foreword............................................................................................................................................................ iv
+Introduction ........................................................................................................................................................ v
+1 Scope ..................................................................................................................................................... 1
+2 Conformity............................................................................................................................................. 2
+3 Terms and definitions........................................................................................................................... 2
+4 Ease of operation.................................................................................................................................. 5
+5 Requirements for review and documentation ................................................................................... 6 5.1 Review stages ....................................................................................................................................... 6 5.2 Suggested process............................................................................................................................... 8 5.3 Documentation.................................................................................................................................... 10
+6 Context of use ..................................................................................................................................... 11 6.1 Main goal(s) ......................................................................................................................................... 11 6.2 Factors relating to other equipment ................................................................................................. 11 6.3 Physical environmental factors......................................................................................................... 11 6.4 Social environmental factors............................................................................................................. 11
+7 User characteristics............................................................................................................................ 12 7.1 General................................................................................................................................................. 12 7.2 Psychological and social characteristics......................................................................................... 13 7.3 Physical and sensory characteristics............................................................................................... 15 7.4 Demographics ..................................................................................................................................... 17
+Annex A (informative) User characteristics — Further information............................................................ 18
+Annex B (informative) Ease of operation as instantiation of usability as defined in ISO 9241-11........... 23
+Bibliography ..................................................................................................................................................... 24
+Copyright International Organization © ISO for 2006 Standardization
+– All rights reserved iii Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+Foreword
+ISO (the International Organization for Standardization) is a worldwide federation of national standards bodies (ISO member bodies). The work of preparing International Standards is normally carried out through ISO technical committees. Each member body interested in a subject for which a technical committee has been established has the right to be represented on that committee. International organizations, governmental and non-governmental, in liaison with ISO, also take part in the work. ISO collaborates closely with the International Electrotechnical Commission (IEC) on all matters of electrotechnical standardization.
+International Standards are drafted in accordance with the rules given in the ISO/IEC Directives, Part 2.
+The main task of technical committees is to prepare International Standards. Draft International Standards adopted by the technical committees are circulated to the member bodies for voting. Publication as an International Standard requires approval by at least 75 % of the member bodies casting a vote.
+Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. ISO shall not be held responsible for identifying any or all such patent rights.
+ISO 20282-1 was prepared by Technical Committee ISO/TC 159, Ergonomics, Subcommittee SC 1, Ergonomic guiding principles.
+ISO 20282 consists of the following parts, under the general title Ease of operation of everyday products:
+— Part 1: Design requirements for context of use and user characteristics
+— Part 2: Test method [Technical Specification]
+The following parts are under preparation:
+— Part 3: Test methods for consumer products [Publicly Available Specification]
+— Part 4: Test methods for the installation of consumer products [Publicly Available Specification]
+Copyright International iv Organization for Standardization
+© ISO 2006 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+Introduction
+An increasing number of everyday products include computer technology, making them more complex. Users need to understand how to operate products in order to benefit from the functionality they offer, so usability is a key factor in determining a product’s success. As product complexity increases, the challenge for the user in understanding how to use the various functions of the product also increases, and for the producer it can be harder to design sufficiently usable products.
+Products with low usability often require the assistance of other people in order to be used, and this can result in frustrated users as well as in extra costs for the producer and vendor. Many companies have realized the importance of the usability of their products and employ usability specialists in usability laboratories. Many test organisations include usability in their evaluation procedures.
+ISO 20282 is based on ISO 9241-11, which provides guidance on the specification and measurement of usability in general. ISO 20282 applies ISO 9241-11 to the user interfaces of everyday products. The focus on everyday products reflects the fact that many of the products we see around us on a regular basis still suffer from fundamental usability problems. The focus on user interfaces reflects the situation that while there are many factors that may have important effects on usability, all interactive products will have a user interface whose quality can have significant positive or negative effects that facilitate or hamper the usage of the product.
+Everyday products include consumer products and walk-up-and-use products. For everyday products it is particularly critical to ensure that the interface enables the user to achieve their main goal(s). The focus on the main goal(s) reflects the outcomes that all users, or a large majority of them, wish to achieve, e.g. to use a telephone to make or receive a phone call, to use a ticket machine to buy a train ticket, or to use a television set to watch a television programme. The term “ease of operation” refers to this subset of the concept of usability and the specific measures used to support users in achieving their main goal(s).
+Everyday products are designed for an intended user population, which in general ought to be assumed to include people with a wide range of user characteristics. This part of ISO 20282 describes the user characteristics to be accounted for in the design of an everyday product. In recognizing that the population of older persons of the world is increasing, it takes into account the needs of those users1).
+ISO 9241-11 states that usability is concerned with the extent to which the users of products are able to use them effectively, efficiently, and with satisfaction. As tasks performed with everyday products are generally fast and of low complexity, the most important usability measure is effectiveness.
+1) Developments in the field of accessibility have resulted in the creation and use of a wide variety of terms and definitions, related to older persons and disability, which differ throughout the world. For example, some people prefer to use the term “people with disabilities” and others prefer “disabled people”. Overall, terms have evolved to become more precise and descriptive, rather than negative or stigmatizing. As no universal practice exists, the terms used in this part of ISO 20282 reflect the language generally used by international agencies such as the United Nations Organization and the World Health Organization.
+Copyright International Organization © ISO for 2006 Standardization
+– All rights reserved v Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+--`,,```,,,,````-`-`,,`,,`,`,,`---
+Copyright International Organization for Standardization Provided by IHS under license with ISO Not for Resale No reproduction or networking permitted without license from IHS
+INTERNATIONAL STANDARD ISO 20282-1:2006(E)
+Ease of operation of everyday products —
+Part 1: Design requirements for context of use and user characteristics
+1 Scope
+This part of ISO 20282 provides requirements and recommendations for the design of easy-to-operate everyday products, where ease of operation addresses a subset of the concept of usability concerned with the user interface by taking account of the relevant user characteristics and the context of use.
+This part of ISO 20282 is intended to be used in the development of everyday products, for which it
+- defines ease of operation,
+- explains which aspects of the context of use are relevant, and
+- describes the characteristics of the intended user population that may influence usability.
+The intended users of this part of ISO 20282 are usability specialists, ergonomists, product designers, interaction designers, product manufacturers and others involved in the design and development of everyday products.
+This part of ISO 20282 is applicable to mechanical and/or electrical products with an interface that a user can operate directly or remotely to gain access to the functions provided. These products fall into at least one of the following categories:
+a) consumer products intended for some or all of the general public which are bought, rented or used, and
+which may be owned by individuals, public organizations, or private companies;
+b) consumer products intended to be acquired and used by an individual for personal rather than
+professional use (e.g. alarm clocks, electric kettles, telephones, electric drills);
+c) walk-up-and-use products that provide a service to the general public (such as ticket-vending machines,
+photocopying machines, fitness equipment);
+d) products used in a work environment, but not as part of professional activities (e.g. a coffee machine in
+an office);
+e) products including software that supports the main goals of use of the product (e.g. a CD player).
+This part of ISO 20282 is not applicable to the following:
+f) purely physical products without an interactive user interface (such as a jug or a hammer);
+g) products where appearance or fashion is the main goal (such as a watch with no markings);
+h) products requiring specialist training, specific skills and/or professional knowledge (such as a musical
+instrument or a car);
+i) standalone software products;
+j) products intended to be used for professional activities only.
+Copyright International Organization © ISO for 2006 Standardization
+– All rights reserved 1 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+NOTE 1 Some products include elements within the scope of this part of ISO 20282 and at the same time those that are not. For example, tasks relating to the use of a public internet access terminal such as switching that terminal on and off are within the scope of this part of ISO 20282, whereas tasks relating to the general use of the internet from the terminal are not.
+NOTE 2 This part of ISO 20282 can be used in conjunction with ISO 13407, which describes how to take account of wider aspects of usability within a human-centred design process.
+NOTE 3 Some of the guidance of this part of ISO 20282 could be applicable to other types of systems in everyday use.
+2 Conformity
+In order to develop an everyday product that is easy to operate, the context of use and the user characteristics shall be analysed and documented in accordance with Clause 6, and the design of an everyday product shall take account of the range of each characteristic that has been determined as being relevant.
+3 Terms and definitions
+For the purposes of this document, the following terms and definitions apply.
+3.1 actual users group(s) of people who directly interact with a product
+NOTE Before a product is released, this relates to the intended user group; after release, it relates to what is known about the actual user group.
+3.2 consumer product product that is intended to be acquired and used by an individual for personal rather than professional use
+3.3 context of use users, tasks, equipment (hardware, software and materials) and physical and social environments in which a product is used
+[ISO 9241-11:1998, definition 3.5]
+3.4 ease of operation usability of the user interface of an everyday product when used by the intended users to achieve the main goal(s) supported by the product
+NOTE 1 Ease of operation is a specific subset of usability as defined in ISO 9241-11 (see 3.18), which in this case is applied to the operation of everyday products. Ease of operation assumes that the functionality of the product other than the user interface operates correctly.
+NOTE 2 Ease of operation is measured as effectiveness of operation, optionally including efficiency of operation and satisfaction with operation.
+3.5 effectiveness accuracy and completeness with which users achieve specified goals
+[ISO 9241-11:1998, definition 3.2]
+Copyright International 2 Organization for Standardization
+© ISO 2006 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+3.6 effectiveness of operation percentage of users who achieve the main goal(s) of use of a product accurately and completely
+NOTE Measures of effectiveness of operation are based on success in achieving the end result independently of whether the goal is achieved in the most efficient way.
+3.7 efficiency resources expended in relation to the accuracy and completeness with which users achieve goals
+[ISO 9241-11:1998, definition 3.3]
+3.8 efficiency of operation time taken to achieve the main goal(s)
+NOTE This identifies a specific resource for efficiency as defined in 3.7.
+3.9 everyday product consumer product or walk-up-and-use product designed for use by members of the general public
+NOTE 1 Some products are designed for use by the general public as well as for professional use, but this definition only applies to non-professional use of the product.
+NOTE 2 “Everyday” does not imply that the product must be used every day by the user, rather that it is found in everyday life.
+3.10 general public people having all possible variations of user characteristics, usually within a particular geographical area
+3.11 goal intended outcome
+[ISO 9241-11:1998, definition 3.8]
+NOTE A goal is stated independently of the functionality used to achieve it.
+3.12 intended users group(s) of people for whom a product is designed
+NOTE 1 Adapted from ISO 9241-9:1999, definition 3.4.6
+NOTE 2 In many cases the actual user population is different from that originally intended by the manufacturer. The intended user group is based on realistic estimations of who the actual users of the product will be.
+3.13 interaction bi-directional information exchange between users and equipment
+[IEC/TR 61997:2001, definition 3.4]
+NOTE 1 Equipment includes both hardware and software.
+NOTE 2 Information exchange can include physical actions, resulting in sensory feedback.
+Copyright International Organization © ISO for 2006 Standardization
+– All rights reserved 3 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+3.14 main goal most frequent or important outcome(s) that all, or a large majority of users want to achieve when using a product
+EXAMPLE For the user of a mobile phone, it is to communicate, although the device can also be used for many other purposes (camera, organizer, MP3-player). The main goal of the user of a washing machine is to clean clothes, although the machine could offer additional functionality (e.g. allowing delayed washing, at a certain time, or to a certain target time). Such optional purposes and additional functionalities are not regarded as the main goal.
+NOTE A goal is stated independently of the functionality used to achieve it.
+3.15 satisfaction freedom from discomfort, and positive attitudes towards the use of the product
+[ISO 9241-11:1998, definition 3.4]
+3.16 satisfaction with operation measures of attitude towards the operation of the product user interface
+3.17 task activities required to achieve a goal
+NOTE These activities can be physical and/or cognitive.
+[ISO 9241-11:1998, definition 3.9]
+3.18 usability extent to which a product can be used by specified users to achieve specified goals with effectiveness, efficiency and satisfaction in a specified context of use
+[ISO 9241-11:1998, definition 3.1]
+3.19 user person who interacts with the product
+[ISO 9241-11:1998, definition 3.7]
+3.20 user characteristics attributes of a user that can influence usability
+3.21 user interface elements of a product used to control it and receive information about its status, and the interaction that enables the user to use it for its intended purpose
+EXAMPLE The user interface of a shower tap is the water control lever, where the movement of the lever controls the temperature of the water and the position of the lever communicates the temperature to the user.
+NOTE A list of operating instructions permanently displayed on the product is part of the user interface.
+--`,,```,,,,````-`-`,,`,,`,`,,`---
+Copyright International 4 Organization for Standardization
+© ISO 2006 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+3.22 walk-up-and-use product everyday product that provides a service to the general public
+NOTE This includes products intended for use by the general public in commercial premises such as in a shop or hotel.
+4 Ease of operation
+In this part of ISO 20282, ease of operation is defined as “the usability of the user interface of an everyday product when used by the intended users to achieve the main goal(s) supported by the product”. The focus on user interfaces is to reflect the situation that, while there are many factors that may have important effects on usability, all interactive products will have a user interface, and the quality of the user interface can have significant positive and negative effects that facilitate or hamper the usage of the product and thereby its adoption.
+Ease of operation means that users should be able to achieve their main goals
+- with a high success rate (effectiveness of operation),
+- within acceptable task times (efficiency of operation), and
+- with an acceptable level of satisfaction with operation.
+In order to achieve ease of operation, the crucial factor is effectiveness of operation. This is because the tasks associated with achieving the main goal of use of an everyday product involving the user interface are generally fast and of low complexity, and so improvements in efficiency or satisfaction will not usually be of practical importance.
+When designing for ease of operation, it is important to achieve high levels of success for first-time users, because users must be successful in using the product the first time before they can use it continuously.
+Ease of operation relates to the operational phase of the life cycle of product use, although similar issues apply in other phases, such as installation (see ISO/PAS 20282-4 2)).
+EXAMPLE A TV set may be easy to operate even though it may be difficult to install.
+A user having certain characteristics using an everyday product in a particular context of use has a main goal and performs activities to achieve this goal. The user interface of the product supports the user in achieving this goal. This is illustrated in the example in Figure 1.
+Figure 1 shows a ticket vending machine for purchasing train tickets. The main goal of the user is to buy a ticket, and his specific goal in this instance is to operate the machine to buy a single ticket for immediate travel from A to B using a credit card. The user in the example is a first time user of the machine, as he is a visitor to the area.
+Context of use and user characteristics influence ease of operation. The relevant aspects of the context of use in the example include location, temperature, illumination, noise, time restriction, and stress. In the example, stress and time restrictions are significant influences, as the user wants to buy a ticket quickly and is under a certain amount of pressure. The relevant user characteristics are age, body size, knowledge of comparable machines, knowledge of the display language, visual abilities, auditory abilities and biomechanical abilities.
+2) Under preparation.
+Copyright International Organization © ISO for 2006 Standardization
+– All rights reserved --`,,```,,,,````-`-`,,`,,`,`,,`---
+5 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+Ease of operation ...
+Context of use — location — temperature — illumination — noise — time restriction — stress — additional machines — individual, group or public
+use User characteristics — age — body size — knowledge of comparable
+machines — knowledge of the display
+language — visual abilities — auditory abilities — biomechanical abilities
+6 © ISO 2006 – All rights reserved
+EXAMPLE
+Everyday product: ticket vending machine
+Relevant machine part: user interface with displays and control elements
+Main goal: buying a ticket
+Task: operating the machine to obtain a ticket
+Situation: first-time use (user is visitor)
+... the usability of the user interface of an everyday product when used by the intended users to achieve the main goal(s) supported by the product
+Figure 1 — Example scenario
+5 Requirements for review and documentation
+5.1 Review stages
+In order to develop an everyday product that is easy to operate, i.e. usable by a high percentage of persons, the context of use of the product and the user characteristics shall be assessed and analysed. The process of deciding which contexts of use and user characteristics are relevant and assessing whether these are accounted for in the design should be carried out by someone with usability reviewing expertise.
+The specific product to be reviewed and, if appropriate, the organization responsible for provision of the service supported by the product shall be identified.
+NOTE Depending on the design stage, a written concept, a model, a functional design model, or a prototype could be available.
+5.1.1 Identify main goal(s)
+The main goal or goals of use of the product shall be identified. In most cases there is only one goal, which is the most frequent and/or important user goals that the product is intended to support. The goal is related to task activities that need to be carried out in order to achieve this goal. Goals shall be expressed in terms of the intended outcome of the task activity independently of the means by which they are achieved.
+Copyright International Organization for Standardization Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+NOTE ISO/TS 20282-2 and ISO/PAS 20282-33) contain lists of typical walk-up-and-use and consumer products, together with the main goals of use of each product. These are accompanied by examples of the task activity that are typically associated with using the product to achieve the main goal.
+EXAMPLE See Figure 1. For a ticket vending machine the main goal is buying the appropriate ticket.
+5.1.2 Identify characteristics and assess relevance
+The user characteristics which could affect the ease of operation of the product and the main context of use shall be identified and documented for the intended user group.
+EXAMPLE 1 See Figure 1: the user characteristics and context of use assessed to be relevant are given at left of the picture.
+EXAMPLE 2 The user population for a vending machine includes older people. Their biomechanical strength to operate controls will be of particular relevance for the design.
+EXAMPLE 3 Users of an automated teller machine are expected to comprise 80 % English speakers, 10 % French speakers and 10 % speakers of other languages. It is assumed that all the users have prior experience of using automated teller machines to carry out financial transactions. Thus language and prior knowledge are assessed to be relevant.
+EXAMPLE 4 A vending machine will be installed in outdoor locations where there might be no other illumination at night. The environmental temperature range is -15 °C to 40 °C. The user could be under some stress if there is a long queue. Illumination, the given temperature range, and usability under stress are assessed to be relevant.
+5.1.3 Establish the effect of each characteristic
+The effect which physical, psychological and social characteristics are likely to have on ease of operation shall be established. This may be achieved by expert evaluation, collection of actual usage data, or empirical studies. To establish the range of people who can use the product, prior tests may be performed on users near the expected limits, or else existing sources of data on the range of human characteristics may be used (such as on anthropometrics or visual acuity).
+The range of user characteristics which exist in the intended user group shall be identified and documented. This range should include people (such as older users) whose physical or psychological characteristics (body dimensions, strength, biomechanical abilities, visual abilities, auditory abilities, handedness, knowledge, experience, culture, literacy or language) are towards the end of the range. Wherever possible, use existing data.
+Where any differences could have a major impact on the ease of operation, detailed analysis with separate groups can help to establish more exact data.
+EXAMPLE 1 A product is intended also to be used by wheelchair users. The reach of wheelchair users can be identified using existing data.
+EXAMPLE 2 A door opener is planned to include a fingerprint sensor. If no sufficient anthropometric data are available for establishing the optimum height of installation, investigations will have to be carried out.
+5.1.4 Ensure that the design supports the relevant characteristic’s range
+The design shall take account of each relevant user and environmental characteristic identified. The range of each characteristic that the design supports shall be documented.
+Where it is believed that a characteristic will affect the ease of operation of the product, but the implications of a particular design solution are not known, investigations should be carried out with a sample of intended users.
+3) Under preparation.
+Copyright International Organization © ISO for 2006 Standardization
+– All rights reserved 7 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+5.1.5 Review compliance
+Each relevant user and environmental characteristics shall be reviewed to check that the intended range is supported by the design and the results documented.
+EXAMPLE A pushbutton has been selected as a control element. For the intended user population the review process finds that the required force must not be more than 5 Nm. The compliance can be measured.
+5.2 Suggested process
+A suggested process for the design review is shown in Figure 2.
+As some characteristics are interrelated, the process may need to be iterative.
+EXAMPLE 1 It is known that age influences the ability to read text with small letters. Text-based instructions on a product are required to be legible by 95 % of the intended user population, including older persons. The designer is unsure as to whether there is sufficient space on the product for instructions that will be legible. The designer finds the data relating to the required letter sizes for older people and calculates the amount of space required for the instructions that are applicable and decides whether or not more space is required.
+EXAMPLE 2 The control for the operation of a product is fixed at a height that the smallest person cannot reach. For the user interface of the product, it is possible, by applying ergonomic data for reach, to calculate the minimum body height needed to reach the interface, and also to calculate the percentage of persons that are excluded by the design. Testing the extremes of height is often the most efficient way to establish this. Once the critical limits are established, the percentage of excluded users can be calculated.
+EXAMPLE 3 Use of an automated teller machine requiring a long series of operations causes difficulties for many older people, who cannot identify the current stage of operation and so cannot decide which alternative to choose next. This is due to the reduced short term memory capacity typically found among older people. Changing the interface to provide a clear indication of the current stage of operation, and navigation between the stages, will solve this problem.
+Copyright International 8 Organization for Standardization
+© ISO 2006 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+Figure 2 — Process for analysis of relevant aspects of context of use and user characteristics for everyday product and design review thereafter
+Copyright International Organization © ISO for 2006 Standardization
+– All rights reserved 9 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+5.3 Documentation
+The documentation on ease of operation produced as part of the design process should be in a suitable form and be made available to the design and development teams as appropriate.
+Examples of the format for such documentation is given in Tables 1 and 2.
+Table 1 — Example documentation by context of use
+Subclausea Context of use
+10 © ISO 2006 – All rights reserved
+Could the context of use influence ease of operation?
+Design limits established based on available data?
+Context of use accounted for in design?
+6.1 Main goal(s)
+6.2 Factors relating to other equipment
+6.3 Physical environmental factors
+6.4 Social environmental factors
+a Refers to the breakdowns of context of use given in the subclauses of Clause 6.
+Table 2 — Example documentation by user characteristic
+Subclausea User characteristics
+Could the user characteristic influence ease of operation?
+Design limits established based on available data?
+Range of user characteristics accounted for in design?
+7.2.1 Cognitive abilities
+7.2.2 Knowledge and experience
+7.2.3 Cultural differences
+7.2.4 Literacy
+7.2.5 Language
+7.3.2 Body dimensions
+7.3.3 Biomechanical abilities
+7.3.4 Visual abilities
+7.3.5 Auditory abilities
+7.3.6 Handedness
+7.4.1 Demographics in general
+7.4.2 Age
+7.4.3 Gender
+a Refers to the breakdowns of user charachteristics given in the subclauses of Clause 7.
+Copyright International Organization for Standardization Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+6 Context of use
+6.1 Main goal(s)
+Most everyday products have a single goal which they support that can be easily identified (e.g. ticket vending machine in Figure 1). If there are more outcomes, the main goal is the most frequent or important outcome that a user intends to achieve by operating the product.
+When designing a product, the main goal shall be made instantly recognizable. When testing a product, this goal shall be identified.
+NOTE 1 A main goal can include a series of subgoals, which are constituents of an overall goal. Main goals are achieved by the user by carrying out a series of task activities.
+NOTE 2 In terms of design for ease of operation, for everyday products generally the tasks involve activities that are of relatively short duration and of low complexity.
+NOTE 3 If goals and tasks are precursors to the use of a product (such as installation) they must be distinguished from the main goals, although the same requirements and recommendations may apply when designing for ease of operation with respect to these goals.
+6.2 Factors relating to other equipment
+In this part of ISO 20828 the emphasis is on the user interface of a mechanical, electrical or electronic product which allows the user to control functions by operating control elements.
+An everyday product should be designed taking account of any other equipment that normally influences its use.
+EXAMPLE The interface for a car radio is designed in relation to the car environment.
+It should be easy to reset an everyday product to default conditions after use.
+6.3 Physical environmental factors
+The ease of operation of products to be used outdoors is often heavily influenced by the effects of physical environmental factors, such as space, sunlight, darkness, extreme temperatures, ambient noise, traffic, motion or crowding. These will be determined by the type of location in which the product is expected to be used.
+The physical environmental conditions within which an everyday product is expected to operate shall be specified so that they can be taken into consideration. Such variations may affect user behaviour — for example, in low temperatures users may wear heavy gloves. An everyday product should be easy to operate over its entire intended environmental range.
+NOTE For some products, especially mobile ones, there may be a number of environments in which the product is used, and products may be used while the user is walking or travelling.
+EXAMPLE The operation of the ticket vending machine in Figure 1 will be obscured by darkness at night if no illumination is available.
+6.4 Social environmental factors
+Social factors such as interpersonal interaction and the desire for privacy should be taken into account, where appropriate, when a product is designed to be used by more than one person at a time or where the user is in a group situation.
+Although an everyday product may be intended for individual use, the presence of other people can affect how an individual uses a product and the use of the product can have an effect on other people. Where privacy is
+Copyright International Organization © ISO --`,,```,,,,````-`-`,,`,,`,`,,`---
+for 2006 Standardization
+– All rights reserved 11 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+an issue, the product should allow the user to prevent other people from being able to see or hear anything involved in the interaction.
+EXAMPLE 1 The presence of a long queue of people waiting to use a product may make the current user feel that he or she should operate it more quickly with potential negative effects on performance.
+EXAMPLE 2 In the design of public-access kiosks, user privacy is increased using methods such as spacing the kiosks, using adjustable screens which can only be viewed from a certain angle, or by adding physical dividers to block the view.
+7 User characteristics
+7.1 General
+7.1.1 Purpose
+Subclauses 7.2 to 7.4 clarify the relevance of the user characteristics for user interface design in the context of ease of operation. Further information on each user characteristic is given in Annex A.
+The design of an everyday product shall take account of all user characteristics given in 7.2 to 7.4 that have been assessed to be relevant using the process specified in Clause 5.
+7.1.2 Specifying intended user population
+The user group for everyday products intended for the “general public” includes users with the widest possible range of characteristics, including age, country of origin, and users with limited abilities. It is important to specify these characteristics explicitly, in order to ensure that the product is suited to them. In some cases, the group of people who are expected to be the future users of the product is a subset of the general public, and more specific user characteristics can be determined.
+NOTE For everyday products marketed in different parts of the world, this will involve data about users from a wide range of countries. The user population expected to be using the product shall be established at the onset of the design process.
+EXAMPLE 1 A ticket machine could be primarily intended for one nationality but also expected to be used by visitors from other countries.
+No group should be excluded without reason and, as far as possible, everyday products should be designed to include older people with the widest possible range of capabilities. For a consumer product, the intended user population should be based on projections of actual user groups, rather than on a definition of the intended market.
+EXAMPLE 2 A refrigerator may be marketed to adults, whereas the intended user population could also include children.
+7.1.3 Differences in user characteristics
+The extent to which the characteristics of the intended users are known will determine the degree to which an everyday product can be designed for ease of operation. Known differences regarding user characteristics should be considered or, if there is uncertainty, investigations should be carried out into the potential effects of these characteristics on the usability of the product. Products should be designed in a way that the great majority of users will be able to use a product wherever in the world they may encounter it.
+NOTE With respect to user interface design, the range of the user characteristics within any single culture is broader than the range between the culture averages. People in different countries have more in common than they do differences between them, the main differences being associated with aesthetic taste, culture and language, while all relevant functional characteristics show comparable abilities for the operation of everyday products.
+Copyright International 12 Organization for Standardization
+--`,,```,,,,````-`-`,,`,,`,`,,`---
+© ISO 2006 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+7.2 Psychological and social characteristics
+7.2.1 Cognitive abilities
+The design of an everyday product should take account of variations in cognitive ability that have important implications for ease of operation. Some variations, such as reaction time and memory, are related to underlying changes in physiology, while others are due to learning and socialization.
+NOTE ISO 9355-1:1999, Annex A, provides informative material describing relevant aspects of people’s information processing.
+The speed of recognition and reaction time of human beings are limited and deteriorate with age; because of this, everyday products should not be too demanding of users in general and particularly not in the case of older users. Interfaces should also avoid wherever possible the necessity to memorize data. The capacity of the short-term memory is limited and decreases with age.
+In order to ensure ease of operation, some general principles can be applied:
+- the user should be able to easily understand how to interact with the product, for example, how to manipulate the controls, and the sequence of activities necessary to operate the product should be obvious and error-tolerant;
+- if there are no technical constraints on the sequence, the user should be free to begin with any step, after
+which the product should, if technically possible, give guidance on the next step;
+- speed of interaction should be determined by the user rather than by the machine;
+- the need to retain information in short-term memory should be avoided wherever possible.
+7.2.2 Knowledge and experience
+7.2.2.1 Introduction
+The design of an everyday product should take into account the fact that cognitive processes use accumulated knowledge and prior experience. Individuals can vary in their understanding of everyday products both in terms of the functionality they offer and the ways in which they are operated.
+7.2.2.2 User expectations and mental models
+It is important to take account of users’ expectations and mental models based on their previous experience. Even with a new product, people can have had experience with similar products or a similar model, so that the type of previous experience might need to be understood.
+The user’s expectations should not be violated. For example, if an interface control is moved to the left or right, it should not cause a display of text to move up or down. The user should be able to identify the product’s intended purpose as easily as possible, quickly identifying any controls and displays, and immediately recognizing their relationships.
+A new product should, whenever possible, build on users’ existing experience and mental models.
+NOTE In certain instances it can be acceptable not to follow the user’s mental model, e.g. where a user has experience with a previous product that is based on a flawed mental model.
+EXAMPLE Some controls show a lack of consistency with the direction of rotation used to produce an increased flow. In order to increase the value of an electrical current, the control is rotated clockwise, while to increase a flow of gas, the control is rotated anticlockwise (counter-clockwise). This can cause problems when interchanging between an electric and gas appliance
+Copyright International Organization © ISO for 2006 Standardization
+– All rights reserved 13 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale --`,,```,,,,````-`-`,,`,,`,`,,`---
+ISO 20282-1:2006(E)
+7.2.2.3 Stereotypes
+Where previous experience cannot be relied on, well-established stereotypes of the intended user population should be used. However, cultural differences can result in a common stereotype being interpreted differently.
+High levels of training should not be relied on as a basis for overcoming the effects of well-established experience and stereotypes, since under conditions of information overload or stress there is a high probability that individuals will revert to previous habitual patterns of behaviour.
+A product should take into account whether user interface concepts, wordings and expressions are only familiar to some user groups, countries or cultures.
+A product whose intended users include older persons should not use words typically used by teenagers and interaction concepts which they may not understand.
+EXAMPLE 1 The word “reset”, which is commonly used in computing, is often not understood by older persons.
+EXAMPLE 2 The accelerator pedal in a vehicle is always on the right and the brake is on the left. Changing the sides of the pedals for some cars is obviously very likely to create a problem.
+EXAMPLE 3 The metric system is not used by all countries and professions. Liberia, Myanmar and the USA, for example, do not use the metric system, and in aeronautics heights are measured in feet and speed is measured in knots.
+7.2.2.4 Novel developments
+Users may be familiar with particular ways of interacting with a product, so a new product of a similar type which uses novel and fundamentally different interaction concepts should not be introduced without careful usability design and evaluation that ensures they will be readily understood.
+NOTE Ease of operation can effectively be accomplished with an evolutionary design that uses interaction concepts which are compatible with previous designs or widely known interaction concepts for the same product. Using new or unknown concepts without proper introduction can have a strong negative impact on ease of operation.
+EXAMPLE Ergonomics studies have found that certain novel types of typewriter keyboard layout having a different arrangement of characters from those of the standard layouts lead to better performance after training in comparison with a standard layout. However, the introduction of the new layouts led to more problems user than benefits for the normal and so was eventually abandoned.
+7.2.3 Cultural differences
+Products intended for use in different cultural settings should take cultural differences into account and should not make assumptions about stereotypes.
+Cultural differences can affect the user’s preference for, and understanding of, a product. Key cultural factors influencing this understanding are appearance and use of metaphors, mental models, navigation and types of interaction. Individuals from different cultural backgrounds can differ significantly in terms of the semantic connotations they give to words, the meaning given to colours, and the interpretation of pictograms and icons. They can also differ in terms of expectations of information hierarchies and organizations, fundamental metaphors and complexity or density of information. High-level concepts affecting interface design can also be different and should be taken into account.
+Hand symbols should generally be avoided on international products, because those which are acceptable in one culture could be highly offensive in another.
+EXAMPLE 1 Red is established as a warning colour in most countries, while green does not have the same general acceptance in signalling “permissible” or “OK”.
+EXAMPLE 2 In some countries, people drive on the left side of the road; in others people on the right.
+EXAMPLE 3 Some languages are written from right to left, others from left to right, while others are written from top to bottom.
+Copyright International 14 Organization for Standardization
+© ISO 2006 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+EXAMPLE 4 The use of a US-style mailbox icon to represent “mail” in an interface might not be understood in countries where such mailboxes are not used as a national convention.
+EXAMPLE 5 Icons on a user interface showing a hare to represent “faster” and a tortoise to represent “slower” will not be widely understood in cultures where the legend of the tortoise and the hare is not well-known.
+7.2.4 Literacy
+Literacy is considered as the ability to read and write a simple sentence by the age of 15, although injuries or illness can lead to loss of literacy later in life. While the ability to write can be important for certain input methods, the ability to read is generally the most significant issue for everyday products.
+NOTE Literacy varies widely throughout the world and even within countries. Many societies include geographical areas or social groups where up to 40 % of the population may be functionally illiterate.
+The design of an everyday product should take account of low levels of reading ability that can be important for the understanding of written instructions included on everyday products. In addition, a user might not understand the character set (e.g. Arabic, Chinese, Japanese, Cyrillic, etc.) used on a display.
+Written text used to label or explain interfaces should use easy-to-understand, common, words and simple and direct wording. This is beneficial for all users, and will particularly help those with low levels of reading ability and people with dyslexia.
+Where the intended user group includes users of low literacy, self-explanatory pictograms should be used wherever possible in addition to text. However, while pictograms help those with low reading ability, for literate people they are generally harder to understand than text; therefore combinations of words and pictograms should be provided where possible. Any pictograms that are developed should be tested according to ISO 9186:2001.
+EXAMPLE On a vending machine a picture of the product is placed beside the button which is pressed for its purchase.
+7.2.5 Language
+In order to widen the potential range of users, everyday products which use electronic screens should allow the user interface language to be selected wherever possible. Words familiar to the intended user population should be used.
+For a user interface in a public place where only printed text is possible, one or more additional languages that are likely to be understood should be provided.
+EXAMPLE The ticket machines at an international airport need to support a wide range of languages.
+7.3 Physical and sensory characteristics
+7.3.1 General
+While body sizes vary between countries, the distribution of functional characteristics, i.e. visual, auditory, biomechanical and cognitive abilities, can be considered as equivalent for user interface design.
+7.3.2 Body dimensions
+The design of an everyday product should consider the global distribution of the intended user population’s body dimensions, see ISO 7250. The design should take account of the widest possible range of body dimensions.
+EXAMPLE Buttons on a touch screen designed for average finger size are revealed to be unusable for persons with large fingers. The size is changed to suit all but the 5 % of the intended user population with the largest fingers. On another application, sufficient space is available so that there is no need to limit the size to accommodate only up to the 95th percentile, and 100 % the users are supported, however large their fingers.
+Copyright International Organization © ISO for 2006 Standardization
+– All rights reserved 15 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+7.3.3 Biomechanical abilities
+Wide variations in biomechanical ability exist throughout the general population. Variation within nationalities is likely to be greater than variation between nationalities. When considering the range of strength, movement and touch sensitivity, particular attention should be paid to the effects of age, with both children and older persons having the lowest levels.
+NOTE 1 For many older persons it is harder to sit down and stand up, to bend or kneel down, to turn the body or the head to the sides and to reach up, and the rotatory range of their wrists is limited.
+Persons with physical disabilities can be limited in their biomechanical abilities in any number of ways, and the effects these limitations might have on the operation of the interface should be taken into account. The possibility that persons who have had an accident or who are carrying things could be temporarily limited in their abilities should also be considered
+The ability to detect, touch and distinguish forms with the fingers is another important issue for user interface design. When operating an everyday product in the dark, in emergency situations, or when the user is visually impaired, touch may be the only way to detect a control and to find out how an interface needs to be operated. If such usage is expected, interfaces should provide touch-based feedback indicating the nature of the action required and whether it has been successfully executed.
+EXAMPLE “Touch-sensitive” buttons on glass or metal surfaces are hard to identify by touch and do not give sufficient feedback about being switched.
+NOTE 2 Some people have little or no sense of touch in their hands.
+7.3.4 Visual abilities
+When designing for the widest possible range of users, the possibility of various types of visual impairments should be taken into account.
+Depending on the situation, it should be anticipated that a large number of users will have visual impairments. Many users who have spectacles might not wear them when using everyday products, particularly in public places or outdoors.
+Individual characters used on displays on the product should subtend an angle at the eye of between 18′ and 22′ of arc (see ISO 9355-2:1999, 4.2.1).
+NOTE 1 In order to increase legibility when the range of users is expected to include those with very low visual acuity, or when the levels of illuminance will be low, increases in the size and/or contrast of the characters could be appropriate.
+NOTE 2 Additional requirements and guidance on the design of displays and their component elements is provided in ISO 9355-2:1999, 4.2.
+Impairments in colour vision are common (see A.8), and colour should not be used as the only way of coding. Shape, position or text should also be used.
+EXAMPLE A set of traffic lights has its red “stop” light located in the top position so that the meaning of the signal can be interpreted by people with red-green vision impairments.
+7.3.5 Auditory abilities
+In some people, the ability to hear certain frequencies is reduced — for example, as a result of noise-induced hearing loss. In older people, the ability to hear higher frequencies is generally reduced. Under extreme noise everybody is effectively deaf, and user interfaces relying only on acoustic output will not work properly.
+NOTE High intensity loudness (> 120 dB) is painful and harms the ear. Also, certain types of sound (e.g. chalk on a blackboard) can be painful to hear.
+Copyright International 16 Organization for Standardization
+© ISO 2006 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale --`,,```,,,,````-`-`,,`,,`,`,,`---
+ISO 20282-1:2006(E)
+For products intended to be used in conditions of loud environmental noise by users with hearing difficulties, or where noise is not appropriate, information should be provided utilizing senses other than hearing (e.g. visual displays).
+EXAMPLE A cooker provides a flashing visual symbol as well as an auditory alarm which indicates that a set cooking time has elapsed. This would be useful in a high-noise environment or for persons with hearing difficulties.
+Auditory alarm signals should be in the range and frequency according to ISO 9355-2; chimes and noises should not be used to communicate more than three different meanings.
+7.3.6 Handedness
+The issue of handedness should be taken into account for every user interface design where dexterity and precision are required. Although more people are right-handed, an everyday product should not exclude the left-handed and should be usable by either. If, for other design reasons, the solution has to be designed for one-handed use only, separate products for either hand should be available.
+EXAMPLE The coin payment slot in a passport photograph booth id designed so it can be used either by right- or left-hand persons.
+7.4 Demographics
+7.4.1 General
+Demographics identify groupings of particular physical, sensory, psychological and social characteristics.
+7.4.2 Age
+Age has profound effects on both psychological and physical user characteristics. Thus the age range of the intended user population is an issue that should be taken into account.
+A product which will be used by children should have very clear steps which are minor goals in themselves. An interface for use by children should require little strength, dexterity or attention for its operation. This will also accommodate the needs of older users. However, if the intention is to exclude children from the use of a product, a requirement to use increased strength should be avoided, as this could exclude some older users as well.
+NOTE Children are not just small adults. A child’s cognition and understanding of the world is very different from that of an adult; they use trial and error interaction, do not plan to achieve goals and can find and continue to use inefficient routes to achieve goals.
+For the inclusion of older persons in a product design, particular attention should be paid to the possibility of reduced sensory and biomechanical abilities and reduced reaction time. While cognitive capabilities can stay intact as age increases, lack of familiarity with modern interaction concepts should be taken into account.
+EXAMPLE Older people’s average speed to complete tasks increases and error rate decreases when using smaller touch-screen buttons, compared to larger, physical ones.
+7.4.3 Gender
+Both genders should be represented in requirements and testing in proportion to expected usage. Only for products relating to physically different characteristics of the genders may a single gender user population be assumed.
+NOTE Gender especially affects physical differences, body dimensions and strength, but also expectations and mental behaviour in so far as the associations with icons, pictograms, words and instructions can be significantly different as a result of experience and socialization.
+Copyright International Organization © ISO for 2006 Standardization
+– All rights reserved 17 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+Annex A (informative)
+User characteristics — Further information
+A.1 Cognitive abilities
+The range of human cognitive abilities includes
+a) the ability to perceive and understand a wide variety of patterns in a variety of sensory modalities,
+b) the ability to work with, and store, large amounts of information in one or more memory systems,
+c) the ability to reason in complex ways,
+d) the ability to make both simple and difficult decisions,
+e) the ability to solve complicated problems, either through recognizing solutions based on prior experience
+or by working with the elements of the problem, and
+f) the ability to produce creative work in any of several domains of human endeavour.
+While there are many human cognitive abilities which are not yet well understood, enough is known to enable predictions about how certain types of design decisions can lead to either good or poor interaction. For example, regardless of whether one argues that the limited capacity of working memory is 7 ± 2 items or 3 ± 2 items, it is quite clear that overloading working memory will result in difficulties for many users.
+Usability methods such as thinking aloud, keystroke tracers, scan converters and eye tracking are attempts at capturing a picture of what the users think when they interact with a product. The aim is to understand and model the users’ cognitive processes, so that the interface can be adjusted to human thinking, rather than the other way around.
+User groups with different knowledge and with higher or lower levels of education are found everywhere. Experience with modern user interface features can differ regionally, even within countries. Thus, advanced features like speech-input/output possibilities and/or touch sensitive buttons can not be assumed to be universally valuable or useful for everyone. The usefulness of different interaction features is highly dependent upon the user’s task and the interaction of their knowledge, skills and cognitive abilities with that task.
+See References [9] to [19].
+A.2 Culture
+The information revolution and the global distribution of modern products have already affected the semantic understanding of signs and symbols all over the world. Current generations of people are exposed to a world- wide culture of technology, commonly shared, broadening semantic understanding and surpassing the understanding of the culture of one’s own country alone. It can be expected that in the future an even broader common understanding will by shared by the world’s population.
+However, cultural variation is a major factor, and cultural differences are found across continents as well as within single nations. Cultural differences can affect preference for, and acceptance and desirability of products, particularly with regard to the metaphors, mental models, navigation, interaction and appearance.
+Copyright International 18 Organization for Standardization
+© ISO 2006 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+Individuals from different cultural backgrounds may differ significantly in terms of
+- semantic connotations given to words,
+- meaning given to colours,
+- interpretation of pictograms and icons,
+- preference for or expectation from hierarchies and organizations of contents,
+- interpretation of menu structures, particularly in respect of emphasis on verbs or nouns,
+- reaction to photographs of people, objects, and places,
+- fundamental operating metaphors for systems, applications, and environments,
+- preferred complexity or density of information, and
+- stereotypes for the flow of action, (such as left to right).
+The designer or evaluator of a product intended for use in different cultural settings should take account of these differences.
+See References [20] to [23].
+A.3 Literacy
+The ability to read is not evenly distributed over the world; there are areas with higher and those with lower literacy. While in Europe in the year 2000 only 1 % of all people could not read and write, in Africa 49 %, and in Southern Asia 59 %, of all women were illiterate. In countries with high illiteracy, rates are typically higher for women than for men. However, in highly literate societies areas can also be found where up to 40 % might be functionally illiterate, e.g. in areas of social deprivation and high unemployment.
+Dyslexia is a genetic disorder of the ability to read. The interpretation of spatial relationships in texts and the neural integration and interpretation are impaired. Dyslexia has a prevalence of about 2 % to 8 % — three times more often found in males than in females.
+See References [24] to [25].
+A.4 Language
+There is a vast number of languages spoken all over the world, and in some countries the dialects within a single language are so pronounced that people speaking that language do not understand each other. India alone is said to have 15 languages and 1 600 dialects.
+See Reference [24].
+A.5 Body dimensions
+Data on body dimensions are available for various countries around the world and for many different groups, both gender- and age-specific. These data need to be updated periodically because in some areas of the world the average height is increasing by up to 2 mm per year, and also because body proportions are changing slightly. Because of varying proportions, body measures other than the overall height can be distributed differently. Body dimension data are available for body height and various measurements from the body, and there are graphic body size templates and computerized models available that help specify reach and posture in connection with user interface design.
+--`,,```,,,,````-`-`,,`,,`,`,,`---
+Copyright International Organization © ISO for 2006 Standardization
+– All rights reserved 19 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+When designing products which include an operator’s seat, as for a telephone booth, the wide range of body dimensions has consequences which are difficult to account for. While most everyday products suit a range from the fifth to the 95 th percentile, extremely tall or small people may need special adaptations to meet their requirements.
+See References [26] to [28].
+A.6 Biomechanical abilities
+The activity of lifting packages is limited to a maximum of 25 kg in some countries. The reason for this limitation is that the injuries from inappropriate lifting work are responsible for the largest number of early retirements and for most absences from work caused by illness.
+The biomechanical appropriateness of a user interface layout can be calculated, relating body sizes to machine measurements, and specifically the reach and physical force the user is required to have to operate the machine. Body size templates and computer manikins can be used for this purpose. Movement repetition can then be compared against human physiological limitations. Algebraic formulas and computer programs are also available for this specification.
+For today’s user interfaces, biomechanical issues are not as important as they were 50 years ago, and for ease of operation, insufficient strength or physiological limitations are only rarely of importance. Servo-engines have replaced the need for human strength in most devices and machines. Many machine requirements have now changed from biomechanical work to control work only, where psychological factors dominate. There is sufficient data available for the layout of control elements with respect to human strength (see ISO 9355-3).
+See References [29] to [34].
+A.7 Design approaches for users with special requirements
+It is recognized that complete ergonomic data sets for all characteristics of the many different groups with disabilities are still missing, and this part of ISO 20282 cannot claim to fully cover this area. Nevertheless, persons with disabilities as well as older persons and children are part of the intended user population for everyday products.
+Terms such as “accessible design”, “universal design”, “design for all”, “barrier-free design”, “inclusive design” and “transgenerational design” are used to describe this approach in different contexts.
+The approach to meeting the needs of these user groups consists of three steps. The preferred approach is to design a product in such a way that it can be used without modification by the widest possible range of users.
+EXAMPLE 1 An ordinary telephone handset with a volume control can also be used by those with a mild hearing impairment.
+In many cases, making a product easy to use for older people and disabled people will also make it easier to use for others.
+If this design approach is not appropriate, the design should cater for the possibility of personalization or connecting assistive devices.
+EXAMPLE 2 Users with moderate hearing impairments add an amplifier to a telephone.
+If this is not sufficient, an alternative solution has to be found.
+EXAMPLE 3 Those with a severe hearing impairment who would not be able to use a telephone use a text-phone or video phone.
+See References [35] to [49].
+Copyright International 20 Organization for Standardization
+© ISO 2006 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+A.8 Visual and auditory abilities
+Visual acuity is the clear recognition of a picture, letter or symbol, and depends on an object’s size. Smaller letters are harder to recognize, as they cover less retinal cells. Visual acuity is measured by a quotient of actual acuity against normal acuity. Normal human acuity resolves an angle of one minute of arc, while the best human acuity is able to resolve an angle as small as two seconds of arc. Using this data it is possible to calculate the minimum size of user interface elements, so they can be clearly seen by the user in the specified context of use.
+Because of genetic variation, the ability to see clearly may already be limited at birth by farsightedness (hyperopia) or nearsightedness (myopia) and could need correction. In western countries, at the age when children first enter school, already 20 % of the pupils benefit from wearing glasses. Visual acuity deteriorates greatly with age, and at age 50 already 70 % of all people need glasses for reading.
+Colour deficiencies in vision are found in all countries and have similar rates. About 2 % of the male population have severely colour-deficient vision, and 6 % of the male population have some type of colour- deficient vision. Only 1 % of the females have colour-deficient vision.
+While young people can see something as close at a distance of 8 cm from their eyes, at age 50 the closest possible distance is usually 50 cm, and older persons without glasses can need a minimal distance of up to 100 cm from the eye in order to clearly see objects. For user interface design, it is very difficult to account for a near point of vision of 100 cm, because this could be beyond the reach distance of the user’s arms for controls connected to a display.
+Several other aspects of vision deteriorate with age. The accommodative ability of the eyes decrease, the field of view is reduced, and the speed of dark adaptation reduces. Sensitivity to glare increases and poorly positioned light sources and strong reflections may reduce the visibility of displayed information.
+Human hearing translates vibrations of the air into nerve pulses. There are cells lined up in the cochlea with responsibilities for certain frequency bands, so that human beings can hear frequencies from around 20 Hz up to 20 000 Hz maximum. With growing age the upper frequencies cease to function properly, and after exposure to excessive noise, a person may suffer hearing damage, regardless of age.
+See References [50] to [56].
+A.9 Handedness
+About 90 % of the western population are right-handed, 11,6 % of the males and 8,6 % of the females are left-handed, and less than 1 % are truly ambidextrous. Handedness comes in various degrees. It establishes itself in the childhood years, and is mostly first recognised when it comes to writing. In some countries, the school system tries to convert left handed writers to using the right hand, while in other countries this is left to the child’s personal decision.
+Body movement functions are side-specific, and they are mirrored to the opposite side in the brain. Learning and knowledge cannot be transferred from one side of the brain directly to the other. When changing the use of a product from one hand to the other for a complex task that requires dexterity, learning will have to be repeated. Side-specific preferences and training effects are known for the hands as well as for the feet.
+See Reference [57].
+A.10 Age
+With age, most functional abilities deteriorate, although the nature and degree of this depends on the individual.
+Copyright International Organization © ISO for 2006 Standardization
+– All rights reserved 21 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+At present, the proportion of older people in the population is increasing dramatically in many countries. It is also important to note that, owing to women’s higher longevity, the world’s elderly comprise more women than men.
+By the year 2050, the world’s population over 60 years of age will be three times higher than it is today and the proportion of those over 60 years old will be 21 %.
+See References [58] to [70].
+A.11 Gender
+Gender especially affects physical differences, body dimensions and strength, but also expectations and mental behaviour in so far as the associations with icons, pictograms, words and instructions can be significantly different as a result of experience and socialisation.
+See References [71] to [75].
+Copyright International 22 Organization for Standardization
+© ISO 2006 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+Annex B (informative)
+Ease of operation as instantiation of usability as defined in ISO 9241-11
+See Figures B.1 and B.2.
+Figure B.1 — Ease of operation as an instantiation of the usability framework
+Figure B.2 — Framework of usability as in ISO 9241-11:1998
+Copyright International Organization © ISO for 2006 Standardization
+– All rights reserved 23 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+Bibliography
+[1] ISO 7250:1996, Basic human body measurements for technological design
+[2] ISO 9186:2001, Graphical symbols — Test methods for judged comprehensibility and for
+comprehension
+[3] ISO 9241-11:1998, Ergonomic requirements for office work with visual display terminals (VDTs) —
+Part 11: Guidance on usability
+[4] ISO 9355-1:1999, Ergonomic requirements for the design of displays and control actuators — Part 1:
+General principles for human interactions with displays and control actuators
+[5] ISO 9355-2:1999, Ergonomic requirements for the design of displays and control actuators — Part 2:
+Displays
+[6] ISO 9355-3:1999, Ergonomic requirements for the design of displays and control actuators — Part 3:
+Control actuators
+[7] ISO 13407, Human-centred design processes for interactive systems
+[8] IEC/TR 61997:2001, Guidelines for the user interface in multimedia equipment for general purpose
+use
+[9] ANDERSON, J. R. Cognitive Psychology and its implications, (5th Ed.) Worth Publishing, 1999
+[10] CARD, S. K., MORAN, I. P. and NEWELL, A. The Psychology of Human-Computer Interaction, Lawrence
+Erlbaum Associates, 1983
+[11] KLATZKY, R. L. Human Memory: Structures and Processes, W.H. Freeman and Company, 1980
+[12] LINDSAY, P. H. and Norman, D. A. Human Information Processing, Academic Press, 1977
+[13] LOFTUS, G. L. and Loftus, E. F. Human Memory: The Processing of Information, Lawrence Erlbaum
+Associates, 1976
+[14] NORMAN, D. The Design of Everyday Things, Doubleday, New York, 1998
+[15] POSNER, M. (ed.). Foundations of Cognitive Science, MIT Press, 1989
+[16] RASMUSSEN, J. Information Processing and Human-Machine Interaction, Elsevier Science Publishing
+1986
+[17] SOLSO, R. L. Cognitive Psychology. (6th Ed.), Pearson Allyn & Bacon, 2000
+[18] STERNBERG, R. J. Cognitive Psychology. (3rd Ed.), Wadsworth Publishing, 2002
+[19] WICKENS, Christopher D. An introduction to human factors engineering. Prentice Hall International,
+Saddle River, NJ, 2004
+[20] HONOLD, P. Interkulturelles Usability Engineering. Eine Untersuchung zu kulturellen Einflüssen auf die
+Gestaltung und Nutzung technischer Produkte. Dissertation, Universität Regensburg, 1998
+[21] MARCUS, A. Globalization, Localization, and Cross-Cultural Communication in User-Interface Design, Handbook of Human-Computer Interaction, Chapter 23, Jacko, J. and A. Spears Lawrence Erlbaum Publishers, New York, 2002, 441–463
+--`,,```,,,,````-`-`,,`,,`,`,,`---
+Copyright International 24 Organization for Standardization
+© ISO 2006 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+[22] MARCUS, A. User-Interface Design and Culture, chapter in Cross-Cultural Interface Design [working
+title], Aykin, Nuray, ed. Lawrence Erlbaum Publishers, New York, in press, 2004
+[23] NISBETT, R.E. The Geography of thought. Nicholas Brealey Publishing Ltd, 2003
+[24] UNESCO Institute for Statistics: http://unescostat.unesco.org
+[25] CIA, The World Factbook 2000, Langley, Virginia, 2000
+[26] JÜRGENS, H.W. AUNE, I.A. and PIEPER, U., International Data on Anthropometry, Occupational Safety
+and Health, No.65, Geneva, International Labour Office, 1990
+[27] EVELETH, P.B. and TANNER, J.M. Worldwide Variation in Human Growth. International Biological
+Program 8, Cambridge University Press, Cambridge, 1976
+[28] HARRISON, C.R. and ROBINETTE, K. M. CAESAR. Summary Statistics for the Adult Population (Ages 18-65) of the United States of America. Technical Report AFRL-HEWP-TR-2002-0170, United States Air Force, Wright Patterson AFB, OH, 2002
+[29] CHAFFIN, D.B, ANDERSSON, G.B.J. and MARTIN, B.J. Occupational, Biomechanics, Third Edition, Wiley
+and Sons, New York, 1999
+[30] Government Consumer Safety Research, Department of Trade and Industry: ADULTDATA — Handbook of adult anthropometric and strength measurements — Data for Design Safety. 1998
+[31] National Institute for Occupational Health and Safety (NIOSH), Work practice guide for manual lifting,
+Dept. Health and Human Services, Publ. No. 81–122, Cincinnati, 1981
+[32] SCHULTZ B. and ALBERT. Mobility impairment in the elderly: challenges for the biomechanics research.
+Journal of Biomechanics, 25, 5, 1992
+[33] MITAL, A., NICHOLSON, A. S. and AYOUB, M. M. A Guide to Manual Materials Handling, Second Edition,
+London, Taylor & Francis, 1997
+[34] PHEASANT, S., Bodyspace: Anthropometry, Ergonomics and the Design of Work, London, Taylor and
+Francis, 1997
+[35] BIERMANN, H. and WEIßMANTEL, H. Seniorengerechtes Konstruieren SENSI. Das Design senioren-
+gerechter Geräte. Reihe 1 Nr. 247, VDI-Verlag, Darmstadt, 1995
+[36] CONNELL, B.R et al. Development and Validation of Principles on Universal Design. A. Lanton (Ed.) Exploring New Horizons, Pioneering the 21st Century: Proceedings of the RESNA 1996 Annual Conference, 435-437. Arlington, VA: RESNA Press, 1996
+[37] GILL, J.M. and SHIPLEY, A.D.C. Telephones: What features do disabled people need? RNIB, 1999
+[38] ISO/IEC Guide 71, Guidelines for standards developers to address the needs of older persons and
+persons with disabilities. International Standardisation Organization, Geneve, 2001
+[39] ISO/TR 224114), Ergonomic data and guidelines for the application of ISO/IEC Guide 71 in standards
+related to products and services to address the needs of older persons and persons with disabilities
+[40] KOMATSUBARA, A. Usability Design for Consumer Products, International Encyclopaedia of Ergonomics
+and Human Factors, Taylor and Francis, 2001
+4) Under preparation.
+--`,,```,,,,````-`-`,,`,,`,`,,`---
+Copyright International Organization © ISO for 2006 Standardization
+– All rights reserved 25 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+[41] KROEMER, K. H. E. “Extra ordinary” ergonomics: how to accommodate small and big persons, the
+disabled and the elderly, expectant mothers, and children. Boca Raton, Taylor & Francis, 2006
+[42] MACE, R. The Accessible Housing — Design File, ANSI Standards for American with disabilities Act.
+Van Rostrand Reinhold. New York, 1991
+[43] MUELLER, J.L. Assistive Technology and Universal Design in the Workplace. Assistive Technology,
+10, 1, 1998, 37-43
+[44] NULL, R. Universal Design — Creative Solutions for ADA compliance, Professional Publications Inc.,
+CA, 1996
+[45] PLACENCIA-PORRERO, I. and PUIG DE LA BELLACASA, R. (eds.). The European Context for Assistive
+Technology. Assistive Technology Research Series. IOS Press, Amsterdam, 1995
+[46] SORENSEN, R. Design for Accessibility, Mc Graw Hill, NY 1979
+[47] STORY, M.F and MUELLER, J.L. Measuring Usability: The Principles of Universal Design. Designing for the 21st Century: An International Conference on Universal Design of Information, Products, and Environments, Jan Reagan and Lawrence Trachtman, editors, 126-129. Raleigh, N.C. NC State University, The Center for Universal Design, 1998
+[48] The Center for Universal Design: http://www.design.ncsu.edu/cud/about_ud/udprinciples.htm
+[49] World Health Organization. Internationale Klassifikation der Schäden, Aktivitäten und Partizipation ICDH-2. Ein Handbuch der Dimensionen von gesundheitlicher Integrität und Behinderung. Deutschsprachiger Beta-1 Entwurf, Genf, 1998
+[50] KANTOWITZ, B. H. and SORKIN, R. D. Human Factors. Wiley & Sons, New York, 1983
+[51] MOORE, B.C.J. An introduction to the psychology of hearing. Academic Press, London, 2004
+[52] PALMER, S.E. Vision science: photons to phenomenology. MIT-Press, Cambridge, MA,1999
+[53] SCHMIDTKE, H. Lehrbuch der Ergonomie. Hanser, München, 1981
+[54] SANDERS, M. and MC CORMICK, E. Human Factors in Engineering and Design, Mc Graw Hill Inc, NY
+7th Edition
+[55] WERNER, J.S., PETERZELL, D.H. and SCHEETZ, A.J. Light, Vision, and Aging. Optometry and Vision
+Science, 1990, Vol 67 No 3, 214–229
+[56] SATORU, K. and KENJI, M. The Effects of Age-Related Changes in Vision on Performance in Reading from Electronic Displays. Journal of the Institute of Image Information and Television Engineers, 2001, Vol 55 No. 4, pg. 583–587
+[57] MCMANUS, C. Right Hand, Left Hand. The origins of asymmetry in brains, bodies, atoms and cultures.
+Weidenfeld and Nicolson, 2002
+[58] BUHLER, C. and SCHMITZ, W. (1999). Ensuring access for all: the role of telecommunications systems
+for elderly and those with special needs. Report to the European Commissions
+[59] Eurostat. Demographic statistics. 1997. Office for Official Publications of the European Communities.
+Luxembourg
+[60] FREUDENTHAL, A. The design of home appliances for young and old consumers. Ageing and
+Ergonomics. Delft University of Technology, Delft, 1999
+[61] SNEL, J. and CREMER, R. Work and Aging. A European Perspective. Taylor and Francis, London, 1994
+Copyright International 26 --`,,```,,,,````-`-`,,`,,`,`,,`---
+Organization for Standardization
+© ISO 2006 – All rights reserved Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+[62] STEENBEKKERS, L.P.A. and VAN BEIJSTERVELDT (Eds.). Design-relevant characteristics of ageing users.
+Ageing and Ergonomics. Delft University of Technology, Delft, 1998
+[63] SMITH, St., NORRIS, B. and PEEBLES, L. Older Adult data, The handbook of measurements and capabilities of the older adult - Data for design safety, Department of Trade and Industry, London, England, 2000
+[64] Statistisches Bundesamt Deutschland, Alterspyramide, 2004,
+www.destatis.de/basis/d/bevoe/bevoegra2.htm
+[65] United Nations, Policies and Programmes on Ageing, www.seniorweb.nl/un/memberstates/default.asp
+[66] United Nations Population Information Network, www.un.org/popin, 2004
+[67] United Nations Programme on Ageing, Towards a society for all ages, 2004,
+www.un.org/esa/socdev/ageing/index.html
+[68] United Nations Statistics Division, Demographic & Social, World Population Prospects, The 2002
+Revision, Highlights, 2003, http://unstats.un.org/unsd/demographic/default.htm
+[69] VANDERHEIDEN, G.C. Design for people with functional limitations resulting from disability, ageing or circumstance. Salvendy, G. (ed.), Handbook of human factors and ergonomics, (pp. 2010–2052), Wiley, 1997
+[70] WEIMER, J. Aging Techniques, Prentice Hall. New Jersey 1995.
+[71] V. D. BEEK, A. J. Gender differences in exerted forces and physiological load during pushing and
+pulling of wheeled cages by postal workers. Ergonomics, Volume 43, No. 2, February 2000
+[72] LAUBACH, L. Comparative muscular strength of men and women. Journal of Occupational Medicine,
+Vol. 16, 1974, 248–254
+[73] FEINGOLD, A. Cognitive gender differences are disappearing. American Psychologist, 1988, 43/2,
+95-103
+[74] LINN, M. and PETERSEN, A.C. Emergence and characterization of sex differences in spatial ability: A
+meta-analysis. Child Development, 1985, 56, 1479-1498
+[75] MACCOBY, E.E. and JACKLIN, C.N. The Psychology of Sex Differences, Stanford University Press,
+Stanford, 1974
+Copyright International Organization © ISO for 2006 Standardization
+– All rights reserved 27 Provided by IHS under license with ISO No reproduction or networking permitted without license from IHS
+Not for Resale
+ISO 20282-1:2006(E)
+ICS 13.180
+Price based on 27 pages
+© ISO 2006 – All rights reserved Copyright International Organization for Standardization Provided by IHS under license with ISO Not for Resale No reproduction or networking permitted without license from IHS

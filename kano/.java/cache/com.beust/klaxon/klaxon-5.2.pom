@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.beust</groupId>
+  <artifactId>klaxon</artifactId>
+  <version>5.2</version>
+  <name>klaxon</name>
+  <description>A JSON parsing library</description>
+  <url>https://github.com/cbeust/klaxon</url>
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>cbeust</id>
+      <name>Cedric Beust</name>
+      <email>cedric@beust.com</email>
+    </developer>
+    <developer>
+      <name>Julien Herr</name>
+    </developer>
+    <developer>
+      <name>Krishnan Mahadevan</name>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git://github.com/cbeust/klaxon.git.git</connection>
+    <url>https://github.com/cbeust/klaxon.git</url>
+  </scm>
+  <issueManagement>
+    <system>Github</system>
+    <url>https://github.com/cbeust/klaxon.git/issues</url>
+  </issueManagement>
+  <dependencies>
+    <dependency>
+      <groupId>org.jetbrains.kotlin</groupId>
+      <artifactId>kotlin-stdlib</artifactId>
+      <version>1.3.50</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jetbrains.kotlin</groupId>
+      <artifactId>kotlin-reflect</artifactId>
+      <version>1.3.50</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jetbrains.kotlin</groupId>
+      <artifactId>kotlin-test</artifactId>
+      <version>1.3.50</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+</project>

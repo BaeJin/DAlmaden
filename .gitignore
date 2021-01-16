@@ -1,0 +1,15 @@
+position
+sentiment/
+img/
+kano/results
+N15/
+twitter/
+legacy/
+etc/
+instagram/
+instascraper/
+kmong/
+pyqt5_scrapy/
+pyqt_insta/
+pyqt_insta_qthread/
+docs/
