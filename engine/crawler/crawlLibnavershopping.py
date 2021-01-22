@@ -11,7 +11,7 @@ from engine.sql.almaden import Sql
 import pandas as pd
 from urllib.request import urlopen
 
-API_KEY = "CCsVQBzfd6jT6yTgMX5Eyg"
+API_KEY = "2c5b500fff718ba1c67f02eb21e79358"
 
 class CrawlLibNavershopping:
 
@@ -79,7 +79,7 @@ class CrawlLibNavershopping:
     #                        title=product_name)
     #         print(index, product_info)
     def get_url(self, target_url):
-        url = f"https://api.proxycrawl.com?token={API_KEY}&url={target_url}"
+        url = f"http://api.scraperapi.com?api_key={API_KEY}&url={target_url}"
         return url
     def get_product_info_by_api(self,idx):
         cookies = {
