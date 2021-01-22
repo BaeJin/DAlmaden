@@ -1,5 +1,7 @@
 import sys
-sys.path.append('../')
+from pathlib import Path
+cwd = str(Path.cwd())
+sys.path.append(cwd)
 from datetime import datetime
 from engine.crawler.db_utils import *
 import json
