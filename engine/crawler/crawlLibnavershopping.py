@@ -175,7 +175,7 @@ class CrawlLibNavershopping:
         return characterValue_data
 
     def crawl_product_list(self,n_total):
-        n_total = min(self.n_crawl,n_total)
+        n_total = min(self.n_crawl,n_total,8100)
         iternum = (n_total//100)+1
         print(iternum)
         for iter in range(1,iternum+1):
@@ -340,7 +340,7 @@ class CrawlLibNavershopping:
             page = 1
             retry = 0
 
-            while self.n_crawled < min(self.n_crawl,self.n_total,8100):
+            while self.n_crawled < min(self.n_crawl,self.n_total):
                 print("self.n_crawled:", self.n_crawled, self.n_crawl, self.n_total)
                 review_page_url = 'https://smartstore.naver.com/i/v1/reviews/paged-reviews?page={}&pageSize=20&merchantNo={}&originProductNo={}&sortType=REVIEW_RANKING'. \
                     format(page, review_machandise_no, review_product_no)
