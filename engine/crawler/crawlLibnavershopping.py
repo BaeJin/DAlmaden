@@ -144,7 +144,7 @@ class CrawlLibNavershopping:
                             'JOIN crawl_request_task AS crt ON cr.request_id= crt.request_id '
                             'JOIN crawl_task AS ct ON ct.task_id = crt.task_id', what='cr.category_id',
                             where=f'ct.task_id={self.task_id}')
-
+        print("task_id:",self.task_id)
         self.cate_id = request[0]['category_id'] if request[0]['category_id'] is not None else None
 
         n_total = self.crawl_total_product_count()
@@ -156,7 +156,6 @@ class CrawlLibNavershopping:
         db = Sql('datacast2')
         data_to_json = json.loads(response.text)
         nTotal = data_to_json['shoppingResult']['total']
-        print(self.keyword,'task_id:',self.task_id,"nTotal:",nTotal)
         db.update_one('crawl_task', 'n_total', int(nTotal), 'task_id', self.task_id)
         return nTotal
 
@@ -177,7 +176,6 @@ class CrawlLibNavershopping:
     def crawl_product_list(self,n_total):
         n_total = min(self.n_crawl,n_total,8100)
         iternum = (n_total//100)+1
-        print(iternum)
         for iter in range(1,iternum+1):
             response = self.get_product_info_by_api(iter)
             data_to_json = json.loads(response.text)
@@ -206,7 +204,6 @@ class CrawlLibNavershopping:
                           'productId':product_info['id'],
                           'characterValue':characterValue_data,
                           'product_link': self.get_product_link(product_info)}
-                print(iter,idx,prod_desc)
                 self.db.insert('crawl_contents',
                                 num=(iter-1)*100 +idx,
                                 title =product_info['productTitle'],

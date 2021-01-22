@@ -143,7 +143,6 @@ class RequestTask:
                 #모든 task ID
                 task_ids.append(int(task_id))
             #request 한개 끝
-            print("{}:{},{},총 {}개 중{}개의 중복된 task".format(request_id,channel,search_keyword,len(task_ids),already_task_count))
             db.update_one('crawl_request','task_ids',json.dumps(task_ids),'request_id',request_id)
         #함수 끝
         db.close()
