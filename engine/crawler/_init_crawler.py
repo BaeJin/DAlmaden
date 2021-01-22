@@ -34,19 +34,12 @@ def crawl_contents(task_id=None,
         del crawler_obj
 
 def crawl_review(contents_id=None,
-                   channel=None,
+                 task_id=None,
                    keyword=None,
-                   from_date=None,
-                   to_date=None,
-                   n_crawl=None,
                    n_total=None,
                  prod_desc=None):
 
-    if channel == 'navershopping':
-        print(f"contents_id:{contents_id},navershopping crawling start")
-        crawler_obj = CrawlLibNavershopping(contents_id=contents_id, keyword=keyword, from_date=from_date,
-                                            to_date=to_date,n_crawl=n_crawl, n_total=n_total,prod_desc=prod_desc)
-        crawler_obj.crawl()
-        del crawler_obj
+    crawler_obj = CrawlLibNavershopping(contents_id=contents_id,task_id=task_id, keyword=keyword, n_total=n_total,prod_desc=prod_desc)
+    crawler_obj.crawl()
 
 

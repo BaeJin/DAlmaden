@@ -16,7 +16,7 @@ import unicodedata
 # CAPTION_LIST_KEY = "edge_media_to_caption"
 # TEXT_KEY = "text"
 # COUNT_KEY = "count"
-API_KEY = "CCsVQBzfd6jT6yTgMX5Eyg"
+API_KEY = "XAZN5Y277PEU020TOQWCSZL8PXCM3AKBZPXTX67S6ZBO7Y7QXC9WTV0T7O2EK4QRWR0O2I3Z0F0EM92X"
 
 
 class CrawlLibInstagram:
@@ -63,13 +63,23 @@ class CrawlLibInstagram:
         }
 
     def get_url(self, instagram_target_url):
-        url = f"https://api.proxycrawl.com?token={API_KEY}&url={instagram_target_url}"
+        url = f"https://app.scrapingbee.com/api/v1/?api_key={API_KEY}&url={instagram_target_url}"
         print("scrapi_url:",url)
         return url
 
+    def send_request(self, instagram_target_url):
+        response = requests.get(
+            url="https://app.scrapingbee.com/api/v1/",
+            params={
+                "api_key": "XAZN5Y277PEU020TOQWCSZL8PXCM3AKBZPXTX67S6ZBO7Y7QXC9WTV0T7O2EK4QRWR0O2I3Z0F0EM92X",
+                "url": instagram_target_url,
+                "render_js": "false",
+            },
+        )
+        return response
     def get_request_response_to_crawl_total(self, instagram_target_url):
         self.get_request_response_try_num += 1
-        response = requests.get(url=self.get_url(instagram_target_url))
+        response = self.send_request(instagram_target_url)
         soup = BeautifulSoup(response.text, 'lxml')
         result_exist = soup.find('title', text=re.compile("Instagram"))
         result_target_exist = soup.find('title', text=re.compile(self.keyword))
@@ -173,7 +183,7 @@ class CrawlLibInstagram:
 
     def start_requests(self):
 
-        response = requests.get(url=self.get_url(self.instagram_target_url))
+        response = self.send_request(self.instagram_target_url)
         if response.status_code == 200:
             print(self.start_url, "start_requests requests success")
             self.parse(response)
@@ -268,7 +278,7 @@ class CrawlLibInstagram:
                 params = {'query_hash': '9b498c08113f1e09617a1703c22b2f32', 'variables': json.dumps(next_page_di)}
                 instagram_target_url = 'https://www.instagram.com/graphql/query/?' + urlencode(params)
 
-                return self.parse_page(requests.get(self.get_url(instagram_target_url)),next_page_di,instagram_target_url=instagram_target_url)
+                return self.parse_page(self.send_request(instagram_target_url),next_page_di,instagram_target_url=instagram_target_url)
 
             elif next_page_bool is False:
                 print(f'총 게시물 수 {self.nTotal} 더이상 게시물이 없습니다.')
@@ -297,7 +307,7 @@ class CrawlLibInstagram:
                 print("parse page error:", e)
                 response_success = True
                 while response_success == True:
-                    response = requests.get(self.get_url(instagram_target_url))
+                    response = self.send_request(instagram_target_url)
                     print(self.n_crawled, response.status_code)
                     if response.status_code == 200:
                         return self.parse_page(response, di)
@@ -369,7 +379,7 @@ class CrawlLibInstagram:
                     response_success = True
                     response_fail_count = 0
                     while response_success == True:
-                        response = requests.get(self.get_url(instagram_target_url))
+                        response = self.send_request(instagram_target_url)
                         print(self.n_crawled, response.status_code)
                         if response.status_code == 200:
                             return self.parse_page(response, di,instagram_target_url=instagram_target_url)

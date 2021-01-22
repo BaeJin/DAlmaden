@@ -18,9 +18,6 @@ class CrawlLibNavershopping:
     def __init__(self,task_id=None,
                  contents_id=None,
                  keyword=None,
-                 from_date=None,
-                 to_date=None,
-                 n_crawl=None,
                  n_total=None,
                  prod_desc=None,
                  cate_id = None,
@@ -46,9 +43,6 @@ class CrawlLibNavershopping:
         self.task_id = task_id
         self.contents_id = contents_id
         self.keyword = keyword
-        self.from_date = from_date
-        self.to_date = to_date
-        self.n_crawl = n_crawl
         self.n_total = n_total
         self.prod_desc = prod_desc
         self.merged_dict = {}
@@ -174,7 +168,7 @@ class CrawlLibNavershopping:
         return characterValue_data
 
     def crawl_product_list(self,n_total):
-        n_total = min(self.n_crawl,n_total,8100)
+        n_total = min(n_total,8100)
         iternum = (n_total//100)+1
         for iter in range(1,iternum+1):
             response = self.get_product_info_by_api(iter)
@@ -337,8 +331,8 @@ class CrawlLibNavershopping:
             page = 1
             retry = 0
 
-            while self.n_crawled < min(self.n_crawl,self.n_total):
-                print("self.n_crawled:", self.n_crawled, self.n_crawl, self.n_total)
+            while self.n_crawled < self.n_total:
+                print("self.n_crawled:", self.n_crawled, self.n_total)
                 review_page_url = 'https://smartstore.naver.com/i/v1/reviews/paged-reviews?page={}&pageSize=20&merchantNo={}&originProductNo={}&sortType=REVIEW_RANKING'. \
                     format(page, review_machandise_no, review_product_no)
                 try:
@@ -395,8 +389,8 @@ class CrawlLibNavershopping:
             formdata['nvMid'] = review_page_nv_mid
             page = 1
             retry = 0
-            while self.n_crawled < min(self.n_crawl,self.n_total):
-                print("self.n_crawled:",self.n_crawled, self.n_crawl, self.n_total)
+            while self.n_crawled < self.n_total:
+                print("self.n_crawled:",self.n_crawled, self.n_total)
                 formdata['page'] = page
                 time.sleep(random.random())
                 res_review_page = requests.post(review_page_link, data=formdata, headers= self.CUSTOM_HEADER)

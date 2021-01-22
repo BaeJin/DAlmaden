@@ -12,7 +12,7 @@ import multiprocessing
 db=Sql("datacast2")
 status = "GR"
 tasks = db.select('crawl_task',what ='*',
-                     where='crawl_status="%s" and channel="instagram"'%(status))
+                     where='crawl_status="%s" and channel="naverblog"'%(status))
 
 for idx,task in enumerate(tasks):
     task_id = task['task_id']
@@ -25,6 +25,12 @@ for idx,task in enumerate(tasks):
     if n_total is not None and n_total>0:
         print(idx, keyword,channel)
         crawl_contents(task_id,channel,keyword,from_date,to_date,n_crawl,n_total)
+        db.update_one('crawl_task','crawl_status','GF','task_id',task_id)
     else:
-        continue
+        db.update_one('crawl_task','n_crawled',0,'task_id',task_id)
+        db.update_one('crawl_task','crawl_status','GF','task_id',task_id)
 
+# crawl(keyword='손해보험',
+#                 startDate='2020-08-01',
+#                 endDate='2020-09-10',
+#                 nCrawl=2000)
