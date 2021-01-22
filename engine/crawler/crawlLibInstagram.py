@@ -63,7 +63,7 @@ class CrawlLibInstagram:
         }
 
     def get_url(self, instagram_target_url):
-        url = f"http://api.scraperapi.com?api_key={API_KEY}&url={instagram_target_url}"
+        url = f"https://api.proxycrawl.com?token={API_KEY}&url={instagram_target_url}"
         print("scrapi_url:",url)
         return url
 
