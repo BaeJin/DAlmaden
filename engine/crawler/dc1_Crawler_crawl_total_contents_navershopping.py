@@ -52,7 +52,6 @@ for idx,task in enumerate(tasks):
               'JOIN crawl_request_task AS crt ON cr.request_id= crt.request_id '
               'JOIN crawl_task AS ct ON ct.task_id = crt.task_id',what='cr.request_id',where=f'ct.task_id={task_id}')
     request_id = request[0]['request_id']
-    db.update_one('crawl_request', 'crawl_status', 'GF', 'request_id', request_id)
 
     print(task)
 # crawl(keyword='손해보험',
