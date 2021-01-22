@@ -1,6 +1,7 @@
 import requests
 import json
 import numpy as np
+from datetime import datetime
 
 cookies = {
     'NRTK': 'ag#all_gr#1_ma#-2_si#0_en#0_sp#0',
@@ -41,19 +42,21 @@ headers = {
     'Origin': 'https://search.shopping.naver.com',
 }
 sum_review = 0
-for i in range(0,1):
+for i in range(0,7):
     params = {'frm':'NVSHTTL',
               'pagingIndex':i,
               'pagingSize':'40',
               'productSet':'total',
-              'catId':50001171,
+              'query':'풀무원 가정간편식',
               'sort':'rel',
               'viewType':'list'}
 
-    response = requests.get('https://search.shopping.naver.com/search/category', headers=headers, params=params,cookies=cookies)
+    response = requests.get('https://search.shopping.naver.com/search/all', headers=headers, params=params,cookies=cookies)
     data_to_json = json.loads(response.text)
     products_info = data_to_json['shoppingResult']['products']
+
     for idx, product_info in enumerate(products_info):
+
         _data = {}
         keys = product_info['attributeValue'].split("|")
         values = product_info['characterValue'].split("|")
@@ -66,7 +69,7 @@ for i in range(0,1):
             _data[key] = _data.get(key).split(",")
 
         json_data = json.dumps(_data,ensure_ascii=False)
-        print(idx,json_data)
+        #print(idx,json_data)
 
         reviewCount = product_info['reviewCount']
         #리뷰수, 용도, 중량, 가격, 부위, 리뷰수, 구매건수, 등록일’

@@ -75,8 +75,6 @@ class CrawlLibnaverBlog:
                 if num == 0 :
                     nTotal = data_all['result']['totalCount']
                     print(nTotal, 'items found for ' + self.keyword)
-                    db.update_one('crawl_task','crawl_status','%s'%(self.status_doing),'task_id',self.task_id)
-
                 data_list = []
                 try :
                     data_list = data_all['result']['searchList']
@@ -141,8 +139,9 @@ class CrawlLibnaverBlog:
             if end :
                 db.update_one('crawl_task', 'n_crawled', num , 'task_id', self.task_id)
                 db.update_one('crawl_task', 'crawl_status', '%s' % (self.status_done), 'task_id', self.task_id)
-
                 break
+
+            db.update_one('crawl_task', 'crawl_status', '%s' % (self.status_done), 'task_id', self.task_id)
             db.update_one('crawl_task','n_crawled',num,'task_id',self.task_id)
 
     def get_keyhex(self,keyword) :

@@ -219,13 +219,13 @@ class SocialListeing(Task):
             if self.pos=='pos':
                 sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM crawl_contents AS cc JOIN crawl_task AS ct ON cc.task_id=ct.task_id " \
                       "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
-                      "WHERE ct.keyword=\'%s\' and ct.channel=\'%s\' AND cc.post_date BETWEEN \'%s\' AND \'%s\' AND cs.positiveness=%d"%\
+                      "WHERE ct.keyword=\'%s\' and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\' AND cs.positiveness=%d"%\
                       (cs_text,self.keyword, self.channel,self.fromdate, self.todate, 1)
 
             elif self.pos=='neg':
                 sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM crawl_contents AS cc JOIN crawl_task AS ct ON cc.task_id=ct.task_id " \
                       "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
-                      "WHERE ct.keyword=\'%s\' and ct.channel=\'%s\' AND cc.post_date BETWEEN \'%s\' AND \'%s\' AND cs.positiveness=%d"%\
+                      "WHERE ct.keyword=\'%s\' and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\' AND cs.positiveness=%d"%\
                       (cs_text,self.keyword, self.channel ,self.fromdate, self.todate, 0)
 
             elif self.pos == 'all':
@@ -385,11 +385,16 @@ class SocialListeing(Task):
         print(self.lang)
         if self.lang == 'english':
             remove_list = pos_tag(self.keyword)
-            for text in tqdm(self.text_list):
-                pos.extend(pos_tag(word_tokenize(text)))
-            for p in pos:
-                if p[0] not in remove_list and p[1] in word_class_list:  # nltk
-                    words.append(p[0])
+            if self.tagged is None:
+
+                for text in tqdm(self.text_list):
+                    pos.extend(pos_tag(word_tokenize(text)))
+                for p in pos:
+                    if p[0] not in remove_list and p[1] in word_class_list:  # nltk
+                        words.append(p[0])
+            else:
+                for text in tqdm(self.text_list):
+                    words.extend(text)
 
         elif self.lang == 'korean':
             if self.tagged is None:
@@ -665,9 +670,9 @@ class SlVizualize(Task):
             differb = sc.getDiff2()
 
             #wordcloud 객체 생성
-            wcA_B,_ = self.draw_to_imshow(differa, 'tab10', maskPic='mask_A_B.png')
-            wcB_A,_ = self.draw_to_imshow(differb, 'Dark2', maskPic='mask_B_A.png')
-            wc_inter,_ = self.draw_to_imshow(interdict, 'brg', maskPic='mask_inter.png')
+            wcA_B,_ = self.draw_to_imshow(differa, 'tab10' if posA is None else paletteA, maskPic='mask_A_B.png')
+            wcB_A,_ = self.draw_to_imshow(differb, 'Dark2' if posB is None else paletteB, maskPic='mask_B_A.png')
+            wc_inter,_ = self.draw_to_imshow(interdict, 'brg' if posA is None else 'Greens', maskPic='mask_inter.png')
 
             #교집합그림#
             plt.figure(5, figsize=(16, 12))

@@ -16,7 +16,7 @@ import unicodedata
 # CAPTION_LIST_KEY = "edge_media_to_caption"
 # TEXT_KEY = "text"
 # COUNT_KEY = "count"
-API_KEY = "2c5b500fff718ba1c67f02eb21e79358"
+API_KEY = "CCsVQBzfd6jT6yTgMX5Eyg"
 
 
 class CrawlLibInstagram:
@@ -40,7 +40,7 @@ class CrawlLibInstagram:
         # Tags URL
         # 나라 설정은 parameter : hl 이용 ex)https://www.instagram.com/nike/?hl=en  #English
         self.instagram_target_url = f'https://www.instagram.com/explore/tags/{self.keyword}'
-        self.scrapi_url = f"http://api.scraperapi.com?api_key={API_KEY}"
+        self.scrapi_url = f"https://api.proxycrawl.com?token={API_KEY}"
         self.start_url = f"{self.scrapi_url}&url={self.instagram_target_url}"
         self.crawl_total_try_num = 0
         self.get_request_response_try_num = 0

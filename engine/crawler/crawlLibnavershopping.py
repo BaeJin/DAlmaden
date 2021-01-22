@@ -340,7 +340,7 @@ class CrawlLibNavershopping:
             page = 1
             retry = 0
 
-            while self.n_crawled < min(self.n_crawl,self.n_total):
+            while self.n_crawled < min(self.n_crawl,self.n_total,8100):
                 print("self.n_crawled:", self.n_crawled, self.n_crawl, self.n_total)
                 review_page_url = 'https://smartstore.naver.com/i/v1/reviews/paged-reviews?page={}&pageSize=20&merchantNo={}&originProductNo={}&sortType=REVIEW_RANKING'. \
                     format(page, review_machandise_no, review_product_no)

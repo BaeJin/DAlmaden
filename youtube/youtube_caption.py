@@ -6,13 +6,9 @@ from engine.sql.almaden import Sql
 from datetime import datetime
 from youtubesearchpython import SearchVideos
 import json
-json.dumps(en)
-search = SearchVideos("NoCopyrightSounds", offset = 1, mode = "json", max_results = 20)
 
 
 db = Sql("datacast2")
-
-
 
 def get_youtube_url_by_keyword(search_keyword):
     task_id = db.select('crawl_task', 'task_id', f'keyword=\"{search_keyword}\"')[0]['task_id']
@@ -39,7 +35,9 @@ def get_youtube_url_by_keyword(search_keyword):
             en_caption = source.captions.get_by_language_code(caption_code)
             en_caption_convert_to_srt = (en_caption.generate_srt_captions())
             captions = en_caption_convert_to_srt.splitlines()
+
             for idx, caption_info in enumerate(captions):
+                print(caption_info)
                 if idx % 4 == 2:
                     caption_text += caption_info
             db.insert_withoutDuplication('crawl_contents',
@@ -53,10 +51,5 @@ def get_youtube_url_by_keyword(search_keyword):
         except Exception as e:
             print(url, caption_code, idx, video_id, e)
 
-def test():
-    search = SearchVideos("NoCopyrightSounds", offset=1, mode="json", max_results=100)
-    print(search.result())
-
-search_keyword = 'byd home battery'
-# get_youtube_url_by_keyword(search_keyword)
-test()
+search_keyword = 'tesla power wall'
+get_youtube_url_by_keyword(search_keyword)

@@ -3,7 +3,7 @@ sys.path.append('../')
 from datetime import datetime
 from engine.crawler.db_utils import *
 import json
-from engine.sql.almaden import  Sql
+from engine.sql.almaden import Sql
 db = Sql('datacast2')
 b_to_rq = RequestTask()
 b_to_rq.request_to_task()
