@@ -3,11 +3,7 @@ sys.path.append('../')
 from engine.crawler.db_utils import *
 from engine.crawler._init_crawler import *
 import json
-from multiprocessing import Process, Queue, freeze_support
-from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
-import multiprocessing
 
-#등록된 task 의 상태를 확인하고 status 가 GR 인 task 를 가져와 크롤링 하기
 db=Sql("datacast2")
 status = "GR"
 contents_row = db.select('crawling_status_navershopping_view','*','contents_status="GR"')
