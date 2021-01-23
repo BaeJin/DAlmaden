@@ -22,14 +22,19 @@ for idx,task in enumerate(tasks):
     to_date = task['to_date']
     n_crawl = task['n_crawl']
     n_total = task['n_total']
-    if n_total is not None and n_total>0:
+    real_crawl_status = db.select('crawl_task',what ='*',
+                     where='task_id="%s" "'%(task_id))
+    real_crawl_status= real_crawl_status[0]['crawl_status']
+    if real_crawl_status=='GR' and n_total is not None and n_total>0:
         print(idx, keyword,channel)
         crawl_contents(task_id,channel,keyword,from_date,to_date,n_crawl,n_total)
         db.update_one('crawl_task','crawl_status','GF','task_id',task_id)
-    else:
+    elif real_crawl_status=='GR' and n_total is not None and n_total==0:
         db.update_one('crawl_task','n_crawled',0,'task_id',task_id)
         db.update_one('crawl_task','crawl_status','GF','task_id',task_id)
-
+    else:
+        db.update_one('crawl_task','crawl_status','GF','task_id',task_id)
+        continue
 # crawl(keyword='손해보험',
 #                 startDate='2020-08-01',
 #                 endDate='2020-09-10',
