@@ -184,7 +184,7 @@ class CrawlLibInstagram:
             return reply_list
 
     def start_requests(self):
-
+        self.db.update_one('crawl_task','crawl_status',self.status_doing,'task_id',self.task_id)
         response = self.send_request(self.instagram_target_url)
         if response.status_code == 200:
             print(self.start_url, "start_requests requests success")

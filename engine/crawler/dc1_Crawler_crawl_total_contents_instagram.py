@@ -25,6 +25,7 @@ for idx,task in enumerate(tasks):
     if n_total is not None and n_total>0:
         print(idx, keyword,channel)
         crawl_contents(task_id,channel,keyword,from_date,to_date,n_crawl,n_total)
+        db.update_one('crawl_task','crawl_status','GF','task_id',task_id)
     else:
         continue
 

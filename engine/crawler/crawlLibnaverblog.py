@@ -49,8 +49,10 @@ class CrawlLibnaverBlog:
             db.update_one('crawl_task', 'n_total', int(nTotal), 'task_id', self.task_id)
 
     def crawl(self):
+
         #init task
         db = Sql('datacast2')
+        db.update_one('crawl_task', 'crawl_status', '%s' % (self.status_doing), 'task_id', self.task_id)
 
         keyhex = self.get_keyhex(self.keyword)
         custom_header = self.CUSTOM_HEADER
