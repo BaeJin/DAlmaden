@@ -7,6 +7,8 @@ from engine.crawler.crawlLibnaverblog import CrawlLibnaverBlog
 from engine.crawler.crawlLibnavernews import CrawlLibnaverNews
 from engine.crawler.crawlLibInstagram import CrawlLibInstagram
 from engine.crawler.crawlLibnavershopping import CrawlLibNavershopping
+from engine.crawler.crawlLibyoutube import CrawlLibYoutube
+
 from engine.crawler.crawlLibAmazon import CrawlLibAmazon
 
 import re
@@ -15,7 +17,7 @@ import re
 class RequestTask:
     def __init__(self):
         self.period_differ_channel = ['naverblog','twitter','navernews']
-        self.review_channel = ['navershopping','coupang']
+        self.review_channel = ['navershopping','coupang','youtube']
 
     def get_df_request_crawl(self,channel, keyword, until_date, n_periods, n_crawl,
                              by_year=True, use_end_date=False,
@@ -161,10 +163,14 @@ class RequestTask:
             obj.crawl_total()
             del obj
         if channel=='navershopping':
-            obj = CrawlLibNavershopping(task_id = task_id, keyword = keyword, n_crawl=n_crawl)
+            obj = CrawlLibNavershopping(task_id = task_id, keyword = keyword)
             obj.crawl_total()
             del obj
 
+        if channel=='youtube':
+            obj = CrawlLibYoutube(task_id = task_id, keyword = keyword)
+            obj.crawl_total()
+            del obj
         if channel=='amazon':
             obj = CrawlLibAmazon(task_id=task_id,keyword=keyword)
             obj.crawl_total()

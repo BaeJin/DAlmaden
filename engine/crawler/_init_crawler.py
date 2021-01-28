@@ -2,6 +2,7 @@ from engine.crawler.crawlLibnaverblog import CrawlLibnaverBlog
 from engine.crawler.crawlLibnavernews import CrawlLibnaverNews
 from engine.crawler.crawlLibInstagram import CrawlLibInstagram
 from engine.crawler.crawlLibnavershopping import CrawlLibNavershopping
+from engine.crawler.crawlLibyoutube import CrawlLibYoutube
 
 
 def crawl_contents(task_id=None,
@@ -37,9 +38,13 @@ def crawl_review(contents_id=None,
                  task_id=None,
                    keyword=None,
                    n_total=None,
-                 prod_desc=None):
+                 prod_desc=None,channel=None):
+    if channel == 'navershopping':
+        crawler_obj = CrawlLibNavershopping(contents_id=contents_id,task_id=task_id, keyword=keyword, n_total=n_total,prod_desc=prod_desc)
+        crawler_obj.crawl()
 
-    crawler_obj = CrawlLibNavershopping(contents_id=contents_id,task_id=task_id, keyword=keyword, n_total=n_total,prod_desc=prod_desc)
-    crawler_obj.crawl()
+    if channel == 'youtube':
+        crawler_obj = CrawlLibYoutube(contents_id=contents_id,task_id=task_id, keyword=keyword, n_total=n_total,prod_desc=prod_desc)
+        crawler_obj.crawl()
 
 

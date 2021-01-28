@@ -1,3 +1,0 @@
-api_key = "AIzaSyBM_BU6NjFb8cjr_doUB2UcnYY-b7S839o"
-client_id = "526267581070-6ains352dt4ik5pnip318d41ce8tk0j7.apps.googleusercontent.com"
-client_password = "PFAqrnUJ7gemyR-ORlhuQLjq"
