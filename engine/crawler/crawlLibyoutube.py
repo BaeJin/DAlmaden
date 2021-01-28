@@ -116,16 +116,16 @@ class CrawlLibYoutube:
                                crawl_status='GR'
                                )
     def crawl(self,part='snippet',maxResults=100,textFormat='plainText',order='time'):
-        video_info = json.loads(self.prod_desc)
-        videoId = video_info['text']
+        video_info = self.prod_desc
+        videoId = video_info['id']['videoId']
+
         n_reply_crawled = 0
         response = self.youtube.commentThreads().list(
             part=part,
             maxResults=maxResults,
             textFormat=textFormat,
             order=order,
-            videoId=videoId)
-
+            videoId=videoId).execute()
         while response:  # this loop will continue to run until you max out your quota
             for item in response['items']:
                 # item for desired data features
@@ -136,7 +136,8 @@ class CrawlLibYoutube:
                 like_count = item['snippet']['topLevelComment']['snippet']['likeCount']
                 post_date = item['snippet']['topLevelComment']['snippet']['publishedAt'].split("T")[0]
 
-                self.db.insert("crawl_sentnece",
+                self.db.insert("crawl_sentence",
+                               seq=n_reply_crawled,
                                contents_id = self.contents_id,
                                text=comment,
                                author=comment_id,

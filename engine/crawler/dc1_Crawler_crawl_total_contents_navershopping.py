@@ -10,7 +10,7 @@ contents_row = db.select('crawling_status_navershopping_view','*','contents_stat
 
 for idx,row in enumerate(contents_row):
     keyword = row['keyword']
-    channel = row['channel']
+    channel = 'navershopping'
     task_id = row['task_id']
     contents_id = row['contents_id']
     title = row['title']
