@@ -42,12 +42,12 @@ headers = {
     'Origin': 'https://search.shopping.naver.com',
 }
 sum_review = 0
-for i in range(0,7):
+for i in range(0,100):
     params = {'frm':'NVSHTTL',
               'pagingIndex':i,
               'pagingSize':'40',
               'productSet':'total',
-              'query':'풀무원 가정간편식',
+              'query':'오뚜기 가정간편식',
               'sort':'rel',
               'viewType':'list'}
 

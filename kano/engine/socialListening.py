@@ -25,11 +25,14 @@ import json
 import matplotlib.patches as mpatches
 import matplotlib.cm as cm
 from matplotlib import colors as cols
-rc('font',family='malgun gothic')
+sns.set(font_scale=1.4)
+rc('font',family='NanumBarunGothic')
+# rc('font', family=str(Path.cwd()) + "/source/fonts/" + "NanumBarunGothic.ttf")
+
 
 class Task():
     def __init__(self,keyword=None,channel=None,lang=None,word_class=None,
-                 fromdate=None, todate=None,type=None,pos=None,nurl=None,task_id=None,hashtag=None,loc=None,brand=None,ratio=None,tagged=None,kbf=None,**kwargs):
+                 fromdate=None, todate=None,type=None,pos=None,nurl=None,task_id=None,hashtag=None,loc=None,brand=None,ratio=None,tagged=None,kbf=None,file_name= None,batch_bool=None,**kwargs):
         self.dir = Path.cwd()
         self.type = type
         self.keyword = keyword
@@ -51,7 +54,8 @@ class Task():
         self.ratio = ratio
         self.tagged = tagged
         self.kbf = kbf
-
+        self.file_name = file_name
+        self.batch_bool = batch_bool
 class SocialListeing(Task):
     def __init__(self,keyword,channel,lang,word_class,
                  fromdate=None, todate=None, type=None,pos=None,nurl=None,task_id=None,**kwargs):
@@ -216,23 +220,57 @@ class SocialListeing(Task):
             if self.word_class == 'verb':
                 cs_text = 'verbs'
 
-            if self.pos=='pos':
+            if self.pos=='pos' and self.batch_bool is None:
                 sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM crawl_contents AS cc JOIN crawl_task AS ct ON cc.task_id=ct.task_id " \
                       "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
-                      "WHERE ct.keyword=\'%s\' and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\' AND cs.positiveness=%d"%\
+                      "WHERE (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\' AND cs.positiveness=%d"%\
                       (cs_text,self.keyword, self.channel,self.fromdate, self.todate, 1)
 
-            elif self.pos=='neg':
+            elif self.pos=='neg' and self.batch_bool is None:
                 sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM crawl_contents AS cc JOIN crawl_task AS ct ON cc.task_id=ct.task_id " \
                       "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
-                      "WHERE ct.keyword=\'%s\' and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\' AND cs.positiveness=%d"%\
+                      "WHERE (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\' AND cs.positiveness=%d"%\
                       (cs_text,self.keyword, self.channel ,self.fromdate, self.todate, 0)
 
-            elif self.pos == 'all':
+            elif self.pos == 'pos' and self.batch_bool:
+                # sql = "select sentence,positiveness from analysis_brand_tmp"
+                sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM request_batch AS rb " \
+                      "JOIN crawl_request AS cr ON rb.batch_id=cr.batch_id " \
+                      "JOIN crawl_request_task AS crt ON crt.request_id = cr.request_id " \
+                      "JOIN crawl_task AS ct ON crt.task_id=ct.task_id " \
+                      "join crawl_contents AS cc ON cc.task_id=ct.task_id " \
+                      "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
+                      "WHERE cs.positiveness=1 and (rb.batch_id=%s) AND cc.post_date BETWEEN \'%s\' AND \'%s\' and ct.channel= \'%s\'" % \
+                      (cs_text,self.batch_bool,self.fromdate,self.todate,self.channel)
+
+            elif self.pos == 'neg' and self.batch_bool:
+                # sql = "select sentence,positiveness from analysis_brand_tmp"
+                sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM request_batch AS rb " \
+                      "JOIN crawl_request AS cr ON rb.batch_id=cr.batch_id " \
+                      "JOIN crawl_request_task AS crt ON crt.request_id = cr.request_id " \
+                      "JOIN crawl_task AS ct ON crt.task_id=ct.task_id " \
+                      "join crawl_contents AS cc ON cc.task_id=ct.task_id " \
+                      "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
+                      "WHERE cs.positiveness=0 and (rb.batch_id=%s) AND cc.post_date BETWEEN \'%s\' AND \'%s\' and ct.channel= \'%s\'" % \
+                      (cs_text,self.batch_bool,self.fromdate,self.todate,self.channel)
+
+            elif self.pos == 'all'  and self.batch_bool is None:
                 sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM crawl_contents AS cc JOIN crawl_task AS ct ON cc.task_id=ct.task_id " \
                       "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
-                      "WHERE ct.keyword=\'%s\' and ct.channel=\'%s\' AND cc.post_date BETWEEN \'%s\' AND \'%s\'"%\
+                      "WHERE (ct.keyword=\'%s\') and ct.channel=\'%s\' AND cc.post_date BETWEEN \'%s\' AND \'%s\'"%\
                       (cs_text,self.keyword, self.channel,self.fromdate, self.todate)
+
+            elif self.pos == 'all' and self.batch_bool:
+                # sql = "select sentence,positiveness from analysis_brand_tmp"
+                sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM request_batch AS rb " \
+                      "JOIN crawl_request AS cr ON rb.batch_id=cr.batch_id " \
+                      "JOIN crawl_request_task AS crt ON crt.request_id = cr.request_id " \
+                      "JOIN crawl_task AS ct ON crt.task_id=ct.task_id " \
+                      "join crawl_contents AS cc ON cc.task_id=ct.task_id " \
+                      "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
+                      "WHERE (rb.batch_id=%s) AND cc.post_date BETWEEN \'%s\' AND \'%s\'" % \
+                      (cs_text,self.batch_bool,self.fromdate,self.todate)
+
 
             curs.execute(sql)
             rows = curs.fetchall()
@@ -468,12 +506,18 @@ class SocialListeing(Task):
         kano_df = kano_df[['keyword','label','nPos','nNeg','x','y']]
         kano_df.to_csv(str(self.kano_dir) + "/kano/results/kano_scatter/_{}_{}.csv".format('kano', 'scatter'), mode='a')
 
+
     def get_bow(self):
         self.read()
         words = self.posTag()
         keyword_bog, dict_word = self.get_frequent_word(words)
-        keyword_bog.to_excel(str(self.kano_dir) + "/kano/results/buzz/{}_{}_{}_{}_{}_{}_{}.xlsx".
-                             format(self.keyword, self.fromdate,self.todate,self.channel,self.type,self.pos,self.nurl)
+        self.keyword = self.keyword.replace(" | ","")
+        self.keyword = self.keyword.replace(" ","")
+        self.keyword = self.keyword.replace("'", "")
+        self.keyword = self.keyword.replace('"','')
+
+        keyword_bog.to_excel(str(self.kano_dir) + "/kano/results/buzz/{}_{}_{}_{}_{}_{}_{}_{}.xlsx".
+                             format(self.file_name,self.keyword, self.fromdate,self.todate,self.channel,self.type,self.pos,self.nurl)
                              , encoding='utf-8', engine='xlsxwriter')
         print('make bow finish')
         keyword_bog.rename(columns={"keyword": "word"}, inplace=True)
@@ -483,21 +527,26 @@ class SocialListeing(Task):
         keyword_bog['channel'] = self.channel
         keyword_bog=keyword_bog[keyword_bog['accumulate_count']<=0.5]
 
-        counts_top_30 = pd.DataFrame(self.most_common_30)
-        counts_top_30.columns = ['keyword','count']
-        plt.figure(figsize=(10,8))
-        sns.barplot(x = 'count', y='keyword',data=counts_top_30)
-        plt.savefig("{}/{}/{}/{}_{}_{}_{}_{}_bar.png".format(
-            str(self.dir),
-            'results',
-            'barplot',
-            self.keyword,
-            self.channel,
-            self.fromdate,
-            self.todate,
-            self.nurl)
-            )
-        plt.close()
+        # counts_top_30 = pd.DataFrame(self.most_common_30)
+        # counts_top_30.columns = ['keyword','count']
+        # plt.figure(figsize=(10,8))
+        # if self.pos=='neg':
+        #     sns.barplot(x = 'count', y='keyword',data=counts_top_30, palette='Reds_r')
+        # else:
+        #     sns.barplot(x='count', y='keyword', data=counts_top_30, palette='Blues_r')
+        # plt.savefig("{}/{}/{}/{}_{}_{}_{}_{}_{}_{}_bar.png".format(
+        #     str(self.dir),
+        #     'results',
+        #     'barplot',
+        #     self.file_name,
+        #     self.keyword,
+        #     self.channel,
+        #     self.fromdate,
+        #     self.todate,
+        #     self.pos,
+        #     self.nurl)
+        #     )
+        # plt.close()
 
         # engine = create_engine(
         #     ("mysql+pymysql://{}:{}@{}:{}/{}?charset=utf8").format
@@ -585,6 +634,8 @@ class SlVizualize(Task):
             palette = 'tab10'
             self.draw_to_save(task,dict_word,palette=palette,maskPic='mask.png')
         elif num_of_task==2:
+            rc('font', family='NanumBarunGothic')
+
             ##SocialListening 객체1
             taskA = self.tasks[0]
             keyword_bogA, dict_wordA = taskA.get_bow()
@@ -593,6 +644,13 @@ class SlVizualize(Task):
             keyword_bogB, dict_wordB = taskB.get_bow()
             taskA.kbf = taskA.kbf.replace('/', '_') if taskA.kbf is not None else None
             sc = setCalc(dict_wordA, dict_wordB)
+            pos_differ = sc.getDiff1_keyword_num()
+            neg_differ = sc.getDiff2_keyword_num()
+            neu_differ = sc.getInter_keyword_num()
+            self.get_bar_plot(pos_differ,"pos",taskA)
+            self.get_bar_plot(neg_differ,"neg",taskB)
+            self.get_bar_plot(neu_differ,"neu",taskA,file_differentiate=f'{taskA.keyword}-{taskB.keyword}')
+
             interdict = sc.getInter()
             differa = sc.getDiff1()
             differb = sc.getDiff2()
@@ -640,6 +698,52 @@ class SlVizualize(Task):
                 taskB.nurl)
                 ,  transparent=True)
 
+    def get_bar_plot(self,dict_differ,polarity,task,file_differentiate=None):
+        dict_differ = dict(sorted(dict_differ.items(),key=lambda x:x[1],reverse=True))
+        rc('font', family='NanumBarunGothic')
+        dict_differ_df = pd.DataFrame(columns=['keyword','count'])
+        for index,(key,value) in enumerate(dict_differ.items()):
+            if index<30:
+                dict_differ_df.at[index,'keyword'] = key
+                dict_differ_df.at[index, 'count'] = value
+        plt.figure(figsize=(16,12))
+        if polarity == 'neg':
+            print('neg:',dict_differ_df)
+            sns.barplot(x='count', y='keyword',data=dict_differ_df, palette='Reds_r')
+        elif polarity == 'pos':
+            print('pos:', dict_differ_df)
+            sns.barplot(x='count', y='keyword', data=dict_differ_df, palette='Blues_r')
+        else:
+            print('neu:', dict_differ_df)
+            sns.barplot(x='count', y='keyword', data=dict_differ_df, palette='Greens_r')
+        plt.tight_layout()
+        if file_differentiate is not None:
+            plt.savefig("{}/{}/{}/{}_{}_{}_{}_{}_bar.png".format(
+                str(self.dir),
+                'results',
+                'barplot',
+                file_differentiate,
+                task.channel,
+                task.fromdate,
+                task.todate,
+                polarity)
+                )
+            plt.close()
+
+        else:
+            plt.savefig("{}/{}/{}/{}_{}_{}_{}_{}_{}_{}_bar.png".format(
+                str(self.dir),
+                'results',
+                'barplot',
+                task.file_name,
+                task.keyword,
+                task.channel,
+                task.fromdate,
+                task.todate,
+                polarity,
+                task.nurl)
+                )
+            plt.close()
     def get_wordcloud(self):
 
         num_of_task =len([x for x in self.tasks if isinstance(x,SocialListeing)])
@@ -656,23 +760,35 @@ class SlVizualize(Task):
             taskA = self.tasks[0]
             keyword_bogA, dict_wordA = taskA.get_bow()
             posA = taskA.pos
-            paletteA = 'Blues' if posA=='pos' else 'Reds'
+
+            paletteA = 'Blues' if posA == 'pos' else 'Reds' if posA == 'neg' else 'Dark2'
+
             ##SocialListening 객체2
             taskB = self.tasks[1]
             keyword_bogB, dict_wordB = taskB.get_bow()
             posB =taskB.pos
-            paletteB = 'Blues' if posB=='pos' else 'Reds'
+
+            paletteB = 'Blues' if posB == 'pos' else 'Reds' if posB == 'neg' else 'tab10'
+
             taskA.kbf = taskA.kbf.replace('/', '_') if taskA.kbf is not None else None
             #교집합 차집합 구하기
             sc = setCalc(dict_wordA, dict_wordB)
+
+            pos_differ = sc.getDiff1_keyword_num()
+            neg_differ = sc.getDiff2_keyword_num()
+            neu_differ = sc.getInter_keyword_num()
+
+            self.get_bar_plot(pos_differ, posA, taskA)
+            self.get_bar_plot(neg_differ, posB, taskB)
+            self.get_bar_plot(neu_differ,"neu",taskA,file_differentiate=f'{taskA.keyword}-{taskB.keyword}')
             interdict = sc.getInter()
             differa = sc.getDiff1()
             differb = sc.getDiff2()
 
             #wordcloud 객체 생성
-            wcA_B,_ = self.draw_to_imshow(differa, 'tab10' if posA is None else paletteA, maskPic='mask_A_B.png')
-            wcB_A,_ = self.draw_to_imshow(differb, 'Dark2' if posB is None else paletteB, maskPic='mask_B_A.png')
-            wc_inter,_ = self.draw_to_imshow(interdict, 'brg' if posA is None else 'Greens', maskPic='mask_inter.png')
+            wcA_B,_ = self.draw_to_imshow(differa, paletteA, maskPic='mask_A_B.png')
+            wcB_A,_ = self.draw_to_imshow(differb, paletteB, maskPic='mask_B_A.png')
+            wc_inter,_ = self.draw_to_imshow(interdict, 'brg' if posA=='all' else 'Greens', maskPic='mask_inter.png')
 
             #교집합그림#
             plt.figure(5, figsize=(16, 12))
@@ -687,6 +803,7 @@ class SlVizualize(Task):
                 str(self.dir),
                 'results',
                 'wordcloud',
+                taskA.file_name,
                 taskA.keyword,
                 taskA.brand[0] if taskA.brand is not None else None,
                 taskA.kbf if taskA.kbf is not None else None,
@@ -703,6 +820,7 @@ class SlVizualize(Task):
                 taskB.nurl)
                 ,pad_inches=0,
                 dpi=100, transparent=True)
+            plt.close()
 
         elif num_of_task==3:
             taskA = self.tasks[0]
@@ -838,3 +956,4 @@ class SlVizualize(Task):
             task.nurl)
             , pad_inches=0,
             dpi=100, transparent=True)
+        plt.close()
