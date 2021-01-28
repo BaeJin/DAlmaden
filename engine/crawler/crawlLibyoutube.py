@@ -49,9 +49,9 @@ class CrawlLibYoutube:
     def search_request_by_keyword(self):
         ##전체 유튜브 동영상 갯수 입력하기
         search_response = self.youtube.search().list(
-            q="세븐나이츠",
+            q=self.keyword,
             order="viewCount",
-            part="id",
+            part="id,snippet",
             maxResults=50,
             type="video").execute()
         return search_response
@@ -61,13 +61,12 @@ class CrawlLibYoutube:
         search_response = self.youtube.videos().list(
             id=video_id, part='statistics'
         ).execute()
+        views = search_response['items'][0]['statistics']['viewCount'] if 'viewCount' in search_response['items'][0]['statistics'].keys() else None
+        likes = search_response['items'][0]['statistics']['likeCount'] if 'likeCount' in search_response['items'][0]['statistics'].keys() else None
+        dislikes = search_response['items'][0]['statistics']['dislikeCount'] if 'dislikeCount' in search_response['items'][0]['statistics'].keys() else None
+        comments = search_response['items'][0]['statistics']['commentCount'] if 'commentCount' in search_response['items'][0]['statistics'].keys() else None
 
-        views = search_response['items'][0]['statistics']['viewCount']
-        likes = search_response['items'][0]['statistics']['likeCount']
-        dislikes = search_response['items'][0]['statistics']['dislikeCount']
-        comments = search_response['items'][0]['statistics']['commentCount']
-
-        get_video_more_info_dict = {'n_view':views, 'n_likes':likes, 'n_dislikes':dislikes, 'n_reply':comments}
+        get_video_more_info_dict = {'n_view':views, 'n_like':likes, 'n_dislike':dislikes, 'n_reply':comments}
         return get_video_more_info_dict
 
     def crawl_total(self):
@@ -92,11 +91,10 @@ class CrawlLibYoutube:
 
         for idx, search_result in enumerate(search_response.get("items")):
             print(search_result)
-            input()
             if search_result["id"]["kind"] == "youtube#video":
                 video_id = search_result["id"]["videoId"]
                 video_url = f'https://www.youtube.com/watch?v={video_id}'
-                video_detail = self.get_video_more_info()
+                video_detail = self.get_video_more_info(video_id)
                 title = unescape(search_result["snippet"]["title"])
                 post_date = search_result["snippet"]["publishedAt"].split("T")[0]
                 # description = unescape(search_result["snippet"]["description"])
@@ -107,7 +105,7 @@ class CrawlLibYoutube:
                                title = title,
                                url = video_url,
                                product_name = title,
-                               task_id = self.task_id,
+                               task_id = float(self.task_id),
                                text = json.dumps(text_memo),
                                post_date=post_date,
                                img_url = thumbnails,
