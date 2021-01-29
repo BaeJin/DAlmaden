@@ -1,7 +1,6 @@
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from oauth2client.tools import argparser
-from youtube.source.account import accounts
 from bs4 import BeautifulSoup
 from html import unescape
 import re
