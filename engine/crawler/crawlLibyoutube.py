@@ -7,9 +7,8 @@ import re
 from engine.sql.almaden import Sql
 from sqlalchemy import create_engine
 import json
+from youtube.source.account import accounts
 
-API_KEY = "AIzaSyBM_BU6NjFb8cjr_doUB2UcnYY-b7S839o"
-DEVELOPER_KEY = API_KEY
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
@@ -21,6 +20,7 @@ class CrawlLibYoutube:
                  n_total=None,
                  prod_desc=None,
                  cate_id = None,
+                 is_channel = None,
                  default_product_num=50):
 
         self.engine = create_engine(("mysql+pymysql://{}:{}@{}:{}/{}?charset=utf8").format('root','robot369','1.221.75.76',3306,'datacast'),encoding='utf-8')
@@ -34,8 +34,8 @@ class CrawlLibYoutube:
         self.default_product_num = default_product_num
         self.n_crawled = 0
         self.cate_id = cate_id
-        self.youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey=DEVELOPER_KEY)
-
+        self.youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey="AIzaSyAViOEVGzy-FigDtvCw3rvfOu678wOUq7I")
+        self.is_channel = is_channel
     def convert_named_character(self,text):
 
         _charref = re.compile(r'&(#[0-9]+;?'
@@ -49,6 +49,30 @@ class CrawlLibYoutube:
         ##전체 유튜브 동영상 갯수 입력하기
         search_response = self.youtube.search().list(
             q=self.keyword,
+            order="viewCount",
+            part="id,snippet",
+            maxResults=50,
+            type="video").execute()
+        return search_response
+
+    def search_request_by_channel(self):
+        channels = []
+        ##전체 유튜브 동영상 갯수 입력하기
+        search_response = self.youtube.search().list(
+            q=self.keyword,
+            order="viewCount",
+            part="id,snippet",
+            maxResults=50,
+            type="channel").execute()
+
+        for idx, search_result in enumerate(search_response.get("items")):
+            if search_result["snippet"]["title"].lower() == self.keyword:
+                channel_id = search_result["id"]["channelId"]
+                channels.append(channel_id)
+
+        channel_id = channels[0]
+        search_response = self.youtube.search().list(
+            channelId=channel_id,
             order="viewCount",
             part="id,snippet",
             maxResults=50,
@@ -72,12 +96,21 @@ class CrawlLibYoutube:
         db = Sql("datacast2")
         request = db.select('crawl_request AS cr '
                             'JOIN crawl_request_task AS crt ON cr.request_id= crt.request_id '
-                            'JOIN crawl_task AS ct ON ct.task_id = crt.task_id', what='cr.category_id',
+                            'JOIN crawl_task AS ct ON ct.task_id = crt.task_id', what='cr.category_id,ct.is_channel',
                             where=f'ct.task_id={self.task_id}')
         print("task_id:",self.task_id)
         self.cate_id = request[0]['category_id'] if request[0]['category_id'] is not None else None
 
-        search_response = self.search_request_by_keyword()
+        if self.is_channel == 0:
+            print("is_channel", 0)
+            search_response = self.search_request_by_keyword()
+
+        elif self.is_channel == 1:
+            print("is_channel",1)
+            search_response = self.search_request_by_channel()
+        else:
+            print("is_channel", "else")
+            search_response = self.search_request_by_keyword()
 
         self.crawl_total_content_count(search_response)
         self.crawl_content_list(search_response)

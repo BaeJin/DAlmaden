@@ -1,5 +1,7 @@
-from eunjeon import Mecab
+import datetime
+import pandas as pd
 
-m = Mecab()
-p = m.pos('JMW')
-print(p)
+timestamp ="1611302425509"
+
+post_time = pd.to_datetime(timestamp, unit='ms')
+print(post_time)

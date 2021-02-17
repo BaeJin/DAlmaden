@@ -16,11 +16,11 @@ def convert_named_character(text):
     text = _charref.sub('',text)
     return text
 
-DEVELOPER_KEY = accounts.api_key
+DEVELOPER_KEY = accounts.get_api_key()
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
-youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,developerKey=DEVELOPER_KEY)
+youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,developerKey="AIzaSyBM_BU6NjFb8cjr_doUB2UcnYY-b7S839o")
 
 search_response = youtube.search().list(
     q="세븐나이츠",

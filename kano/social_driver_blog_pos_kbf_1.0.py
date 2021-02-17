@@ -12,16 +12,16 @@ join crawl_request AS cr on rb.batch_id=cr.batch_id
 join crawl_request_task AS crt on crt.request_id=cr.request_id
 join crawl_task AS ct on crt.task_id=ct.task_id
 ''', 'rb.batch_id, cr.request_id,ct.task_id,rb.batch_name,cr.keyword,sum(ct.n_crawled)',
-                 'rb.batch_name LIKE \'%s\' and rb.batch_id=27 AND ct.channel !="navershopping" GROUP BY keyword ORDER BY rb.batch_id'%("%실창%"))
+                 'rb.batch_name LIKE \'%s\' and rb.batch_id=52 AND ct.channel !="navershopping" GROUP BY keyword ORDER BY rb.batch_id'%("%세븐나이츠%"))
 for row in rows:
     keywordA = row['keyword']
     channelA = 'naverblog'
     langA = 'korean'
     word_classA= 'noun'
-    fromdateA = '2015-01-01'
+    fromdateA = '2013-01-01'
     todateA = '2021-01-20'
     typeA = 'una'
-    posA= 'pos'
+    posA= 'all'
     brandA = None
     ratioA = None
     taggedA = 1
@@ -37,10 +37,10 @@ for row in rows:
     channelB = 'naverblog'
     langB = 'korean'
     word_classB = 'noun'
-    fromdateB = '2015-01-01'
+    fromdateB = '2013-01-01'
     todateB = '2021-01-20'
     typeB = 'una'
-    posB= 'neg'
+    posB= 'all'
     brandB = None
     ratioB = None
     taggedB = 1

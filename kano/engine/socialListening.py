@@ -32,7 +32,7 @@ rc('font',family='NanumBarunGothic')
 
 class Task():
     def __init__(self,keyword=None,channel=None,lang=None,word_class=None,
-                 fromdate=None, todate=None,type=None,pos=None,nurl=None,task_id=None,hashtag=None,loc=None,brand=None,ratio=None,tagged=None,kbf=None,file_name= None,batch_bool=None,**kwargs):
+                 fromdate=None, todate=None,type=None,pos=None,nurl=None,task_id=None,hashtag=None,loc=None,brand=None,ratio=None,tagged=None,kbf=None,file_name= None,batch_bool=None,filter=None,**kwargs):
         self.dir = Path.cwd()
         self.type = type
         self.keyword = keyword
@@ -56,6 +56,7 @@ class Task():
         self.kbf = kbf
         self.file_name = file_name
         self.batch_bool = batch_bool
+        self.filter = filter
 class SocialListeing(Task):
     def __init__(self,keyword,channel,lang,word_class,
                  fromdate=None, todate=None, type=None,pos=None,nurl=None,task_id=None,**kwargs):
@@ -82,7 +83,7 @@ class SocialListeing(Task):
             self.stopKeywordList = [self.keyword, '이거', '제품', '가능', '사용','기능','부분','때문','정도','느낌']
     def select_task_group(self):
 
-        conn = pymysql.connect(host='1.221.75.76',
+        conn = pymysql.connect(host='10.96.5.179',
                                user='root',
                                password='robot369',
                                db='dalmaden')
@@ -120,7 +121,7 @@ class SocialListeing(Task):
 
     def select_task_from_bow(self):
 
-        conn = pymysql.connect(host='1.221.75.76',
+        conn = pymysql.connect(host='10.96.5.179',
                                user='root',
                                password='robot369',
                                db='dalmaden')
@@ -170,7 +171,7 @@ class SocialListeing(Task):
                     continue
         else:
 
-            conn = pymysql.connect(host='1.221.75.76',
+            conn = pymysql.connect(host='10.96.5.179',
                                    user='root',
                                    password='robot369',
                                    db='datacast2')
@@ -206,30 +207,30 @@ class SocialListeing(Task):
     def read(self):
         if self.type =='una':
 
-            conn = pymysql.connect(host='1.221.75.76',
+            conn = pymysql.connect(host='10.96.5.179',
                                    user='root',
                                    password='robot369',
                                    db='datacast2')
             curs = conn.cursor(pymysql.cursors.DictCursor)
             sql = ''
             cs_text = None
-            if self.word_class == 'noun':
+            if self.word_class == 'nouns':
                 cs_text = 'nouns'
-            if self.word_class == 'adj':
+            if self.word_class == 'adjs':
                 cs_text = 'adjs'
-            if self.word_class == 'verb':
+            if self.word_class == 'verbs':
                 cs_text = 'verbs'
 
             if self.pos=='pos' and self.batch_bool is None:
                 sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM crawl_contents AS cc JOIN crawl_task AS ct ON cc.task_id=ct.task_id " \
                       "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
-                      "WHERE (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\' AND cs.positiveness=%d"%\
+                      "WHERE ct.is_channel=1 and (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\' AND cs.positiveness=%d"%\
                       (cs_text,self.keyword, self.channel,self.fromdate, self.todate, 1)
 
             elif self.pos=='neg' and self.batch_bool is None:
                 sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM crawl_contents AS cc JOIN crawl_task AS ct ON cc.task_id=ct.task_id " \
                       "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
-                      "WHERE (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\' AND cs.positiveness=%d"%\
+                      "WHERE ct.is_channel=1 and (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\' AND cs.positiveness=%d"%\
                       (cs_text,self.keyword, self.channel ,self.fromdate, self.todate, 0)
 
             elif self.pos == 'pos' and self.batch_bool:
@@ -240,7 +241,7 @@ class SocialListeing(Task):
                       "JOIN crawl_task AS ct ON crt.task_id=ct.task_id " \
                       "join crawl_contents AS cc ON cc.task_id=ct.task_id " \
                       "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
-                      "WHERE cs.positiveness=1 and (rb.batch_id=%s) AND cc.post_date BETWEEN \'%s\' AND \'%s\' and ct.channel= \'%s\'" % \
+                      "WHERE ct.is_channel=1 and cs.positiveness=1 and (rb.batch_id=%s) AND cc.post_date BETWEEN \'%s\' AND \'%s\' and ct.channel= \'%s\'" % \
                       (cs_text,self.batch_bool,self.fromdate,self.todate,self.channel)
 
             elif self.pos == 'neg' and self.batch_bool:
@@ -251,13 +252,22 @@ class SocialListeing(Task):
                       "JOIN crawl_task AS ct ON crt.task_id=ct.task_id " \
                       "join crawl_contents AS cc ON cc.task_id=ct.task_id " \
                       "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
-                      "WHERE cs.positiveness=0 and (rb.batch_id=%s) AND cc.post_date BETWEEN \'%s\' AND \'%s\' and ct.channel= \'%s\'" % \
+                      "WHERE ct.is_channel=1 and (rb.batch_id=%s) AND cc.post_date BETWEEN \'%s\' AND \'%s\' and ct.channel= \'%s\'" % \
                       (cs_text,self.batch_bool,self.fromdate,self.todate,self.channel)
 
-            elif self.pos == 'all'  and self.batch_bool is None:
+            # elif self.pos == 'all' and self.batch_bool is None:
+            #     sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM crawl_contents AS cc JOIN crawl_task AS ct ON cc.task_id=ct.task_id " \
+            #           "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
+            #           "WHERE ct.is_channel=1 and (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\'"%\
+            #           (cs_text,self.keyword, self.channel,self.fromdate, self.todate)
+
+            elif self.pos == 'all' and self.filter==1:
+                print('filtered')
                 sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM crawl_contents AS cc JOIN crawl_task AS ct ON cc.task_id=ct.task_id " \
                       "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
-                      "WHERE (ct.keyword=\'%s\') and ct.channel=\'%s\' AND cc.post_date BETWEEN \'%s\' AND \'%s\'"%\
+                      "WHERE cc.text regexp '수수료|브랜드|평판|편리|신뢰|투표|친절|개설|hts|HTS|어플|앱|혜택|이벤트|우대|금리|계좌|모바일|서비스' " \
+                      "and cc.text not regexp '추천주|추천종목|리포트|목표|전체기사' and" \
+                      " (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\'"%\
                       (cs_text,self.keyword, self.channel,self.fromdate, self.todate)
 
             elif self.pos == 'all' and self.batch_bool:
@@ -268,15 +278,27 @@ class SocialListeing(Task):
                       "JOIN crawl_task AS ct ON crt.task_id=ct.task_id " \
                       "join crawl_contents AS cc ON cc.task_id=ct.task_id " \
                       "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
-                      "WHERE (rb.batch_id=%s) AND cc.post_date BETWEEN \'%s\' AND \'%s\'" % \
+                      "WHERE ct.is_channel=1 and (rb.batch_id=%s) AND cc.post_date BETWEEN \'%s\' AND \'%s\'" % \
                       (cs_text,self.batch_bool,self.fromdate,self.todate)
 
 
             curs.execute(sql)
             rows = curs.fetchall()
             self.nurl = len(rows)
+            print("len(rows):",len(rows))
             print(sql)
             print("self.tagged:",self.tagged)
+
+            # if self.filter is not None:
+            #     filter_word_list = ['추천주','추천종목','리포트','목표','전체기사']
+            #     includ_any_word_list = ['수수료', '브랜드', '평판', '편리', '신뢰', '투표', '친절', '개설', 'hts', 'HTS', '어플', '앱', '혜택', '이벤트', '우대', '금리','계좌', '모바일', '서비스']
+            #     rows = list(filter(lambda row:
+            #                        (not any(filter_word in row for filter_word in filter_word_list)) and
+            #                        any(includ_any_word in row for includ_any_word in includ_any_word_list),
+            #                        rows)
+            #                 )
+            # print("len(rows):",len(rows))
+
             kbf_nouns=None
             if self.kbf is not None:
 
@@ -306,7 +328,7 @@ class SocialListeing(Task):
                     if self.kbf is not None:
                         self.text_list = [json.loads(row['text']) for row in rows if any(kbf in row['sentence'].lower() for kbf in kbf_nouns)]
                     else:
-                        self.text_list = [json.loads(row['text']) for row in rows ]
+                        self.text_list = [json.loads(row['text']) for row in rows]
             elif self.tagged is None:
                 if self.brand is None:
                     print('tagged is None and brand is None')
@@ -370,7 +392,7 @@ class SocialListeing(Task):
 
         elif self.type =='groupby':
 
-            conn = pymysql.connect(host='1.221.75.76',
+            conn = pymysql.connect(host='10.96.5.179',
                                    user='root',
                                    password='robot369',
                                    db='dalmaden')
@@ -391,7 +413,7 @@ class SocialListeing(Task):
                 self.text_list.append(row['text'])
 
         elif self.type ==None:
-            conn = pymysql.connect(host='1.221.75.76',
+            conn = pymysql.connect(host='10.96.5.179',
                                    user='root',
                                    password='robot369',
                                    db='dalmaden')
@@ -408,7 +430,6 @@ class SocialListeing(Task):
 
             for row in rows:
                 self.text_list.append(row['text'])
-            print(self.text_list)
 
         else:
             return
@@ -440,7 +461,9 @@ class SocialListeing(Task):
                 nlp = Mecab()
                 remove_list = nlp.pos(self.keyword)
                 for text in tqdm(self.text_list):
-                    pos.extend(nlp.pos(text))
+                    tagged_text = nlp.pos(text)
+                    tagged_text = list(set(tagged_text))
+                    pos.extend(tagged_text)
 
                 for p in pos:
                     if p[0] not in remove_list and p[1] in word_class_list:  # 형용사,코모란, Mecab 기준임
@@ -643,6 +666,7 @@ class SlVizualize(Task):
             taskB = self.tasks[1]
             keyword_bogB, dict_wordB = taskB.get_bow()
             taskA.kbf = taskA.kbf.replace('/', '_') if taskA.kbf is not None else None
+
             sc = setCalc(dict_wordA, dict_wordB)
             pos_differ = sc.getDiff1_keyword_num()
             neg_differ = sc.getDiff2_keyword_num()
@@ -708,13 +732,10 @@ class SlVizualize(Task):
                 dict_differ_df.at[index, 'count'] = value
         plt.figure(figsize=(16,12))
         if polarity == 'neg':
-            print('neg:',dict_differ_df)
             sns.barplot(x='count', y='keyword',data=dict_differ_df, palette='Reds_r')
         elif polarity == 'pos':
-            print('pos:', dict_differ_df)
             sns.barplot(x='count', y='keyword', data=dict_differ_df, palette='Blues_r')
         else:
-            print('neu:', dict_differ_df)
             sns.barplot(x='count', y='keyword', data=dict_differ_df, palette='Greens_r')
         plt.tight_layout()
         if file_differentiate is not None:
@@ -785,6 +806,11 @@ class SlVizualize(Task):
             differa = sc.getDiff1()
             differb = sc.getDiff2()
 
+
+            print(dict_wordA)
+            print(differa)
+            print(dict_wordB)
+            print(differb)
             #wordcloud 객체 생성
             wcA_B,_ = self.draw_to_imshow(differa, paletteA, maskPic='mask_A_B.png')
             wcB_A,_ = self.draw_to_imshow(differb, paletteB, maskPic='mask_B_A.png')
@@ -799,7 +825,7 @@ class SlVizualize(Task):
             plt.tight_layout()
             plt.subplots_adjust(left=0, bottom=0, right=1, top=1, hspace=0, wspace=0)
 
-            plt.savefig("{}/{}/{}/{}_{}_{}_{}_{}_{}_inter_{}_{}_{}_{}_{}.png".format(
+            plt.savefig("{}/{}/{}/{}_{}_{}_{}_{}_{}_{}_{}_inter_{}_{}_{}_{}_{}_{}_{}.png".format(
                 str(self.dir),
                 'results',
                 'wordcloud',
