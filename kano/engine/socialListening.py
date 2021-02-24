@@ -213,7 +213,7 @@ class SocialListeing(Task):
                                    db='datacast2')
             curs = conn.cursor(pymysql.cursors.DictCursor)
             sql = ''
-            cs_text = None
+
             if self.word_class == 'nouns':
                 cs_text = 'nouns'
             if self.word_class == 'adjs':
@@ -224,14 +224,14 @@ class SocialListeing(Task):
             if self.pos=='pos' and self.batch_bool is None:
                 sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM crawl_contents AS cc JOIN crawl_task AS ct ON cc.task_id=ct.task_id " \
                       "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
-                      "WHERE ct.is_channel=1 and (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\' AND cs.positiveness=%d"%\
+                      "WHERE (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\' AND cs.positiveness=%d"%\
                       (cs_text,self.keyword, self.channel,self.fromdate, self.todate, 1)
 
             elif self.pos=='neg' and self.batch_bool is None:
                 sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM crawl_contents AS cc JOIN crawl_task AS ct ON cc.task_id=ct.task_id " \
                       "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
-                      "WHERE ct.is_channel=1 and (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\' AND cs.positiveness=%d"%\
-                      (cs_text,self.keyword, self.channel ,self.fromdate, self.todate, 0)
+                      "WHERE (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\' AND cs.positiveness=%d"%\
+                      (cs_text,self.keyword, self.channel,self.fromdate, self.todate, 0)
 
             elif self.pos == 'pos' and self.batch_bool:
                 # sql = "select sentence,positiveness from analysis_brand_tmp"
