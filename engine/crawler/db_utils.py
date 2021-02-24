@@ -21,7 +21,7 @@ class RequestTask:
 
     def get_df_request_crawl(self,channel, keyword, until_date, n_periods, n_crawl,
                              by_year=True, use_end_date=False,
-                             last_period_n_mult=3):  # n_periods가 연단위/월단위, 마지막일 종료 여부, 마지막 기간 n_crawl
+                             last_period_n_mult=1):  # n_periods가 연단위/월단위, 마지막일 종료 여부, 마지막 기간 n_crawl
 
         # until_date = datetime.datetime.strptime(until_date, '%Y-%m-%d').date()
         until_date = self.last_day_of_month(until_date) if use_end_date else until_date
