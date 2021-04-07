@@ -12,7 +12,7 @@ join crawl_request AS cr on rb.batch_id=cr.batch_id
 join crawl_request_task AS crt on crt.request_id=cr.request_id
 join crawl_task AS ct on crt.task_id=ct.task_id
 ''', 'rb.batch_id, cr.request_id,ct.task_id,rb.batch_name,cr.keyword,sum(ct.n_crawled)',
-                 'rb.batch_id <= 83 and rb.batch_id>=70 GROUP BY keyword ORDER BY rb.batch_id')
+                 'rb.batch_id >= 84 GROUP BY keyword ORDER BY rb.batch_id')
 print(rows)
 for row in rows:
     task_id = row["task_id"]
