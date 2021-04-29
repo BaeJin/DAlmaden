@@ -4,9 +4,11 @@ cwd = str(Path.cwd())
 sys.path.append(cwd)
 from engine.sql.almaden import Sql
 
-def check_status_naverblog():
+def check_status_instagram():
     db = Sql('datacast2')
-    request_rows = db.select('crawl_request','*','task_ids is not null and crawl_status!="SF" and channel="naverblog"')
+
+    request_rows = db.select('crawl_request','*','task_ids is not null and crawl_status!="SF" and channel="instagram"')
+
     for row in request_rows:
         request_status = row['crawl_status']
         request_id = row['request_id']

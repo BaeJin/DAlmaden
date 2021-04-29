@@ -7,7 +7,6 @@ import re
 from engine.sql.almaden import Sql
 from sqlalchemy import create_engine
 import json
-from youtube.source.account import accounts
 
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"

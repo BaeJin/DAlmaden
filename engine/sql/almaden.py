@@ -79,9 +79,9 @@ class SeleniumDriver :
         #     print("phase 2")
 
 class Sql :
-    def __init__(self, dbName, comment= "",
-                 hostIP='10.96.5.179',
-                 userID='root', password='robot369', charset='utf8mb4'):
+    def __init__(self, dbName, comment="",
+                 hostIP='61.98.230.194',
+                 userID='root', password='almaden7025!', charset='utf8mb4'):
         self.dbName = dbName
         self.hostIP = hostIP
         self.userID = userID

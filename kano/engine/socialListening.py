@@ -58,7 +58,7 @@ class Task():
         self.batch_bool = batch_bool
         self.filter = filter
 class SocialListeing(Task):
-    def __init__(self,keyword,channel,lang,word_class,
+    def __init__(self,keyword=None,channel=None,lang=None,word_class=None,
                  fromdate=None, todate=None, type=None,pos=None,nurl=None,task_id=None,**kwargs):
         super(SocialListeing, self).__init__(keyword,channel,lang,word_class,
                  fromdate, todate, type,pos,nurl,task_id,**kwargs)
@@ -261,20 +261,21 @@ class SocialListeing(Task):
                       "WHERE (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\'"%\
                       (cs_text,self.keyword, self.channel,self.fromdate, self.todate)
 
-            elif self.pos == 'all' and self.filter==1:
-                print('filtered')
-                sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM crawl_contents AS cc JOIN crawl_task AS ct ON cc.task_id=ct.task_id " \
-                      "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
-                      "WHERE cc.text regexp '수수료|브랜드|평판|편리|신뢰|투표|친절|개설|hts|HTS|어플|앱|혜택|이벤트|우대|금리|계좌|모바일|서비스' " \
-                      "and cc.text not regexp '추천주|추천종목|리포트|목표|전체기사' and" \
-                      " (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\'"%\
-                      (cs_text,self.keyword, self.channel,self.fromdate, self.todate)
+            # elif self.pos == 'all' and self.filter==1:
+            #     print('filtered')
+            #     sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM crawl_contents AS cc JOIN crawl_task AS ct ON cc.task_id=ct.task_id " \
+            #           "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
+            #           "WHERE cc.text regexp '수수료|브랜드|평판|편리|신뢰|투표|친절|개설|hts|HTS|어플|앱|혜택|이벤트|우대|금리|계좌|모바일|서비스' " \
+            #           "and cc.text not regexp '추천주|추천종목|리포트|목표|전체기사' and" \
+            #           " (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\'"%\
+            #           (cs_text,self.keyword, self.channel,self.fromdate, self.todate)
             # elif self.pos == 'all' and self.filter==0:
             #     print('filtered')
             #     sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM crawl_contents AS cc JOIN crawl_task AS ct ON cc.task_id=ct.task_id " \
             #           "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
             #           "WHERE (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\'"%\
             #           (cs_text,self.keyword, self.channel,self.fromdate, self.todate)
+
             elif self.pos == 'all' and self.batch_bool:
                 # sql = "select sentence,positiveness from analysis_brand_tmp"
                 sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM request_batch AS rb " \

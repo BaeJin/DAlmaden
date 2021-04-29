@@ -10,7 +10,6 @@ langA = 'korean'
 word_classA= 'nouns'
 fromdateA = '2019-01-01'
 todateA = '2021-01-31'
-typeA = 'una'
 posA= 'all'
 brandA = None
 ratioA = None
