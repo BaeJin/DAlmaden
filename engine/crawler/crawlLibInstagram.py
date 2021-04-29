@@ -8,7 +8,7 @@ from engine.sql.almaden import Sql
 from engine.preprocess.calcDate import DateCalculator
 import unicodedata
 import sys
-sys.setrecursionlimit(2000)
+sys.setrecursionlimit(4000)
 
 # HASH_KEY = "graphql"
 # HASHTAG_KEY = "hashtag"

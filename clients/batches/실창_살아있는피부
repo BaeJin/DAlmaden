@@ -1,0 +1,16 @@
+{
+"batch_name" : "실창_살아있는피부",
+"user_id" : 99,
+"category" : "살균 화장품케이스",
+"category_keywords" : ["살균기","화장품"],
+"brands" :[],
+"brand_keywords" : {},
+"search_keywords" : ["화장품 세균","화장품 살균","화장품 살균 케이스","화장품 퍼프 세균","화장품 쿠션 세균","uvc 살균","자외선 살균"],
+"buying_keywords" : [],
+"channels" : ["naverblog"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

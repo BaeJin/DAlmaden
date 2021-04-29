@@ -1,0 +1,16 @@
+{
+    "batch_name" : "농협_밀키트",
+    "user_id" : 99,
+    "category" : "밀키트",
+    "category_keywords" : [],
+    "brands" :[],
+    "brand_keywords" : {},
+    "search_keywords" : ["밀키트","캠핑 밀키트","자취 밀키트","맛집 밀키트","부대찌개 밀키트","닭꼬치 밀키트"],
+    "buying_keywords" : [],
+    "channels" : ["naverblog","instagram"],
+    "by_year" : 1,
+    "n_periods" : 2,
+    "until_date" : "2020-12-31",
+    "n_crawl" : 100,
+    "last_period_n_mult" : 1
+}

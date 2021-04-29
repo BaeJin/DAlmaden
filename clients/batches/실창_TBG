@@ -1,0 +1,20 @@
+{
+"batch_name" : "실창_TBG",
+"user_id" : 99,
+"category" : "요가복",
+"category_keywords" : ["요가복"],
+"brands" :["안다르","젝시믹스","뮬라웨어","룰루레몬"],
+"brand_keywords" : {"안다르": ["안다르"],
+                    "젝시믹스": ["젝시믹스"],
+                    "뮬라웨어": ["뮬라웨어"],
+                    "룰루레몬": ["룰루레몬"]
+                    },
+"search_keywords" : ["요가복", "안다르 요가복", "젝시믹스 요가복", "뮬라웨어 요가복", "룰루레몬 요가복"],
+"buying_keywords" : ["내돈내산","내돈"],
+"channels" : ["naverblog","navershopping","instagram","youtube"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

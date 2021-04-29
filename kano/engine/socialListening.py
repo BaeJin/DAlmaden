@@ -213,7 +213,7 @@ class SocialListeing(Task):
                                    db='datacast2')
             curs = conn.cursor(pymysql.cursors.DictCursor)
             sql = ''
-
+            cs_text = None
             if self.word_class == 'nouns':
                 cs_text = 'nouns'
             if self.word_class == 'adjs':
@@ -241,7 +241,7 @@ class SocialListeing(Task):
                       "JOIN crawl_task AS ct ON crt.task_id=ct.task_id " \
                       "join crawl_contents AS cc ON cc.task_id=ct.task_id " \
                       "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
-                      "WHERE ct.is_channel=1 and cs.positiveness=1 and (rb.batch_id=%s) AND cc.post_date BETWEEN \'%s\' AND \'%s\' and ct.channel= \'%s\'" % \
+                      "WHERE cs.positiveness=1 and (rb.batch_id=%s) AND cc.post_date BETWEEN \'%s\' AND \'%s\' and ct.channel= \'%s\'" % \
                       (cs_text,self.batch_bool,self.fromdate,self.todate,self.channel)
 
             elif self.pos == 'neg' and self.batch_bool:
@@ -252,14 +252,14 @@ class SocialListeing(Task):
                       "JOIN crawl_task AS ct ON crt.task_id=ct.task_id " \
                       "join crawl_contents AS cc ON cc.task_id=ct.task_id " \
                       "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
-                      "WHERE ct.is_channel=1 and (rb.batch_id=%s) AND cc.post_date BETWEEN \'%s\' AND \'%s\' and ct.channel= \'%s\'" % \
+                      "WHERE cs.positiveness=0 and (rb.batch_id=%s) AND cc.post_date BETWEEN \'%s\' AND \'%s\' and ct.channel= \'%s\'" % \
                       (cs_text,self.batch_bool,self.fromdate,self.todate,self.channel)
 
-            # elif self.pos == 'all' and self.batch_bool is None:
-            #     sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM crawl_contents AS cc JOIN crawl_task AS ct ON cc.task_id=ct.task_id " \
-            #           "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
-            #           "WHERE ct.is_channel=1 and (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\'"%\
-            #           (cs_text,self.keyword, self.channel,self.fromdate, self.todate)
+            elif self.pos == 'all' and self.filter == 0:
+                sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM crawl_contents AS cc JOIN crawl_task AS ct ON cc.task_id=ct.task_id " \
+                      "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
+                      "WHERE (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\'"%\
+                      (cs_text,self.keyword, self.channel,self.fromdate, self.todate)
 
             elif self.pos == 'all' and self.filter==1:
                 print('filtered')
@@ -269,7 +269,12 @@ class SocialListeing(Task):
                       "and cc.text not regexp '추천주|추천종목|리포트|목표|전체기사' and" \
                       " (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\'"%\
                       (cs_text,self.keyword, self.channel,self.fromdate, self.todate)
-
+            # elif self.pos == 'all' and self.filter==0:
+            #     print('filtered')
+            #     sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM crawl_contents AS cc JOIN crawl_task AS ct ON cc.task_id=ct.task_id " \
+            #           "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
+            #           "WHERE (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\'"%\
+            #           (cs_text,self.keyword, self.channel,self.fromdate, self.todate)
             elif self.pos == 'all' and self.batch_bool:
                 # sql = "select sentence,positiveness from analysis_brand_tmp"
                 sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM request_batch AS rb " \
@@ -278,7 +283,7 @@ class SocialListeing(Task):
                       "JOIN crawl_task AS ct ON crt.task_id=ct.task_id " \
                       "join crawl_contents AS cc ON cc.task_id=ct.task_id " \
                       "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
-                      "WHERE ct.is_channel=1 and (rb.batch_id=%s) AND cc.post_date BETWEEN \'%s\' AND \'%s\'" % \
+                      "WHERE (rb.batch_id=%s) AND cc.post_date BETWEEN \'%s\' AND \'%s\'" % \
                       (cs_text,self.batch_bool,self.fromdate,self.todate)
 
 
@@ -436,7 +441,7 @@ class SocialListeing(Task):
         print('read finish')
 
     def posTag(self):
-        word_class_list = ['NN', 'NNS', 'NNP', 'NNPS'] if self.word_class == 'noun' else ['JJ', 'JJR', 'JJS']
+        word_class_list = ['NN', 'NNS', 'NNP', 'NNPS'] if self.word_class == 'nouns' else ['JJ', 'JJR', 'JJS']
 
         words = []
         print("Getting Meaningful Words for " + self.keyword + "...", end="\t")
@@ -457,7 +462,7 @@ class SocialListeing(Task):
 
         elif self.lang == 'korean':
             if self.tagged is None:
-                word_class_list = ['NNP', 'NNG'] if self.word_class == 'noun' else ['VA', 'IC']
+                word_class_list = ['NNP', 'NNG'] if self.word_class == 'nouns' else ['VA', 'IC']
                 nlp = Mecab()
                 remove_list = nlp.pos(self.keyword)
                 for text in tqdm(self.text_list):

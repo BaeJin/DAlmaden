@@ -55,7 +55,7 @@ class RequestTask:
     def make_task_table(self,channel,search_keyword,until_date,n_periods):
         df_request_crawl = pd.DataFrame(columns=['from_date','to_date','keyword','channel'])
         if channel in self.period_differ_channel:
-            df_request_crawl = self.get_df_request_crawl(channel, search_keyword, until_date, n_periods, 100, use_end_date=True)
+            df_request_crawl = self.get_df_request_crawl(channel, search_keyword, until_date, n_periods, 100, use_end_date=True,last_period_n_mult=1)
 
         ###네이버쇼핑, 쿠팡
         # elif channel in self.review_channel:
@@ -67,7 +67,7 @@ class RequestTask:
         #     df_request_crawl['to_date'] = tasks_df.iloc[-1]['to_date']
 
         else:
-            tasks_df = self.get_df_request_crawl(channel, search_keyword, until_date, n_periods, 100, use_end_date=True)
+            tasks_df = self.get_df_request_crawl(channel, search_keyword, until_date, n_periods, 100, use_end_date=True,last_period_n_mult=1)
             df_request_crawl.at[0,'keyword'] = tasks_df.iloc[0]['keyword']
             df_request_crawl.at[0,'channel'] = tasks_df.iloc[0]['channel']
             df_request_crawl.at[0,'from_date'] = tasks_df.iloc[0]['from_date']

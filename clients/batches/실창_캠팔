@@ -1,0 +1,16 @@
+{
+"batch_name" : "실창_캠팔",
+"user_id" : 99,
+"category" : "캠핑용품 중고거래 플랫폼",
+"category_keywords" : ["캠핑","중고"],
+"brands" :[],
+"brand_keywords" : {"초캠장터": ["초캠"],"당근마켓": ["당근"]},
+"search_keywords" : ["초캠장터","당근마켓 캠핑용품","중고 캠핑용품","캠핑용품"],
+"buying_keywords" : [],
+"channels" : ["naverblog","navershopping"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

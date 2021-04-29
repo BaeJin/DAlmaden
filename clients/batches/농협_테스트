@@ -1,0 +1,16 @@
+{
+    "batch_name" : "농협_테스트",
+    "user_id" : 99,
+    "category" : "맥주",
+    "category_keywords" : [],
+    "brands" :[],
+    "brand_keywords" : {},
+    "search_keywords" : ["농협 테스트","농협 테슬라"],
+    "buying_keywords" : [],
+    "channels" : ["naverblog","instagram"],
+    "by_year" : 1,
+    "n_periods" : 2,
+    "until_date" : "2020-12-31",
+    "n_crawl" : 100,
+    "last_period_n_mult" : 1
+}

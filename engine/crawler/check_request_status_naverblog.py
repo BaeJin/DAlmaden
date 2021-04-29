@@ -6,7 +6,7 @@ from engine.sql.almaden import Sql
 
 db = Sql('datacast2')
 
-request_rows = db.select('crawl_request','*','task_ids is not null and crawl_status!="SF" and channel="naverblog"')
+request_rows = db.select('crawl_request','*','task_ids is not null and crawl_status!="SF" and channel="instagram"')
 
 for row in request_rows:
     request_status = row['crawl_status']

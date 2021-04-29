@@ -1,0 +1,20 @@
+{
+"batch_name" : "해외직구_1차",
+"user_id" : 99,
+"category" : "해외직구",
+"category_keywords" : ["직구, 해외"],
+"brands" :["일본","중국","미국"],
+"brand_keywords" : {"일본": ["일본","돈키호테","라쿠텐"],
+                    "중국": ["중국", "샤오미", "대륙","알리바바"],
+                    "미국": ["미국","아마존"]
+
+                    },
+"search_keywords" : ["해외직구","직구 후기","돈키호테","도쿄 핸즈","일본 직구","중국 직구","미국 직구"],
+"buying_keywords" : ["후기","리뷰"],
+"channels" : ["naverblog","navershopping","instagram"],
+"by_year" : 1,
+"n_periods" : 10,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 3
+}

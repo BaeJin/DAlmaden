@@ -13,7 +13,7 @@ word_classA= 'nouns'
 fromdateA = '2019-01-01'
 todateA = '2020-12-31'
 typeA = 'una'
-posA= 'pos'
+posA= 'all'
 brandA = None
 ratioA = None
 taggedA = 1
@@ -25,20 +25,5 @@ sc1 = SocialListeing(brand=brandA,keyword=keywordA,channel=channelA,lang=langA,w
 # sc2 = SocialListeing(keyword=keywordB,channel=channelA,lang=langA,word_class=word_classA,type='groupby',fromdate=fromdateB,todate=todateB,hashtag=True,loc=True)
 
 
-keywordB = "부대찌개"
-channelB = 'naverblog'
-langB = 'korean'
-word_classB = 'nouns'
-fromdateB = '2019-01-01'
-todateB = '2020-12-31'
-typeB = 'una'
-posB= 'neg'
-brandB = None
-ratioB = None
-taggedB = 1
-kbfB = None
-sc2 = SocialListeing(brand=brandB,keyword=keywordB,channel=channelB,lang=langB,word_class=word_classB,type='una',fromdate=fromdateB,todate=todateB,hashtag=True,loc=True,pos=posB,ratio=ratioB,tagged=taggedB,kbf = kbfB,batch_bool=batch_bool)
-
-
-slViz =SlVizualize([sc1,sc2])
+slViz =SlVizualize([sc1])
 slViz.get_wordcloud()

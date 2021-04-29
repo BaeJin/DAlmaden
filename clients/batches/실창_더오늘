@@ -1,0 +1,17 @@
+{
+"batch_name" : "실창_더오늘",
+"user_id" : 99,
+"category" : "전통시장 라이브커머스",
+"category_keywords" : ["전통시장","동네시장"],
+"brands" :[],
+"brand_keywords" : {"네이버 쇼핑라이브": ["네이버","라이브","live"],
+  "전통시장":["시장"]},
+"search_keywords" : ["라이브커머스","쇼핑라이브","쇼핑live","네이버 동네시장","전통시장","전통시장 홍보","전통시장 마케팅"],
+"buying_keywords" : [],
+"channels" : ["naverblog","instagram"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

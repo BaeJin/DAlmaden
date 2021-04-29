@@ -1,0 +1,16 @@
+{
+"batch_name" : "실창_에이아이비",
+"user_id" : 99,
+"category" : "토익 학습",
+"category_keywords" : ["토익","Toeic"],
+"brands" :[],
+"brand_keywords" : {"산타토익": ["산타"]},
+"search_keywords" : ["산타토익","토익 온라인","토익어플","토익 인강","토익공부","토익 학습","토익 강의"],
+"buying_keywords" : [],
+"channels" : ["naverblog","instagram"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

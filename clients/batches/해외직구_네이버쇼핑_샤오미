@@ -1,0 +1,16 @@
+{
+"batch_name" : "해외직구_네이버쇼핑_샤오미",
+"user_id" : 99,
+"category" : "샤오미",
+"category_keywords" : [],
+"brands" :[],
+"brand_keywords" : {},
+"search_keywords" : ["샤오미 청소기", "샤오미 세척기", "샤오미 체온계", "샤오미 모기퇴치기", "샤오미 커피", "샤오미 리모컨", "샤오미 워치", "샤오미 드라이어", "샤오미 킼보드", "샤오미 공기청정기", "샤오미 미밴드", "샤오미 스팀 다리미", "샤오미 전기난로", "샤오미 안경", "샤오미 제습기"],
+"buying_keywords" : ["내돈내산"],
+"channels" : ["navershopping"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

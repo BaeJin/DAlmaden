@@ -1,0 +1,19 @@
+{
+"batch_name" : "실창_웹투브",
+"user_id" : 99,
+"category" : "웹툰플랫폼",
+"category_keywords" : ["웹툰","만화","플랫폼"],
+"brands" :["네이버웹툰","포스타임","레진코믹스"],
+"brand_keywords" : {"네이버웹툰": ["네이버웹툰","네이버 웹툰"],
+                    "포스타임": ["포스타임"],
+                    "레진코믹스": ["레진코믹스","레진"]
+                    },
+"search_keywords" : ["웹툰 플랫폼", "웹툰 앱", "네이버웹툰", "포스타임", "레진코믹스"],
+"buying_keywords" : ["내돈내산"],
+"channels" : ["naverblog","instagram","youtube"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

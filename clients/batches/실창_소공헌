@@ -1,0 +1,16 @@
+{
+"batch_name" : "실창_소공헌",
+"user_id" : 99,
+"category" : "증강현실 미술관",
+"category_keywords" : ["미술관","갤러리"],
+"brands" :[],
+"brand_keywords" : {"오픈갤러리": ["오픈갤러리"],"에코락갤러리": ["에코락"]},
+"search_keywords" : ["오픈갤러리","에코락갤러리","온라인 전시회","온라인 미술 플랫폼","가상 미술관"],
+"buying_keywords" : [],
+"channels" : ["naverblog","instagram"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

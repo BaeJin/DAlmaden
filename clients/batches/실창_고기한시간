@@ -1,0 +1,16 @@
+{
+"batch_name" : "실창_고기한시간",
+"user_id" : 99,
+"category" : "고기O2O플랫폼",
+"category_keywords" : ["정육","고기"],
+"brands" :[],
+"brand_keywords" : {},
+"search_keywords" : ["정육 배송","고기 배송","돼지고기 배송","소고기 배송","닭고기 배송","정육각"],
+"buying_keywords" : [],
+"channels" : ["naverblog","navershopping"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

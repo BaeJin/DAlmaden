@@ -3,54 +3,53 @@ from kano.engine.socialListening import SocialListeing,SlVizualize
 #     keyword_list= file.readlines()
 #     for keywordA in keyword_list:
 #         keywordA = keywordA.splitlines()
-batch_bool = 57
 
-keywordA = '식생활트렌드'
+keywordA = "아웃백"
 channelA = 'naverblog'
 langA = 'korean'
-word_classA= 'noun'
-fromdateA = '2014-01-01'
-todateA = '2021-01-31'
+word_classA= 'nouns'
+fromdateA = '2011-01-01'
+todateA = '2014-12-31'
 typeA = 'una'
 posA= 'all'
-brandA = ['풀무원','pulmuone']
+brandA = None
 ratioA = None
-taggedA = 1
+taggedA = None
 kbfA = None
+filter = 0
 # fromdateB =  '2015-01-01'
 # todateB = '2020-11-19'
 
-sc1 = SocialListeing(brand=brandA,keyword=keywordA,channel=channelA,lang=langA,word_class=word_classA,type='una',fromdate=fromdateA,todate=todateA,hashtag=True,loc=True,pos=posA,ratio=ratioA,tagged=taggedA,kbf=kbfA,batch_bool=batch_bool)
-# sc2 = SocialListeing(keyword=keywordB,channel=channelA,lang=langA,word_class=word_classA,type='groupby',fromdate=fromdateB,todate=todateB,hashtag=True,loc=True)
+sc1 = SocialListeing(tagged=taggedA,keyword=keywordA,channel=channelA,lang=langA,word_class=word_classA,type='una',fromdate=fromdateA,todate=todateA,hashtag=True,loc=True,pos=posA,filter=filter)
 
 
-keywordB = "식생활트렌드"
+keywordB = "아웃백"
 channelB = 'naverblog'
 langB = 'korean'
 word_classB = 'noun'
-fromdateB = '2014-01-01'
-todateB = '2021-01-31'
+fromdateB = '2015-01-01'
+todateB = '2018-12-31'
 typeB = 'una'
 posB= 'all'
-brandB = ['비비고','bibigo','고메']
+brandB = None
 ratioB = None
-taggedB = 1
+taggedB =None
 kbfB = None
-sc2 = SocialListeing(brand=brandB,keyword=keywordB,channel=channelB,lang=langB,word_class=word_classB,type='una',fromdate=fromdateB,todate=todateB,hashtag=True,loc=True,pos=posB,ratio=ratioB,tagged=taggedB,kbf = kbfB,batch_bool=batch_bool)
+sc2 = SocialListeing(tagged=taggedA,keyword=keywordA,channel=channelA,lang=langA,word_class=word_classA,type='una',fromdate=fromdateB,todate=todateB,hashtag=True,loc=True,pos=posA,filter=filter)
 
-keywordC = '식생활트렌드'
+keywordC = '아웃백'
 channelC = 'naverblog'
 langC = 'korean'
 word_classC = 'noun'
-fromdateC = '2014-01-01'
-todateC = '2021-01-31'
+fromdateC = '2019-01-01'
+todateC = '2021-04-30'
 typeC = 'una'
 posC= 'all'
-brandC = ['오뚜기']
+brandC = None
 ratioC = None
-taggedC = 1
+taggedC =None
 kbfC = None
-sc3 = SocialListeing(brand=brandC,keyword=keywordC,channel=channelC,lang=langC,word_class=word_classC,type='una',fromdate=fromdateC,todate=todateC,hashtag=True,loc=True,pos=posC,ratio=ratioC,tagged=taggedC,kbf = kbfC,batch_bool=batch_bool)
+sc3 = SocialListeing(tagged=taggedA,keyword=keywordA,channel=channelA,lang=langA,word_class=word_classA,type='una',fromdate=fromdateC,todate=todateC,hashtag=True,loc=True,pos=posA,filter=filter)
 
 slViz =SlVizualize([sc1,sc2,sc3])
 slViz.get_wordcloud()

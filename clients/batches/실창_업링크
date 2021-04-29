@@ -1,0 +1,16 @@
+{
+"batch_name" : "실창_업링크",
+"user_id" : 99,
+"category" : "인플루언서 비즈니스 매칭",
+"category_keywords" : ["플랫폼"],
+"brands" :[],
+"brand_keywords" : {"블링": ["블링","vling"]},
+"search_keywords" : ["vling","인플루언서 플랫폼","인플루언서 매칭","인플루언서 광고","인플루언서 마케팅","인플루언서 플랫폼"],
+"buying_keywords" : [],
+"channels" : ["naverblog","instagram"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

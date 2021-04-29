@@ -1,0 +1,16 @@
+{
+"batch_name" : "실창_리더키트",
+"user_id" : 99,
+"category" : "영어교육",
+"category_keywords" : ["영어"],
+"brands" :[],
+"brand_keywords" : {"키돕": ["키돕"],"롤링핀": ["롤링핀"],"북티비티": ["북티비티"]},
+"search_keywords" : ["키돕","롤링핀 영어","북티비티","어린이 영어 교재","유아 영어 교재","어린이 영어","유아 영어"],
+"buying_keywords" : [],
+"channels" : ["naverblog","navershopping"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

@@ -1,0 +1,21 @@
+{
+"batch_name" : "드라이기_5종",
+"user_id" : 99,
+"category" : "헤어드라이어",
+"category_keywords" : ["드라이어","드라이기"],
+"brands" :["유닉스", "다이슨", "JMW", "필립스", "테팔"],
+"brand_keywords" : {"유닉스": ["유닉스", "unix", "UNIX", "Unix"],
+                    "다이슨": ["다이슨", "dyson", "Dyson", "DYSON"],
+                    "JMW": ["JMW", "jmw", "Jmw", "제이엠더블유"],
+                    "필립스": ["필립스", "philips", "Philips", "PHILIPS"],
+                    "테팔": ["테팔", "tefal", "TEFAL", "Tefal"]
+                    },
+"search_keywords" : ["드라이어", "드라이기","유닉스 드라이기", "필립스 드라이기", "테팔 드라이기", "jmw 드라이기", "다이슨 드라이기"],
+"buying_keywords" : ["내돈내산"],
+"channels" : ["navernews","navershopping","instagram","twitter","amazon","youtube","coupang"],
+"by_year" : 1,
+"n_periods" : 5,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 3
+}
