@@ -20,6 +20,6 @@ for row in request_rows:
         db.update_one('crawl_request','crawl_status','GF','request_id',request_id)
         print(f'req:{request_id} is updated to GF')
 
-    elif all([task['crawl_status'] == 'SF' for task in task_ids]) and request_status=='GF':
+    elif all([task['crawl_status'] == 'SF' for task in task_ids]):
         db.update_one('crawl_request','crawl_status','SF','request_id',request_id)
         print(f'req:{request_id} is updated to SF')

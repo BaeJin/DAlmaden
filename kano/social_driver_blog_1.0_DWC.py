@@ -7,7 +7,7 @@ from kano.engine.socialListening import SocialListeing,SlVizualize
 keywordA = "아웃백"
 channelA = 'naverblog'
 langA = 'korean'
-word_classA= 'nouns'
+word_classA= 'adjs'
 fromdateA = '2010-05-01'
 todateA = '2021-04-31'
 typeA = 'una'
@@ -24,7 +24,7 @@ filter = 0
 keywordB = "스테이크 레스토랑"
 channelB = 'naverblog'
 langB = 'korean'
-word_classB = 'nouns'
+word_classB = 'adjs'
 fromdateB = '2010-05-01'
 todateB = '2021-04-31'
 typeB = 'una'
