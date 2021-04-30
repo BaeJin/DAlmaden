@@ -3,17 +3,18 @@ from kano.engine.socialListening import SocialListeing,SlVizualize
 #     keyword_list= file.readlines()
 #     for keywordA in keyword_list:
 #         keywordA = keywordA.splitlines()
-keywordA = '드라이기'
-channelA = 'naverblog'
+
+keywordA = "lg global"
+channelA = 'youtube'
 langA = 'korean'
-word_classA= 'noun'
-fromdateA = '2016-01-01'
-todateA = '2020-12-31'
+word_classA= 'nouns'
+fromdateA = '2019-01-01'
+todateA = '2021-01-31'
 typeA = 'una'
-posA= 'pos'
+posA= 'all'
 brandA = None
 ratioA = None
-taggedA = None
+taggedA = 1
 kbfA = None
 # fromdateB =  '2015-01-01'
 # todateB = '2020-11-19'
@@ -22,17 +23,17 @@ sc1 = SocialListeing(brand=brandA,keyword=keywordA,channel=channelA,lang=langA,w
 # sc2 = SocialListeing(keyword=keywordB,channel=channelA,lang=langA,word_class=word_classA,type='groupby',fromdate=fromdateB,todate=todateB,hashtag=True,loc=True)
 
 
-keywordB = '드라이기'
-channelB = 'naverblog'
+keywordB = "samsung"
+channelB = 'youtube'
 langB = 'korean'
-word_classB = 'noun'
-fromdateB = '2016-01-01'
-todateB = '2020-12-31'
+word_classB = 'nouns'
+fromdateB = '2019-01-01'
+todateB = '2021-01-31'
 typeB = 'una'
-posB= 'neg'
+posB= 'all'
 brandB = None
 ratioB = None
-taggedB = None
+taggedB = 1
 kbfB = None
 sc2 = SocialListeing(brand=brandB,keyword=keywordB,channel=channelB,lang=langB,word_class=word_classB,type='una',fromdate=fromdateB,todate=todateB,hashtag=True,loc=True,pos=posB,ratio=ratioB,tagged=taggedB,kbf = kbfB)
 

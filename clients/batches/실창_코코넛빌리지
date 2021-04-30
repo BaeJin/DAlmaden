@@ -1,0 +1,19 @@
+{
+"batch_name" : "실창_코코넛빌리지",
+"user_id" : 99,
+"category" : "심부름어플",
+"category_keywords" : ["앱","어플","심부름"],
+"brands" :["원클","애니맨","김집사"],
+"brand_keywords" : {"원클": ["원클"],
+                    "애니맨": ["애니맨"],
+                    "김집사": ["김집사"]
+                    },
+"search_keywords" : ["심부름 앱", "심부름 어플", "원클", "애니맨", "김집사"],
+"buying_keywords" : ["내돈내산"],
+"channels" : ["naverblog","instagram","youtube"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

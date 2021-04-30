@@ -1,0 +1,16 @@
+{
+"batch_name" : "실창_위드캠프",
+"user_id" : 99,
+"category" : "캠핑장비 보관 서비스",
+"category_keywords" : ["캠핑","보관"],
+"brands" :[],
+"brand_keywords" : {"라이클": ["라이클"],"바이오필리언": ["바이오필리언"],"캠킵": ["캠킵"]},
+"search_keywords" : ["라이클","바이오필리언","캠킵","캠핑장비", "캠핑장비 보관", "캠핑장비 보관 서비스"],
+"buying_keywords" : [],
+"channels" : ["naverblog","instagram"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

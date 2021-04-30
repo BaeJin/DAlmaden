@@ -1,0 +1,16 @@
+{
+"batch_name" : "실창_드림앤조이",
+"user_id" : 99,
+"category" : "연극치료 플랫폼",
+"category_keywords" : ["연극치료","연극 치료"],
+"brands" :[],
+"brand_keywords" : {"한국공연예술치료협회": ["한국공연","예술치료협회"], "한국연극치료협회": ["연극치료협회"], "나우예술심리컴퍼니": ["나우"]},
+"search_keywords" : ["공연예술치료협회","연극치료협회","예술치료","연극치료","나우예술심리","예술심리치료","연극심리치료","심리치료"],
+"buying_keywords" : [],
+"channels" : ["naverblog","instagram"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

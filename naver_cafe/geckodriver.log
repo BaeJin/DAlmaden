@@ -1,0 +1,16 @@
+1611941860238	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\wodud\\AppData\\Local\\Temp\\rust_mozprofile.bgkrtrYrYPRW"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1611941864283	Marionette	INFO	Listening on port 49576
+1611941864408	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://cafe.naver.com/static/js/mycafe/common/storyphoto/original_viewer-1577769455000-41853.js, line 89: unreachable code after return statement
+JavaScript warning: https://cafe.naver.com/static/js/mycafe/common/storyphoto/original_viewer-1577769455000-41853.js, line 134: unreachable code after return statement
+JavaScript warning: https://cafe.naver.com/static/js/mycafe/common/storyphoto/original_viewer-1577769455000-41853.js, line 89: unreachable code after return statement
+JavaScript warning: https://cafe.naver.com/static/js/mycafe/common/storyphoto/original_viewer-1577769455000-41853.js, line 134: unreachable code after return statement
+1611941981050	Marionette	INFO	Stopped listening on port 49576
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+

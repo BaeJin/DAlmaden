@@ -1,0 +1,16 @@
+{
+"batch_name" : "실창_블랙스미스",
+"user_id" : 99,
+"category" : "공간소독서비스",
+"category_keywords" : ["소독"],
+"brands" :[],
+"brand_keywords" : {"세스코": ["세스코","cesco"],"뉴에버그린": ["뉴에버그린"]},
+"search_keywords" : ["소독 서비스","방역 서비스","공간 소독기","어린이집 소독","유치원 소독","식당 방역","병원 방역"],
+"buying_keywords" : [],
+"channels" : ["naverblog","instagram","navershopping"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

@@ -1,0 +1,16 @@
+{
+"batch_name" : "실창_칼로릭",
+"user_id" : 99,
+"category" : "식단 어플",
+"category_keywords" : ["식단","추천"],
+"brands" :[],
+"brand_keywords" : {"다신": ["다신","다이어트신"], "다노": ["다노"]},
+"search_keywords" : ["다신 식단","다신샵","다노 식단","다노샵", "다이어트 식단", "다이어트 배송","식단 추천"],
+"buying_keywords" : [],
+"channels" : ["naverblog","instagram"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

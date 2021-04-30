@@ -1,0 +1,16 @@
+{
+    "batch_name" : "농협_부대찌개",
+    "user_id" : 99,
+    "category" : "부대찌개",
+    "category_keywords" : [],
+    "brands" :[],
+    "brand_keywords" : {},
+    "search_keywords" : ["부대찌개","부대찌개 맛집","부대찌개 제철","부대찌개 지역","송탄 부대찌개","놀부 부대찌개"],
+    "buying_keywords" : [],
+    "channels" : ["naverblog","instagram"],
+    "by_year" : 1,
+    "n_periods" : 2,
+    "until_date" : "2020-12-31",
+    "n_crawl" : 100,
+    "last_period_n_mult" : 1
+}

@@ -1,5 +1,7 @@
 class setCalc:
     def __init__(self, d1, d2):
+        self.dict1_num = d1
+        self.dict2_num = d2
         self.dict1 = dict(d1)
         self.dict2 = dict(d2)
 
@@ -20,6 +22,28 @@ class setCalc:
         for d in self.dict2:
             #self.dict2[d] /= sum2
             self.dict2[d] /= maxVal2
+
+    def getInter_keyword_num(self):
+        samekeys = self.dict1_num.keys() & self.dict2_num.keys()
+        intersect = {}
+        for k in samekeys:
+            v = min(self.dict1_num[k], self.dict2_num[k])
+            intersect[k] = v
+        return intersect
+
+    def getDiff1_keyword_num(self):
+        inter = self.getInter_keyword_num()
+        diffa = dict(self.dict1_num)
+        for i in inter:
+            diffa[i] = self.dict1_num[i] - inter[i]
+        return diffa
+
+    def getDiff2_keyword_num(self):
+        inter = self.getInter_keyword_num()
+        diffb = dict(self.dict2_num)
+        for i in inter:
+            diffb[i] = self.dict2_num[i] - inter[i]
+        return diffb
 
     def getInter(self):
         samekeys = self.dict1.keys()&self.dict2.keys()

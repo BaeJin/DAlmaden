@@ -1,5 +1,5 @@
-from eunjeon import Mecab
+import datetime
+import pandas as pd
 
-m = Mecab()
-p = m.pos('JMW')
-print(p)
+def add(x,y):
+    return x+y

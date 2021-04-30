@@ -1,0 +1,16 @@
+{
+"batch_name" : "실창_키오스크",
+"user_id" : 99,
+"category" : "키오스크",
+"category_keywords" : ["키오스크","무인","매장"],
+"brands" :[],
+"brand_keywords" : {},
+"search_keywords" : ["무인 키오스크", "키오스크 주문", "무인 매장", "씨아이테크", "푸른기술"],
+"buying_keywords" : ["내돈내산"],
+"channels" : ["naverblog","instagram","youtube"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

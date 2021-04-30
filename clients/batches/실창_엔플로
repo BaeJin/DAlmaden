@@ -1,0 +1,19 @@
+{
+"batch_name" : "실창_엔플로",
+"user_id" : 99,
+"category" : "화물배차서비스",
+"category_keywords" : ["챗봇","화물","배송","트럭","용달","배차"],
+"brands" :["센디","고고밴","배차반장"],
+"brand_keywords" : {"센디": ["센디"],
+                    "고고밴": ["고고밴"],
+                    "배차반장": ["배차반장"]
+                    },
+"search_keywords" : ["화물 배차", "화물 어플", "센디 화물", "고고밴 화물", "배차반장"],
+"buying_keywords" : ["내돈내산"],
+"channels" : ["naverblog","instagram","youtube"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

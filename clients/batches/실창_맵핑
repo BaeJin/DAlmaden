@@ -1,0 +1,22 @@
+{
+"batch_name" : "실창_맵핑",
+"user_id" : 99,
+"category" : "SNS서비스",
+"category_keywords" : ["어플","앱","플랫폼","SNS"],
+"brands" :["페이스북","인스타그램","젠리","포스퀘어","망고플레이트","다이닝코드"],
+"brand_keywords" : {"페이스북": ["페이스북","book"],
+                    "인스타그램": ["인스타그램","insta"],
+                    "젠리": ["젠리","zenly"],
+                    "포스퀘어": ["포스퀘어","foursquare"],
+                    "망고플레이트": ["망고플레이트","mangoplate"],
+                    "다이닝코드": ["다이닝코드","diningcode"]
+                    },
+"search_keywords" : ["지역기반 SNS", "위치기반 SNS", "소셜앱", "페이스북", "인스타그램", "젠리", "포스퀘어", "망고플레이트", "다이닝코드"],
+"buying_keywords" : ["내돈내산"],
+"channels" : ["naverblog","instagram","youtube"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

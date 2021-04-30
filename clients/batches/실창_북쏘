@@ -1,0 +1,16 @@
+{
+"batch_name" : "실창_북쏘",
+"user_id" : 99,
+"category" : "전자 서재",
+"category_keywords" : ["전자책","서재"],
+"brands" :[],
+"brand_keywords" : {"굿리즈": ["굿리즈"],"디노먼트": ["디노먼트"],"퍼블리": ["퍼블리"],"밀리의서재": ["밀리"]},
+"search_keywords" : ["굿리즈","디노먼트","퍼블리","밀리의서재","책 추천","동네 서점","동네 도서관","도서재고정보","서재 컨텐츠","도서 큐레이션"],
+"buying_keywords" : [],
+"channels" : ["naverblog","instagram"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

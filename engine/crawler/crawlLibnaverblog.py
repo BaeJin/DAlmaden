@@ -49,8 +49,10 @@ class CrawlLibnaverBlog:
             db.update_one('crawl_task', 'n_total', int(nTotal), 'task_id', self.task_id)
 
     def crawl(self):
+
         #init task
         db = Sql('datacast2')
+        db.update_one('crawl_task', 'crawl_status', '%s' % (self.status_doing), 'task_id', self.task_id)
 
         keyhex = self.get_keyhex(self.keyword)
         custom_header = self.CUSTOM_HEADER
@@ -75,8 +77,6 @@ class CrawlLibnaverBlog:
                 if num == 0 :
                     nTotal = data_all['result']['totalCount']
                     print(nTotal, 'items found for ' + self.keyword)
-                    db.update_one('crawl_task','crawl_status','%s'%(self.status_doing),'task_id',self.task_id)
-
                 data_list = []
                 try :
                     data_list = data_all['result']['searchList']
@@ -139,10 +139,11 @@ class CrawlLibnaverBlog:
                     end = True
 
             if end :
+                print('zzz1')
                 db.update_one('crawl_task', 'n_crawled', num , 'task_id', self.task_id)
                 db.update_one('crawl_task', 'crawl_status', '%s' % (self.status_done), 'task_id', self.task_id)
-
                 break
+
             db.update_one('crawl_task','n_crawled',num,'task_id',self.task_id)
 
     def get_keyhex(self,keyword) :

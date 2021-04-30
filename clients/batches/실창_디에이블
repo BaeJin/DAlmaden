@@ -1,0 +1,16 @@
+{
+"batch_name" : "실창_디에이블",
+"user_id" : 99,
+"category" : "난임케어서비스",
+"category_keywords" : ["한국어","튜터링"],
+"brands" :[],
+"brand_keywords" : {},
+"search_keywords" : ["성조숙증","20대 여성질환","30대 여성질환","여성질환","난임","폐경","여성 건강","여성 헬스케어","임신 어플"],
+"buying_keywords" : [],
+"channels" : ["naverblog"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

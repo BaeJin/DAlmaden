@@ -1,0 +1,16 @@
+{
+"batch_name" : "실창_아버지교육",
+"user_id" : 99,
+"category" : "교육 플랫폼",
+"category_keywords" : ["플랫폼"],
+"brands" :[],
+"brand_keywords" : {"차이의놀이": ["차이의놀이"]},
+"search_keywords" : ["차이의놀이","아버지교육","부모교육"],
+"buying_keywords" : [],
+"channels" : ["naverblog","instagram"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

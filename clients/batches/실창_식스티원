@@ -1,0 +1,16 @@
+{
+"batch_name" : "실창_식스티원",
+"user_id" : 99,
+"category" : "정보처리자격증 학습 플랫폼",
+"category_keywords" : ["정보처리","학습"],
+"brands" :[],
+"brand_keywords" : {"영진닷컴":["영진","이기적"],"자단기": ["자단기"],"기사퍼스트": ["기사퍼스트"],"길벗": ["길벗","시나공"]},
+"search_keywords" : ["정보처리자격증","정보처리자격증 인강","영진닷컴 정보처리자격증","자단기 정보처리자격증","기사퍼스트 정보처리자격증","시나공 정보처리자격증"],
+"buying_keywords" : [],
+"channels" : ["naverblog"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

@@ -1,0 +1,16 @@
+{
+"batch_name" : "밴드앤링크_풀무원HMR_네이버쇼핑",
+"user_id" : 99,
+"category" : "HMR",
+"category_keywords" : ["HMR","간편식"],
+"brands" :["풀무원","비비고","오뚜기","고메"],
+"brand_keywords" : {"풀무원": ["풀무원"],"비비고": ["비비고"],"오뚜기": ["오뚜기"],"고메": ["고메"]},
+"search_keywords" : ["가정간편식","풀무원 가정간편식","비비고 가정간편식","오뚜기 가정간편식","고메 가정간편식"],
+"buying_keywords" : [],
+"channels" : ["navershopping"],
+"by_year" : 1,
+"n_periods" : 10,
+"until_date" : "2020-12-31",
+"n_crawl" : 200,
+"last_period_n_mult" : 1
+}

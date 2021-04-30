@@ -1,0 +1,16 @@
+{
+"batch_name" : "실창_코리안튜터",
+"user_id" : 99,
+"category" : "한국어 튜터링 플랫폼",
+"category_keywords" : ["한국어","튜터링"],
+"brands" :[],
+"brand_keywords" : {"살랑코리아": ["살랑코리아"],"sayglobal": ["sayglobal"],"preply": ["preply"],"베스트프렌즈": ["베스트프렌즈"]},
+"search_keywords" : ["한국어 튜터링","한국어교육","한국어학당","온라인 튜터링"],
+"buying_keywords" : [],
+"channels" : ["naverblog","instagram"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2020-12-31",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}
