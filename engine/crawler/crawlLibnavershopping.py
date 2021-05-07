@@ -176,6 +176,7 @@ class CrawlLibNavershopping:
             products_info = data_to_json['shoppingResult']['products']
             for idx, product_info in enumerate(products_info):
                 characterValue_data = self.get_product_character_value(product_info)
+                print(f"idx:{idx},product_info:{product_info}")
                 prod_desc = {
                           'rank':product_info['rank'],
                           'type':self.get_product_type(product_info),
@@ -188,7 +189,7 @@ class CrawlLibNavershopping:
                           'brand':product_info['brand'],
                           'maker':product_info['maker'],
                           'lprice':product_info['lowPrice'],
-                          'hprice':product_info['highPrice'],
+                          'hprice':product_info['highPrice'] if "highPrice" in product_info.keys() else 0,
                           'reviewCount':product_info['reviewCount'],
                           'post_date':product_info['openDate'],
                           'price':product_info['price'],

@@ -12,7 +12,7 @@ import multiprocessing
 db=Sql("datacast2")
 status = "GR"
 tasks = db.select('crawl_task',what ='*',
-                     where='crawl_status="%s" and channel="instagram"'%(status))
+                     where='crawl_status="%s" and keyword="캠핑 음식" and channel="instagram"'%(status))
 
 for idx,task in enumerate(tasks):
     task_id = task['task_id']

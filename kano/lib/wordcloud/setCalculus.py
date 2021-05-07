@@ -53,13 +53,32 @@ class setCalc:
             intersect[k]=v
         return intersect
 
+    # def getDiff1(self):
+    #     inter = self.getInter()
+    #     diffa = dict(self.dict1)
+    #     for i in inter:
+    #         diffa[i] = self.dict1[i] - inter[i] - self.dict2[i]
+    #     basea = abs(min(diffa.values()))
+    #     for i in diffa:
+    #         diffa[i] += basea
+    #     return diffa
+
     def getDiff1(self):
         inter=self.getInter()
         diffa = dict(self.dict1)
         for i in inter:
             diffa[i]=self.dict1[i]-inter[i]
         return diffa
-        
+
+    # def getDiff2(self):
+    #     inter = self.getInter()
+    #     diffb = dict(self.dict2)
+    #     for i in inter:
+    #         diffb[i] = self.dict2[i] - inter[i] - self.dict1[i]
+    #     baseb = abs(min(diffb.values()))
+    #     for i in diffb:
+    #         diffb[i] += baseb
+    #     return diffb
     def getDiff2(self):
         inter=self.getInter()
         diffb = dict(self.dict2)

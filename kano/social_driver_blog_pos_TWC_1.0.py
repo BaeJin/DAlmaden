@@ -4,52 +4,51 @@ from kano.engine.socialListening import SocialListeing,SlVizualize
 #     for keywordA in keyword_list:
 #         keywordA = keywordA.splitlines()
 
-keywordA = "아웃백"
+keywordA = "캠핑 음식"
 channelA = 'naverblog'
 langA = 'korean'
 word_classA= 'nouns'
-fromdateA = '2011-01-01'
-todateA = '2014-12-31'
+fromdateA = '2018-05-01'
+todateA = '2021-05-31'
 typeA = 'una'
 posA= 'all'
 brandA = None
 ratioA = None
-taggedA = None
+taggedA = 1
 kbfA = None
 filter = 0
 # fromdateB =  '2015-01-01'
 # todateB = '2020-11-19'
 
-sc1 = SocialListeing(tagged=taggedA,keyword=keywordA,channel=channelA,lang=langA,word_class=word_classA,type='una',fromdate=fromdateA,todate=todateA,hashtag=True,loc=True,pos=posA,filter=filter)
+sc1 = SocialListeing(tagged=taggedA,keyword=keywordA,channel=channelA,lang=langA,word_class=word_classA,type='una',fromdate=fromdateA,todate=todateA,pos=posA,filter=filter)
 
 
-keywordB = "아웃백"
-channelB = 'naverblog'
+keywordB = "캠핑 음식"
+channelB = 'instagram'
 langB = 'korean'
 word_classB = 'noun'
-fromdateB = '2015-01-01'
-todateB = '2018-12-31'
+fromdateB = '2018-05-01'
+todateB = '2021-05-31'
 typeB = 'una'
 posB= 'all'
 brandB = None
 ratioB = None
-taggedB =None
+taggedB =1
 kbfB = None
-sc2 = SocialListeing(tagged=taggedA,keyword=keywordA,channel=channelA,lang=langA,word_class=word_classA,type='una',fromdate=fromdateB,todate=todateB,hashtag=True,loc=True,pos=posA,filter=filter)
+sc2 = SocialListeing(tagged=taggedB,keyword=keywordB,channel=channelB,lang=langB,word_class=word_classB,type='una',fromdate=fromdateB,todate=todateB,pos=posB,filter=filter)
 
-keywordC = '아웃백'
-channelC = 'naverblog'
+keywordC = "캠핑 음식"
+channelC = 'navershopping'
 langC = 'korean'
-word_classC = 'noun'
-fromdateC = '2019-01-01'
-todateC = '2021-04-30'
-typeC = 'una'
+word_classC= 'nouns'
+typeC = 'navershopping_product'
 posC= 'all'
+top100 = False
 brandC = None
 ratioC = None
-taggedC =None
 kbfC = None
-sc3 = SocialListeing(tagged=taggedA,keyword=keywordA,channel=channelA,lang=langA,word_class=word_classA,type='una',fromdate=fromdateC,todate=todateC,hashtag=True,loc=True,pos=posA,filter=filter)
+
+sc3 = SocialListeing(keyword=keywordC,channel=channelC,lang=langC,word_class=word_classC,type=typeC,pos=posC,filter=filter,top100=top100)
 
 slViz =SlVizualize([sc1,sc2,sc3])
 slViz.get_wordcloud()

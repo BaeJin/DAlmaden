@@ -2,31 +2,20 @@
 <project version="4">
   <component name="PublishConfigData">
     <serverData>
-<<<<<<< HEAD
-      <paths name="ubuntu@49.50.165.53:16022 password">
-=======
       <paths name="datacast_inner_api">
->>>>>>> master
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-<<<<<<< HEAD
-      <paths name="ubuntu@49.50.165.53:16022 password (1)">
-=======
       <paths name="ubuntu@ec2-15-164-58-207.ap-northeast-2.compute.amazonaws.com:22 key">
->>>>>>> master
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-<<<<<<< HEAD
-      <paths name="ubuntu@ec2-3-34-188-110.ap-northeast-2.compute.amazonaws.com:22 key">
-=======
       <paths name="ubuntu@ec2-15-164-58-207.ap-northeast-2.compute.amazonaws.com:22 key (1)">
         <serverdata>
           <mappings>
@@ -35,7 +24,6 @@
         </serverdata>
       </paths>
       <paths name="ubuntu@ec2-3-36-102-13.ap-northeast-2.compute.amazonaws.com:22 key">
->>>>>>> master
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />

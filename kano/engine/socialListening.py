@@ -32,7 +32,7 @@ rc('font',family='NanumBarunGothic')
 
 class Task():
     def __init__(self,keyword=None,channel=None,lang=None,word_class=None,
-                 fromdate=None, todate=None,type=None,pos=None,nurl=None,task_id=None,hashtag=None,loc=None,brand=None,ratio=None,tagged=None,kbf=None,file_name= None,batch_bool=None,filter=None,**kwargs):
+                 fromdate=None, todate=None,type=None,pos=None,nurl=None,task_id=None,hashtag=None,loc=None,brand=None,ratio=None,tagged=None,kbf=None,file_name= None,batch_bool=None,filter=None,top100=None,**kwargs):
         self.dir = Path.cwd()
         self.type = type
         self.keyword = keyword
@@ -57,25 +57,27 @@ class Task():
         self.file_name = file_name
         self.batch_bool = batch_bool
         self.filter = filter
+        self.top100 = top100
+
 class SocialListeing(Task):
     def __init__(self,keyword,channel,lang,word_class,
-                 fromdate=None, todate=None, type=None,pos=None,nurl=None,task_id=None,**kwargs):
+                 fromdate=None, todate=None, type=None,pos=None,nurl=None,task_id=None,top100=None,**kwargs):
         super(SocialListeing, self).__init__(keyword,channel,lang,word_class,
-                 fromdate, todate, type,pos,nurl,task_id,**kwargs)
-
+                 fromdate, todate, type,pos,nurl,task_id,top100,**kwargs)
+        self.top100 = top100
         if self.channel == "naverblog":
-            self.stopKeywordList = ['드라이어','헤어드라이어','구매','머리','헤어','드라이','드라','안녕','생각','이기',self.keyword,"포스팅", "블로그", "댓글", "이웃추가", '이거', '제품', '가능', '사용','기능','부분','때문','정도','느낌']
+            self.stopKeywordList = ['요리','여행','음식','캠핑','드라이어','헤어드라이어','구매','머리','헤어','드라이','드라','안녕','생각','이기',self.keyword,"포스팅", "블로그", "댓글", "이웃추가", '이거', '제품', '가능', '사용','기능','부분','때문','정도','느낌']
 
         elif self.channel == "navernews":
             self.stopKeywordList = ["포스팅", "블로그", "댓글", "이웃추가",self.keyword]
 
         elif self.channel == "instagram":
-            self.stopKeywordList = ['likeforlikes','insta','데일리룩','셀스타그램','sale','오오티디','ootdfashion','daily','instadaily','instagood','secla','오피',
+            self.stopKeywordList = ['협찬','먹스','여행','핑장','가능','요즘','검색','추천','프로필','스타','요리','음식','캠핑','likeforlikes','insta','데일리룩','셀스타그램','sale','오오티디','ootdfashion','daily','instadaily','instagood','secla','오피',
                                     'ootd','dailylook',"셀스타그램","selfie","맞팔", "팔로우", "좋아요",
                                     "일상","행복","f4f",self.keyword,"대행","직구","그램","해외","쇼핑","구매","문의","주세요"]
 
         elif self.channel == "navershopping":
-            self.stopKeywordList = [self.keyword, '사용','만족','구매','느낌','감사','제품','다음','생각','추천']
+            self.stopKeywordList = [self.keyword, '사용','만족','구매','느낌','감사','제품','다음','생각','추천','캠핑','음식','요리']
 
         elif self.lang == "english":
             self.stopKeywordList = stopwords.words('english')
@@ -395,17 +397,29 @@ class SocialListeing(Task):
                 except:
                     continue
 
-        elif self.type =='groupby':
-
+        elif self.type =='navershopping_product':
             conn = pymysql.connect(host='10.96.5.179',
                                    user='root',
                                    password='robot369',
-                                   db='dalmaden')
+                                   db='datacast2')
             curs = conn.cursor(pymysql.cursors.DictCursor)
             print('sql 조회')
+            print("self.top100:",self.top100)
+            if self.top100:
 
-            sql ="select * from cdata where task_id = any (select id from task_log where keyword=\'%s\' and channel=\'%s\')"\
-                 %(self.keyword,self.channel)
+                sql = "select * from request_batch as rb join crawl_request as cr  " \
+                       "on rb.batch_id = cr.batch_id join crawl_request_task as crt " \
+                       "on cr.request_id = crt.request_id join crawl_task as ct " \
+                       "on ct.task_id = crt.task_id join crawl_contents as cc " \
+                       "on cc.task_id = ct.task_id where cr.keyword=\'%s\' and cr.channel=\'%s\' " \
+                      "order by sale_amount desc limit 810"%(self.keyword,self.channel)
+            else:
+                sql = "select * from request_batch as rb join crawl_request as cr  " \
+                       "on rb.batch_id = cr.batch_id join crawl_request_task as crt " \
+                       "on cr.request_id = crt.request_id join crawl_task as ct " \
+                       "on ct.task_id = crt.task_id join crawl_contents as cc " \
+                       "on cc.task_id = ct.task_id where cr.keyword=\'%s\' and cr.channel=\'%s\'"%(self.keyword,self.channel)
+
             # sql = "select * from cdata where task_id = \'%s\'" \
             #       % (self.task_id)
             print(sql)
@@ -413,15 +427,13 @@ class SocialListeing(Task):
 
             rows = curs.fetchall()
             self.nurl = len(rows)
-
             for row in rows:
-                self.text_list.append(row['text'])
-
+                self.text_list.append(row['cc.product_name'])
         elif self.type ==None:
             conn = pymysql.connect(host='10.96.5.179',
                                    user='root',
                                    password='robot369',
-                                   db='dalmaden')
+                                   db='datacast2')
             curs = conn.cursor(pymysql.cursors.DictCursor)
             print('sql 조회')
             self.task_id = self.select_task()
@@ -474,7 +486,6 @@ class SocialListeing(Task):
                     if p[0] not in remove_list and p[1] in word_class_list:  # 형용사,코모란, Mecab 기준임
                         words.append(p[0])
             else :
-
                 for text in tqdm(self.text_list):
                     words.extend(text)
 
@@ -798,6 +809,8 @@ class SlVizualize(Task):
 
             taskA.kbf = taskA.kbf.replace('/', '_') if taskA.kbf is not None else None
             #교집합 차집합 구하기
+
+
             sc = setCalc(dict_wordA, dict_wordB)
 
             pos_differ = sc.getDiff1_keyword_num()
@@ -944,7 +957,7 @@ class SlVizualize(Task):
         wordcloud = WordCloud(font_path=str(self.dir) + "/source/fonts/" + self.fontname, \
                               background_color="rgba(255,255,255,0)", mode='RGBA', \
                               max_font_size=120,\
-                              min_font_size=18,\
+                              min_font_size=14,\
                               mask=maskPic,\
                               width=200, height=200,\
                               colormap=palette) \
@@ -962,7 +975,7 @@ class SlVizualize(Task):
         wordcloud = WordCloud(font_path=str(self.dir) + "/source/fonts/" + self.fontname, \
                               background_color="rgba(255,255,255,0)", mode='RGBA', \
                               max_font_size=120,\
-                              min_font_size=18,\
+                              min_font_size=14,\
                               mask=maskPic,\
                               width=200, height=200,\
                               colormap=palette) \
@@ -974,7 +987,7 @@ class SlVizualize(Task):
         plt.tight_layout()
         plt.subplots_adjust(left=0, bottom=0, right=1, top=1, hspace=0, wspace=0)
 
-        plt.savefig("{}/{}/{}/{}_{}__{}_{}_{}_{}.png".format(
+        plt.savefig("{}/{}/{}/{}_{}__{}_{}_{}_{}_{}.png".format(
             str(self.dir),
             'results',
             'wordcloud',
