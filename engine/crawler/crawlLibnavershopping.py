@@ -8,8 +8,11 @@ import time
 from scrapy import Selector
 import random
 from engine.sql.almaden import Sql
+from engine.sql.almaden import cleanse, remove_tags
 import pandas as pd
 from urllib.request import urlopen
+import re
+
 
 API_KEY = "2c5b500fff718ba1c67f02eb21e79358"
 
@@ -237,12 +240,20 @@ class CrawlLibNavershopping:
 
     def get_review_navershopping_page_info(self,product_info):
         self.CUSTOM_HEADER = {
-            'accept': 'application/json, text/plain, */*',
-            'accept-encoding': 'gzip, deflate, br',
-            'accept-language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
-            'cookie': 'NNB=26JKENAB5VNFY; npic=LW1n/Y7lr1v485twRJiDAu7IQNma7Byg1+eD1dujBnEarfw1Jj92XPcGCQrmTmIkDCA==; _ga=GA1.2.785938604.1550973896; nx_ssl=2; BMR=; _naver_usersession_=ldZTind9DyvToDWTHUQkNw==; page_uid=UfWJIwprvOsssOBmEzdssssstul-404192; JSESSIONID=FE270C9B4B35C84D83479B52E6020831.jvm1',
-            'referer': 'https://cr.shopping.naver.com/adcr.nhn?x=UqdHTJoNTCLmDRJmeUnHlf%2F%2F%2Fw%3D%3Dso9VDpccOJEJRAIk8kuUlxMWrABtahSEWMaqJo3m9UbdvL12W5aYi%2FTl6p%2B3d7gt2UDGZeWTm1v%2BM3dgb6pD%2BDcA8tPryz%2FlDyJRIn%2F3GbdYxTbKPi8joU3Nl4X0DXHSo3Y9fIdJ5zZ5Cp5gsTRBKAtyGaSr%2B0dRu37W7MMIB4NGtrk2YZNI7XPUxwzPc48d9mgXdPaip9zehn8GnNDvG2V9H67KEMncnWpoX4ZNWSLk4bc4NKsfCCJHgd8ZAW%2BSc%2FLKc3OGGtGoebD6lZ4I44ISv2w0Yv0stZD6LKftbf55bUf73NilrRL4RDYk4DmFeq3btKVxhUpidTfV6BgzPrJl5ZvLlNP%2B%2FvAE%2FR15kJfy9835OhANBmT1EtNrHhr2FCt5YK%2FmGsUxO25%2F2s6FZQcOmY27ZGze0Q%2BtXRlM4OxtarJoVrbEtunAYIkKGowOqukzgPDVXo6AvL8aV8tkrWSEhb%2B5%2BbgCLWD5ufmjwVaC0c1bmOP2u2YumOF3Sc7ORjT3CA11g7crAXPKtuqjMF6AhfbmRc6T9Q91MqoVII6q9tyiYebOu2HANWNhP0a1Sk4qXti8zVzVPIzmwp4FnMxjpTF8mUvzAqbc%2BYg0Db%2FqzD%2B13y5qA3088r1MNA5Dgw2popvk5HxytjbrmvguYxNgCgu8TH6IETI9IR%2BJIKXeXzoAYWtugk3VcH2L2xPlsYFx8Zt3N1gkRM4V7K6KABgau4fTwOUqyF63FjwpQRls%3D&nvMid={}&catId=50001986',
-            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36'}
+                'authority': 'search.shopping.naver.com',
+                'sec-ch-ua': '^\\^',
+                'accept': 'application/json, text/plain, */*',
+                'urlprefix': '/api',
+                'sec-ch-ua-mobile': '?0',
+                'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36',
+                'sec-fetch-site': 'same-origin',
+                'sec-fetch-mode': 'cors',
+                'sec-fetch-dest': 'empty',
+                'referer': 'https://cr.shopping.naver.com/adcr.nhn?x=j12fA6ihnGNtkC0ZYyCGKv%2F%2F%2Fw%3D%3Ds%2BPsiHxQXuMpn4YuUSgrUOcmqEiq6OjrFN1rHlQHnch7zSOmTS42enKYm3kPOXLHl8WHA5RjWLfCN827qYWLHr1URgynFkMa1iEW7imT2D0TDpmNu2Rs3tEPrV0ZTODsb7JQtrMqSgEftbsAH7BzOjn7C8oLNURiEaE%2BZtoYBPlsi2D9FHsVFihtMV9WFYwR1gRokOxYiLF7s%2FPq4uTtLld9%2BKy%2Fm0d%2BgYWHtEf61Jo5CNclKwvLyA%2Fys%2F%2FHPPajLvZMdfslqBv6%2FzdsDQYyIaZK8LJLETsngefeCP0Z8nADPRx1i%2Bp%2Bk3hzlMJYFt6hqQxCjRgmCDthdtiT59JO9yovxjvDZ9umtgd6xeTqAA1hIAJ%2FJQ9vsa4G5awamMD3Visext5K2yYkF868rsMDqia%2BT6ZCOywRPfbjm%2FYdPAcwczY%2F8eCyfgopyQ9U22UU99UEMwi63jafLIzwwY0rYsbF%2Fh0Ht2fYRw5EqsonD2ydFUy6EAFE5jC7zg90uEgyjRYgXT8U0rr2Dm%2BuxQGAQBpSxfHDaV%2FO9PnQ2QqUCBx%2BYGVIpQWroqD6P8QiVmqU6sL8NsZuLrYcQe2suKiuA6WA2glWH1TKancJct29CHzqS9Of8p6VybKDDhGhaLORhRaWWQNozKbzfxBdqVYoTDXxSiGQZZq6WCPHj0EuB%2FU7ipqOSBSwGxwKjkzX1yddaB1jb8xDmz4mgtOb1rvGj1B6ZE%2BX0yPcxmdCnIlN0Vf4GruH08DlKshetxY8KUEZb&nvMid=26703328400&catId=50004666',
+                'accept-language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
+                'cookie': 'NNB=RCAFITJ45R3GA; nx_ssl=2; AD_SHP_BID=24; pc_ranking_info=Y; NaverSuggestUse=unuse^%^26use; sus_val=h1lAk0woMFe7EVmMrppte8he; spage_uid=; ncpa=432352^|kol5wryw^|21f05720b79566d6ed5bdb6cbedddc1bb2b06caa^|s_28826208103388785^|f9eb24d2c2ce4413ee83818ab25a5c3d686f7324:1121368^|kol6511c^|a2489873a3bb09c469ebaec6819a7d2e1fddcf48^|s_2b4a1d3455e31^|5b51e0d0be1cc5c4532a083c16eb7ff37102986a:95694^|kol6544g^|f52b2dfd51115c2bc90d2084edd5aff78ac1fa4d^|null^|ae4ba32fac88e655ab563b02aaa3fdf74206f3b3',
+            }
+
         review_page_info = {}
         if product_info['type'] == 'navershopping':
 
@@ -389,10 +400,11 @@ class CrawlLibNavershopping:
             retry = 0
 
             while self.n_crawled < self.n_total:
+                print("self.n_crawled:", self.n_crawled, self.n_total)
                 params = {'nvMid': review_page_nv_mid, 'page': page, 'page_size': 30, 'sort': 'QUALITY',
                           'reviewType': 'ALL'}
-                print("self.n_crawled:",self.n_crawled, self.n_total)
                 time.sleep(random.random())
+
                 res_review_page = requests.get(review_page_link, params=params, headers= self.CUSTOM_HEADER)
                 if res_review_page.status_code == requests.codes.ok:
                     try:
@@ -402,13 +414,14 @@ class CrawlLibNavershopping:
                         continue
                     if len(review_data_list) < 1: break
                     for review in review_data_list:
+
                         try:
                             self.n_crawled += 1
                             self.db.update_one("crawl_contents", "n_reply_crawled", self.n_crawled, "contents_id",self.contents_id)
                             self.db.insert("crawl_sentence",
                                            contents_id=self.contents_id,
                                            seq=int(self.n_crawled),
-                                           text=review["content"],
+                                           text=remove_tags(review["content"]),
                                            rating=review["starScore"],
                                            author=review["userId"],
                                            sentence_post_date=review["registerDate"],

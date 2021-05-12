@@ -16,7 +16,7 @@ headers = {
 }
 
 params = (
-    ('nvMid', '21911673202'),
+    ('nvMid', '26703328400'),
     ('reviewType', 'ALL'),
     ('sort', 'QUALITY'),
     ('page', '1'),
