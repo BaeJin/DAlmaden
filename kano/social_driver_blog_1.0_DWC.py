@@ -4,14 +4,23 @@ from kano.engine.socialListening import SocialListeing,SlVizualize
 #     for keywordA in keyword_list:
 #         keywordA = keywordA.splitlines()
 
+<<<<<<< HEAD
 keywordA = "캠핑 음식"
 channelA = 'naverblog'
 langA = 'korean'
 word_classA= 'nouns'
 fromdateA = '2018-05-01'
 todateA = '2021-05-31'
+=======
+keywordA = "이마트"
+channelA = 'naverblog'
+langA = 'korean'
+word_classA= 'nouns'
+fromdateA = '2018-01-01'
+todateA = '2020-12-31'
+>>>>>>> master
 typeA = 'una'
-posA= 'all'
+posA= 'pos'
 brandA = None
 ratioA = None
 taggedA = 1
@@ -20,6 +29,7 @@ filter = 0
 # fromdateB =  '2015-01-01'
 # todateB = '2020-11-19'
 
+<<<<<<< HEAD
 # keywordB = "keyword='아웃백' or keyword='TGIF' or keyword='메드포갈릭' or keyword='애슐리' or keyword='빕스"
 keywordB = "캠핑 음식"
 channelB = 'navershopping'
@@ -28,6 +38,17 @@ word_classB= 'nouns'
 typeB = 'navershopping_product'
 posB= 'all'
 top100 = False
+=======
+# keywordB = "TGIF' or keyword='메드포갈릭' or keyword='애슐리' or keyword='빕스"
+keywordB = "이마트"
+channelB = 'naverblog'
+langB = 'korean'
+word_classB = 'nouns'
+fromdateB = '2018-01-01'
+todateB = '2020-12-31'
+typeB = 'una'
+posB = 'neg'
+>>>>>>> master
 brandB = None
 ratioB = None
 kbfB = None
