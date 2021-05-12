@@ -198,6 +198,7 @@ class CrawlLibNavershopping:
                           'productId':product_info['id'],
                           'characterValue':characterValue_data,
                           'product_link': self.get_product_link(product_info)}
+
                 self.db.insert('crawl_contents',
                                 num=(iter-1)*100 +idx,
                                 title =product_info['productTitle'],
@@ -245,9 +246,9 @@ class CrawlLibNavershopping:
         review_page_info = {}
         if product_info['type'] == 'navershopping':
 
-            review_page_info['referer'] = self.CUSTOM_HEADER['referer'].format(product_info['productId'])
+            review_page_info['referer'] = product_info['link']
             review_page_info['nv_mid'] = product_info['productId']
-            review_page_info['product_link'] = 'https://search.shopping.naver.com/detail/review_list.nhn'
+            review_page_info['product_link'] = "https://search.shopping.naver.com/review"
             return review_page_info
 
     def get_review_smartstore_page_info(self,product_info):
@@ -380,51 +381,38 @@ class CrawlLibNavershopping:
 
         if prod_desc['type'] == 'navershopping':
             print('navershopping')
-            formdata = {'nvMid': None, 'page': 1, 'reviewSort': 'accuracy', 'reviewType': 'all','ligh': 'true'}
-
             review_page_info = self.get_review_navershopping_page_info(prod_desc)
-            review_page_nv_mid = review_page_info['nv_mid']
-            review_page_link = review_page_info['product_link']
-            self.CUSTOM_HEADER['referer'] = self.CUSTOM_HEADER['referer'].format(review_page_nv_mid)
-            formdata['nvMid'] = review_page_nv_mid
+            self.CUSTOM_HEADER['referer'] = review_page_info['referer']
+            review_page_nv_mid = review_page_info["nv_mid"]
+            review_page_link = review_page_info["product_link"]
             page = 1
             retry = 0
+
             while self.n_crawled < self.n_total:
+                params = {'nvMid': review_page_nv_mid, 'page': page, 'page_size': 30, 'sort': 'QUALITY',
+                          'reviewType': 'ALL'}
                 print("self.n_crawled:",self.n_crawled, self.n_total)
-                formdata['page'] = page
                 time.sleep(random.random())
-                res_review_page = requests.post(review_page_link, data=formdata, headers= self.CUSTOM_HEADER)
+                res_review_page = requests.get(review_page_link, params=params, headers= self.CUSTOM_HEADER)
                 if res_review_page.status_code == requests.codes.ok:
                     try:
-                        soup = BeautifulSoup(res_review_page.text, 'html.parser')
-
-                        reviews = soup.select(".atc_area")
+                        review_data_list = res_review_page.json()['reviews']
                     except:
                         retry += 1
                         continue
-                    if len(reviews) < 1: break
-                    for review in reviews:
+                    if len(review_data_list) < 1: break
+                    for review in review_data_list:
                         try:
                             self.n_crawled += 1
-                            item = {}
-                            selector = Selector(text=str(review.contents))
-                            item["text"] = selector.css('div.atc::text').extract()
-                            item["text"] = " ".join(item["text"])
-                            item["postInfo"] = selector.css('.info_cell::text').extract()
-                            item["rating"] = selector.css('.curr_avg strong::text').extract()
-                            item["rating"] = float(item["rating"][0]) if item["rating"] is not None else None
-                            author = item["postInfo"][1]
-                            review_post_time = str(20)+str(item["postInfo"][2])[:-1].replace(".","-")
-
                             self.db.update_one("crawl_contents", "n_reply_crawled", self.n_crawled, "contents_id",self.contents_id)
                             self.db.insert("crawl_sentence",
                                            contents_id=self.contents_id,
                                            seq=int(self.n_crawled),
-                                           text=item["text"],
-                                           rating=item["rating"],
-                                           author = str(author),
-                                           sentence_post_date=review_post_time,
-                                           sentence_type = "review")
+                                           text=review["content"],
+                                           rating=review["starScore"],
+                                           author=review["userId"],
+                                           sentence_post_date=review["registerDate"],
+                                           sentence_type="review")
                         except:
                             continue
                     page += 1
