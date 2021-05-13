@@ -146,6 +146,7 @@ class CrawlLibNavershopping:
         if self.n_total is None:
             n_total = self.crawl_total_product_count()
         else:
+            self.crawl_total_product_count()
             n_total = self.n_total
         self.crawl_product_list(n_total)
 
@@ -346,7 +347,6 @@ class CrawlLibNavershopping:
             ###리뷰 크롤링 시작
             page = 1
             retry = 0
-
             while self.n_crawled < self.n_total:
                 print("self.n_crawled:", self.n_crawled, self.n_total)
                 review_page_url = 'https://smartstore.naver.com/i/v1/reviews/paged-reviews?page={}&pageSize=20&merchantNo={}&originProductNo={}&sortType=REVIEW_RANKING'. \
@@ -410,6 +410,11 @@ class CrawlLibNavershopping:
                 time.sleep(random.random())
 
                 res_review_page = requests.get(review_page_link, params=params, headers= self.CUSTOM_HEADER)
+                if res_review_page.status_code!=200:
+                    res_review_page = requests.get(self.get_url(review_page_link), params=params, headers=self.CUSTOM_HEADER)
+                    print("error:",res_review_page.text)
+                    time.sleep(5)
+                print(res_review_page.text)
                 if res_review_page.status_code == requests.codes.ok:
                     try:
                         review_data_list = res_review_page.json()['reviews']
