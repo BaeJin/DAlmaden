@@ -6,24 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="768e3718-a393-43fb-9d02-23c5eb945c74" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/clients/batches/농협_캠핑" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kano/social_driver_navershopping_1.0.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/list_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/datcast.py" beforeDir="false" afterPath="$PROJECT_DIR$/clients/datcast.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/crawler/check_request_status_naverblog.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/check_request_status_naverblog.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/engine/crawler/crawlLibnavershopping.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/crawlLibnavershopping.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/crawler/crawlLibyoutube.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/crawlLibyoutube.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/crawler/dc1_Crawler_Instagram.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/dc1_Crawler_Instagram.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/crawler/dc1_Crawler_crawl_total_contents_instagram.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/crawler/dc1_Crawler_crawl_total_contents_instagram.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kano/engine/socialListening.py" beforeDir="false" afterPath="$PROJECT_DIR$/kano/engine/socialListening.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kano/lib/wordcloud/setCalculus.py" beforeDir="false" afterPath="$PROJECT_DIR$/kano/lib/wordcloud/setCalculus.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kano/req/big_crawling.txt" beforeDir="false" afterPath="$PROJECT_DIR$/kano/req/big_crawling.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kano/social_driver_blog_1.0_DWC.py" beforeDir="false" afterPath="$PROJECT_DIR$/kano/social_driver_blog_1.0_DWC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kano/social_driver_blog_pos_TWC_1.0.py" beforeDir="false" afterPath="$PROJECT_DIR$/kano/social_driver_blog_pos_TWC_1.0.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kano/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/kano/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,8 +52,8 @@
       <recent name="C:\Users\wodud\PycharmProjects\DAlmaden\reddit" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.list_test">
-    <configuration name="check_request_status_naverblog" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.dc1_Crawler_crawl_total_contents_navershopping">
+    <configuration name="dc1_Crawler_crawl_total_contents_navershopping" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DAlmaden" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -82,7 +66,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/engine/crawler/check_request_status_naverblog.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/engine/crawler/dc1_Crawler_crawl_total_contents_navershopping.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -181,11 +165,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.dc1_Crawler_crawl_total_contents_navershopping" />
         <item itemvalue="Python.list_test" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.social_driver_blog_1.0_DWC" />
         <item itemvalue="Python.social_driver_blog_pos_TWC_1.0" />
-        <item itemvalue="Python.check_request_status_naverblog" />
       </list>
     </recent_temporary>
   </component>
@@ -229,7 +213,7 @@
     <SUITE FILE_PATH="coverage/DAlmaden$dc0_Crawler_request_batch.coverage" NAME="dc0_Crawler_request_batch Coverage Results" MODIFIED="1619672084031" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/clients" />
     <SUITE FILE_PATH="coverage/DAlmaden$youtube_video_crawling.coverage" NAME="youtube_video_crawling Coverage Results" MODIFIED="1613444475373" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/youtube" />
     <SUITE FILE_PATH="coverage/DAlmaden$dc1_Crawler_crawl_total_contents_instagram.coverage" NAME="dc1_Crawler_crawl_total_contents_instagram Coverage Results" MODIFIED="1620264371731" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/crawler" />
-    <SUITE FILE_PATH="coverage/DAlmaden$social_driver_blog_1_0_DWC.coverage" NAME="social_driver_blog_1.0_DWC Coverage Results" MODIFIED="1620290342227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kano" />
+    <SUITE FILE_PATH="coverage/DAlmaden$social_driver_blog_1_0_DWC.coverage" NAME="social_driver_blog_1.0_DWC Coverage Results" MODIFIED="1620708423653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kano" />
     <SUITE FILE_PATH="coverage/DAlmaden$dc3_Crawler_check_request_status.coverage" NAME="dc3_Crawler_check_request_status Coverage Results" MODIFIED="1619663438149" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/execution" />
     <SUITE FILE_PATH="coverage/DAlmaden$check_request_status_instagram_view.coverage" NAME="check_request_status_instagram_view Coverage Results" MODIFIED="1617718123998" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/crawler" />
     <SUITE FILE_PATH="coverage/DAlmaden$youtube_caption.coverage" NAME="youtube_caption Coverage Results" MODIFIED="1610962604693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/youtube" />
@@ -239,11 +223,13 @@
     <SUITE FILE_PATH="coverage/DAlmaden$datcast.coverage" NAME="datcast Coverage Results" MODIFIED="1620106200564" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/clients" />
     <SUITE FILE_PATH="coverage/DAlmaden$crawlLibnaverblog.coverage" NAME="crawlLibnaverblog Coverage Results" MODIFIED="1610874657412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/crawler" />
     <SUITE FILE_PATH="coverage/DAlmaden$dc1_Crawler_crawl_total_contents_youtube_view_by_channel.coverage" NAME="dc1_Crawler_crawl_total_contents_youtube_view_by_channel Coverage Results" MODIFIED="1612189122918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/crawler" />
+    <SUITE FILE_PATH="coverage/DAlmaden$kmong_auction.coverage" NAME="kmong_auction Coverage Results" MODIFIED="1620797938543" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/crawler" />
     <SUITE FILE_PATH="coverage/DAlmaden$social_driver_blog_pos_kbf_1_0.coverage" NAME="social_driver_blog_pos_kbf_1.0 Coverage Results" MODIFIED="1617019744557" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kano" />
     <SUITE FILE_PATH="coverage/DAlmaden$social_driver_blog_pos_1_0_batch.coverage" NAME="social_driver_blog_pos_1.0_batch Coverage Results" MODIFIED="1619006796478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kano" />
     <SUITE FILE_PATH="coverage/DAlmaden$reddit_scrape.coverage" NAME="reddit_scrape Coverage Results" MODIFIED="1610867152213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kano" />
     <SUITE FILE_PATH="coverage/DAlmaden$social_driver_blog_pos_1_0_single_batch.coverage" NAME="social_driver_blog_pos_1.0_single_batch Coverage Results" MODIFIED="1619006186733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kano" />
     <SUITE FILE_PATH="coverage/DAlmaden$dc1_Crawler_crawl_total_contents_naverblog__1_.coverage" NAME="dc1_Crawler_crawl_total_contents_naverblog (1) Coverage Results" MODIFIED="1619660281790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/execution" />
+    <SUITE FILE_PATH="coverage/DAlmaden$kmong_cjmall.coverage" NAME="kmong_cjmall Coverage Results" MODIFIED="1620797120894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/crawler" />
     <SUITE FILE_PATH="coverage/DAlmaden$socialListening.coverage" NAME="socialListening Coverage Results" MODIFIED="1619680868142" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kano/engine" />
     <SUITE FILE_PATH="coverage/DAlmaden$social_driver_blog_1_0_dual.coverage" NAME="social_driver_blog_1.0_dual Coverage Results" MODIFIED="1619681902597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kano" />
     <SUITE FILE_PATH="coverage/DAlmaden$dc1_Crawler_crawl_total_contents_naverblog.coverage" NAME="dc1_Crawler_crawl_total_contents_naverblog Coverage Results" MODIFIED="1620106778486" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/crawler" />
@@ -269,13 +255,15 @@
     <SUITE FILE_PATH="coverage/DAlmaden$youtube_list_crawling_by_keyword.coverage" NAME="youtube_list_crawling_by_keyword Coverage Results" MODIFIED="1613444321452" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/youtube" />
     <SUITE FILE_PATH="coverage/DAlmaden$dc1_Crawler_crawl_total_contents.coverage" NAME="dc1_Crawler_crawl_total_contents Coverage Results" MODIFIED="1611331078981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/crawler" />
     <SUITE FILE_PATH="coverage/DAlmaden$dc1_Crawler_Instagram.coverage" NAME="dc1_Crawler_Instagram Coverage Results" MODIFIED="1620264234306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/crawler" />
+    <SUITE FILE_PATH="coverage/DAlmaden$kmong_navershopping.coverage" NAME="kmong_navershopping Coverage Results" MODIFIED="1620809635274" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/crawler" />
     <SUITE FILE_PATH="coverage/DAlmaden$dc1_Crawler_crawl_total_contents_youtube.coverage" NAME="dc1_Crawler_crawl_total_contents_youtube Coverage Results" MODIFIED="1613452836191" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/crawler" />
     <SUITE FILE_PATH="coverage/DAlmaden$dc1_Crawler_crawl_total_contents_navershopping_update.coverage" NAME="dc1_Crawler_crawl_total_contents_navershopping_update Coverage Results" MODIFIED="1611330527935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/crawler" />
+    <SUITE FILE_PATH="coverage/DAlmaden$kmong_coupang.coverage" NAME="kmong_coupang Coverage Results" MODIFIED="1620803279634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/crawler" />
     <SUITE FILE_PATH="coverage/DAlmaden$dc2_Crawler_crawl_total_contents_naverblog__1_.coverage" NAME="dc2_Crawler_crawl_total_contents_naverblog (1) Coverage Results" MODIFIED="1619672436207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/execution" />
     <SUITE FILE_PATH="coverage/DAlmaden$navershopping_review_sum.coverage" NAME="navershopping_review_sum Coverage Results" MODIFIED="1611674586240" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/crawler" />
     <SUITE FILE_PATH="coverage/DAlmaden$social_driver_blog_1_0_solo.coverage" NAME="social_driver_blog_1.0_solo Coverage Results" MODIFIED="1619701812468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kano" />
     <SUITE FILE_PATH="coverage/DAlmaden$naverblog_nosql_v_1_0.coverage" NAME="naverblog_nosql_v_1.0 Coverage Results" MODIFIED="1614764169802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mongoDB" />
-    <SUITE FILE_PATH="coverage/DAlmaden$dc1_Crawler_crawl_total_contents_navershopping.coverage" NAME="dc1_Crawler_crawl_total_contents_navershopping Coverage Results" MODIFIED="1611395714959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/crawler" />
+    <SUITE FILE_PATH="coverage/DAlmaden$dc1_Crawler_crawl_total_contents_navershopping.coverage" NAME="dc1_Crawler_crawl_total_contents_navershopping Coverage Results" MODIFIED="1620810820763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/crawler" />
     <SUITE FILE_PATH="coverage/DAlmaden$check_request_status.coverage" NAME="check_request_status Coverage Results" MODIFIED="1610875378786" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/crawler" />
     <SUITE FILE_PATH="coverage/DAlmaden$social_driver_blog_pos_1_0.coverage" NAME="social_driver_blog_pos_1.0 Coverage Results" MODIFIED="1619769753674" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kano" />
     <SUITE FILE_PATH="coverage/DAlmaden$dc1_Crawler_crawl_total_contents_navernews.coverage" NAME="dc1_Crawler_crawl_total_contents_navernews Coverage Results" MODIFIED="1615860426726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/crawler" />

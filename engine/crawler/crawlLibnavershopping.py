@@ -402,7 +402,7 @@ class CrawlLibNavershopping:
 
             while self.n_crawled < self.n_total:
                 print("self.n_crawled:", self.n_crawled, self.n_total)
-                params = {'nvMid': review_page_nv_mid, 'page': page, 'page_size': 30, 'sort': 'QUALITY',
+                params = {'nvMid': review_page_nv_mid, 'page': page, 'page_size': 20, 'sort': 'QUALITY',
                           'reviewType': 'ALL'}
                 time.sleep(random.random())
 
