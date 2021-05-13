@@ -9,8 +9,8 @@
     "buying_keywords" : [],
     "channels" : ["naverblog","instagram"],
     "by_year" : 1,
-    "n_periods" : 2,
-    "until_date" : "2020-12-31",
+    "n_periods" : 3,
+    "until_date" : "2021-04-30",
     "n_crawl" : 100,
     "last_period_n_mult" : 1
 }

@@ -72,7 +72,7 @@ class RequestTask:
             df_request_crawl.at[0,'channel'] = tasks_df.iloc[0]['channel']
             df_request_crawl.at[0,'from_date'] = tasks_df.iloc[0]['from_date']
             df_request_crawl.at[0,'to_date'] = tasks_df.iloc[-1]['to_date']
-            df_request_crawl.at[0,'n_crawl'] = 999999
+            df_request_crawl.at[0,'n_crawl'] = 10000
 
         return df_request_crawl
 

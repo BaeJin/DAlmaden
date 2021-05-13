@@ -408,13 +408,15 @@ class CrawlLibNavershopping:
                 params = {'nvMid': review_page_nv_mid, 'page': page, 'page_size': 20, 'sort': 'QUALITY',
                           'reviewType': 'ALL'}
                 time.sleep(random.random())
-
-                res_review_page = requests.get(review_page_link, params=params, headers= self.CUSTOM_HEADER)
-                if res_review_page.status_code!=200:
-                    res_review_page = requests.get(self.get_url(review_page_link), params=params, headers=self.CUSTOM_HEADER)
-                    print("error:",res_review_page.text)
-                    time.sleep(5)
-                print(res_review_page.text)
+                try:
+                    res_review_page = requests.get(review_page_link, params=params, headers= self.CUSTOM_HEADER)
+                    if res_review_page.status_code!=200:
+                        res_review_page = requests.get(self.get_url(review_page_link), params=params, headers=self.CUSTOM_HEADER)
+                        print("error:",res_review_page.text)
+                        time.sleep(5)
+                    print(res_review_page.text)
+                except Exception as e:
+                    continue
                 if res_review_page.status_code == requests.codes.ok:
                     try:
                         review_data_list = res_review_page.json()['reviews']

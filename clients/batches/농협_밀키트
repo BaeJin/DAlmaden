@@ -1,16 +1,16 @@
 {
-    "batch_name" : "농협_밀키트",
+    "batch_name" : "농협_맥주",
     "user_id" : 99,
-    "category" : "밀키트",
+    "category" : "맥주",
     "category_keywords" : [],
     "brands" :[],
     "brand_keywords" : {},
-    "search_keywords" : ["밀키트","캠핑 밀키트","자취 밀키트","맛집 밀키트","부대찌개 밀키트","닭꼬치 밀키트"],
+    "search_keywords" : ["밀키트"],
     "buying_keywords" : [],
-    "channels" : ["naverblog","instagram"],
+    "channels" : ["naverblog","navershopping","instagram"],
     "by_year" : 1,
-    "n_periods" : 2,
-    "until_date" : "2020-12-31",
+    "n_periods" : 3,
+    "until_date" : "2021-04-30",
     "n_crawl" : 100,
     "last_period_n_mult" : 1
 }
