@@ -217,7 +217,8 @@ class CrawlLibNavershopping:
                                 sale_amount = product_info['purchaseCnt'],
                                 crawl_status='GR',
                                 url = self.get_product_link(product_info),
-                                img_url = product_info['imageUrl']
+                                img_url = product_info['imageUrl'],
+                                author= product_info['category1Name']
                                )
 
     def get_product_type(self,product_info):
