@@ -97,7 +97,8 @@ class CrawlLibYoutube:
                             'JOIN crawl_request_task AS crt ON cr.request_id= crt.request_id '
                             'JOIN crawl_task AS ct ON ct.task_id = crt.task_id', what='cr.category_id,ct.is_channel',
                             where=f'ct.task_id={self.task_id}')
-        print("task_id:",self.task_id)
+
+        self.n_total = request[0]['n_crawl'] if request[0]['n_crawl'] is not None else None
         self.cate_id = request[0]['category_id'] if request[0]['category_id'] is not None else None
 
         if self.is_channel == 0:

@@ -6,7 +6,7 @@ import json
 
 db=Sql("datacast2")
 status = "GR"
-contents_row = db.select('crawling_status_navershopping_view','*','contents_status="GR"')
+contents_row = db.select('crawling_status_navershopping_view','*','contents_status="GR" and ')
 
 for idx,row in enumerate(contents_row):
     keyword = row['keyword']
