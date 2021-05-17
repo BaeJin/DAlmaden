@@ -1,7 +1,7 @@
 from kano.engine.socialListening import SocialListeing,SlVizualize
 
-keywordA ='비비고 닭곰탕'
-
+keywordA ='비비고 사골곰탕'
+keywordB = '착한들 사골곰탕'
 channelA ='navershopping'
 
 ##언어 형태를 지정
@@ -18,6 +18,7 @@ pos = 'all'
 # todateA = '0000-00-00'
 
 sc1 = SocialListeing(keyword=keywordA,channel=channelA,pos='all',type=type,lang=langA,word_class=word_classA)
+sc2 = SocialListeing(keyword=keywordB,channel=channelA,pos='all',type=type,lang=langA,word_class=word_classA)
 
-slViz =SlVizualize([sc1])
+slViz =SlVizualize([sc1,sc2])
 slViz.get_wordcloud()

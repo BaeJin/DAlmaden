@@ -139,7 +139,7 @@ class SocialListeing(Task):
         self.text_list=[]
         if self.type =='review':
 
-            conn = pymysql.connect(host='datacast-rds.crmhaqonotna.ap-northeast-2.rds.amazonaws.com',
+            conn = pymysql.connect(host='61.98.230.194',
                                    user='datacast',
                                    password='radioga12!',
                                    db='salmaden')
@@ -365,28 +365,27 @@ class SocialListeing(Task):
                         self.text_list = [row['sentence'] for row in rows
                                           if any(brand in row['sentence'].lower() for brand in self.brand)]
 
-        elif self.type =='review':
+        elif self.type =='navershopping_review':
 
-            conn = pymysql.connect(host='datacast-rds.crmhaqonotna.ap-northeast-2.rds.amazonaws.com',
-                                   user='datacast',
-                                   password='radioga12!',
-                                   db='salmaden')
+            conn = pymysql.connect(host='61.98.230.194',
+                                   user='root',
+                                   password='almaden7025!',
+                                   db='datacast2')
             curs = conn.cursor(pymysql.cursors.DictCursor)
-            category = self.keyword
             sql = ''
             if self.pos=='pos':
-                sql = "select * from review as r join product as p on r.product_id = p.id where category like \'%s\' and r.rating>=%d"%(category,4)
+                sql = f"select * from crawl_task as ct join crawl_contents as cc on ct.task_id=cc.task_id join crawl_sentence as cs on cc.contents_id=cs.contents_id where ct.keyword='{self.keyword}' and rating>=4"
             elif self.pos=='neg':
-                sql = "select * from review as r join product as p on r.product_id = p.id where category like \'%s\' and r.rating<=%d"%(category,3)
+                sql = f"select * from crawl_task as ct join crawl_contents as cc on ct.task_id=cc.task_id join crawl_sentence as cs on cc.contents_id=cs.contents_id where ct.keyword='{self.keyword}' and rating<=2"
             elif self.pos == 'all':
-                sql = "select * from review as r join product as p on r.product_id = p.id where category like \'%s\' and r.rating>=%d"%(category,0)
+                sql = f"select * from crawl_task as ct join crawl_contents as cc on ct.task_id=cc.task_id join crawl_sentence as cs on cc.contents_id=cs.contents_id where ct.keyword='{self.keyword}'"
             curs.execute(sql)
             rows = curs.fetchall()
             self.nurl = len(rows)
             print(self.nurl)
             for row in rows:
                 try:
-                    text = row['text']
+                    text = row['cs.text']
                     text = re.sub(u"(http[^ ]*)", " ", text)
                     text = re.sub(u"@(.)*\s", " ", text)
                     text = re.sub(u"#", "", text)
@@ -974,8 +973,8 @@ class SlVizualize(Task):
 
         wordcloud = WordCloud(font_path=str(self.dir) + "/source/fonts/" + self.fontname, \
                               background_color="rgba(255,255,255,0)", mode='RGBA', \
-                              max_font_size=120,\
-                              min_font_size=14,\
+                              # max_font_size=120,\
+                              min_font_size=4,\
                               mask=maskPic,\
                               width=200, height=200,\
                               colormap=palette) \
