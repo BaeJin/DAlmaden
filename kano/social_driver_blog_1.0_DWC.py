@@ -3,22 +3,15 @@ from kano.engine.socialListening import SocialListeing,SlVizualize
 #     keyword_list= file.readlines()
 #     for keywordA in keyword_list:
 #         keywordA = keywordA.splitlines()
-
-<<<<<<< HEAD
-keywordA = "캠핑 음식"
-channelA = 'naverblog'
+filenameA = "캠핑전골"
+keywordA = "캠핑밀푀유나베' or keyword='캠핑전골' or keyword='캠핑스키야키' or keyword='캠핑샤브샤브' or keyword='캠핑부대찌개' or keyword='캠핑곱창전골"
+# keywordA = "캠핑꼬치"
+channelA = 'instagram'
 langA = 'korean'
 word_classA= 'nouns'
-fromdateA = '2018-05-01'
+fromdateA = '2015-05-01'
 todateA = '2021-05-31'
-=======
-keywordA = "이마트"
-channelA = 'naverblog'
-langA = 'korean'
-word_classA= 'nouns'
-fromdateA = '2018-01-01'
-todateA = '2020-12-31'
->>>>>>> master
+
 typeA = 'una'
 posA= 'pos'
 brandA = None
@@ -29,48 +22,24 @@ filter = 0
 # fromdateB =  '2015-01-01'
 # todateB = '2020-11-19'
 
-<<<<<<< HEAD
-# keywordB = "keyword='아웃백' or keyword='TGIF' or keyword='메드포갈릭' or keyword='애슐리' or keyword='빕스"
-keywordB = "캠핑 음식"
-channelB = 'navershopping'
+
+keywordB = "캠핑밀푀유나베' or keyword='캠핑전골' or keyword='캠핑스키야키' or keyword='캠핑샤브샤브' or keyword='캠핑부대찌개' or keyword='캠핑곱창전골"
+# keywordB = "캠핑꼬치"
+
+channelB = 'instagram'
 langB = 'korean'
 word_classB= 'nouns'
-typeB = 'navershopping_product'
-posB= 'all'
-top100 = False
-=======
-# keywordB = "TGIF' or keyword='메드포갈릭' or keyword='애슐리' or keyword='빕스"
-keywordB = "이마트"
-channelB = 'naverblog'
-langB = 'korean'
-word_classB = 'nouns'
-fromdateB = '2018-01-01'
-todateB = '2020-12-31'
+fromdateB = '2015-05-01'
+todateB = '2021-05-31'
 typeB = 'una'
-posB = 'neg'
->>>>>>> master
+posB= 'neg'
 brandB = None
 ratioB = None
+taggedB = 1
 kbfB = None
 
-keywordC = "캠핑 음식"
-channelC = 'instagram'
-langC = 'korean'
-word_classC= 'nouns'
-fromdateC = '2018-05-01'
-todateC = '2021-05-31'
-typeC = 'una'
-posC= 'all'
-brandC = None
-ratioC = None
-taggedC = 1
-kbfC = None
+sc1 = SocialListeing(file_name=filenameA,tagged=taggedA,keyword=keywordA,channel=channelA,lang=langA,word_class=word_classA,type='una',fromdate=fromdateA,todate=todateA,pos=posA,filter=filter)
+sc2 = SocialListeing(file_name=filenameA,tagged=taggedA,keyword=keywordB,channel=channelB,lang=langB,word_class=word_classB,type='una',fromdate=fromdateB,todate=todateB,pos=posB,filter=filter)
 
-sc1 = SocialListeing(tagged=taggedA,keyword=keywordA,channel=channelA,lang=langA,word_class=word_classA,type='una',fromdate=fromdateA,todate=todateA,pos=posA,filter=filter)
-
-
-sc2 = SocialListeing(keyword=keywordB,channel=channelB,lang=langB,word_class=word_classB,type=typeB,pos=posB,filter=filter,top100=top100)
-sc3 = SocialListeing(tagged=taggedC,keyword=keywordC,channel=channelC,lang=langC,word_class=word_classC,type='una',fromdate=fromdateC,todate=todateC,pos=posC,filter=filter)
-
-slViz =SlVizualize([sc1,sc2,sc3])
+slViz =SlVizualize([sc1,sc2])
 slViz.get_wordcloud()

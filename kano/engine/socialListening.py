@@ -28,6 +28,7 @@ from matplotlib import colors as cols
 sns.set(font_scale=1.4)
 rc('font',family='NanumBarunGothic')
 # rc('font', family=str(Path.cwd()) + "/source/fonts/" + "NanumBarunGothic.ttf")
+from google.cloud import storage
 
 
 class Task():
@@ -140,9 +141,9 @@ class SocialListeing(Task):
         if self.type =='review':
 
             conn = pymysql.connect(host='61.98.230.194',
-                                   user='datacast',
-                                   password='radioga12!',
-                                   db='salmaden')
+                                   user='root',
+                                   password='almaden7025!',
+                                   db='datacast2')
             curs = conn.cursor(pymysql.cursors.DictCursor)
             category = self.keyword
             sql=''
@@ -173,9 +174,9 @@ class SocialListeing(Task):
                     continue
         else:
 
-            conn = pymysql.connect(host='10.96.5.179',
+            conn = pymysql.connect(host='61.98.230.194',
                                    user='root',
-                                   password='robot369',
+                                   password='almaden7025!',
                                    db='datacast2')
             curs = conn.cursor(pymysql.cursors.DictCursor)
             category = self.keyword
@@ -209,9 +210,9 @@ class SocialListeing(Task):
     def read(self):
         if self.type =='una':
 
-            conn = pymysql.connect(host='10.96.5.179',
+            conn = pymysql.connect(host='61.98.230.194',
                                    user='root',
-                                   password='robot369',
+                                   password='almaden7025!',
                                    db='datacast2')
             curs = conn.cursor(pymysql.cursors.DictCursor)
             sql = ''
@@ -780,6 +781,25 @@ class SlVizualize(Task):
                 task.nurl)
                 )
             plt.close()
+
+    def upload_to_bucket(self, blob_name, path_to_file, bucket_name):
+        """ Upload data to a bucket"""
+
+        # Explicitly use service account credentials by specifying the private key
+        # file.
+        dir_name = "{}/source/creds/".format(self.dir)
+        storage_client = storage.Client.from_service_account_json(
+            dir_name + 'wordcloud_creds.json')
+        # print(buckets = list(storage_client.list_buckets())
+
+        bucket = storage_client.get_bucket(bucket_name)
+        blob = bucket.blob(blob_name)
+        blob.upload_from_filename(path_to_file)
+        blob.make_public()
+        url = blob.public_url
+        # returns a public url
+        return url
+
     def get_wordcloud(self):
 
         num_of_task =len([x for x in self.tasks if isinstance(x,SocialListeing)])
@@ -842,19 +862,17 @@ class SlVizualize(Task):
             plt.tight_layout()
             plt.subplots_adjust(left=0, bottom=0, right=1, top=1, hspace=0, wspace=0)
 
-            plt.savefig("{}/{}/{}/{}_{}_{}_{}_{}_{}_{}_{}_inter_{}_{}_{}_{}_{}_{}_{}.png".format(
+            plt.savefig("{}/{}/{}/{}_{}_{}_{}_{}_{}_{}_inter_{}_{}_{}_{}_{}_{}.png".format(
                 str(self.dir),
                 'results',
                 'wordcloud',
                 taskA.file_name,
-                taskA.keyword,
                 taskA.brand[0] if taskA.brand is not None else None,
                 taskA.kbf if taskA.kbf is not None else None,
                 taskA.channel,
                 taskA.fromdate,
                 taskA.todate,
                 taskA.nurl,
-                taskB.keyword,
                 taskB.brand[0] if taskB.brand is not None else None,
                 taskA.kbf if taskB.kbf is not None else None,
                 taskB.channel,
@@ -864,7 +882,26 @@ class SlVizualize(Task):
                 ,pad_inches=0,
                 dpi=100, transparent=True)
             plt.close()
+            img_path = "{}/{}/{}/{}_{}_{}_{}_{}_{}_{}_inter_{}_{}_{}_{}_{}_{}.png".format(
+                str(self.dir),
+                'results',
+                'wordcloud',
+                taskA.file_name,
+                taskA.brand[0] if taskA.brand is not None else None,
+                taskA.kbf if taskA.kbf is not None else None,
+                taskA.channel,
+                taskA.fromdate,
+                taskA.todate,
+                taskA.nurl,
+                taskB.brand[0] if taskB.brand is not None else None,
+                taskA.kbf if taskB.kbf is not None else None,
+                taskB.channel,
+                taskB.fromdate,
+                taskB.todate,
+                taskB.nurl)
 
+            img_url = self.upload_to_bucket(taskA.file_name, img_path, 'wordcloud_ap')
+            print(img_url)
         elif num_of_task==3:
             taskA = self.tasks[0]
             taskB = self.tasks[1]
