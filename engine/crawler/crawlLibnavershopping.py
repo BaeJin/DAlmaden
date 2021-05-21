@@ -20,6 +20,7 @@ class CrawlLibNavershopping:
     def __init__(self,task_id=None,
                  contents_id=None,
                  keyword=None,
+                 n_crawl=None,
                  n_total=None,
                  prod_desc=None,
                  cate_id = None,
@@ -50,6 +51,7 @@ class CrawlLibNavershopping:
         self.merged_dict = {}
         self.channel = 'navershopping'
         self.default_product_num = default_product_num
+        self.n_crawl = n_crawl
         self.n_crawled = 0
         self.cate_id = cate_id
     # def get_product_info_list_to_crawl(self):
@@ -130,30 +132,28 @@ class CrawlLibNavershopping:
             response = requests.get('https://search.shopping.naver.com/search/category', headers=headers, params=params,
                                     cookies=cookies)
         else:
-            response = requests.get('https://search.shopping.naver.com/search/all', headers=headers, params=params, cookies=cookies)
-        print(params)
+            target_url = "https://search.shopping.naver.com/search/all"
+            response = requests.get(target_url, headers=headers, params=params, cookies=cookies)
+            if response.status_code==200:
+                pass
+            else:
+                response = requests.get(self.get_url(target_url), headers=headers, params=params, cookies=cookies)
         return response
 
-    def crawl_total(self):
+    def crawl_total_product_list(self):
         db = Sql("datacast2")
-        request = db.select('crawl_request AS cr '
-                            'JOIN crawl_request_task AS crt ON cr.request_id= crt.request_id '
-                            'JOIN crawl_task AS ct ON ct.task_id = crt.task_id',
-                            where=f'ct.task_id={self.task_id}')
-        self.n_total = request[0]['n_crawl'] if request[0]['n_crawl'] is not None else None
-        self.cate_id = request[0]['category_id'] if request[0]['category_id'] is not None else None
-        if self.n_total is None:
-            n_total = self.crawl_total_product_count()
-        else:
-            self.crawl_total_product_count()
-            n_total = self.n_total
-        self.crawl_product_list(n_total)
-        db.update_one('crawl_task', 'n_total', int(n_total), 'task_id', self.task_id)
+        # request = db.select('crawl_request AS cr '
+        #                     'JOIN crawl_request_task AS crt ON cr.request_id= crt.request_id '
+        #                     'JOIN crawl_task AS ct ON ct.task_id = crt.task_id',
+        #                     where=f'ct.task_id={self.task_id}')
+
+        self.n_total = self.crawl_total_product_count()
+        print(self.n_total)
+        self.crawl_product_list(self.n_total,self.n_crawl)
+        db.update_one('crawl_task', 'n_total', int(self.n_total), 'task_id', self.task_id)
 
     def crawl_total_product_count(self):
         response = self.get_product_info_by_api(1)
-
-        db = Sql('datacast2')
         data_to_json = json.loads(response.text)
         nTotal = data_to_json['shoppingResult']['total']
         return nTotal
@@ -172,14 +172,19 @@ class CrawlLibNavershopping:
             characterValue_data[key] = characterValue_data[key].split(",")
         return characterValue_data
 
-    def crawl_product_list(self,n_total):
-        n_total = min(n_total,8200)
-        print("n_total:",n_total)
-        iternum = (n_total//100)+1
+    def crawl_product_list(self, n_total, n_crawl):
+        real_n_crawl = min(n_crawl,n_total,8200)
+        print(f"상품의 총 갯수는 n_total: {n_total}/ 크롤링 요청한 대상 상품의 갯수는 n_crawl:{n_crawl}입니다/실제 크롤링할 대상 상품 갯수는 {real_n_crawl}입니다." )
+        iternum = (real_n_crawl//100)+1
         for iter in range(1,iternum):
             response = self.get_product_info_by_api(iter)
             data_to_json = json.loads(response.text)
-            products_info = data_to_json['shoppingResult']['products']
+            try:
+                products_info = data_to_json['shoppingResult']['products']
+            except Exception as e:
+                print(e)
+                time.sleep(60)
+                continue
             for idx, product_info in enumerate(products_info):
                 characterValue_data = self.get_product_character_value(product_info)
                 print(f"idx:{idx},product_info:{product_info}")

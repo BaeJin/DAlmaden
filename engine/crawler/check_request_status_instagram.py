@@ -4,9 +4,11 @@ cwd = str(Path.cwd())
 sys.path.append(cwd)
 from engine.sql.almaden import Sql
 
-def check_status_naverblog():
+def check_status_instagram():
     db = Sql('datacast2')
-    request_rows = db.select('crawl_request','*','task_ids is not null and crawl_status!="SF" and channel="naverblog"')
+
+    request_rows = db.select('crawl_request','*','task_ids is not null and crawl_status!="SF" and channel="instagram"')
+
     for row in request_rows:
         request_status = row['crawl_status']
         request_id = row['request_id']
@@ -17,8 +19,8 @@ def check_status_naverblog():
 
         if all([task['crawl_status'] == 'GF' for task in task_ids]) and request_status=='GR':
             db.update_one('crawl_request','crawl_status','GF','request_id',request_id)
-            print(f'nb,req:{request_id} is updated to GF')
+            print(f'insta,req:{request_id} is updated to GF')
 
         elif all([task['crawl_status'] == 'SF' for task in task_ids]) and request_status=='GF':
             db.update_one('crawl_request','crawl_status','SF','request_id',request_id)
-            print(f'nb,req:{request_id} is updated to SF')
+            print(f'insta,req:{request_id} is updated to SF')

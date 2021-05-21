@@ -9,9 +9,7 @@ from engine.sql.almaden import Sql
 db = Sql('datacast2')
 b_to_rq = RequestTask()
 b_to_rq.request_to_task()
-
-
-# crawl(keyword='손해보험',
+# crawl(keyword='손해보험',XZ
 #                 startDate='2020-08-01',
 #                 endDate='2020-09-10',
 #                 nCrawl=2000)
