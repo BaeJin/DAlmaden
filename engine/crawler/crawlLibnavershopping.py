@@ -148,6 +148,7 @@ class CrawlLibNavershopping:
             self.crawl_total_product_count()
             n_total = self.n_total
         self.crawl_product_list(n_total)
+        db.update_one('crawl_task', 'n_total', int(n_total), 'task_id', self.task_id)
 
     def crawl_total_product_count(self):
         response = self.get_product_info_by_api(1)
@@ -155,7 +156,6 @@ class CrawlLibNavershopping:
         db = Sql('datacast2')
         data_to_json = json.loads(response.text)
         nTotal = data_to_json['shoppingResult']['total']
-        db.update_one('crawl_task', 'n_total', int(nTotal), 'task_id', self.task_id)
         return nTotal
 
     def get_product_character_value(self,product_info):

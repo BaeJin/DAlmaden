@@ -1,10 +1,5 @@
 import sys
 sys.path.append('../')
-<<<<<<< HEAD
-sys.path.append('/Users/jaeyoung/Dalmaden')
-sys.path.append('/home/ubuntu/DAlmaden')
-=======
->>>>>>> 51d43df2359565c34ea4e2f0b2f8f4979a86ab2f
 from engine.crawler.db_utils import *
 from engine.crawler.crawlLibnaverblog import *
 from engine.crawler._init_crawler import *
@@ -52,8 +47,4 @@ for idx,task in enumerate(tasks):
 # crawl(keyword='손해보험',
 #                 startDate='2020-08-01',
 #                 endDate='2020-09-10',
-<<<<<<< HEAD
 #                 nCrawl=2000)
-=======
-#                 nCrawl=2000)
->>>>>>> 51d43df2359565c34ea4e2f0b2f8f4979a86ab2f
