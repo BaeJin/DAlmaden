@@ -2,31 +2,10 @@
 <project version="4">
   <component name="PublishConfigData">
     <serverData>
-      <paths name="datacast_inner_api">
+      <paths name="ubuntu@15.164.58.207:22 key">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="ubuntu@ec2-15-164-58-207.ap-northeast-2.compute.amazonaws.com:22 key">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="ubuntu@ec2-15-164-58-207.ap-northeast-2.compute.amazonaws.com:22 key (1)">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="ubuntu@ec2-3-36-102-13.ap-northeast-2.compute.amazonaws.com:22 key">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/home/ubuntu/DAlmaden" local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </paths>
