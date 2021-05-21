@@ -135,7 +135,7 @@ class RequestTask:
                     ##이미 존재하는 task_id 가 있을 때마다 1개 카운트 총 몇개의 task 가 중복되었는지 파악하기 위함
                     already_task_count +=1
                     ###1. 이미 존재하는 task 를 가져온다.
-                    exist_select_task_sql="select task_id from crawl_task where keyword=\'%s\' and channel=\'%s\' and from_date=\'%s\' and to_date=\'%s\'"\
+                    exist_select_task_sql="select * from crawl_task where keyword=\'%s\' and channel=\'%s\' and from_date=\'%s\' and to_date=\'%s\'"\
                         %(keyword,channel,from_date,to_date)
                     task_rows = pd.read_sql(exist_select_task_sql,con=sql_alchemy_engine.connect())
                     task_id = task_rows.get('task_id')[0]
