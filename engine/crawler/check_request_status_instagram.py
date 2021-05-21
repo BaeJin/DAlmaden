@@ -7,7 +7,7 @@ from engine.sql.almaden import Sql
 def check_status_instagram():
     db = Sql('datacast2')
 
-    request_rows = db.select('crawl_request','*','task_ids is not null')
+    request_rows = db.select('crawl_request','*','task_ids is not null and channel="naverblog"')
 
     for row in request_rows:
         request_id = row['request_id']
