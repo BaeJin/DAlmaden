@@ -8,7 +8,7 @@ def check_status_navershopping():
     db = Sql('datacast2')
 
     request_rows = db.select('crawling_status_navershopping_view',
-                             '*','group by request_id')
+                             '*','request_status!="SF" group by request_id')
     for row in request_rows:
         request_id = row['request_id']
         task_id = row['task_id']
