@@ -10,7 +10,6 @@ for i in dict1:
 for j in dict2:
     dict2[j] /= maxVal2
 
-
 samekeys = dict1.keys() & dict2.keys()
 for k in samekeys:
     v = min(dict1[k], dict2[k])
