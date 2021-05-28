@@ -81,24 +81,24 @@ class SocialListeing(Task):
             self.stopKeywordList = stopwords.words('english')
         else:
             self.stopKeywordList = [self.keyword, '이거', '제품', '가능', '사용','기능','부분','때문','정도','느낌']
-    def select_task_group(self):
-
-        conn = pymysql.connect(host='10.96.5.179',
-                               user='root',
-                               password='robot369',
-                               db='dalmaden')
-        curs = conn.cursor(pymysql.cursors.DictCursor)
-
-        sql_select_task_id = "select task_id,COUNT(*) as num from cdata where task_id= ANY" \
-                             "(select id from task_log where keyword=\'%s\' and channel=\'%s\' and startDate=\'%s\' and endDate=\'%s\')" \
-                             "GROUP BY task_id ORDER BY num desc"\
-                             %(self.keyword,self.channel,self.fromdate,self.todate)
-        print(sql_select_task_id)
-        curs.execute(sql_select_task_id)
-        rows = curs.fetchall()
-        task_id = rows[0]['task_id']
-        self.task_id = task_id
-        return task_id
+    # def select_task_group(self):
+    #
+    #     conn = pymysql.connect(host='10.96.5.179',
+    #                            user='root',
+    #                            password='robot369',
+    #                            db='dalmaden')
+    #     curs = conn.cursor(pymysql.cursors.DictCursor)
+    #
+    #     sql_select_task_id = "select task_id,COUNT(*) as num from cdata where task_id= ANY" \
+    #                          "(select id from task_log where keyword=\'%s\' and channel=\'%s\' and startDate=\'%s\' and endDate=\'%s\')" \
+    #                          "GROUP BY task_id ORDER BY num desc"\
+    #                          %(self.keyword,self.channel,self.fromdate,self.todate)
+    #     print(sql_select_task_id)
+    #     curs.execute(sql_select_task_id)
+    #     rows = curs.fetchall()
+    #     task_id = rows[0]['task_id']
+    #     self.task_id = task_id
+    #     return task_id
 
     def select_task(self):
 
@@ -119,20 +119,6 @@ class SocialListeing(Task):
         self.task_id = task_id
         return task_id
 
-    def select_task_from_bow(self):
-
-        conn = pymysql.connect(host='10.96.5.179',
-                               user='root',
-                               password='robot369',
-                               db='dalmaden')
-        curs = conn.cursor(pymysql.cursors.DictCursor)
-
-        sql_select_task_from_bow = "select * from buzz where task_id=\'%s\'"%(self.task_id)
-        print(sql_select_task_from_bow)
-        curs.execute(sql_select_task_from_bow)
-        rows = curs.fetchall()
-        bow_check_duplication = 1 if len(rows) >0 else 0
-        return bow_check_duplication
     def kano_read(self,pos):
         self.text_list=[]
         if self.type =='review':
@@ -171,9 +157,9 @@ class SocialListeing(Task):
                     continue
         else:
 
-            conn = pymysql.connect(host='10.96.5.179',
+            conn = pymysql.connect(host='61.98.230.194',
                                    user='root',
-                                   password='robot369',
+                                   password='almaden7025!',
                                    db='datacast2')
             curs = conn.cursor(pymysql.cursors.DictCursor)
             category = self.keyword
@@ -205,11 +191,11 @@ class SocialListeing(Task):
         return self.text_list
 
     def read(self):
-        if self.type =='una':
+        if self.type =='sent':
 
-            conn = pymysql.connect(host='10.96.5.179',
+            conn = pymysql.connect(host='61.98.230.194',
                                    user='root',
-                                   password='robot369',
+                                   password='almaden7025!',
                                    db='datacast2')
             curs = conn.cursor(pymysql.cursors.DictCursor)
             sql = ''
@@ -396,17 +382,17 @@ class SocialListeing(Task):
                 except:
                     continue
 
-        elif self.type =='groupby':
+        elif self.type =='no_sent':
 
-            conn = pymysql.connect(host='10.96.5.179',
+            conn = pymysql.connect(host='61.98.230.194',
                                    user='root',
-                                   password='robot369',
-                                   db='dalmaden')
+                                   password='almaden7025!',
+                                   db='datacast2')
             curs = conn.cursor(pymysql.cursors.DictCursor)
             print('sql 조회')
 
-            sql ="select * from cdata where task_id = any (select id from task_log where keyword=\'%s\' and channel=\'%s\')"\
-                 %(self.keyword,self.channel)
+            sql ="select * from crawl_contents where task_id = any (select task_id from crawl_task where keyword=\'%s\' and channel=\'%s\' and from_date>=\'%s\' and to_date<=\'%s\')"\
+                 %(self.keyword,self.channel,self.fromdate,self.todate)
             # sql = "select * from cdata where task_id = \'%s\'" \
             #       % (self.task_id)
             print(sql)
@@ -418,15 +404,46 @@ class SocialListeing(Task):
             for row in rows:
                 self.text_list.append(row['text'])
 
-        elif self.type ==None:
-            conn = pymysql.connect(host='10.96.5.179',
+        elif self.type =='navershopping_review':
+
+            conn = pymysql.connect(host='61.98.230.194',
                                    user='root',
-                                   password='robot369',
+                                   password='almaden7025!',
+                                   db='datacast2')
+            curs = conn.cursor(pymysql.cursors.DictCursor)
+            sql = ''
+            if self.pos=='pos':
+                sql = f"select * from crawl_task as ct join crawl_contents as cc on ct.task_id=cc.task_id join crawl_sentence as cs on cc.contents_id=cs.contents_id where ct.keyword='{self.keyword}' and rating>=4"
+            elif self.pos=='neg':
+                sql = f"select * from crawl_task as ct join crawl_contents as cc on ct.task_id=cc.task_id join crawl_sentence as cs on cc.contents_id=cs.contents_id where ct.keyword='{self.keyword}' and rating<=2"
+            elif self.pos == 'all':
+                sql = f"select * from crawl_task as ct join crawl_contents as cc on ct.task_id=cc.task_id join crawl_sentence as cs on cc.contents_id=cs.contents_id where ct.keyword='{self.keyword}'"
+            curs.execute(sql)
+            rows = curs.fetchall()
+            self.nurl = len(rows)
+            print(self.nurl)
+            for row in rows:
+                try:
+                    text = row['cs.text']
+                    text = re.sub(u"(http[^ ]*)", " ", text)
+                    text = re.sub(u"@(.)*\s", " ", text)
+                    text = re.sub(u"#", "", text)
+                    text = re.sub(u"\\d+", " ", text)
+                    text = re.sub(u"\\s+", " ", text)
+                    text = re.sub("\\s+", " ", text)
+                    self.text_list.append(text)
+                except:
+                    continue
+
+        elif self.type ==None:
+            conn = pymysql.connect(host='61.98.230.194',
+                                   user='root',
+                                   password='almaden7025!',
                                    db='dalmaden')
             curs = conn.cursor(pymysql.cursors.DictCursor)
             print('sql 조회')
             self.task_id = self.select_task()
-            sql = "select * from cdata where task_id = \'%s\'"\
+            sql = "select * from crawl_contents where task_id = \'%s\'"\
                   %(self.task_id)
             print(sql)
             curs.execute(sql)
@@ -838,14 +855,14 @@ class SlVizualize(Task):
                 taskA.file_name,
                 taskA.keyword,
                 taskA.brand[0] if taskA.brand is not None else None,
-                taskA.kbf if taskA.kbf is not None else None,
+                taskA.type if taskA.type is not None else None,
                 taskA.channel,
                 taskA.fromdate,
                 taskA.todate,
                 taskA.nurl,
                 taskB.keyword,
                 taskB.brand[0] if taskB.brand is not None else None,
-                taskA.kbf if taskB.kbf is not None else None,
+                taskA.type if taskB.type is not None else None,
                 taskB.channel,
                 taskB.fromdate,
                 taskB.todate,

@@ -4,11 +4,11 @@ from kano.engine.socialListening import SocialListeing,SlVizualize
 #     for keywordA in keyword_list:
 #         keywordA = keywordA.splitlines()
 
-keywordA = "캠핑 김치"
-channelA = 'instagram' #'instagram' 'naverblog' 'navershopping'
+keywordA = "제철음식 11월"
+channelA = 'naverblog' #'instagram' 'naverblog' 'navershopping'
 langA = 'korean'
 word_classA= 'nouns' ## 형용사 adjs
-fromdateA = '2018-06-01'
+fromdateA = '2019-06-01'
 todateA = '2021-05-31'
 posA= 'all'
 brandA = None

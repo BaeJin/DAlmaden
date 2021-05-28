@@ -396,3 +396,6 @@ class CrawlLibInstagram:
                 print(f'총 게시물 수 {self.nTotal} 개를 크롤링 하였습니다. 더이상 게시물이 없습니다.')
                 self.db.update_one('crawl_task', 'crawl_status', '%s' % (self.status_done), 'task_id',self.task_id)
                 break
+
+            self.db.update_one('crawl_task', 'crawl_status', '%s' % (self.status_done),
+                               'task_id', self.task_id)

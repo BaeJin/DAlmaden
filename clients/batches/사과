@@ -1,0 +1,16 @@
+{
+    "batch_name" : "사과",
+    "user_id" : 99,
+    "category" : "사과",
+    "category_keywords" : [],
+    "brands" :[],
+    "brand_keywords" : {},
+    "search_keywords" : ["사과"],
+    "buying_keywords" : [],
+    "channels" : ["navershopping"],
+    "by_year" : 1,
+    "n_periods" : 1,
+    "until_date" : "2021-05-25",
+    "n_crawl" : 100,
+    "last_period_n_mult" : 1
+}

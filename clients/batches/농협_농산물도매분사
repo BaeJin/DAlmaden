@@ -1,0 +1,16 @@
+{
+"batch_name" : "농협_농산물도매분사",
+"user_id" : 99,
+"category" : "캠핑_농산물도매분사",
+"category_keywords" : [],
+"brands" :[],
+"brand_keywords" : {},
+    "search_keywords" : ["밀키트","샐러드","조각과일","컵과일","초당옥수수","드레싱","천일염","굵은소금","왕소금","정제염","정제소금","한주소금"],
+"buying_keywords" : [],
+"channels" : ["naverblog","instagram"],
+"by_year" : 1,
+"n_periods" : 3,
+"until_date" : "2021-05-10",
+"n_crawl" : 100,
+"last_period_n_mult" : 1
+}

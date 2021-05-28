@@ -30,7 +30,7 @@ def crawl_contents(task_id=None,
     if channel == 'instagram':
         print(f"{task_id},instagram crawling start")
         crawler_obj = CrawlLibInstagram(task_id=task_id, keyword=keyword, from_date=None, to_date=None,
-                                        n_crawl=n_crawl, n_total=n_total, need_reply=False)
+                                        n_crawl=10000, n_total=n_total, need_reply=False)
         crawler_obj.start_requests()
         del crawler_obj
 

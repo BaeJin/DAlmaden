@@ -10,6 +10,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from sqlalchemy import create_engine
 import datetime
 import pandas as pd
+TAG_RE = re.compile(r'<[^>]+>')
+
+def remove_tags(text):
+    return TAG_RE.sub('', text)
 
 def cleanse(text) :
     #DB 저장을 위한 최소한의 클린징

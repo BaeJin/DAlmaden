@@ -11,9 +11,8 @@ import multiprocessing
 #등록된 task 의 상태를 확인하고 status 가 GR 인 task 를 가져와 크롤링 하기
 db=Sql("datacast2")
 status = "GR"
-keyword = "캠핑"
 tasks = db.select('crawl_task',what ='*',
-                     where='crawl_status="%s" and channel="instagram" and keyword=\'%s\''%(status,keyword))
+                     where='crawl_status="%s" and channel="instagram"'%(status))
 
 for idx,task in enumerate(tasks):
     task_id = task['task_id']

@@ -1,0 +1,16 @@
+{
+    "batch_name" : "농협_과일구독",
+    "user_id" : 99,
+    "category" : "농협 과일구독",
+    "category_keywords" : [],
+    "brands" :[],
+    "brand_keywords" : {},
+    "search_keywords" : ["과일 구독","과일 정기구독"],
+    "buying_keywords" : [],
+    "channels" : ["naverblog"],
+    "by_year" : 1,
+    "n_periods" : 3,
+    "until_date" : "2021-05-25",
+    "n_crawl" : 100,
+    "last_period_n_mult" : 1
+}

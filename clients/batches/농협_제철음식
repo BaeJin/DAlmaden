@@ -1,0 +1,16 @@
+{
+    "batch_name" : "농협_제철음식",
+    "user_id" : 99,
+    "category" : "농협_제철음식",
+    "category_keywords" : [],
+    "brands" :[],
+    "brand_keywords" : {},
+    "search_keywords" : ["제철음식 봄","제철음식 여름","제철음식 가을","제철음식 겨울","제철음식 1월","제철음식 2월","제철음식 3월","제철음식 4월","제철음식 5월","제철음식 6월","제철음식 7월","제철음식 8월","제철음식 9월","제철음식 10월","제철음식 11월","제철음식 12월"],
+    "buying_keywords" : [],
+    "channels" : ["naverblog"],
+    "by_year" : 1,
+    "n_periods" : 5,
+    "until_date" : "2021-05-17",
+    "n_crawl" : 100,
+    "last_period_n_mult" : 1
+}

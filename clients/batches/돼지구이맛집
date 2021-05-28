@@ -1,0 +1,16 @@
+{
+    "batch_name" : "돼지구이맛집",
+    "user_id" : 99,
+    "category" : "돼지구이맛집",
+    "category_keywords" : [],
+    "brands" :[],
+    "brand_keywords" : {},
+    "search_keywords" : ["돼지구이맛집"],
+    "buying_keywords" : [],
+    "channels" : ["naverblog"],
+    "by_year" : 1,
+    "n_periods" : 1,
+    "until_date" : "2021-04-29",
+    "n_crawl" : 100,
+    "last_period_n_mult" : 1
+}
