@@ -147,6 +147,7 @@ class CrawlLibNaverCafe:
             except Exception as e:
                 print(e)
                 l = False
+
     def crawl_contents(self):
         self.setting()
         ### 카페 url 로 이동
@@ -156,7 +157,7 @@ class CrawlLibNaverCafe:
             ### 로그인
             self.driver.implicitly_wait(10)
             self.login()
-
+            time.sleep(10)
         num_per_page = 15  # 페이지당 게시글 갯수(default: 15개)
         address_list = []
         page = 1
