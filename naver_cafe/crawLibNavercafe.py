@@ -1,3 +1,4 @@
+import threading
 from pathlib import Path
 import sys
 from naver_cafe.setting import settings
@@ -49,6 +50,7 @@ class CrawlLibNaverCafe:
         return setting_info
 
     def select_task_id(self):
+        print(self.keyword)
         row = db.select("crawl_task",'task_id','keyword=\"%s\" and channel=\"%s\"'%(self.keyword,"navercafe"))
         if len(row)>0:
             task_id = row[0]["task_id"]
@@ -59,6 +61,7 @@ class CrawlLibNaverCafe:
     def setting(self):
         # setting
         setting_info = self.get_setting_info()
+
         self.task_id = self.select_task_id()
         self.username = setting_info["username"]
         self.password = setting_info["password"]
@@ -148,11 +151,132 @@ class CrawlLibNaverCafe:
                 print(e)
                 l = False
 
+
+
+    def crawl_contents_threading(self):
+        self.setting()
+        ### 카페 url 로 이동
+        self.get_driver()
+        try:
+            self.driver.get(url=self.page_link)
+        except:
+            self.driver.get(url=self.page_link)
+        if self.login_required:
+            ### 로그인
+            self.driver.implicitly_wait(10)
+            self.login()
+            try:
+                WebDriverWait(self.driver,100).until(EC.presence_of_element_located((By.ID, 'menuLink0')))
+            except TimeoutException:
+                print(f"time out")
+                pass
+
+        num_per_page = 15  # 페이지당 게시글 갯수(default: 15개)
+        address_list = []
+        page = 1
+
+        content_rows = db.select("crawl_contents", "*", f"task_id={self.task_id} and crawl_status='F'")
+
+        i = 0
+        contents_list = []  # 내용
+        reply_list = []  # 댓글
+        error_list = []  # 에러난 게시글
+
+        while True:
+            ### 수집 링크로 이동
+            url = content_rows[i]['url']
+            contents_id = content_rows[i]['contents_id']
+            real_content_rows = db.select("crawl_contents", "*", f"contents_id={contents_id}")
+            real_crawl_status = real_content_rows[0]['crawl_status']
+            if real_crawl_status == "T":
+                continue
+            db.update_one("crawl_contents", "crawl_status", "T", "contents_id", contents_id)
+            try:
+                self.driver.get(url)
+            except TimeoutException as ex:
+                print('TimeoutException', ex)
+                time.sleep(0.5)
+                self.driver.get(url)
+            time.sleep(1)
+            page_soup = None
+            try:
+                self.driver.switch_to.frame('cafe_main')
+                r = self.driver.page_source
+                page_soup = BeautifulSoup(r, "html.parser")
+                content = page_soup.find('div', class_='ArticleContentBox')
+                ### 게시글 수집
+                temp_dict = {}
+                temp_dict['title'] = ""
+                with suppress(AttributeError):  # 제목 없는 게시글
+                    temp_dict['title'] = content.find('h3', class_='title_text').text.strip()
+                WebDriverWait(self.driver, 3).until(
+                    EC.presence_of_element_located((By.CLASS_NAME, 'article_viewer')))  # article_viewer 가 등장하기 전까지
+                temp_dict['product_name'] = content.find("a", class_="link_board").text
+                temp_dict['text'] = content.find("div", class_="CafeViewer").text.strip()  ##중복되는 공지글 제외
+                temp_dict['text'] = temp_dict['text'].replace("\n", "")
+                temp_dict['text'] = temp_dict['text'].replace("\u200b", "")
+                temp_dict['crawl_status'] = "T"
+                print(f"task_id:{self.task_id}/contents_id:{contents_id}/location : {temp_dict['product_name']}/ text:{temp_dict['text']}")
+                db.update_multi("crawl_contents", temp_dict, {"contents_id": contents_id})
+                contents_list.append(temp_dict)
+
+                ### 댓글 수집
+                if content.find("div", class_="ReplyBox") is not None:  # 댓글 기능이 아예 없음
+                    comment_num = content.find("div", class_="ReplyBox").find("a", class_="button_comment").find(
+                        "strong").text
+                    print(f"{i}번째:댓글 수집 확인 comment_num: {comment_num}")
+                    if comment_num != '0':  # 댓글이 있을떄
+                        comment = content.find("div", class_="CommentBox").find("ul", class_="comment_list").select(
+                            "li")
+
+                        ### 댓글 구분
+                        com_n = 0  # 댓글
+                        com_nn = 0  # 대댓글
+                        comment_list = []
+                        for n in range(len(comment)):
+
+                            if comment[n].get('class') == ['CommentItem']:  # 댓글
+                                com_n += 1
+                                com_nn = 0
+                                com_thread = str(com_n) + "-" + str(com_nn)
+                                com_nn = 1
+                            elif comment[n].get('class') == ['CommentItem', 'CommentItem--reply']:  # 대댓글
+                                com_thread = str(com_n) + "-" + str(com_nn)
+                                com_nn += 1
+
+                            ### 댓글 내용 수집
+                            if comment[n].text.strip() != '삭제된 댓글입니다.':
+                                com_nick = comment[n].find("a", class_="comment_nickname").text.strip()
+                                com_date = comment[n].find("span", class_="comment_info_date").text.strip()
+                                com_reply = comment[n].find("div", class_="comment_text_box").text.strip()
+                                com_reply = com_reply.replace("\n", "").replace("\u200b", "")
+
+                                # db.insert("crawl_contents",
+                                #           author = com_nick,
+                                #           task_id = task_id,
+                                #           url=url,
+                                #           text=com_reply,
+                                #           is_reply=1)
+                                com_reply_dict = {"author": com_nick, "text": com_reply}
+                                comment_list.append(com_reply_dict)
+                        print(f"{i}//comment_list:{comment_list}")
+                        db.update_one("crawl_contents", "review", str(comment_list), "contents_id", contents_id)
+                i += 1
+
+            except Exception as e:
+                print(e)
+                i += 1
+                continue
+            else:
+                content_rows = db.select("crawl_contents", "*", f"task_id={self.task_id} and crawl_status='F'")
     def crawl_contents(self):
         self.setting()
         ### 카페 url 로 이동
         self.get_driver()
-        self.driver.get(url=self.page_link)
+        try:
+            self.driver.get(url=self.page_link)
+        except:
+            self.driver.get(url=self.page_link)
         if self.login_required:
             ### 로그인
             self.driver.implicitly_wait(10)
@@ -173,7 +297,13 @@ class CrawlLibNaverCafe:
             ### 수집 링크로 이동
             url = content_rows[i]['url']
             contents_id = content_rows[i]['contents_id']
-            self.driver.get(url)
+
+            try:
+                self.driver.get(url)
+            except TimeoutException as ex:
+                print('TimeoutException', ex)
+                time.sleep(0.5)
+                self.driver.get(url)
             time.sleep(1)
             page_soup = None
             try:
