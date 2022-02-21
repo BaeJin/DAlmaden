@@ -1,4 +1,4 @@
-from dcinside import crawler
+from dc_inside.dcinside import crawler
 from engine.sql.almaden import Sql
 
 db = Sql("datacast2")
