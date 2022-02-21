@@ -4,6 +4,7 @@ import pandas as pd
 import json
 from engine.sql.almaden import Sql
 from engine.crawler.crawlLibnaverblog import CrawlLibnaverBlog
+from engine.crawler.crawlLibnavercafe import CrawlLibnaverCafe
 from engine.crawler.crawlLibnavernews import CrawlLibnaverNews
 from engine.crawler.crawlLibInstagram import CrawlLibInstagram
 from engine.crawler.crawlLibnavershopping import CrawlLibNavershopping
@@ -17,7 +18,7 @@ import re
 class RequestTask:
     def __init__(self):
         self.period_differ_channel = ['naverblog','twitter','navernews']
-        self.review_channel = ['navershopping','coupang','youtube']
+        self.review_channel = ['navershopping','coupang','youtube','navercafe','dcinside',"googleplay","steam"]
 
     def get_df_request_crawl(self,channel, keyword, until_date, n_periods, n_crawl,
                              by_year=True, use_end_date=False,
@@ -154,12 +155,17 @@ class RequestTask:
         db.close()
 
     def crawl_total_contents_num(self,task_id,keyword,channel,from_date,to_date,is_channel=0,n_crawl=None):
+        print("여기",channel)
         if channel=='naverblog':
             obj = CrawlLibnaverBlog(task_id=task_id,keyword=keyword,from_date=from_date,to_date=to_date)
             obj.crawl_total()
             del obj
         if channel=='navernews':
             obj = CrawlLibnaverNews(task_id=task_id,keyword=keyword,from_date=from_date,to_date=to_date)
+            obj.crawl_total()
+            del obj
+        if channel == "navercafe":
+            obj = CrawlLibnaverCafe(task_id=task_id, keyword=keyword, from_date=from_date, to_date=to_date,n_crawl=n_crawl)
             obj.crawl_total()
             del obj
         if channel=='instagram':
@@ -180,4 +186,9 @@ class RequestTask:
             obj.crawl_total()
             del obj
             pass
-
+        if channel == "dcinside":
+            pass
+        if channel == "googleplay":
+            pass
+        if channel == "steam":
+            pass

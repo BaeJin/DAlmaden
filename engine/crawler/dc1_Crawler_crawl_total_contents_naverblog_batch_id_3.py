@@ -12,8 +12,7 @@ import multiprocessing
 db=Sql("datacast2")
 status = "GR"
 tasks = db.select('crawl_task',what ='*',
-                     where='task_id = any (SELECT crt.task_id FROM request_batch AS rb JOIN crawl_request AS cr ON rb.batch_id=cr.batch_id JOIN crawl_request_task AS crt ON crt.request_id=cr.request_id JOIN crawl_task AS ct ON ct.task_id=crt.task_id WHERE cr.batch_id=130 AND cr.channel="naverblog") AND crawl_status="GR"')
-
+                     where='crawl_status="%s" and channel="naverblog"'%(status))
 
 for idx,task in enumerate(tasks):
     try:

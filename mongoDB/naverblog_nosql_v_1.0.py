@@ -1,4 +1,4 @@
-##mongoDB test
+##mongoDB cafeloader
 from pymongo import MongoClient
 from time import sleep
 from datetime import datetime as dt
@@ -33,7 +33,7 @@ CUSTOM_HEADER = {'accept': 'application/json, text/plain, */*',
 my_client = MongoClient("mongodb://localhost:27017/")
 print(my_client.list_database_names())
 
-mydb = my_client['test']
+mydb = my_client['cafeloader']
 crawl_task = mydb['crawl_task']
 crawl_contents = mydb['crawl_contents']
 

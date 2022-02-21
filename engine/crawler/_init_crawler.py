@@ -1,4 +1,5 @@
 from engine.crawler.crawlLibnaverblog import CrawlLibnaverBlog
+from engine.crawler.crawlLibnavercafe import CrawlLibnaverCafe
 from engine.crawler.crawlLibnavernews import CrawlLibnaverNews
 from engine.crawler.crawlLibInstagram import CrawlLibInstagram
 from engine.crawler.crawlLibnavershopping import CrawlLibNavershopping
@@ -16,6 +17,14 @@ def crawl_contents(task_id=None,
     if channel == 'naverblog':
         print(f"{task_id},naverblog crawling start")
         crawler_obj = CrawlLibnaverBlog(task_id=task_id, keyword=keyword, from_date=from_date, to_date=to_date,
+                                        n_crawl=n_crawl, n_total=n_total)
+        crawler_obj.crawl()
+        del crawler_obj
+
+    if channel == 'navercafe':
+        print(f"{task_id},navercafe crawling start")
+        print(n_crawl,n_total)
+        crawler_obj = CrawlLibnaverCafe(task_id=task_id, keyword=keyword, from_date=from_date, to_date=to_date,
                                         n_crawl=n_crawl, n_total=n_total)
         crawler_obj.crawl()
         del crawler_obj

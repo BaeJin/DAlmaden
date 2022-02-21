@@ -101,7 +101,7 @@ class CrawlLibnaverNews:
                     previous_news_url.append(url_naver_news_list[0])
                     if len(previous_news_url)>=2:
                         for i,url in enumerate(previous_news_url):
-                            print('test',previous_news_url[i-1], previous_news_url[i])
+                            print('cafeloader',previous_news_url[i-1], previous_news_url[i])
                             if previous_news_url[i-1] == previous_news_url[i]:
                                 end = True
                 if end ==True:

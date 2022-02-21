@@ -117,13 +117,7 @@ class Sql :
     def update_one(self,tableName, field, value, field_id, id):
         if type(value) is str :
             value = '"'+value+'"'
-        query = '''update {tableName} set {field} = {value} where {field_id}={id}'''.format(
-            tableName = tableName,
-            field = field,
-            value=value,
-            field_id = field_id,
-            id=id
-        )
+        query =f"update {tableName} set {field}={value} where {field_id}={id}"
         self.query(query)
 
     def select(self, tablename, what="", where="", asDataFrame=False, count=False):

@@ -53,7 +53,7 @@ MANIFEST
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Unit test / coverage reports
+# Unit cafeloader / coverage reports
 htmlcov/
 .tox/
 .nox/

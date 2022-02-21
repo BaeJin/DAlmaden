@@ -19,21 +19,23 @@ import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
 import seaborn as sns
-from matplotlib import font_manager, rc
+from matplotlib import font_manager as fm, rc
 from engine.analysis import kano
 import json
 import matplotlib.patches as mpatches
 import matplotlib.cm as cm
 from matplotlib import colors as cols
+import matplotlib as mpl
 sns.set(font_scale=1.4)
-rc('font',family='NanumBarunGothic')
-# rc('font', family=str(Path.cwd()) + "/source/fonts/" + "NanumBarunGothic.ttf")
-from google.cloud import storage
-
+fm.get_fontconfig_fonts()
+font_location = f'{str(Path.cwd())}/source/fonts/NanumGothic.ttf' # For Windows
+font_name = fm.FontProperties(fname=font_location).get_name()
+rc('font', family=font_name)
+print(mpl.get_cachedir())
 
 class Task():
     def __init__(self,keyword=None,channel=None,lang=None,word_class=None,
-                 fromdate=None, todate=None,type=None,pos=None,nurl=None,task_id=None,hashtag=None,loc=None,brand=None,ratio=None,tagged=None,kbf=None,file_name= None,batch_bool=None,filter=None,top100=None,**kwargs):
+                 fromdate=None, todate=None,type=None,pos=None,nurl=None,task_id=None,hashtag=None,loc=None,brand=None,ratio=None,tagged=None,kbf=None,file_name= None,batch_bool=None,filter=None,**kwargs):
         self.dir = Path.cwd()
         self.type = type
         self.keyword = keyword
@@ -58,57 +60,54 @@ class Task():
         self.file_name = file_name
         self.batch_bool = batch_bool
         self.filter = filter
-        self.top100 = top100
-
 class SocialListeing(Task):
-    def __init__(self,keyword,channel,lang,word_class,
-                 fromdate=None, todate=None, type=None,pos=None,nurl=None,task_id=None,top100=None,**kwargs):
+    def __init__(self,keyword=None,channel=None,lang=None,word_class=None,
+                 fromdate=None, todate=None, type=None,pos=None,nurl=None,task_id=None,**kwargs):
         super(SocialListeing, self).__init__(keyword,channel,lang,word_class,
-                 fromdate, todate, type,pos,nurl,task_id,top100,**kwargs)
-        self.top100 = top100
+                 fromdate, todate, type,pos,nurl,task_id,**kwargs)
+
         if self.channel == "naverblog":
-            self.stopKeywordList = ['요리','여행','음식','캠핑','드라이어','헤어드라이어','구매','머리','헤어','드라이','드라','안녕','생각','이기',self.keyword,"포스팅", "블로그", "댓글", "이웃추가", '이거', '제품', '가능', '사용','기능','부분','때문','정도','느낌']
+            self.stopKeywordList = ['드라이어','헤어드라이어','구매','머리','헤어','드라이','드라','안녕','생각','이기',self.keyword,"포스팅", "블로그", "댓글", "이웃추가", '이거', '제품', '가능', '사용','기능','부분','때문','정도','느낌']
 
         elif self.channel == "navernews":
             self.stopKeywordList = ["포스팅", "블로그", "댓글", "이웃추가",self.keyword]
 
         elif self.channel == "instagram":
-            self.stopKeywordList = ['협찬','먹스','여행','핑장','가능','요즘','검색','추천','프로필','스타','요리','음식','캠핑','likeforlikes','insta','데일리룩','셀스타그램','sale','오오티디','ootdfashion','daily','instadaily','instagood','secla','오피',
+            self.stopKeywordList = ['likeforlikes','insta','데일리룩','셀스타그램','sale','오오티디','ootdfashion','daily','instadaily','instagood','secla','오피',
                                     'ootd','dailylook',"셀스타그램","selfie","맞팔", "팔로우", "좋아요",
                                     "일상","행복","f4f",self.keyword,"대행","직구","그램","해외","쇼핑","구매","문의","주세요"]
 
         elif self.channel == "navershopping":
-            self.stopKeywordList = [self.keyword, '사용','만족','구매','느낌','감사','제품','다음','생각','추천','캠핑','음식','요리']
+            self.stopKeywordList = [self.keyword, '사용','만족','구매','느낌','감사','제품','다음','생각','추천']
 
         elif self.lang == "english":
             self.stopKeywordList = stopwords.words('english')
         else:
             self.stopKeywordList = [self.keyword, '이거', '제품', '가능', '사용','기능','부분','때문','정도','느낌']
-    def select_task_group(self):
-
-        conn = pymysql.connect(host='10.96.5.179',
-                               user='root',
-                               password='robot369',
-                               db='dalmaden')
-        curs = conn.cursor(pymysql.cursors.DictCursor)
-
-        sql_select_task_id = "select task_id,COUNT(*) as num from cdata where task_id= ANY" \
-                             "(select id from task_log where keyword=\'%s\' and channel=\'%s\' and startDate=\'%s\' and endDate=\'%s\')" \
-                             "GROUP BY task_id ORDER BY num desc"\
-                             %(self.keyword,self.channel,self.fromdate,self.todate)
-        print(sql_select_task_id)
-        curs.execute(sql_select_task_id)
-        rows = curs.fetchall()
-        task_id = rows[0]['task_id']
-        self.task_id = task_id
-        return task_id
+    # def select_task_group(self):
+    #
+    #     conn = pymysql.connect(host='10.96.5.179',
+    #                            user='root',
+    #                            password='robot369',
+    #                            db='dalmaden')
+    #     curs = conn.cursor(pymysql.cursors.DictCursor)
+    #
+    #     sql_select_task_id = "select task_id,COUNT(*) as num from cdata where task_id= ANY" \
+    #                          "(select id from task_log where keyword=\'%s\' and channel=\'%s\' and startDate=\'%s\' and endDate=\'%s\')" \
+    #                          "GROUP BY task_id ORDER BY num desc"\
+    #                          %(self.keyword,self.channel,self.fromdate,self.todate)
+    #     print(sql_select_task_id)
+    #     curs.execute(sql_select_task_id)
+    #     rows = curs.fetchall()
+    #     task_id = rows[0]['task_id']
+    #     self.task_id = task_id
+    #     return task_id
 
     def select_task(self):
-
-        conn = pymysql.connect(host='datacast-rds.crmhaqonotna.ap-northeast-2.rds.amazonaws.com',
-                               user='datacast',
-                               password='radioga12!',
-                               db='dalmaden')
+        conn = pymysql.connect(host='61.98.230.194',
+                               user='root',
+                               password='almaden7025!',
+                               db='datacast2')
         curs = conn.cursor(pymysql.cursors.DictCursor)
 
         sql_select_task_id = "select task_id,COUNT(*) as num from cdata where task_id= ANY" \
@@ -122,28 +121,14 @@ class SocialListeing(Task):
         self.task_id = task_id
         return task_id
 
-    def select_task_from_bow(self):
-
-        conn = pymysql.connect(host='10.96.5.179',
-                               user='root',
-                               password='robot369',
-                               db='dalmaden')
-        curs = conn.cursor(pymysql.cursors.DictCursor)
-
-        sql_select_task_from_bow = "select * from buzz where task_id=\'%s\'"%(self.task_id)
-        print(sql_select_task_from_bow)
-        curs.execute(sql_select_task_from_bow)
-        rows = curs.fetchall()
-        bow_check_duplication = 1 if len(rows) >0 else 0
-        return bow_check_duplication
     def kano_read(self,pos):
         self.text_list=[]
         if self.type =='review':
 
-            conn = pymysql.connect(host='61.98.230.194',
-                                   user='root',
-                                   password='almaden7025!',
-                                   db='datacast2')
+            conn = pymysql.connect(host='datacast-rds.crmhaqonotna.ap-northeast-2.rds.amazonaws.com',
+                                   user='datacast',
+                                   password='radioga12!',
+                                   db='salmaden')
             curs = conn.cursor(pymysql.cursors.DictCursor)
             category = self.keyword
             sql=''
@@ -208,7 +193,7 @@ class SocialListeing(Task):
         return self.text_list
 
     def read(self):
-        if self.type =='una':
+        if self.type =='sent':
 
             conn = pymysql.connect(host='61.98.230.194',
                                    user='root',
@@ -264,20 +249,21 @@ class SocialListeing(Task):
                       "WHERE (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\'"%\
                       (cs_text,self.keyword, self.channel,self.fromdate, self.todate)
 
-            elif self.pos == 'all' and self.filter==1:
-                print('filtered')
-                sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM crawl_contents AS cc JOIN crawl_task AS ct ON cc.task_id=ct.task_id " \
-                      "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
-                      "WHERE cc.text regexp '수수료|브랜드|평판|편리|신뢰|투표|친절|개설|hts|HTS|어플|앱|혜택|이벤트|우대|금리|계좌|모바일|서비스' " \
-                      "and cc.text not regexp '추천주|추천종목|리포트|목표|전체기사' and" \
-                      " (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\'"%\
-                      (cs_text,self.keyword, self.channel,self.fromdate, self.todate)
+            # elif self.pos == 'all' and self.filter==1:
+            #     print('filtered')
+            #     sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM crawl_contents AS cc JOIN crawl_task AS ct ON cc.task_id=ct.task_id " \
+            #           "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
+            #           "WHERE cc.text regexp '수수료|브랜드|평판|편리|신뢰|투표|친절|개설|hts|HTS|어플|앱|혜택|이벤트|우대|금리|계좌|모바일|서비스' " \
+            #           "and cc.text not regexp '추천주|추천종목|리포트|목표|전체기사' and" \
+            #           " (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\'"%\
+            #           (cs_text,self.keyword, self.channel,self.fromdate, self.todate)
             # elif self.pos == 'all' and self.filter==0:
             #     print('filtered')
             #     sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM crawl_contents AS cc JOIN crawl_task AS ct ON cc.task_id=ct.task_id " \
             #           "JOIN crawl_sentence AS cs ON cc.contents_id=cs.contents_id " \
             #           "WHERE (ct.keyword=\'%s\') and (ct.channel=\'%s\') AND cc.post_date BETWEEN \'%s\' AND \'%s\'"%\
             #           (cs_text,self.keyword, self.channel,self.fromdate, self.todate)
+
             elif self.pos == 'all' and self.batch_bool:
                 # sql = "select sentence,positiveness from analysis_brand_tmp"
                 sql = "SELECT cs.sentence_id,cs.text as sentence,%s AS text,cs.positiveness FROM request_batch AS rb " \
@@ -366,6 +352,62 @@ class SocialListeing(Task):
                         self.text_list = [row['sentence'] for row in rows
                                           if any(brand in row['sentence'].lower() for brand in self.brand)]
 
+        elif self.type =='review':
+
+            conn = pymysql.connect(host='datacast-rds.crmhaqonotna.ap-northeast-2.rds.amazonaws.com',
+                                   user='datacast',
+                                   password='radioga12!',
+                                   db='salmaden')
+            curs = conn.cursor(pymysql.cursors.DictCursor)
+            category = self.keyword
+            sql = ''
+            if self.pos=='pos':
+                sql = "select * from review as r join product as p on r.product_id = p.id where category like \'%s\' and r.rating>=%d"%(category,4)
+            elif self.pos=='neg':
+                sql = "select * from review as r join product as p on r.product_id = p.id where category like \'%s\' and r.rating<=%d"%(category,3)
+            elif self.pos == 'all':
+                sql = "select * from review as r join product as p on r.product_id = p.id where category like \'%s\' and r.rating>=%d"%(category,0)
+            curs.execute(sql)
+            rows = curs.fetchall()
+            self.nurl = len(rows)
+            print(self.nurl)
+            for row in rows:
+                try:
+                    text = row['text']
+                    text = re.sub(u"(http[^ ]*)", " ", text)
+                    text = re.sub(u"@(.)*\s", " ", text)
+                    text = re.sub(u"#", "", text)
+                    text = re.sub(u"\\d+", " ", text)
+                    text = re.sub(u"\\s+", " ", text)
+                    text = re.sub("\\s+", " ", text)
+                    self.text_list.append(text)
+                except:
+                    continue
+
+        elif self.type =='no_sent':
+
+            conn = pymysql.connect(host='61.98.230.194',
+                                   user='root',
+                                   password='almaden7025!',
+                                   db='datacast2')
+            curs = conn.cursor(pymysql.cursors.DictCursor)
+            print('sql 조회')
+            sql = "select * from crawl_contents where task_id = any (select task_id from crawl_task where keyword=\'%s\' and channel=\'%s\' and from_date>=\'%s\' and to_date<=\'%s\')" \
+                  % (self.keyword, self.channel, self.fromdate, self.todate)
+            # sql ="select * from crawl_contents where task_id = any (select task_id from crawl_task where keyword=\'%s\' and (channel=%s and from_date>=\'%s\' and to_date<=\'%s\')"\
+            #      %(self.keyword,self.channel,self.fromdate,self.todate)
+
+            # sql = "select * from cdata where task_id = \'%s\'" \
+            #       % (self.task_id)
+            print(sql)
+            curs.execute(sql)
+
+            rows = curs.fetchall()
+            self.nurl = len(rows)
+
+            for row in rows:
+                self.text_list.append(row['text'])
+
         elif self.type =='navershopping_review':
 
             conn = pymysql.connect(host='61.98.230.194',
@@ -397,47 +439,15 @@ class SocialListeing(Task):
                 except:
                     continue
 
-        elif self.type =='navershopping_product':
-            conn = pymysql.connect(host='10.96.5.179',
-                                   user='root',
-                                   password='robot369',
-                                   db='datacast2')
-            curs = conn.cursor(pymysql.cursors.DictCursor)
-            print('sql 조회')
-            print("self.top100:",self.top100)
-            if self.top100:
-
-                sql = "select * from request_batch as rb join crawl_request as cr  " \
-                       "on rb.batch_id = cr.batch_id join crawl_request_task as crt " \
-                       "on cr.request_id = crt.request_id join crawl_task as ct " \
-                       "on ct.task_id = crt.task_id join crawl_contents as cc " \
-                       "on cc.task_id = ct.task_id where cr.keyword=\'%s\' and cr.channel=\'%s\' " \
-                      "order by sale_amount desc limit 810"%(self.keyword,self.channel)
-            else:
-                sql = "select * from request_batch as rb join crawl_request as cr  " \
-                       "on rb.batch_id = cr.batch_id join crawl_request_task as crt " \
-                       "on cr.request_id = crt.request_id join crawl_task as ct " \
-                       "on ct.task_id = crt.task_id join crawl_contents as cc " \
-                       "on cc.task_id = ct.task_id where cr.keyword=\'%s\' and cr.channel=\'%s\'"%(self.keyword,self.channel)
-
-            # sql = "select * from cdata where task_id = \'%s\'" \
-            #       % (self.task_id)
-            print(sql)
-            curs.execute(sql)
-
-            rows = curs.fetchall()
-            self.nurl = len(rows)
-            for row in rows:
-                self.text_list.append(row['cc.product_name'])
         elif self.type ==None:
-            conn = pymysql.connect(host='10.96.5.179',
+            conn = pymysql.connect(host='61.98.230.194',
                                    user='root',
-                                   password='robot369',
+                                   password='almaden7025!',
                                    db='datacast2')
             curs = conn.cursor(pymysql.cursors.DictCursor)
             print('sql 조회')
             self.task_id = self.select_task()
-            sql = "select * from cdata where task_id = \'%s\'"\
+            sql = "select * from crawl_contents where task_id = \'%s\'"\
                   %(self.task_id)
             print(sql)
             curs.execute(sql)
@@ -478,14 +488,18 @@ class SocialListeing(Task):
                 nlp = Mecab()
                 remove_list = nlp.pos(self.keyword)
                 for text in tqdm(self.text_list):
-                    tagged_text = nlp.pos(text)
-                    tagged_text = list(set(tagged_text))
-                    pos.extend(tagged_text)
+                    try:
+                        tagged_text = nlp.pos(text)
+                        tagged_text = list(set(tagged_text))
+                        pos.extend(tagged_text)
+                    except:
+                        continue
 
                 for p in pos:
                     if p[0] not in remove_list and p[1] in word_class_list:  # 형용사,코모란, Mecab 기준임
                         words.append(p[0])
             else :
+
                 for text in tqdm(self.text_list):
                     words.extend(text)
 
@@ -543,7 +557,7 @@ class SocialListeing(Task):
                                                 ['keyword','label', 'nPos', 'nNeg']]
         kano_df = kano.get_df_kano(df_sentiment_analyze_extracted_column[0:20])
         kano_df = kano_df[['keyword','label','nPos','nNeg','x','y']]
-        kano_df.to_csv(str(self.kano_dir) + "/kano/results/kano_scatter/_{}_{}.csv".format('kano', 'scatter'), mode='a')
+        kano_df.to_csv(str(self.kano_dir) + "/kano/results/kano_scatter/{}_{}_{}.csv".format(self.keyword,'kano', 'scatter'), mode='a')
 
 
     def get_bow(self):
@@ -673,8 +687,6 @@ class SlVizualize(Task):
             palette = 'tab10'
             self.draw_to_save(task,dict_word,palette=palette,maskPic='mask.png')
         elif num_of_task==2:
-            rc('font', family='NanumBarunGothic')
-
             ##SocialListening 객체1
             taskA = self.tasks[0]
             keyword_bogA, dict_wordA = taskA.get_bow()
@@ -740,7 +752,6 @@ class SlVizualize(Task):
 
     def get_bar_plot(self,dict_differ,polarity,task,file_differentiate=None):
         dict_differ = dict(sorted(dict_differ.items(),key=lambda x:x[1],reverse=True))
-        rc('font', family='NanumBarunGothic')
         dict_differ_df = pd.DataFrame(columns=['keyword','count'])
         for index,(key,value) in enumerate(dict_differ.items()):
             if index<30:
@@ -781,25 +792,6 @@ class SlVizualize(Task):
                 task.nurl)
                 )
             plt.close()
-
-    def upload_to_bucket(self, blob_name, path_to_file, bucket_name):
-        """ Upload data to a bucket"""
-
-        # Explicitly use service account credentials by specifying the private key
-        # file.
-        dir_name = "{}/source/creds/".format(self.dir)
-        storage_client = storage.Client.from_service_account_json(
-            dir_name + 'wordcloud_creds.json')
-        # print(buckets = list(storage_client.list_buckets())
-
-        bucket = storage_client.get_bucket(bucket_name)
-        blob = bucket.blob(blob_name)
-        blob.upload_from_filename(path_to_file)
-        blob.make_public()
-        url = blob.public_url
-        # returns a public url
-        return url
-
     def get_wordcloud(self):
 
         num_of_task =len([x for x in self.tasks if isinstance(x,SocialListeing)])
@@ -828,8 +820,6 @@ class SlVizualize(Task):
 
             taskA.kbf = taskA.kbf.replace('/', '_') if taskA.kbf is not None else None
             #교집합 차집합 구하기
-
-
             sc = setCalc(dict_wordA, dict_wordB)
 
             pos_differ = sc.getDiff1_keyword_num()
@@ -843,11 +833,12 @@ class SlVizualize(Task):
             differa = sc.getDiff1()
             differb = sc.getDiff2()
 
-
-            print(dict_wordA)
-            print(differa)
-            print(dict_wordB)
-            print(differb)
+            differa = dict(sorted(differa.items(), key=lambda x: x[1], reverse=True))
+            differb = dict(sorted(differb.items(), key=lambda x: x[1], reverse=True))
+            interdict = dict(sorted(interdict.items(), key=lambda x: x[1], reverse=True))
+            print(f"differa:{differa}")
+            print(f"differb:{differb}")
+            print(f"interdict:{interdict}")
             #wordcloud 객체 생성
             wcA_B,_ = self.draw_to_imshow(differa, paletteA, maskPic='mask_A_B.png')
             wcB_A,_ = self.draw_to_imshow(differb, paletteB, maskPic='mask_B_A.png')
@@ -862,19 +853,21 @@ class SlVizualize(Task):
             plt.tight_layout()
             plt.subplots_adjust(left=0, bottom=0, right=1, top=1, hspace=0, wspace=0)
 
-            plt.savefig("{}/{}/{}/{}_{}_{}_{}_{}_{}_{}_inter_{}_{}_{}_{}_{}_{}.png".format(
+            plt.savefig("{}/{}/{}/{}_{}_{}_{}_{}_{}_{}_{}_inter_{}_{}_{}_{}_{}_{}_{}.png".format(
                 str(self.dir),
                 'results',
                 'wordcloud',
                 taskA.file_name,
+                taskA.keyword,
                 taskA.brand[0] if taskA.brand is not None else None,
-                taskA.kbf if taskA.kbf is not None else None,
+                taskA.type if taskA.type is not None else None,
                 taskA.channel,
                 taskA.fromdate,
                 taskA.todate,
                 taskA.nurl,
+                taskB.keyword,
                 taskB.brand[0] if taskB.brand is not None else None,
-                taskA.kbf if taskB.kbf is not None else None,
+                taskA.type if taskB.type is not None else None,
                 taskB.channel,
                 taskB.fromdate,
                 taskB.todate,
@@ -882,26 +875,7 @@ class SlVizualize(Task):
                 ,pad_inches=0,
                 dpi=100, transparent=True)
             plt.close()
-            img_path = "{}/{}/{}/{}_{}_{}_{}_{}_{}_{}_inter_{}_{}_{}_{}_{}_{}.png".format(
-                str(self.dir),
-                'results',
-                'wordcloud',
-                taskA.file_name,
-                taskA.brand[0] if taskA.brand is not None else None,
-                taskA.kbf if taskA.kbf is not None else None,
-                taskA.channel,
-                taskA.fromdate,
-                taskA.todate,
-                taskA.nurl,
-                taskB.brand[0] if taskB.brand is not None else None,
-                taskA.kbf if taskB.kbf is not None else None,
-                taskB.channel,
-                taskB.fromdate,
-                taskB.todate,
-                taskB.nurl)
 
-            img_url = self.upload_to_bucket(taskA.file_name, img_path, 'wordcloud_ap')
-            print(img_url)
         elif num_of_task==3:
             taskA = self.tasks[0]
             taskB = self.tasks[1]
@@ -955,7 +929,7 @@ class SlVizualize(Task):
             plt.tight_layout()
             plt.subplots_adjust(left=0, bottom=0, right=1, top=1, hspace=0, wspace=0)
 
-            plt.savefig("{}/{}/{}/{}_{}_{}_{}_{}_{}_inter_{}_{}_{}_{}_{}_inter_{}_{}_{}_{}_{}.png".format(
+            plt.savefig("{}/{}/{}/{}_{}_{}_{}_{}_{}_inter_{}_{}_{}_{}_{}_inter_{}_{}_{}_{}_{}_{}_{}.png".format(
                 str(self.dir),
                 'results',
                 'wordcloud',
@@ -975,7 +949,8 @@ class SlVizualize(Task):
                 taskC.channel,
                 taskC.fromdate,
                 taskC.todate,
-                taskC.nurl)
+                taskC.nurl,
+                taskA.word_class)
                 ,pad_inches=0,
                 dpi=100, transparent=True)
 
@@ -993,7 +968,7 @@ class SlVizualize(Task):
         wordcloud = WordCloud(font_path=str(self.dir) + "/source/fonts/" + self.fontname, \
                               background_color="rgba(255,255,255,0)", mode='RGBA', \
                               max_font_size=120,\
-                              min_font_size=14,\
+                              min_font_size=18,\
                               mask=maskPic,\
                               width=200, height=200,\
                               colormap=palette) \
@@ -1004,14 +979,14 @@ class SlVizualize(Task):
 
     def draw_to_save(self,task,dict,index=None,palette=None,maskPic=None):
         if maskPic ==None:
-            maskPic = np.array(Image.open(str(self.dir)+"/source/img/"+"test.png"))
+            maskPic = np.array(Image.open(str(self.dir)+"/source/img/"+"cafeloader.png"))
         else:
             maskPic = np.array(Image.open(str(self.dir)+"/source/img/"+maskPic))
 
         wordcloud = WordCloud(font_path=str(self.dir) + "/source/fonts/" + self.fontname, \
                               background_color="rgba(255,255,255,0)", mode='RGBA', \
-                              # max_font_size=120,\
-                              min_font_size=4,\
+                              max_font_size=120,\
+                              min_font_size=18,\
                               mask=maskPic,\
                               width=200, height=200,\
                               colormap=palette) \
@@ -1023,7 +998,7 @@ class SlVizualize(Task):
         plt.tight_layout()
         plt.subplots_adjust(left=0, bottom=0, right=1, top=1, hspace=0, wspace=0)
 
-        plt.savefig("{}/{}/{}/{}_{}__{}_{}_{}_{}_{}.png".format(
+        plt.savefig("{}/{}/{}/{}_{}__{}_{}_{}_{}.png".format(
             str(self.dir),
             'results',
             'wordcloud',

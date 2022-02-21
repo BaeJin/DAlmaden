@@ -1,10 +1,10 @@
-##mongoDB test
+##mongoDB cafeloader
 from pymongo import MongoClient
 
 my_client = MongoClient("mongodb://localhost:27017/")
 print(my_client.list_database_names())
 
-mydb = my_client['test']
+mydb = my_client['cafeloader']
 mycollection = mydb['jykim']
 
 x = mycollection.insert_one(
